@@ -1,7 +1,5 @@
 node_modules/
-/config/production.json
 
-/courzelo/build
 
 .DS_Store
 /courzelo/.env.local
