@@ -24,10 +24,26 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Courzelo</title>
+    <meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+
+<link rel="stylesheet" href="assets/css/animate.css">
+
+<link rel="stylesheet" href="assets/css/tiny-slider.css">
+
+<link rel="stylesheet" href="assets/css/glightbox.min.css">
+
+<link rel="stylesheet" href="assets/css/LineIcons.2.0.css">
+
+<link rel="stylesheet" href="assets/css/bootstrap-5.0.5-alpha.min.css">
+
+<link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+   
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -40,4 +56,104 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
+
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/bootstrap.bundle-5.0.0.alpha-min.js" type="5e7c4602e0a5ca367d0e2ee6-text/javascript"></script>
+
+<script src="assets/js/tiny-slider.js" type="5e7c4602e0a5ca367d0e2ee6-text/javascript"></script>
+
+<script src="assets/js/wow.min.js" type="5e7c4602e0a5ca367d0e2ee6-text/javascript"></script>
+
+<script src="assets/js/glightbox.min.js" type="5e7c4602e0a5ca367d0e2ee6-text/javascript"></script>
+
+<script src="assets/js/contact-form.js" type="5e7c4602e0a5ca367d0e2ee6-text/javascript"></script>
+
+<script src="assets/js/main.js" type="5e7c4602e0a5ca367d0e2ee6-text/javascript"></script>
+<script type="5e7c4602e0a5ca367d0e2ee6-text/javascript">
+		//========= glightbox
+		const myGallery = GLightbox({
+			'href': 'assets/video/Free App Landing Page Template - AppLand.mp4',
+			'type': 'video',
+			'source': 'youtube', //vimeo, youtube or local
+			'width': 900,
+			'autoplayVideos': true,
+		});
+
+		//======== tiny slider for testimonial
+		tns({
+			slideBy: 'page',
+			autoplay: false,
+			mouseDrag: true,
+			gutter: 0,
+			nav: true,
+			controls: true,
+			controlsPosition: 'bottom',
+			controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>'],
+			"container": "#customize",
+			"items": 1,
+			"center": true,
+			"navContainer": "#customize-thumbnails",
+			"navAsThumbnails": true,
+			"autoplayTimeout": 5000,
+			"swipeAngle": false,
+			"speed": 400
+		});
+
+
+    // Get the navbar
+
+
+    // for menu scroll 
+    var pageLink = document.querySelectorAll('.page-scroll');
+    
+    pageLink.forEach(elem => {
+        elem.addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector(elem.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth',
+                offsetTop: 1 - 60,
+            });
+        });
+    });
+
+    // section menu active
+    function onScroll(event) {
+        var sections = document.querySelectorAll('.page-scroll');
+        var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+        for (var i = 0; i < sections.length; i++) {
+            var currLink = sections[i];
+            var val = currLink.getAttribute('href');
+            var refElement = document.querySelector(val);
+            var scrollTopMinus = scrollPos + 73;
+            if (refElement.offsetTop <= scrollTopMinus && (refElement.offsetTop + refElement.offsetHeight > scrollTopMinus)) {
+                document.querySelector('.page-scroll').classList.remove('active');
+                currLink.classList.add('active');
+            } else {
+                currLink.classList.remove('active');
+            }
+        }
+    };
+
+    window.document.addEventListener('scroll', onScroll);
+
+
+    //===== close navbar-collapse when a  clicked
+    let navbarToggler = document.querySelector(".navbar-toggler");    
+    var navbarCollapse = document.querySelector(".navbar-collapse");
+
+    document.querySelectorAll(".page-scroll").forEach(e =>
+        e.addEventListener("click", () => {
+            navbarToggler.classList.remove("active");
+            navbarCollapse.classList.remove('show')
+        })
+    );
+    navbarToggler.addEventListener('click', function() {
+        navbarToggler.classList.toggle("active");
+    });
+
+	</script>
+<script src="../../../ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="5e7c4602e0a5ca367d0e2ee6-|49" defer=""></script></body>
+
 </html>
