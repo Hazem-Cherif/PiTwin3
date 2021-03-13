@@ -5,9 +5,9 @@ const OAUTH_PLAYGROUND = 'https://developers.google.com/oauthplayground'
  
 const{
     MAILING_SERVICE_CLIENT_ID ,
-MAILING_SERVICE_CLIENT_SECRET ,
-MAILING_SERVICE_REFRESH_TOKEN,
-SENDER_EMAIL_ADDRESS
+    MAILING_SERVICE_CLIENT_SECRET ,
+    MAILING_SERVICE_REFRESH_TOKEN,
+    SENDER_EMAIL_ADDRESS
 } = process.env
 
 const oauth2Client = new OAuth2(
@@ -31,17 +31,21 @@ const sendEmail = (to,url,txt)=> {
             service:'gmail',
             auth:{
                 type: 'OAuth2',
-                user:'jawadi.ons.97@gmail',
+                user: SENDER_EMAIL_ADDRESS,
                 clientId: MAILING_SERVICE_CLIENT_ID,
                 clientSecret: MAILING_SERVICE_CLIENT_SECRET,
                 refreshToken: MAILING_SERVICE_REFRESH_TOKEN,
                 accessToken
-            }
+            },
+            tls: {
+                rejectUnauthorized: false
+              }
         }
     )
+   
     const mailOptions = {
-        from: 'jawadi.ons.97@gmail',
-        to: 'jawadi.ons.97@gmail',
+        from: SENDER_EMAIL_ADDRESS,
+        to: to,
         subject: "Courzelo Team",
         html: `
             <div style="max-width: 700px; margin:auto; border: 10px solid #ddd; padding: 50px 20px; font-size: 110%;">
@@ -59,9 +63,10 @@ const sendEmail = (to,url,txt)=> {
         `
     }
 
-    smtpTransport.sendMail(mailOptions, (err, infor) => {
-        if(err) return err;
-        return infor})
-  
+    smtpTransport.sendMail(mailOptions, (error, response) => {
+        error ? console.log(error) : console.log(response);
+        smtpTransport.close();
+   });
+        
 }
 module.exports = sendEmail
