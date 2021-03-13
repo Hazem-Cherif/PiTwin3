@@ -1,6 +1,10 @@
 const Users = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const sendMail = require('./sendMail')
+
+
+const {CLIENT_URL} = process.env
 
 const userCtrl = {
     register: async (req, res) => {
@@ -36,7 +40,7 @@ const userCtrl = {
                 return res.status(500).json({msg: err.message})
             }
         }
-},
+}
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
