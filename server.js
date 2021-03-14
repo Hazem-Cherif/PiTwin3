@@ -14,10 +14,12 @@ app.use(fileUpload({
     useTempFiles: true
 }))
 
+//routes
 app.use(express.json({ extended: false }));
 
 app.get('/', (req,res) => res.json({msg: 'Welcome to the Courzelo API'}));
 app.use('/user', require('./routes/userRouter'))
+app.use('/api', require('./routes/upload'))
 
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {
