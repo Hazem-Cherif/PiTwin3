@@ -16,7 +16,7 @@ app.use(fileUpload({
 
 //routes
 app.use(express.json({ extended: false }));
-
+app.use(express.static(__dirname + '/public'));
 app.get('/', (req,res) => res.json({msg: 'Welcome to the Courzelo API'}));
 app.use('/user', require('./routes/userRouter'))
 app.use('/api', require('./routes/upload'))

@@ -51,7 +51,7 @@ function Footer() {
       <div className="row">
         <div className="col-md-6">
           <div className="text-center copy-right text-md-left">
-            <p>copyright hazem hadhri   <a href="https://uideck.com/" rel="nofollow">dhki barcha</a></p>
+            <p>copyright hazem hadhri   <a href="https://uideck.com/" rel="nofollow">hazem cherif</a></p>
           </div>
         </div>
         <div className="col-md-6">
