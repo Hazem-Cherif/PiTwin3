@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {link} from 'react-router-dom'
 function Header() {
     return (
         <div>
@@ -32,8 +32,8 @@ function Header() {
                   <a className="page-scroll" href="#contact">Contact</a>
                 </li>
                 <li className="nav-item">
-                  <a className="header-btn btn-hover" href="#courses">Sign in</a>
-                  <a className="header-btn btn-hover" href="#courses">Sign up</a>
+                  <a className="header-btn btn-hover" href="">Sign in</a>
+                  <a className="header-btn btn-hover" href="">Sign up</a>
                 </li>
               </ul>
             </div> 
