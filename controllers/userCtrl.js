@@ -165,9 +165,9 @@ const userCtrl = {
    },
    updateUser: async (req, res) => {
     try {
-     const {name, avatar} = req.body
+     const {name, avatar, First_name , Last_name, Address, Country, Description} = req.body
      await Users.findOneAndUpdate({_id: req.user.id}, {
-         name,avatar
+         name,avatar,First_name,Last_name,Address,Country,Description
      })
      res.json({msg: "update Success!"})
     }   catch (err) {

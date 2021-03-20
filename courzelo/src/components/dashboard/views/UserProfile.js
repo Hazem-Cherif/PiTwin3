@@ -20,6 +20,11 @@ import {
 
 const initialState = {
   name: '',
+  First_name:'',
+  Last_name:'',
+  Address:'',
+  Country:'',
+  Description:'',
   password: '',
   cf_password: '',
   err: '',
@@ -34,7 +39,7 @@ function User() {
 
     const {user, isAdmin} = auth
     const [data, setData] = useState(initialState)
-    const {name, password, cf_password, err, success} = data
+    const {name,First_name,Last_name,Address,Country,Description, password, cf_password, err, success} = data
 
     const [avatar, setAvatar] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -51,9 +56,15 @@ function User() {
     },[token, isAdmin, dispatch, callback])
 
     const handleChange = e => {
-        const {name, value} = e.target
-        setData({...data, [name]:value, err:'', success: ''})
-    }
+      const {First_name,Last_name,Address,Country,Description, name, value} = e.target
+      setData({...data, [First_name]: value,
+                        [Last_name]: value,
+                        [Address]: value,
+                        [Country]: value,
+                        [Description]: value,
+                        [name]:value , 
+                        err:'', success: ''})
+  }
 
   const changeAvatar = async(e) => {
     e.preventDefault()
@@ -87,11 +98,16 @@ function User() {
 const updateInfor = () => {
   try {
       axios.patch('/user/update', {
-          name: name ? name : user.name,
-          avatar: avatar ? avatar : user.avatar
-      },{
-          headers: {Authorization: token}
-      })
+        First_name: First_name ? First_name : user.First_name,
+        Last_name: Last_name ? Last_name : user.Last_name,
+        Address: Address ? Address : user.Address,
+        Country: Country ? Country : user.Country,
+        Description: Description ? Description : user.Description,
+        name: name ? name : user.name,
+        avatar: avatar ? avatar : user.avatar
+    },{
+        headers: {Authorization: token}
+    })
 
       setData({...data, err: '' , success: "Updated Success!"})
   } catch (err) {
@@ -118,7 +134,7 @@ const updatePassword = () => {
 }
 
 const handleUpdate = () => {
-  if(name || avatar) updateInfor()
+  if(First_name || Last_name || Address || Country || Description || name || avatar ) updateInfor()
   if(password) updatePassword()
 }
 
@@ -139,7 +155,7 @@ const handleUpdate = () => {
               <Card.Body>
                 <Form>
                   <Row>
-                    <Col className="pr-1" md="5">
+                    <Col className="pr-1" md="6">
                       <Form.Group>
                         <label>Company (disabled)</label>
                         <Form.Control
@@ -150,19 +166,7 @@ const handleUpdate = () => {
                         ></Form.Control>
                       </Form.Group>
                     </Col>
-                    <Col className="px-1" md="3">
-                      <Form.Group>
-                        
-                        <label>Username</label>
-                        <input
-                          defaultValue={user.name}
-                          onChange={handleChange}
-                          placeholder="Username"
-                          type="text"
-                        ></input>
-                      </Form.Group>
-                    </Col>
-                    <Col className="pl-1" md="4">
+                    <Col className="pl-1" md="6">
                       <Form.Group>
                         <label htmlFor="exampleInputEmail1">
                           Email address
@@ -175,38 +179,62 @@ const handleUpdate = () => {
                         ></Form.Control>
                       </Form.Group>
                     </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-1" md="6">
+                    </Row>
+                    <Row>
+                    <Col className="px-1" md="4">
                       <Form.Group>
-                        <label>First Name</label>
-                        <Form.Control
+                        
+                        <label  htmlFor="name">Username</label>
+                        <input
+                          name="name" 
+                          id="name"
                           defaultValue={user.name}
-                          placeholder="Company"
+                          onChange={handleChange}
+                          placeholder="Username"
                           type="text"
-                        ></Form.Control>
+                        ></input>
+                      </Form.Group>
+                  
+                    </Col>
+                    <Col className="pr-1" md="4">
+                      <Form.Group>
+                        <label htmlFor="First_name">First Name</label>
+                        <input
+                          name="First_name"
+                          id="First_name"
+                          defaultValue={user.First_name}
+                          onChange={handleChange}
+                          placeholder="First Name"
+                          type="text"
+                        ></input>
                       </Form.Group>
                     </Col>
-                    <Col className="pl-1" md="6">
+                    <Col className="pl-1" md="4">
                       <Form.Group>
-                        <label>Last Name</label>
-                        <Form.Control
-                          defaultValue={user.name}
+                        <label htmlFor="Last_name">Last Name</label>
+                        <input
+                          name="Last_name"
+                          id="First_name"
+                          defaultValue={user.Last_name}
+                          onChange={handleChange}
                           placeholder="Last Name"
                           type="text"
-                        ></Form.Control>
+                        ></input>
                       </Form.Group>
                     </Col>
                   </Row>
                   <Row>
                     <Col md="12">
                       <Form.Group>
-                        <label>Address</label>
-                        <Form.Control
-                          defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                          placeholder="Home Address"
+                        <label htmlFor="Address">Address</label>
+                        <input
+                          name="Address"
+                          id="Address"
+                          defaultValue={user.Address}
+                          onChange={handleChange}
+                          placeholder="Address"
                           type="text"
-                        ></Form.Control>
+                        ></input>
                       </Form.Group>
                     </Col>
                   </Row>
@@ -214,12 +242,15 @@ const handleUpdate = () => {
                    
                     <Col className="px-1" md="4">
                       <Form.Group>
-                        <label>Country</label>
-                        <Form.Control
-                          defaultValue="Andrew"
+                        <label htmlFor="Country">Country</label>
+                        <input
+                          name="Country"
+                          id="Country"
+                          defaultValue={user.Country}
+                          onChange={handleChange}
                           placeholder="Country"
                           type="text"
-                        ></Form.Control>
+                        ></input>
                       </Form.Group>
                     </Col>
                     
@@ -245,15 +276,15 @@ const handleUpdate = () => {
                   <Row>
                     <Col md="12">
                       <Form.Group>
-                        <label>About Me</label>
-                        <Form.Control
-                          cols="80"
-                          defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
-                          that two seat Lambo."
-                          placeholder="Here can be your description"
-                          rows="4"
-                          as="textarea"
-                        ></Form.Control>
+                        <label htmlFor="Description">About Me</label>
+                        <input
+                          name="Description"
+                          id="Description"
+                          defaultValue={user.Description}
+                          onChange={handleChange}
+                          placeholder="Description"
+                          type="text"
+                        ></input>
                       </Form.Group>
                     </Col>
                   </Row>
@@ -297,11 +328,7 @@ const handleUpdate = () => {
                  
                   <h2 className="description" >  {user.name} </h2>
                 </div>
-                <p className="description text-center">
-                  "Lamborghini Mercy <br></br>
-                  Your chick she so thirsty <br></br>
-                  I'm in that two seat Lambo"
-                </p>
+              
               </Card.Body>
               <hr></hr>
               <div className="button-container mr-auto ml-auto">
