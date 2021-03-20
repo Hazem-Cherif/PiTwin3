@@ -57,12 +57,7 @@ function EditUser() {
 
     return (
         <div className="profile_page edit_user">
-            <div className="row">
-                <button onClick={() => history.goBack()} className="go_back">
-                    <i className="fas fa-long-arrow-alt-left"></i> Go Back
-                </button>
-            </div>
-
+            
             <div className="col-left">
                 <h2>Edit User</h2>
 
@@ -86,6 +81,12 @@ function EditUser() {
 
                 {err && showErrMsg(err)}
                 {success && showSuccessMsg(success)}
+            </div>
+
+            <div className="row">
+                <button onClick={() => history.goBack()} className="go_back">
+                    <i className="fas fa-long-arrow-alt-left"></i> Go Back
+                </button>
             </div>
         </div>
     )

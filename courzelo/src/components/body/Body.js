@@ -11,6 +11,7 @@ import ResetPass from '../body/authentification/ResetPassword'
 import Profile from './profile/Profile'
 import EditUser from '../body/profile/EditUser'
 import Courses from './courses/courses';
+import Admin from '../dashboard/index'
 
 function Body() {
     const auth = useSelector(state => state.auth)
@@ -34,6 +35,8 @@ function Body() {
                 <Route path="/edit_user/:id" component={isAdmin ? EditUser : NotFound} exact />
 
                 <Route path="/courses" component={Courses} exact />
+
+                <Route path="/admin" component={Admin} exact />
 
             </Switch>
         </section>

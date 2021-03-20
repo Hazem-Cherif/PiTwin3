@@ -8,7 +8,7 @@ function Header() {
 
   const auth = useSelector(state => state.auth)
 
-  const {user, isLogged} = auth
+  const {isLogged} = auth
 
 
   const handleLogout = async () => {

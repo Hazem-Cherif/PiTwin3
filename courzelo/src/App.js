@@ -10,13 +10,14 @@ import {dispatchLogin, fetchUser, dispatchGetUser} from './redux/actions/authAct
 import axios from 'axios'
 
 import {BrowserRouter as Router } from 'react-router-dom'
+import Index from './components/dashboard/index';
 
 
 function App() {
   const dispatch = useDispatch()
   const token = useSelector(state => state.token)
   const auth = useSelector(state => state.auth)
-
+  const {isAdmin} = auth
   useEffect(() => {
     const firstLogin = localStorage.getItem('firstLogin')
     if(firstLogin){
@@ -39,17 +40,19 @@ function App() {
       }
       getUser()
     }
-  },[token, dispatch])
+  },[token,isAdmin, dispatch])
 
-  
 
   return (
     <Router>
-      <Fragment>
-         <Header/>
-           <Body/>
-         <Footer/>
-      </Fragment> 
+      {
+        
+           isAdmin? 
+           <Index/> 
+           : 
+           <Fragment> <Header/><Body/><Footer/> </Fragment> 
+                     
+      } 
     </Router>
     
    

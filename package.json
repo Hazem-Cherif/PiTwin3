@@ -24,9 +24,13 @@
     "nodemailer": "^6.4.14"
   },
   "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.4",
+    "autoprefixer": "^9.8.6",
     "concurrently": "^6.0.0",
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.4"
   },
   "repository": {
     "type": "git",
