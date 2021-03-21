@@ -40,7 +40,7 @@ const transForm = {
         <div>
             <header className="header_area">
   <div id="header_navbar" className="header_navbar">
-    <div className="container">
+    <div >
       <div className="row align-items-center">
         <div className="col-xl-12">
           <nav className="navbar navbar-expand-lg">

@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchAllUsers, dispatchGetAllUsers} from '../../../redux/actions/usersAction'
 import axios from 'axios'
+import * as AiIcons from 'react-icons/ai'
 
 // react-bootstrap components
 import {
@@ -81,6 +82,8 @@ const handleDelete = async (id) => {
                 <Table className="table-hover">
                 <thead>
                             <tr>
+                                
+                                <th>Avatar</th>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -92,22 +95,23 @@ const handleDelete = async (id) => {
                             {
                                 users.map(user => (
                                     <tr key={user._id}>
+                                        <td><img src={avatar ? avatar : user.avatar} alt=""/></td>
                                         <td>{user._id}</td>
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
                                         <td>
                                             {
                                                 user.role === 1
-                                                ? <i className="fas fa-check" title="Admin"></i>
-                                                : <i className="fas fa-times" title="User"></i>
+                                                ? <AiIcons.AiOutlineCheck title="Admin"/>
+                                                : <AiIcons.AiOutlineClose title="User" /> 
                                             }
                                         </td>
                                         <td>
                                             <Link to={`/edit_user/${user._id}`}>
-                                                <i className="fas fa-edit" title="Edit"></i>
+                                                <AiIcons.AiOutlineEdit title="Edit" />
                                             </Link>
-                                            <i className="fas fa-trash-alt" title="Remove"
-                                            onClick={() => handleDelete(user._id)} ></i>
+                                            <AiIcons.AiOutlineDelete title="Remove"
+                                            onClick={() => handleDelete(user._id)} />
                                         </td>
                                     </tr>
                                 ))

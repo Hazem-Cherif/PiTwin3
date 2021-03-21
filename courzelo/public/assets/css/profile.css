@@ -3,6 +3,24 @@
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
+    
+
+}
+.profile2{
+    width: 400px;
+    height: 500px;
+    border: solid #dedede;
+    border-radius: 10px;
+    box-shadow: #555 3px;
+    position: absolute;
+    left: 37%;
+    top: 30px;
+}
+.profile_pageUser{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
 .profile_page .col-left{
     max-width: 400px;
@@ -146,6 +164,20 @@
     background: white;
     margin: 20px;
     font-size: 1.2rem;
+    
+}
+/* -------------- Edit User M----------------- */
+.go_back{
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    border: none;
+    left: -20px;
+}
+.button_update{
+    width: 300px !important;
+    border-radius: 4px;
+    background-color: rgb(110, 110, 110);
 }
 .edit_user .col-left{
     margin-top: 50px;
