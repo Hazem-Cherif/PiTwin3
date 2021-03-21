@@ -6,7 +6,6 @@ import {isLength, isMatch} from '../../util/validation/Validation'
 import {showSuccessMsg, showErrMsg} from '../../util/notification/Notification'
 import {fetchAllUsers, dispatchGetAllUsers} from '../../../redux/actions/usersAction'
 
-
 const initialState = {
     name: '',
     password: '',
@@ -130,17 +129,16 @@ function Profile() {
     }
 
     return (
-        <>
+        
         <div>
-            {err && showErrMsg(err)}
-            {success && showSuccessMsg(success)}
-            {loading && <h3>Loading.....</h3>}
-        </div>
-        <div className="profile_page">
-            <div className="col-left">
-                <h2>{isAdmin ? "Admin Profile": "User Profile"}</h2>
-
-                <div className="avatar">
+          <div style={{marginTop:'100px', marginRight:'150px'}}>
+  <div className="container rounded bg-white mt-5">
+    <div className="row"  >
+      <div className="col-md-4 border-right" >
+      <div className="d-flex flex-column align-items-center text-center p-3 py-5" style={{marginTop:'-80px'}} >
+     <div className="profile_page" >
+         <div className="col-left">
+         <div className="avatar">
                     <img src={avatar ? avatar : user.avatar} alt=""/>
                     <span>
                         <i className="fas fa-camera"></i>
@@ -148,44 +146,49 @@ function Profile() {
                         <input type="file" name="file" id="file_up" onChange={changeAvatar} />
                     </span>
                 </div>
-
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" name="name" id="name" defaultValue={user.name}
-                    placeholder="Your name" onChange={handleChange} />
                 </div>
-
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" defaultValue={user.email}
-                    placeholder="Your email address" disabled />
                 </div>
-
-                <div className="form-group">
-                    <label htmlFor="password">New Password</label>
-                    <input type="password" name="password" id="password"
-                    placeholder="Your password" value={password} onChange={handleChange} />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="cf_password">Confirm New Password</label>
-                    <input type="password" name="cf_password" id="cf_password"
-                    placeholder="Confirm password" value={cf_password} onChange={handleChange} />
-                </div>
-
-                <div>
+  <span className="font-weight-bold">{user.name}</span><span className="text-black-50" > {user.email}</span><span> </span>
+</div>
+      </div>
+      <div className="col-md-8">
+        <div className="p-3 py-5">
+          <div className="d-flex justify-content-between align-items-center mb-3">
+          {err && showErrMsg(err)}
+            {success && showSuccessMsg(success)}
+            {loading && <h3>Loading.....</h3>}
+            <div className="d-flex justify-content-between align-items-center mb-3">
+  <h4 className="text-right">Profile Settings</h4>
+</div>
+          </div>
+          <div className="row mt-2">
+            <div className="col-md-6"><input type="text" className="form-control" name="name" id="name" defaultValue={user.name}
+                    placeholder="Your name" onChange={handleChange} /></div>
+            <div className="col-md-6"><input type="text" className="form-control" name="password" id="password"
+                    placeholder="Your password" value={password} onChange={handleChange} /></div>
+          </div>
+          <div className="row mt-3">
+            <div className="col-md-6"><input type="text" className="form-control" name="email" id="email" defaultValue={user.email}
+                    placeholder="Your email address" disabled /></div>
+            <div className="col-md-6"><input type="text" className="form-control"  name="cf_password" id="cf_password"
+                    placeholder="Confirm password" value={cf_password} onChange={handleChange} /></div>
+          </div>
+          <div style={{marginTop:"20px"}}>
                     <em style={{color: "crimson"}}> 
                     * If you update your password here, you will not be able 
                         to login quickly using google and facebook.
                     </em>
                 </div>
-
-                <button disabled={loading} onClick={handleUpdate}>Update</button>
-            </div>
-
-           
+        
+          <div className="mt-5 text-right"><button className="btn btn-primary profile-button" type="button" style={{backgroundColor: '#f2a92c'}} disabled={loading} onClick={handleUpdate}>Save Profile</button></div>
         </div>
-        </>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+        
     )
 }
 
