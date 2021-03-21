@@ -1,10 +1,48 @@
-import React from 'react';
-
+import React, {Fragment,useState} from 'react'
+import {useParams,Link} from 'react-router-dom'
+import ResetPass from '../authentification/ResetPassword'
 
 const Home = () => {
+  const {token} = useParams()
+  const [show, setShow] = useState(false);
+  const handleShow = () => {
+    setShow(true);
+   
+    
+    console.log("test")
+};
+  const popup = (
+    
+    <Fragment>
+      <div id="thim-popup-login" Show={handleShow}>
+  <div className="thim-login-container">
+    <div className="login-html">
+      
+      <div className="login-banner" >
+      <img style={{height:'560px'}} src="assets/h.jpg"></img>
+      
+        <div className="login-banner-wrap">
+          
+          <h2>Hello!</h2><h3>We are happy to see you again!</h3>
+        </div>
+      </div>
+      <div className="link-to-form">
+        <p className="content-register wrapper">
+          Not a member yet? <a href="account/index0ddc.html?action=register" className="register-link">Register Now</a> </p>
+        <p className="content-login wrapper">
+          Already a member? <a href="#" className="login-link">Login Now</a> </p>
+      </div>   
+         <ResetPass token={token}/>
+         
+    </div>
+  </div>
+</div>
+
+  </Fragment>
+  )
+  
   return (
     <div >
-      <>
   <section id="home" className="hero-area bg_cover">
     <div className="container">
       <div className="row align-items-center">
@@ -74,8 +112,7 @@ const Home = () => {
       </div>
     </div>
   </section>
-</>
-
+  
     </div>
   );
 };

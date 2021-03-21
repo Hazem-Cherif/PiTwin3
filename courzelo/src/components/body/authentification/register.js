@@ -52,42 +52,46 @@ function Register() {
     }
 
     return (
-        <div className="login_page">
-            <h2>Register</h2>
+        <div className="sign-in-htm" >
+            <div style={{width:'300px',marginLeft:"30px",marginTop:'10px'}}>
+            <h3 class="title">Register to start learning</h3>
             {err && showErrMsg(err)}
             {success && showSuccessMsg(success)}
 
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" placeholder="Enter your name" id="name"
+                    
+                    <input style={{marginBottom:'20px',backgroundColor: '#ffeee6'}} type="text" placeholder="Enter your name" id="name"
                     value={name} name="name" onChange={handleChangeInput} />
                 </div>
 
                 <div>
-                    <label htmlFor="email">Email Address</label>
-                    <input type="text" placeholder="Enter email address" id="email"
+                   
+                    <input type="text" style={{marginBottom:'20px',backgroundColor: '#ffeee6'}}  placeholder="Enter email address" id="email"
                     value={email} name="email" onChange={handleChangeInput} />
                 </div>
 
                 <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" placeholder="Enter password" id="password"
+                    
+                    <input type="password" style={{marginBottom:'20px',backgroundColor: '#ffeee6'}}  placeholder="Enter password" id="password"
                     value={password} name="password" onChange={handleChangeInput} />
                 </div>
 
                 <div>
-                    <label htmlFor="cf_password">Confirm Password</label>
-                    <input type="password" placeholder="Confirm password" id="cf_password"
+                    
+                    <input type="password" style={{marginBottom:'40px',backgroundColor: '#ffeee6'}}  placeholder="Confirm password" id="cf_password"
                     value={cf_password} name="cf_password" onChange={handleChangeInput} />
                 </div>
 
-                <div className="row">
-                    <button type="submit">Register</button>
-                </div>
+            
+                    
+                    <p className="login-submit">
+  <input type="submit" name="wp-submit" id="popupRegisterSubmit" style={{backgroundColor: '#f2a92c'}} value="register" className="button button-primary button-large" defaultValue="Register" />
+  
+</p>
             </form>
-
-            <p>Already an account? <Link to="/login">Login</Link></p>
+                   
+        </div>
         </div>
     )
 }

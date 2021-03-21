@@ -12,9 +12,9 @@ const initialState = {
     success: ''
 }
 
-function ResetPassword() {
+function ResetPassword(props) {
     const [data, setData] = useState(initialState)
-    const {token} = useParams()
+   
 
     const {password, cf_password, err, success} = data
 
@@ -33,7 +33,7 @@ function ResetPassword() {
         
         try {
             const res = await axios.post('/user/reset', {password}, {
-                headers: {Authorization: token}
+                headers: {Authorization: props.token}
             })
 
             return setData({...data, err: "", success: res.data.msg})
@@ -46,23 +46,39 @@ function ResetPassword() {
 
 
     return (
-        <div className="fg_pass">
-            <h2>Reset Your Password</h2>
-
+        <div>
+            <section className="page-banner pt-200 pb-100 bg_cover" style={{backgroundImage: 'url("assets/images/hero-bg.jpg")'}}>
+  <div className="container">
+    <div className="row">
+      <div className="col-lg-12">
+        <div className="text-center banner-content">
+          <h1 className="text-white">Reset Your Password</h1>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        <div className="fg_pass" style={{marginBottom:'60px',marginTop:'70px'}}>
             <div className="row">
                 {err && showErrMsg(err)}
                 {success && showSuccessMsg(success)}
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" value={password}
+                
+                <input placeholder="Password" type="password" name="password" id="password" value={password}
                 onChange={handleChangeInput} />
 
-                <label htmlFor="cf_password">Confirm Password</label>
-                <input type="password" name="cf_password" id="cf_password" value={cf_password}
+                
+                <input style={{marginBottom:'60px',marginTop:'20px'}} placeholder="Confirm Password" type="password" name="cf_password" id="cf_password" value={cf_password}
                 onChange={handleChangeInput} />         
 
-                <button onClick={handleResetPass}>Reset Password</button>
+                
+                <p className="login-submit">
+        <input type="submit" name="wp-submit" id="popupLoginSubmit" onClick={handleResetPass} style={{backgroundColor: '#f2a92c'}} className="button button-primary button-large" value="Reset Password" defaultValue="Login" />
+        
+      </p>
             </div>
+        </div>
         </div>
     )
 }

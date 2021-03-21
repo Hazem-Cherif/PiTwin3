@@ -33,17 +33,21 @@ function ForgotPassword() {
     }
     
     return (
-        <div className="fg_pass">
-            <h2>Forgot Your Password?</h2>
+        <div className="fg_pass" style={{width:'300px',marginLeft:"30px",marginTop:'60px'}}>
+            <h3 style={{marginBottom:'40px'}} className="title">Forgot Your Password?</h3>
 
             <div className="row">
                 {err && showErrMsg(err)}
                 {success && showSuccessMsg(success)}
 
-                <label htmlFor="email">Enter your email address</label>
-                <input type="email" name="email" id="email" value={email}
+                
+                <input style={{marginBottom:'40px',marginTop:'30px'}} placeholder="Enter your email address" type="email" name="email" id="email" value={email}
                 onChange={handleChangeInput} />
-                <button onClick={forgotPassword}>Verify your email</button>
+                
+                <p className="login-submit">
+        <input type="submit" name="wp-submit" value="Verify your email" id="popupLoginSubmit" style={{backgroundColor: '#f2a92c'}} className="button button-primary button-large" onClick={forgotPassword} />
+        
+      </p> 
             </div>
         </div>
     )

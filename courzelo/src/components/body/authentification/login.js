@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {Fragment,useState} from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import {showErrMsg, showSuccessMsg} from '../../util/notification/Notification'
@@ -13,12 +13,23 @@ const initialState = {
     err: '',
     success: ''
 }
-function Login() {
+function Login(props) {
+
+
+
     const [user, setUser] = useState(initialState)
     const dispatch = useDispatch()
     const history = useHistory()
-
     const {email, password, err, success} = user
+    
+    const [show, setShow] = useState(false);
+    const handleCloseforget = () => {
+        props.clickHandler(true);
+        
+        setShow(true);
+        
+        
+    };
 
     const handleChangeInput = e=> {
         const {name, value} = e.target
@@ -72,50 +83,73 @@ function Login() {
             setUser({...user, err: err.response.data.msg, success: ''})
         }
     }
+    
 
     return (
-        <div className="login_page">
-            <h2>Sign in</h2>
+            
+      
+          <div className="sign-in-htm" >
+              <div style={{width:'300px',marginLeft:"30px",marginTop:'10px'}}>
+          <h3 style={{marginBottom:'8px'}} className="title">Login to your account</h3>
             {err && showErrMsg(err)}
             {success && showSuccessMsg(success)}
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email Address</label>
-                    <input type="text" placeholder="Enter email address" id="email"
+            <form style={{marginTop:'10px'}} onSubmit={handleSubmit}>
+                
+                <p className="login-username">
+                    <input type="text" style={{backgroundColor: '#ffeee6' }} defaultValue size={20}  placeholder="Enter email address" id="email"
                     value={email} name="email" onChange={handleChangeInput} />
-                </div>
-
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" placeholder="Enter password" id="password"
+                </p>
+                <p className="login-password">
+                   
+                    <input type="password" style={{backgroundColor: '#ffeee6' }} defaultValue size={20} placeholder="Enter password" id="password"
                     value={password} name="password" onChange={handleChangeInput} />
-                </div>
-
-                <div className="row">
-                    <button type="submit">Login</button>
-                    <Link to="/forgot_password">Forgot your password?</Link>
-                </div>
+                
+                </p>
+                <div className="login-extra-options">
+        <p className="login-remember">
+        </p>
+        <a ><Link className="lost-pass-link" id="signin" onClick={handleCloseforget}  >Forgot your password?</Link></a>
+         </div>
+      <p className="login-submit">
+        <input type="submit" name="wp-submit" id="popupLoginSubmit" style={{backgroundColor: '#f2a92c'}} className="button button-primary button-large" value="Login" defaultValue="Login" />
+        <input type="hidden" name="redirect_to" defaultValue="https://wordpresslms.thimpress.com/demo-coursify/" />
+      </p>
+      <div className="popup-message" />
+                
+                    
+                    
+                
             </form>
-            <div className="hr">Or Login With</div>
+            
+            
 
-                <div className="social">
-                 <GoogleLogin
-               clientId = "328111978580-h50mir0c5i18iind4u3ihbnc07ukhp0l.apps.googleusercontent.com"
-              buttonText="Login with google"
+            
+            <div className="shortcode">
+    
+      
+      <a >
+      <GoogleLogin 
+               clientId = "566456361449-f0noptv9sjr9u6ugk65djl62j332ecmi.apps.googleusercontent.com"
+              buttonText="LOGIN WITH GOOGLE"
               onSuccess={responseGoogle}
                 cookiePolicy={'single_host_origin'}
-                />
-    
-             <FacebookLogin
-                 appId="3751041558265387"
+                />      </a>
+                <a >
+      <FacebookLogin
+                 appId="499169951487941"
                 autoLoad={false}
                 fields="name,email,picture"
              callback={responseFacebook} 
-             />
+             />      </a> </div>
 
 </div>
-        </div>
+</div>
+             
+
+
+        
     )
 }
+
 
 export default Login

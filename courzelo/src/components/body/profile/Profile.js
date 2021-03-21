@@ -131,12 +131,12 @@ function Profile() {
     return (
         
         <div>
-          <div style={{marginTop:'100px', marginRight:'150px'}}>
-  <div className="container rounded bg-white mt-5">
+          <div style={{marginTop:'-50px', marginRight:'150px'}}>
+  <div className="container rounded bg-white mt-5" >
     <div className="row"  >
       <div className="col-md-4 border-right" >
       <div className="d-flex flex-column align-items-center text-center p-3 py-5" style={{marginTop:'-80px'}} >
-     <div className="profile_page" >
+     <div className="profile_page" style={{marginTop:'200px'}} >
          <div className="col-left">
          <div className="avatar">
                     <img src={avatar ? avatar : user.avatar} alt=""/>
@@ -151,15 +151,17 @@ function Profile() {
   <span className="font-weight-bold">{user.name}</span><span className="text-black-50" > {user.email}</span><span> </span>
 </div>
       </div>
-      <div className="col-md-8">
+      <div className="col-md-8" style={{marginTop:'100px'}}>
         <div className="p-3 py-5">
           <div className="d-flex justify-content-between align-items-center mb-3">
-          {err && showErrMsg(err)}
-            {success && showSuccessMsg(success)}
-            {loading && <h3>Loading.....</h3>}
+          
             <div className="d-flex justify-content-between align-items-center mb-3">
   <h4 className="text-right">Profile Settings</h4>
+  
 </div>
+{err && showErrMsg(err)}
+            {success && showSuccessMsg(success)}
+            {loading && <h3>Loading.....</h3>}
           </div>
           <div className="row mt-2">
             <div className="col-md-6"><input type="text" className="form-control" name="name" id="name" defaultValue={user.name}

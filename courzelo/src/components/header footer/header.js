@@ -1,16 +1,33 @@
-import React, {Fragment} from 'react'
+import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import {useSelector} from 'react-redux'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
-
+import {Link,Switch} from 'react-router-dom'
+import Popup from 'reactjs-popup'
+import {Modal,Button,Form} from 'react-bootstrap'
+import Login from '../body/authentification/login'
+import Register from '../body/authentification/register'
+import ForgotPassword from '../body/authentification/ForgetPassword'
 
 function Header() {
-
+  
+  
   const auth = useSelector(state => state.auth)
 
-  const {isLogged} = auth
+  const {user, isLogged} = auth
 
 
+  const [isRegister, setIsRegister] = useState(false);
+
+  const [show, setShow] = useState(false);
+  const [isForgetPassword, setisForgetPassword] = useState(false);
+  const handleClose = (isForgetPassword) => { setShow(false);setisForgetPassword(isForgetPassword)}
+  const handleShow = (e) => {
+    setShow(true);
+    setisForgetPassword(false);
+    setIsRegister(e.target.id == "signup" ? true : false)
+    console.log(e.target.id)
+};
+  
   const handleLogout = async () => {
       try {
           await axios.get('/user/logout')
@@ -24,26 +41,117 @@ function Header() {
   const userLink = (
     <Fragment>
       <li className="drop-nav">
-            <ul className="dropdown">
-                <li><Link to="/profile">Profile</Link></li>
-                <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
-            </ul>
+      <div className="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+              
+              <ul  id="nav" className="ml-auto navbar-nav">
+                <li className="nav-item">
+                  <Link to="/profile" className="header-btn btn-hover" >Profile</Link>
+                </li>
+                <li className="nav-item" style={{marginRight : '-200px'}}>
+                  <Link to="/" onClick={handleLogout}  className="header-btn btn-hover" >Logout</Link>
+                </li>
+            
+              </ul>
+            </div> 
+            
         </li>
     </Fragment>
   );
+  const popup = (
+    <Fragment >
+      <div id="thim-popup-login" >
+  <div className="thim-login-container">
+    <div className="login-html">
+      
+      <div className="login-banner" >
+      <img style={{height:'560px'}} src="assets/h.jpg"></img>
+      
+        <div className="login-banner-wrap">
+          
+          <h2>Hello!</h2><h3>We are happy to see you again!</h3>
+        </div>
+      </div>
+      <div className="link-to-form">
+        <p className="content-register wrapper">
+          Not a member yet? <a href="account/index0ddc.html?action=register" className="register-link">Register Now</a> </p>
+        <p className="content-login wrapper">
+          Already a member? <a href="#" className="login-link">Login Now</a> </p>
+      </div>   
+         <Login  clickHandler={(value) =>handleClose(value)} />
+    </div>
+  </div>
+</div>
 
+  </Fragment>
+  )
+  const popupp = (
+    <Fragment>
+    <div id="thim-popup-login">
+  <div className="thim-login-container">
+    <div className="login-html">
+      
+      <div className="login-banner" >
+      <img style={{height:'560px'}} src="assets/h.jpg"></img>
+      
+        <div className="login-banner-wrap">
+          
+          <h2>Hello!</h2><h3>We are happy to see you again!</h3>
+        </div>
+      </div>
+      <div className="link-to-form">
+        <p className="content-register wrapper">
+          Not a member yet? <a href="account/index0ddc.html?action=register" className="register-link">Register Now</a> </p>
+        <p className="content-login wrapper">
+          Already a member? <a href="#" className="login-link">Login Now</a> </p>
+      </div>  
+         <Register/>    
+    </div>
+  </div>
+</div>
+  </Fragment>
+  )
+  const popupR = (
+    <Fragment >
+      <div id="thim-popup-login"  show={show}>
+  <div className="thim-login-container">
+    <div className="login-html">
+      
+      <div className="login-banner" >
+      <img style={{height:'560px'}} src="assets/h.jpg"></img>
+      
+        <div className="login-banner-wrap">
+          
+          <h2>Hello!</h2><h3>We are happy to see you again!</h3>
+        </div>
+      </div>
+      <div className="link-to-form">
+        <p className="content-register wrapper">
+          Not a member yet? <a href="account/index0ddc.html?action=register" className="register-link">Register Now</a> </p>
+        <p className="content-login wrapper">
+          Already a member? <a href="#" className="login-link">Login Now</a> </p>
+      </div>   
+         <ForgotPassword/>
+    </div>
+  </div>
+</div>
+
+  </Fragment>
+  )
 const transForm = {
     transform: isLogged ? "translateY(-5px)" : 0
 }
 
+ 
+  
+
     return (
         <div>
             <header className="header_area">
-  <div id="header_navbar" className="header_navbar">
-    <div >
+  <div id="header_navbar" className="header_navbar"  style={{backgroundColor: '#f2a92c'}}>
+    <div className="container"  style={{backgroundColor: '#f2a92c'}}>
       <div className="row align-items-center">
         <div className="col-xl-12">
-          <nav className="navbar navbar-expand-lg">
+          <nav className="navbar navbar-expand-lg"  style={{backgroundColor: '#f2a92c'}}>
             <a className="navbar-brand" href="index.html">
               <img id="logo" src="" alt="" />
             </a>
@@ -56,24 +164,32 @@ const transForm = {
               
               <ul style={transForm} id="nav" className="ml-auto navbar-nav">
                 <li className="nav-item">
-                  <Link to="/" className="page-scroll" >Home</Link>
+                  <Link to="/" className="header-btn btn-hover">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/courses" className="page-scroll" >Courses</Link>
+                  <Link to="/courses" className="header-btn btn-hover" >Courses</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/" className="page-scroll" >Blog</Link>
+                  <Link to="/" className="header-btn btn-hover" >Blog</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/" className="page-scroll" >Contact</Link>
+                  <Link to="/" className="header-btn btn-hover" >Contact</Link>
                 </li>
                 {
+                  
                   isLogged? userLink:
-                <li className="nav-item">
-                  <Link to="/login" className="header-btn btn-hover">Sign in</Link>
-                  <Link to="/register" className="header-btn btn-hover">Sign up</Link>
+                  <li className="nav-item">
+                  
+                  <div className="thim-link-login thim-login-popup">
+                    
+                  <Link id="signin"  onClick={handleShow} className="header-btn btn-hover">Sign in</Link> 
+                                   
+                  <Link id="signup"  onClick={(e) => handleShow(e)} className="header-btn btn-hover">Sign up</Link>
+                  {isForgetPassword ? popupR : isRegister ? popupp : show ? popup : null }
+                  </div>
                 </li>
                 }
+                
               </ul>
             </div> 
           </nav> 
@@ -81,7 +197,11 @@ const transForm = {
       </div> 
     </div> 
   </div> 
+  
 </header>
+
+       
+
 
         </div>
     )
