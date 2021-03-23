@@ -23,7 +23,7 @@ function ResetPassword(props) {
         setData({...data, [name]:value, err: '', success: ''})
     }
 
-
+    const{token} =useParams()
     const handleResetPass = async () => {
         if(isLength(password))
             return setData({...data, err: "Password must be at least 6 characters.", success: ''})
@@ -33,7 +33,7 @@ function ResetPassword(props) {
         
         try {
             const res = await axios.post('/user/reset', {password}, {
-                headers: {Authorization: props.token}
+                headers: {Authorization: token}
             })
 
             return setData({...data, err: "", success: res.data.msg})
