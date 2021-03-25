@@ -7,11 +7,8 @@ import * as AiIcons from 'react-icons/ai'
 
 // react-bootstrap components
 import {
-  Badge,
-  Button,
+
   Card,
-  Navbar,
-  Nav,
   Table,
   Container,
   Row,
@@ -34,10 +31,9 @@ function TableList() {
 
   const {user, isAdmin} = auth
   const [data, setData] = useState(initialState)
-  const {name, password, cf_password, err, success} = data
 
-  const [avatar, setAvatar] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [avatar] = useState(false)
+  const [ setLoading] = useState(false)
   const [callback, setCallback] = useState(false)
 
   const dispatch = useDispatch()

@@ -1,4 +1,4 @@
-import React, {Fragment,useState} from 'react'
+import React, {useState} from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import {showErrMsg, showSuccessMsg} from '../../util/notification/Notification'
@@ -22,7 +22,7 @@ function Login(props) {
     const history = useHistory()
     const {email, password, err, success} = user
     
-    const [show, setShow] = useState(false);
+    const [setShow] = useState(false);
     const handleCloseforget = () => {
         props.clickHandler(true);
         
@@ -129,14 +129,13 @@ function Login(props) {
       
       <a >
       <GoogleLogin 
-               clientId = "566456361449-f0noptv9sjr9u6ugk65djl62j332ecmi.apps.googleusercontent.com"
-              buttonText="LOGIN WITH GOOGLE"
+            clientId = "328111978580-h50mir0c5i18iind4u3ihbnc07ukhp0l.apps.googleusercontent.com"              buttonText="LOGIN WITH GOOGLE"
               onSuccess={responseGoogle}
                 cookiePolicy={'single_host_origin'}
                 />      </a>
                 <a >
       <FacebookLogin
-                 appId="499169951487941"
+                 appId="3751041558265387"
                 autoLoad={false}
                 fields="name,email,picture"
              callback={responseFacebook} 

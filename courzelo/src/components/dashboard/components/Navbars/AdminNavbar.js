@@ -1,10 +1,9 @@
 
-import React, { Component } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
 import axios from 'axios'
 import routes from '../../routes';
-import {Link} from 'react-router-dom'
 
 function Header() {
   const location = useLocation();

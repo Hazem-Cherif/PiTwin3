@@ -7,12 +7,9 @@ import {fetchAllUsers, dispatchGetAllUsers} from '../../../redux/actions/usersAc
 
 // react-bootstrap components
 import {
-  Badge,
   Button,
   Card,
   Form,
-  Navbar,
-  Nav,
   Container,
   Row,
   Col,

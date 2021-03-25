@@ -1,9 +1,7 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
+import React, {Fragment,useState} from 'react'
 import {useSelector} from 'react-redux'
 import axios from 'axios'
-import {Link,Switch} from 'react-router-dom'
-import Popup from 'reactjs-popup'
-import {Modal,Button,Form} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 import Login from '../body/authentification/login'
 import Register from '../body/authentification/register'
 import ForgotPassword from '../body/authentification/ForgetPassword'
@@ -13,7 +11,7 @@ function Header() {
   
   const auth = useSelector(state => state.auth)
 
-  const {user, isLogged} = auth
+  const {isLogged} = auth
 
 
   const [isRegister, setIsRegister] = useState(false);
@@ -24,7 +22,7 @@ function Header() {
   const handleShow = (e) => {
     setShow(true);
     setisForgetPassword(false);
-    setIsRegister(e.target.id == "signup" ? true : false)
+    setIsRegister(e.target.id === "signup" ? true : false)
     console.log(e.target.id)
 };
   
@@ -67,7 +65,7 @@ function Header() {
     <div className="login-html">
       
       <div className="login-banner" >
-      <img style={{height:'560px'}} src="assets/h.jpg"></img>
+      <img style={{height:'560px'}} src="assets/h.jpg" alt="fd"></img>
       
         <div className="login-banner-wrap">
           
@@ -78,7 +76,7 @@ function Header() {
         <p className="content-register wrapper">
           Not a member yet? <a href="account/index0ddc.html?action=register" className="register-link">Register Now</a> </p>
         <p className="content-login wrapper">
-          Already a member? <a href="#" className="login-link">Login Now</a> </p>
+          Already a member? <a href="/login" className="login-link">Login Now</a> </p>
       </div>   
          <Login  clickHandler={(value) =>handleClose(value)} />
     </div>
@@ -94,7 +92,7 @@ function Header() {
     <div className="login-html">
       
       <div className="login-banner" >
-      <img style={{height:'560px'}} src="assets/h.jpg"></img>
+      <img style={{height:'560px'}} src="assets/h.jpg" alt="bcv"></img>
       
         <div className="login-banner-wrap">
           
@@ -105,7 +103,7 @@ function Header() {
         <p className="content-register wrapper">
           Not a member yet? <a href="account/index0ddc.html?action=register" className="register-link">Register Now</a> </p>
         <p className="content-login wrapper">
-          Already a member? <a href="#" className="login-link">Login Now</a> </p>
+          Already a member? <a href="/login" className="login-link">Login Now</a> </p>
       </div>  
          <Register/>    
     </div>
@@ -120,7 +118,7 @@ function Header() {
     <div className="login-html">
       
       <div className="login-banner" >
-      <img style={{height:'560px'}} src="assets/h.jpg"></img>
+      <img style={{height:'560px'}} src="assets/h.jpg" alt="fgdf"></img>
       
         <div className="login-banner-wrap">
           
@@ -131,7 +129,7 @@ function Header() {
         <p className="content-register wrapper">
           Not a member yet? <a href="account/index0ddc.html?action=register" className="register-link">Register Now</a> </p>
         <p className="content-login wrapper">
-          Already a member? <a href="#" className="login-link">Login Now</a> </p>
+          Already a member? <a href="/login" className="login-link">Login Now</a> </p>
       </div>   
          <ForgotPassword/>
     </div>

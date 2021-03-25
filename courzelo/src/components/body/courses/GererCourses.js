@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function GererCourses() {
     return (
@@ -35,7 +36,7 @@ function GererCourses() {
           </div>
         </div>
         <div>
-          <button type="button" className="btn btn-primary" style={{backgroundColor: '#f2a92c',borderColor: '#f2a92c',color: 'white'}}><b>New Course</b></button>
+          <Link to='qst' type="button" className="btn btn-dark" style={{bac0kgroundColor: '#f2a92c',borderColor: '#f2a92c',color: 'white'}}><b>New Course</b></Link>
         </div>
       </div>
     </div>

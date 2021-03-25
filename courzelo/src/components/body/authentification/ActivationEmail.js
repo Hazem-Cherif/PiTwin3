@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import {showErrMsg, showSuccessMsg} from '../../util/notification/Notification'
-import Home from '../home/home';
 function ActivationEmail() {
     const {activation_token} = useParams()
     const [err, setErr] = useState('')

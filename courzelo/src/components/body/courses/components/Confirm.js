@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import { List, ListItem, ListItemText } from '@material-ui/core/';
 import Button from '@material-ui/core/Button';
 import ReactProgressLineBar from 'react-progress-line-bar';
 import './StepForm.css';
@@ -37,9 +36,7 @@ export class Confirm extends Component {
   };
 
   render() {
-    const {
-      values: { firstName, lastName, email, occupation, city, bio }
-    } = this.props;
+   
     
     return (
       <MuiThemeProvider>

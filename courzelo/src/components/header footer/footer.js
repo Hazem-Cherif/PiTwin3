@@ -9,7 +9,7 @@ function Footer() {
       <div className="col-xl-3 col-lg-3 col-md-6">
         <div className="footer-widget">
           <a href="index.html" className="logo d-blok">
-            <img src="" alt />
+            
           </a>
           <p>Lorem ipsum dolor sit amco nsetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna .</p>
         </div>

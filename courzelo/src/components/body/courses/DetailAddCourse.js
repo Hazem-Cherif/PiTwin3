@@ -12,13 +12,13 @@ function DetailAddCourse() {
             Share your knowledge in Five simple steps </h3>
           <div className="steps">
             <ul className="nav" role="tablist">
-              <li className="nav-item active" data-toggle="tab" href="#thim_60454efe17b46-step-0" role="tab">
+              <li className="nav-item active" data-toggle="tab"  role="tab">
                   <a className="nav-link" >1<span>step</span></a><p className="tab-title">Create a course for free</p>
-              </li><li className="nav-item " data-toggle="tab" href="#thim_60454efe17b46-step-1" role="tab">
+              </li><li className="nav-item " data-toggle="tab"  role="tab">
                   <a className="nav-link">2<span>step</span></a><p className="tab-title">Upload your content</p>
-                  </li><li className="nav-item " data-toggle="tab" href="#thim_60454efe17b46-step-2" role="tab">
+                  </li><li className="nav-item " data-toggle="tab"  role="tab">
                       <a className="nav-link">3<span>step</span></a><p className="tab-title">Make your school beautiful</p>
-                      </li><li className="nav-item " data-toggle="tab" href="#thim_60454efe17b46-step-3" role="tab">
+                      </li><li className="nav-item " data-toggle="tab" role="tab">
                           <a className="nav-link">4<span>step</span></a><p className="tab-title">Engage your students</p>
                           </li> </ul>
           </div>

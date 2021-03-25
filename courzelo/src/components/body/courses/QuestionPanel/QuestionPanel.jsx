@@ -4,12 +4,10 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Divider from '@material-ui/core/Divider';
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import StarFillIcon from '@material-ui/icons/StarOutlined';
-import StarOutlineIcon from '@material-ui/icons/StarBorderOutlined';
 import BorderLinearProgress from '@material-ui/core/LinearProgress'
 import './QuestionPanel.css';
 
@@ -41,7 +39,7 @@ const useStyles = makeStyles({
 
 export default function QuestionPanel({question, nextQuestion, total, questionNo, progress, checkUserAnswer}) {
   const [answered,setAnswered] = useState('');
-  const [message,setMessage]=useState(''); 
+  const [message]=useState(''); 
   
   const handleAnswer = (ans) =>{
     setAnswered(ans);
@@ -50,18 +48,6 @@ export default function QuestionPanel({question, nextQuestion, total, questionNo
 
   }
 
-  function difficultyLevelChecker (){
-    
-      return (
-        <>
-       <StarFillIcon/>
-       <StarFillIcon/>
-       <StarFillIcon/>
-       </>
-      )
-    
-    
-   }
    
   const classes = useStyles();
   return (<>

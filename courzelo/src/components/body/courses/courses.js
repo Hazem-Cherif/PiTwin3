@@ -37,7 +37,7 @@ function Courses() {
         <div className="single-course wow fadeInUp" data-wow-delay=".2s">
           <div className="course-img">
             <a href="course-single.html">
-              <img src="assets/images/course/full-stack.jpg" alt />
+              <img src="assets/images/course/full-stack.jpg" alt="hhjh" />
             </a>
           </div>
           <div className="course-info">
@@ -66,7 +66,7 @@ function Courses() {
         <div className="single-course wow fadeInUp" data-wow-delay=".4s">
           <div className="course-img">
             <a href="course-single.html">
-              <img src="assets/images/course/design.jpg" alt />
+              <img src="assets/images/course/design.jpg" alt="gg" />
             </a>
           </div>
           <div className="course-info">
@@ -95,7 +95,7 @@ function Courses() {
         <div className="single-course wow fadeInUp" data-wow-delay=".6s">
           <div className="course-img">
             <a href="course-single.html">
-              <img src="assets/images/course/js.jpg" alt />
+              <img src="assets/images/course/js.jpg" alt="llj" />
             </a>
           </div>
           <div className="course-info">
@@ -126,7 +126,7 @@ function Courses() {
         <div className="single-course wow fadeInUp" data-wow-delay=".2s">
           <div className="course-img">
             <a href="course-single.html">
-              <img src="assets/images/course/business.jpg" alt />
+              <img src="assets/images/course/business.jpg" alt="mkm" />
             </a>
           </div>
           <div className="course-info">
@@ -155,7 +155,7 @@ function Courses() {
         <div className="single-course wow fadeInUp" data-wow-delay=".4s">
           <div className="course-img">
             <a href="course-single.html">
-              <img src="assets/images/course/marketing.jpg" alt />
+              <img src="assets/images/course/marketing.jpg" alt="kln" />
             </a>
           </div>
           <div className="course-info">
@@ -184,7 +184,7 @@ function Courses() {
         <div className="single-course wow fadeInUp" data-wow-delay=".6s">
           <div className="course-img">
             <a href="course-single.html">
-              <img src="assets/images/course/python.jpg" alt />
+              <img src="assets/images/course/python.jpg" alt="bbb" />
             </a>
           </div>
           <div className="course-info">

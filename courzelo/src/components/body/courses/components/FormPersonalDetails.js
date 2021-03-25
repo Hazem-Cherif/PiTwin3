@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import * as AiIcons from 'react-icons/ai'
 import ReactProgressLineBar from 'react-progress-line-bar';
 import './StepForm.css';
 
@@ -37,7 +35,6 @@ export class FormPersonalDetails extends Component {
   };
 
   render() {
-    const { values, handleChange } = this.props;
     
     return (
       <MuiThemeProvider>

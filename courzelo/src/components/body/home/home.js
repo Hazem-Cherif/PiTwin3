@@ -1,10 +1,10 @@
 import React, {Fragment,useState} from 'react'
-import {useParams,Link} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import ResetPass from '../authentification/ResetPassword'
 
 const Home = () => {
   const {token} = useParams()
-  const [show, setShow] = useState(false);
+  const [setShow] = useState(false);
   const handleShow = () => {
     setShow(true);
    
@@ -19,7 +19,7 @@ const Home = () => {
     <div className="login-html">
       
       <div className="login-banner" >
-      <img style={{height:'560px'}} src="assets/h.jpg"></img>
+      <img style={{height:'560px'}} src="assets/h.jpg" alt="fgg"></img>
       
         <div className="login-banner-wrap">
           
@@ -58,8 +58,8 @@ const Home = () => {
       </div>
     </div>
     <div className="hero-left">
-      <img src="assets/images/hero-img.png" alt />
-      <img src="assets/images/dot-shape.svg" alt className="shape" />
+      <img src="assets/images/hero-img.png" alt="fdf" />
+      <img src="assets/images/dot-shape.svg" alt="rf" className="shape" />
     </div>
   </section>
   <section id="skill" className="skill-area pt-170">

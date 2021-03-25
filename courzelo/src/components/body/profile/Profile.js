@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {useSelector, useDispatch} from 'react-redux'
-import {Link} from 'react-router-dom'
 import {isLength, isMatch} from '../../util/validation/Validation'
 import {showSuccessMsg, showErrMsg} from '../../util/notification/Notification'
 import {fetchAllUsers, dispatchGetAllUsers} from '../../../redux/actions/usersAction'
@@ -18,7 +17,6 @@ function Profile() {
     const auth = useSelector(state => state.auth)
     const token = useSelector(state => state.token)
 
-    const users = useSelector(state => state.users)
 
     const {user, isAdmin} = auth
     const [data, setData] = useState(initialState)
@@ -26,7 +24,7 @@ function Profile() {
 
     const [avatar, setAvatar] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [callback, setCallback] = useState(false)
+    const [callback] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -110,24 +108,7 @@ function Profile() {
         if(password) updatePassword()
     }
 
-    const handleDelete = async (id) => {
-        try {
-            if(user._id !== id){
-                if(window.confirm("Are you sure you want to delete this account?")){
-                    setLoading(true)
-                    await axios.delete(`/user/delete/${id}`, {
-                        headers: {Authorization: token}
-                    })
-                    setLoading(false)
-                    setCallback(!callback)
-                }
-            }
-            
-        } catch (err) {
-            setData({...data, err: err.response.data.msg , success: ''})
-        }
-    }
-
+    
     return (
         
         <div>

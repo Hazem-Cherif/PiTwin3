@@ -14,10 +14,11 @@ import Admin from '../dashboard/index'
 import DetailAddCourse from './courses/DetailAddCourse'
 import Questionnaire from './courses/Questionnaire'
 import GererCourses from './courses/GererCourses'
+import qst from './courses/components/UserForm'
 
 function Body() {
     const auth = useSelector(state => state.auth)
-    const {isLogged, isAdmin} = auth
+    const {isLogged} = auth
     return (
         <section>
             <Switch>
@@ -37,6 +38,7 @@ function Body() {
                 <Route path="/Questionnaire" component={isLogged ? Questionnaire : NotFound} exact />
                 <Route path="/GererCourses" component={isLogged ? GererCourses : NotFound} exact />
                 <Route path="/courses" component={Courses} exact />
+                <Route path="/qst" component={isLogged ? qst : NotFound} exact />
 
                 <Route path="/admin" component={Admin} exact />
 
