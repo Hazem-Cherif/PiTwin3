@@ -1,20 +1,17 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
-import { getAllCoursesByUser } from '../../../redux/actions/courseAction';
-import { TextField, Button, Typography, Paper,Grid } from '@material-ui/core';
+import { getAllCoursesByUser, getCourses } from '../../../redux/actions/courseAction';
 import useStyles from './styles';
 import {Link} from 'react-router-dom'
 
 function GererCourses() {
-  const classes = useStyles();
   const token = useSelector(state => state.token);
   const courses = useSelector((state) => state.courses);
-console.log('testhazem',courses);
   const dispatch = useDispatch();
   useEffect(() => {
     
     dispatch(getAllCoursesByUser(token))
-  }, [ dispatch]);
+  }, [ dispatch(getCourses())]);
   
     return (
         

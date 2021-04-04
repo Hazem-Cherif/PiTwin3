@@ -4,13 +4,10 @@ import { getCourses } from '../../../redux/actions/courseAction';
 
 function Courses() {
   const courses = useSelector((state) => state.courses);
-  console.log('course',courses);
   const dispatch = useDispatch();
-  console.log('courseafterdispatch',courses);
+
   useEffect(() => {
-    console.log('courseuseeffect',courses);
     dispatch(getCourses());
-    console.log('coursebaaddispatch',courses);
   }, [ dispatch]);
   
   const coursecard=(
@@ -48,7 +45,6 @@ function Courses() {
       </Fragment>
 
 )
-console.log(courses);
     return (
         <div>
           <section className="page-banner pt-200 pb-100 bg_cover" style={{backgroundImage: 'url("assets/images/hero-bg.jpg")'}}>

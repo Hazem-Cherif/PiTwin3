@@ -15,8 +15,6 @@ export class Conclusion extends Component {
     
     alert('test');
         //e.preventDefault();
-    console.log(this.props.course);
-    console.log('token',this.props.token);
     this.props.dispatch(addCourse(this.props.token,this.props.course));
          // dispatch(addCourse(this.props.token,this.props.course));
         

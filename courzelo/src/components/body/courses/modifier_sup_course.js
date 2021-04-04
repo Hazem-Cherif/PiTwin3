@@ -9,7 +9,6 @@ function Modifiersupcourse() {
     const classes = useStyles();
     const {id} = useParams();
     const dispatch = useDispatch();
-    console.log(id);
     const courses = useSelector(state => state.courses);
     const [postcourse, setCourseData] = useState({ title: '', description: '' });
     useEffect(() => {
@@ -22,7 +21,6 @@ function Modifiersupcourse() {
           })
       }
   },[courses, id])
-  console.log('test1',courses);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

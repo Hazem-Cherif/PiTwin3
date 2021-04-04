@@ -2,7 +2,7 @@ import ACTIONS from '../actions/'
 
  
 const courses =[];
-const coursesReducer = (courses =[], action) => {
+const coursesReducer = (state = courses , action) => {
     switch(action.type){
         case ACTIONS.FETCH_ALL:
             return action.payload;
@@ -15,7 +15,7 @@ const coursesReducer = (courses =[], action) => {
         case ACTIONS.DELETE_COURSE:
             return courses.filter((course) => course._id !== action.payload);
         default:
-            return courses;
+            return state;
     }
 }
 

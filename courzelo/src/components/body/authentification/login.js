@@ -128,13 +128,14 @@ function Login(props) {
       
       <a >
       <GoogleLogin 
-            clientId = "328111978580-h50mir0c5i18iind4u3ihbnc07ukhp0l.apps.googleusercontent.com"              buttonText="LOGIN WITH GOOGLE"
-              onSuccess={responseGoogle}
+clientId = "328111978580-h50mir0c5i18iind4u3ihbnc07ukhp0l.apps.googleusercontent.com"
+onSuccess={responseGoogle}
                 cookiePolicy={'single_host_origin'}
                 />      </a>
                 <a >
       <FacebookLogin
-                 appId="3751041558265387"
+                 
+appId="3751041558265387"
                 autoLoad={false}
                 fields="name,email,picture"
              callback={responseFacebook} 
