@@ -1,6 +1,54 @@
-import React from 'react'
+import React, {Fragment,useState,useCallback,useEffect} from 'react'
+import { useDispatch ,useSelector} from 'react-redux';
+import { getCourses } from '../../../redux/actions/courseAction';
 
 function Courses() {
+  const courses = useSelector((state) => state.courses);
+  console.log('course',courses);
+  const dispatch = useDispatch();
+  console.log('courseafterdispatch',courses);
+  useEffect(() => {
+    console.log('courseuseeffect',courses);
+    dispatch(getCourses());
+    console.log('coursebaaddispatch',courses);
+  }, [ dispatch]);
+  
+  const coursecard=(
+    <Fragment>
+    <div className="col-xl-4 col-lg-4 col-md-6">
+        <div className="single-course wow fadeInUp" data-wow-delay=".2s">
+          <div className="course-img">
+            <a href="course-single.html">
+              <img src="assets/images/course/full-stack.jpg" alt />
+            </a>
+          </div>
+          <div className="course-info">
+            <h4><a href="course-single.html">titre</a></h4>
+            <h4><a href="course-single.html">description</a></h4>
+            <div className="course-meta">
+              <div className="meta-item">
+                <i className="lni lni-user" />
+                <span>3.5k</span>
+              </div>
+              <div className="meta-item">
+                <i className="lni lni-eye" />
+                <span>12k</span>
+              </div>
+              <div className="meta-item">
+                <i className="lni lni-star" />
+                <span>5.0</span>
+              </div>
+              <div className="price">
+                <span>$99.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </Fragment>
+
+)
+console.log(courses);
     return (
         <div>
           <section className="page-banner pt-200 pb-100 bg_cover" style={{backgroundImage: 'url("assets/images/hero-bg.jpg")'}}>
@@ -33,182 +81,46 @@ function Courses() {
       </div>
     </div>
     <div className="row mb-30">
-      <div className="col-xl-4 col-lg-4 col-md-6">
-        <div className="single-course wow fadeInUp" data-wow-delay=".2s">
-          <div className="course-img">
-            <a href="course-single.html">
-              <img src="assets/images/course/full-stack.jpg" alt="hhjh" />
-            </a>
-          </div>
-          <div className="course-info">
-            <h4><a href="course-single.html">Full-stack Web Development</a></h4>
-            <div className="course-meta">
-              <div className="meta-item">
-                <i className="lni lni-user" />
-                <span>3.5k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-eye" />
-                <span>12k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-star" />
-                <span>5.0</span>
-              </div>
-              <div className="price">
-                <span>$99.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-xl-4 col-lg-4 col-md-6">
-        <div className="single-course wow fadeInUp" data-wow-delay=".4s">
-          <div className="course-img">
-            <a href="course-single.html">
-              <img src="assets/images/course/design.jpg" alt="gg" />
-            </a>
-          </div>
-          <div className="course-info">
-            <h4><a href="course-single.html">UX/UI Design</a></h4>
-            <div className="course-meta">
-              <div className="meta-item">
-                <i className="lni lni-user" />
-                <span>3k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-eye" />
-                <span>11k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-star" />
-                <span>5.0</span>
-              </div>
-              <div className="price">
-                <span>$39.00</span>
+
+    {courses.map((course) => (
+          <Fragment>
+          <div className="col-xl-4 col-lg-4 col-md-6">
+              <div className="single-course wow fadeInUp" data-wow-delay=".2s">
+                <div className="course-img">
+                  <a href="course-single.html">
+                    <img src="assets/images/course/full-stack.jpg" alt />
+                  </a>
+                </div>
+                <div className="course-info">
+                  <h4><a href="course-single.html">{course.title}</a></h4>
+                  <h4><a href="course-single.html">{course.description}</a></h4>
+                  <div className="course-meta">
+                    <div className="meta-item">
+                      <i className="lni lni-user" />
+                      <span>3.5k</span>
+                    </div>
+                    <div className="meta-item">
+                      <i className="lni lni-eye" />
+                      <span>12k</span>
+                    </div>
+                    <div className="meta-item">
+                      <i className="lni lni-star" />
+                      <span>5.0</span>
+                    </div>
+                    <div className="price">
+                      <span>$99.00</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-xl-4 col-lg-4 col-md-6">
-        <div className="single-course wow fadeInUp" data-wow-delay=".6s">
-          <div className="course-img">
-            <a href="course-single.html">
-              <img src="assets/images/course/js.jpg" alt="llj" />
-            </a>
-          </div>
-          <div className="course-info">
-            <h4><a href="course-single.html">Modern JavaScript</a></h4>
-            <div className="course-meta">
-              <div className="meta-item">
-                <i className="lni lni-user" />
-                <span>2.5k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-eye" />
-                <span>18k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-star" />
-                <span>4.0</span>
-              </div>
-              <div className="price">
-                <span>$19.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="row mb-30">
-      <div className="col-xl-4 col-lg-4 col-md-6">
-        <div className="single-course wow fadeInUp" data-wow-delay=".2s">
-          <div className="course-img">
-            <a href="course-single.html">
-              <img src="assets/images/course/business.jpg" alt="mkm" />
-            </a>
-          </div>
-          <div className="course-info">
-            <h4><a href="course-single.html">Business Development</a></h4>
-            <div className="course-meta">
-              <div className="meta-item">
-                <i className="lni lni-user" />
-                <span>1.5k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-eye" />
-                <span>15k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-star" />
-                <span>4.5</span>
-              </div>
-              <div className="price">
-                <span>$19.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-xl-4 col-lg-4 col-md-6">
-        <div className="single-course wow fadeInUp" data-wow-delay=".4s">
-          <div className="course-img">
-            <a href="course-single.html">
-              <img src="assets/images/course/marketing.jpg" alt="kln" />
-            </a>
-          </div>
-          <div className="course-info">
-            <h4><a href="course-single.html">Email Marketing 101</a></h4>
-            <div className="course-meta">
-              <div className="meta-item">
-                <i className="lni lni-user" />
-                <span>1.9k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-eye" />
-                <span>5k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-star" />
-                <span>5.0</span>
-              </div>
-              <div className="price">
-                <span>$69.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-xl-4 col-lg-4 col-md-6">
-        <div className="single-course wow fadeInUp" data-wow-delay=".6s">
-          <div className="course-img">
-            <a href="course-single.html">
-              <img src="assets/images/course/python.jpg" alt="bbb" />
-            </a>
-          </div>
-          <div className="course-info">
-            <h4><a href="course-single.html">Getting Started with Python</a></h4>
-            <div className="course-meta">
-              <div className="meta-item">
-                <i className="lni lni-user" />
-                <span>1.2k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-eye" />
-                <span>13k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-star" />
-                <span>3.5</span>
-              </div>
-              <div className="price">
-                <span>$9.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </Fragment>
+        ))}
+
+      
+      
+      
+      
     </div>
     <div className="row">
       <div className="col-xl-12">

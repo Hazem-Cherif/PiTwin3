@@ -23,14 +23,13 @@ function Login(props) {
     const {email, password, err, success} = user
     
     const [setShow] = useState(false);
+    console.log('test2',setShow);
     const handleCloseforget = () => {
         props.clickHandler(true);
-        
-        setShow(true);
-        
+        console.log('test1',setShow);    
         
     };
-
+    
     const handleChangeInput = e=> {
         const {name, value} = e.target
         setUser({...user, [name]:value, err: '', success: ''})

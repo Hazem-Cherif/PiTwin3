@@ -1,7 +1,21 @@
-import React from 'react'
+import React, {Fragment,useState,useCallback,useEffect} from 'react'
+import { useDispatch ,useSelector} from 'react-redux';
+import { getAllCoursesByUser } from '../../../redux/actions/courseAction';
+import { TextField, Button, Typography, Paper,Grid } from '@material-ui/core';
+import useStyles from './styles';
 import {Link} from 'react-router-dom'
 
 function GererCourses() {
+  const classes = useStyles();
+  const token = useSelector(state => state.token);
+  const courses = useSelector((state) => state.courses);
+console.log('testhazem',courses);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    
+    dispatch(getAllCoursesByUser(token))
+  }, [ dispatch]);
+  
     return (
         
 
@@ -36,26 +50,28 @@ function GererCourses() {
           </div>
         </div>
         <div>
-          <Link to='qst' type="button" className="btn btn-dark" style={{bac0kgroundColor: '#f2a92c',borderColor: '#f2a92c',color: 'white'}}><b>New Course</b></Link>
+          <button type="button" className="btn btn-primary" style={{backgroundColor: '#f2a92c',borderColor: '#f2a92c',color: 'white'}}><b><Link to={`/addcourse/${token}`} >New Course</Link></b></button>
         </div>
       </div>
     </div>
     <br /><br /><br />
     <div>
       <table style={{borderColor: 'white'}} width="95%" border="none" align="center">
-        <tbody><tr>
-            <td rowSpan={2}><img src="./assets/hh.png" className="img-thumbnail" /></td>
-            <td width="20%"><h5><b>angular</b></h5></td>
+        <tbody>
+        {courses.map((course) => (
+          <Fragment>
+          <tr>
+            <td ><img src="./assets/hh.png" className="img-thumbnail" /></td>
+            <td width="20%"><h5><b>{course.title}</b></h5></td>
             <td width="60%" colSpan={2}><label htmlFor="file">Finish your course:</label>
               <progress id="file" max={100} value={70}> 70% </progress></td>
+              <td><Link to={`/modifiersupcourse/${course._id}`} >modifier/supprimer</Link></td>
           </tr>
-          <tr>
-            <td width="20%"><h5><b>react</b></h5></td>
-            <td width="60%"><label htmlFor="file">Finish your course</label>
-              <progress id="file" max={100} value={70}> 70% </progress></td>
-          </tr>
+         </Fragment>
+          ))}
         </tbody></table>
     </div>
+   
   </div>
 
 

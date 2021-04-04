@@ -14,6 +14,8 @@ import Admin from '../dashboard/index'
 import DetailAddCourse from './courses/DetailAddCourse'
 import Questionnaire from './courses/Questionnaire'
 import GererCourses from './courses/GererCourses'
+import AddCourse from './courses/addcourse'
+import Modifiersupcourse from './courses/modifier_sup_course'
 import qst from './courses/components/UserForm'
 
 function Body() {
@@ -37,6 +39,8 @@ function Body() {
                 <Route path="/DetailAddCourse" component={isLogged ? DetailAddCourse : NotFound} exact />
                 <Route path="/Questionnaire" component={isLogged ? Questionnaire : NotFound} exact />
                 <Route path="/GererCourses" component={isLogged ? GererCourses : NotFound} exact />
+                <Route path="/addcourse/:token" component={isLogged ? AddCourse : NotFound} exact />
+                <Route path="/modifiersupcourse/:id" component={isLogged ? Modifiersupcourse : NotFound} exact />
                 <Route path="/courses" component={Courses} exact />
                 <Route path="/qst" component={isLogged ? qst : NotFound} exact />
 
