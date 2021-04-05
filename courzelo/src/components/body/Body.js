@@ -9,14 +9,18 @@ import NotFound from '../util/NotFound/NotFound'
 import ForgotPass from './authentification/ForgetPassword';
 import ResetPass from '../body/authentification/ResetPassword'
 import Profile from './profile/Profile'
-import Courses from './courses/courses';
+import Courses from './courses/GererCours/courses';
 import Admin from '../dashboard/index'
-import DetailAddCourse from './courses/DetailAddCourse'
+import DetailAddCourse from './courses/GererCours/DetailAddCourse'
 import Questionnaire from './courses/Questionnaire'
 import GererCourses from './courses/GererCourses'
-import AddCourse from './courses/addcourse'
-import Modifiersupcourse from './courses/modifier_sup_course'
+import AddCourse from './courses/GererCours/addcourse'
+import Modifiersupcourse from './courses/GererCours/modifier_sup_course'
 import qst from './courses/components/UserForm'
+
+
+
+
 
 function Body() {
     const auth = useSelector(state => state.auth)
@@ -40,9 +44,13 @@ function Body() {
                 <Route path="/Questionnaire" component={isLogged ? Questionnaire : NotFound} exact />
                 <Route path="/GererCourses" component={isLogged ? GererCourses : NotFound} exact />
                 <Route path="/addcourse/:token" component={isLogged ? AddCourse : NotFound} exact />
+                
                 <Route path="/modifiersupcourse/:id" component={isLogged ? Modifiersupcourse : NotFound} exact />
                 <Route path="/courses" component={Courses} exact />
                 <Route path="/qst" component={isLogged ? qst : NotFound} exact />
+
+                <Route path="/admin" component={Admin} exact />
+            
 
                 <Route path="/admin" component={Admin} exact />
 

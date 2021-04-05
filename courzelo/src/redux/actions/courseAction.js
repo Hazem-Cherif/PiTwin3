@@ -9,7 +9,7 @@ export const addCourse = (token,post) => async (dispatch) => {
 
     return dispatch({ type: ACTIONS.CREATE_COURSE, payload: data });
   } catch (error) {
-    return res.status(500).json({msg: err.message})
+    
 
   }
 };
@@ -19,7 +19,7 @@ export const getCourses = () => async (dispatch) => {
     console.log('test5666565');
     return dispatch({ type: ACTIONS.FETCH_ALL, payload: data });
   } catch (error) {
-    return res.status(500).json({msg: err.message})
+    
 
   }
 };
@@ -29,7 +29,7 @@ export const getAllCoursesByUser = (token) => async (dispatch) => {
     const { data } = await axios.get('/course/coursebyuser',{headers: {Authorization: token}});
     return dispatch({ type: ACTIONS.FETCH_ALL_COURSE_BY_USER, payload: data });
   } catch (error) {
-    return res.status(500).json({msg: err.message})
+    
 
   }
 };
@@ -40,7 +40,7 @@ export const updateCourse = (id, editCourse) => async (dispatch) => {
 
     return dispatch({ type: ACTIONS.UPDATE_COURSE, payload: data });
   } catch (error) {
-    return res.status(500).json({msg: err.message})
+    
   }
 };
 export const deleteCourse = (id) => async (dispatch) => {
@@ -50,6 +50,6 @@ export const deleteCourse = (id) => async (dispatch) => {
 
     return dispatch({ type: ACTIONS.DELETE_COURSE, payload:id });
   } catch (error) {
-    return res.status(500).json({msg: err.message})
+   
   }
 };

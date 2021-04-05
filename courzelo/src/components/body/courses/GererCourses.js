@@ -1,7 +1,7 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
 import { getAllCoursesByUser, getCourses } from '../../../redux/actions/courseAction';
-import useStyles from './styles';
+import useStyles from './GererCours/styles';
 import {Link} from 'react-router-dom'
 
 function GererCourses() {
