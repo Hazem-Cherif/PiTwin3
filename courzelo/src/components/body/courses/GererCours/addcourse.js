@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FormCourseDetails from './FormCourseDetails';
 import Introduction from './introduction';
 import Conclusion from './conclusion';
-
+import axios from 'axios'
 export class AddCourse extends Component {
   
   state = {
@@ -24,7 +24,8 @@ export class AddCourse extends Component {
         text2:'',
         text3:'',
         text4:''
-        }
+        },
+        CourseImg:''
     
      
 };
@@ -59,7 +60,42 @@ export class AddCourse extends Component {
    
   };
   
+  handleChangeIm = e => {
+    const img=this.state;
+    img.CourseImg=e.target.value;
+    this.setState({CourseImg:img
+   
+    });
+   
+  };
+  uploadHandler = async e => {
+    e.preventDefault()
   
+    const data = this.state
+  
+    const token = this.props.token;
+    
+    const file = e.target.files[0]
+  
+    if(!file) return this.state;
+    
+    if(file.size > 1024 * 1024)
+       return this.state
+  
+    if(file.type !== 'image/jpeg' && file.type !== 'image/png')
+       return this.state;
+  
+    let formData =  new FormData()
+    formData.append('file', file)
+  
+              
+    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+       headers: {'content-type': 'multipart/form-data', Authorization: token}
+    }).then(res =>  {
+      
+        this.setState({CourseImg: res.data.url})
+    })
+  }
  
   
   handleChangePhase1 =  e => {
@@ -135,8 +171,8 @@ export class AddCourse extends Component {
   };
   render() {
     const { step } = this.state;
-    const { title, description, introduction, conclusion } = this.state;
-    const course = { title, description, introduction,conclusion };
+    const { title, description, introduction, conclusion, CourseImg } = this.state;
+    const course = { title, description, introduction,conclusion, CourseImg };
      console.log('testkakakakakak',this.props.match.params.token);
     switch (step) {
       case 1:
@@ -144,7 +180,9 @@ export class AddCourse extends Component {
           <FormCourseDetails
             nextStep={this.nextStep}
             handleChange={this.handleChange}
+            uploadHandler={this.uploadHandler}
             course={course}
+            token={this.props.match.params.token}
             
           />
         );

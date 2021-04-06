@@ -21,6 +21,7 @@ app.get('/', (req,res) => res.json({msg: 'Welcome to the Courzelo API'}));
 app.use('/user', require('./routes/userRouter'))
 app.use('/course', require('./routes/courseRouter'))
 app.use('/api', require('./routes/upload'))
+app.use('/CourseImg', require('./routes/courseImg'))
 
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {

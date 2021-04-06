@@ -5,6 +5,7 @@ const courseSchema = mongoose.Schema({
     idUser: String,
     title: String,
     description: String,
+    CourseImg: String,
     introduction:
         {
         text1:String,

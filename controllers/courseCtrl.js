@@ -7,9 +7,9 @@ const courseCtrl = {
           const idUser=req.user.id;
          
          
-        const {title, description,introduction,conclusion } = req.body;
+        const {title, description,introduction,conclusion,CourseImg } = req.body;
        
-        const courseModel = new CourseModel({ idUser,title, description,introduction,conclusion })
+        const courseModel = new CourseModel({ idUser,title, description,introduction,conclusion,CourseImg })
     
         try {
             await courseModel.save();

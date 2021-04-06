@@ -9,13 +9,22 @@ import '../MainCoursForm.css'
 
 
 export class FormCourseDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        CourseImg: []
+    }
+}
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
   };
 
+  fileChangeHandler = e => {
+    this.setState({ file: e.target.files[0] })
+  }
   render() {
-    const { course, handleChange } = this.props;
+    const { course, handleChange,uploadHandler } = this.props;
     return (
       <div className="main">
            
@@ -45,6 +54,12 @@ export class FormCourseDetails extends Component {
           <br />
           <br />
 
+ 
+          <input type="file" 
+          name="file"
+          id="file_up" 
+         onChange={(e)=>uploadHandler(e)}
+         Value={course.CourseImg} />
 
           <label > Course description </label>
           <TextareaAutosize
