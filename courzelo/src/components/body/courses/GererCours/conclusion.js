@@ -13,6 +13,23 @@ import ckeditor, { CKEditor } from '@ckeditor/ckeditor5-react';
 
 
 export class Conclusion extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      conclusion:
+      {
+        video1: [],
+        img1:[],
+        video2: [],
+        img2:[],
+        video3: [],
+        img3:[],
+        video4: [],
+        
+
+      }
+    }
+  }
 
   handleSubmit = async (dispatch) => {
 
@@ -34,7 +51,7 @@ export class Conclusion extends Component {
   };
 
   render() {
-    const { course, handleChangePhase5, handleChangePhase6, handleChangePhase7, handleChangePhase8, token } = this.props;
+    const { course, handleChangePhase5, handleChangePhase6, handleChangePhase7, handleChangePhase8,uploadHandlerVideo5,uploadHandlerVideo6,uploadHandlerVideo7,uploadHandlerVideo8,uploadHandlerImg5,uploadHandlerImg6,uploadHandlerImg7,uploadHandlerImg8 ,token } = this.props;
     return (
       <div className="main">
 
@@ -83,15 +100,22 @@ export class Conclusion extends Component {
                       <div className="collapse" id="collapseExampleImg1">
                         <div className="cardd card-body">
                           <div className="form-group">
-                           <p>image</p>
-                          </div>    </div>
+                           
+                          </div>   <input type="file" 
+          name="file"
+          id="file_up" 
+         onChange={(e)=>uploadHandlerImg5(e)}
+         Value={course.conclusion.img5} /> </div>
                       </div>
 
                       <div className="collapse" id="collapseExampleVid1">
                         <div className="cardd card-body">
                           <div className="form-group">
-                            <p>vid</p>
-                          </div>    </div>
+                            
+                          </div><input type="file"
+                            name="file"
+                            id="file_up"
+                            onChange={(e) => uploadHandlerVideo5(e)} ></input>     </div>
                       </div>
                     </>
 
@@ -141,18 +165,25 @@ export class Conclusion extends Component {
                           </div>    </div>
                       </div>
 
-                      <div className="collapse" id="collapseExampleImg1">
+                      <div className="collapse" id="collapseExampleImg2">
                         <div className="cardd card-body">
                           <div className="form-group">
-                           <p>image</p>
-                          </div>    </div>
+                           
+                          </div>  <input type="file" 
+          name="file"
+          id="file_up" 
+         onChange={(e)=>uploadHandlerImg6(e)}
+         Value={course.conclusion.img6} />  </div>
                       </div>
 
-                      <div className="collapse" id="collapseExampleVid1">
+                      <div className="collapse" id="collapseExampleVid2">
                         <div className="cardd card-body">
                           <div className="form-group">
-                            <p>vid</p>
-                          </div>    </div>
+                            
+                          </div> <input type="file"
+                            name="file"
+                            id="file_up"
+                            onChange={(e) => uploadHandlerVideo6(e)} ></input>    </div>
                       </div>
                     </>
 
@@ -201,18 +232,25 @@ export class Conclusion extends Component {
                           </div>    </div>
                       </div>
 
-                      <div className="collapse" id="collapseExampleImg1">
+                      <div className="collapse" id="collapseExampleImg3">
                         <div className="cardd card-body">
                           <div className="form-group">
-                           <p>image</p>
-                          </div>    </div>
+                           
+                          </div> <input type="file" 
+          name="file"
+          id="file_up" 
+         onChange={(e)=>uploadHandlerImg7(e)}
+         Value={course.conclusion.img7} />   </div>
                       </div>
 
-                      <div className="collapse" id="collapseExampleVid1">
+                      <div className="collapse" id="collapseExampleVid3">
                         <div className="cardd card-body">
                           <div className="form-group">
-                            <p>vid</p>
-                          </div>    </div>
+                            
+                          </div>  <input type="file"
+                            name="file"
+                            id="file_up"
+                            onChange={(e) => uploadHandlerVideo7(e)} ></input>   </div>
                       </div>
                     </>
 
@@ -261,18 +299,25 @@ export class Conclusion extends Component {
                           </div>    </div>
                       </div>
 
-                      <div className="collapse" id="collapseExampleImg1">
+                      <div className="collapse" id="collapseExampleImg4">
                         <div className="cardd card-body">
                           <div className="form-group">
-                           <p>image</p>
-                          </div>    </div>
+                           
+                          </div> <input type="file" 
+          name="file"
+          id="file_up" 
+         onChange={(e)=>uploadHandlerImg8(e)}
+         Value={course.conclusion.img8} />   </div>
                       </div>
 
-                      <div className="collapse" id="collapseExampleVid1">
+                      <div className="collapse" id="collapseExampleVid4">
                         <div className="cardd card-body">
                           <div className="form-group">
-                            <p>vid</p>
-                          </div>    </div>
+                            
+                          </div>  <input type="file"
+                            name="file"
+                            id="file_up"
+                            onChange={(e) => uploadHandlerVideo8(e)} ></input>   </div>
                       </div>
                     </>
 

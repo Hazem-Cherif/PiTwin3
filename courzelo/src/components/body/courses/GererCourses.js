@@ -11,7 +11,7 @@ function GererCourses() {
   useEffect(() => {
     
     dispatch(getAllCoursesByUser(token))
-  }, [ dispatch(getCourses())]);
+  }, [ dispatch(getAllCoursesByUser(token))]);
   
     return (
         

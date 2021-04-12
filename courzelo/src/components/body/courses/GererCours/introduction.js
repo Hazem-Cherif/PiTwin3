@@ -14,6 +14,23 @@ import TextField from '@material-ui/core/TextField';
 
 
 export class Introduction extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      introduction:
+      {
+        video1: [],
+        img1:[],
+        video2: [],
+        img2:[],
+        video3: [],
+        img3:[],
+        video4: [],
+        
+
+      }
+    }
+  }
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -25,7 +42,7 @@ export class Introduction extends Component {
   };
 
   render() {
-    const { course, handleChangePhase1, handleChangePhase2, handleChangePhase3, handleChangePhase4 } = this.props;
+    const { course, handleChangePhase1, handleChangePhase2, handleChangePhase3, handleChangePhase4, uploadHandlerVideo1, uploadHandlerVideo2, uploadHandlerVideo3, uploadHandlerVideo4,uploadHandlerImg1,uploadHandlerImg2,uploadHandlerImg3,uploadHandlerImg4 } = this.props;
     return (
       <div className="main">
 
@@ -51,7 +68,7 @@ export class Introduction extends Component {
                       <section id="marzen" className="tab-panel">
                         <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1" /></i>
                         <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid1" aria-expanded="false" aria-controls="collapseExampleVid1" /> </i>
-                        <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg1" aria-expanded="false" aria-controls="collapseExampleImg1"/> </i>
+                        <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg1" aria-expanded="false" aria-controls="collapseExampleImg1" /> </i>
                       </section>
 
 
@@ -75,15 +92,23 @@ export class Introduction extends Component {
                       <div className="collapse" id="collapseExampleImg1">
                         <div className="cardd card-body">
                           <div className="form-group">
-                           <p>image</p>
-                          </div>    </div>
+                            
+                          </div> <input type="file" 
+          name="file"
+          id="file_up" 
+         onChange={(e)=>uploadHandlerImg1(e)}
+         Value={course.introduction.img1} />
+    </div>
                       </div>
 
                       <div className="collapse" id="collapseExampleVid1">
                         <div className="cardd card-body">
                           <div className="form-group">
-                            <p>vid</p>
-                          </div>    </div>
+
+                          </div> <input type="file"
+                            name="file"
+                            id="file_up"
+                            onChange={(e) => uploadHandlerVideo1(e)} ></input>   </div>
                       </div>
                     </>
 
@@ -111,9 +136,9 @@ export class Introduction extends Component {
 
                     <>
                       <section id="marzen" className="tab-panel">
-                      <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" /></i>
+                        <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" /></i>
                         <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid2" aria-expanded="false" aria-controls="collapseExampleVid2" /> </i>
-                        <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg2" aria-expanded="false" aria-controls="collapseExampleImg2"/> </i>
+                        <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg2" aria-expanded="false" aria-controls="collapseExampleImg2" /> </i>
                       </section>
 
 
@@ -136,15 +161,23 @@ export class Introduction extends Component {
                       <div className="collapse" id="collapseExampleImg2">
                         <div className="cardd card-body">
                           <div className="form-group">
-                           <p>image</p>
-                          </div>    </div>
+                            
+                          </div>  <input type="file" 
+          name="file"
+          id="file_up" 
+         onChange={(e)=>uploadHandlerImg2(e)}
+         Value={course.introduction.img2} />
+       </div>
                       </div>
 
                       <div className="collapse" id="collapseExampleVid2">
                         <div className="cardd card-body">
                           <div className="form-group">
-                          <p>vid</p>
-                          </div>    </div>
+                            
+                          </div><input type="file"
+                            name="file"
+                            id="file_up"
+                            onChange={(e) => uploadHandlerVideo2(e)} ></input>     </div>
                       </div>
                     </>
 
@@ -171,9 +204,9 @@ export class Introduction extends Component {
 
                     <>
                       <section id="marzen" className="tab-panel">
-                      <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3" /></i>
+                        <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3" /></i>
                         <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid3" aria-expanded="false" aria-controls="collapseExampleVid3" /> </i>
-                        <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg3" aria-expanded="false" aria-controls="collapseExampleImg3"/> </i>
+                        <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg3" aria-expanded="false" aria-controls="collapseExampleImg3" /> </i>
                       </section>
 
 
@@ -196,15 +229,22 @@ export class Introduction extends Component {
                       <div className="collapse" id="collapseExampleImg3">
                         <div className="cardd card-body">
                           <div className="form-group">
-                           <p>image</p>
-                          </div>    </div>
+                            
+                          </div><input type="file" 
+          name="file"
+          id="file_up" 
+         onChange={(e)=>uploadHandlerImg3(e)}
+         Value={course.introduction.img3} />    </div>
                       </div>
 
                       <div className="collapse" id="collapseExampleVid3">
                         <div className="cardd card-body">
                           <div className="form-group">
-                          <p>vid</p>
-                          </div>    </div>
+                            
+                          </div> <input type="file"
+                            name="file"
+                            id="file_up"
+                            onChange={(e) => uploadHandlerVideo3(e)} ></input>    </div>
                       </div>
                     </>
 
@@ -231,9 +271,9 @@ export class Introduction extends Component {
 
                     <>
                       <section id="marzen" className="tab-panel">
-                      <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                        <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
                         <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                        <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4"/> </i>
+                        <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
                       </section>
 
 
@@ -256,15 +296,22 @@ export class Introduction extends Component {
                       <div className="collapse" id="collapseExampleImg4">
                         <div className="cardd card-body">
                           <div className="form-group">
-                           <p>image</p>
-                          </div>    </div>
+                           
+                          </div>   <input type="file" 
+          name="file"
+          id="file_up" 
+         onChange={(e)=>uploadHandlerImg4(e)}
+         Value={course.introduction.img4} /> </div>
                       </div>
 
                       <div className="collapse" id="collapseExampleVid4">
                         <div className="cardd card-body">
                           <div className="form-group">
-                          <p>vid</p>
-                          </div>    </div>
+                            
+                          </div> <input type="file"
+                            name="file"
+                            id="file_up"
+                            onChange={(e) => uploadHandlerVideo4(e)} ></input>    </div>
                       </div>
                     </>
 

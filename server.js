@@ -22,6 +22,7 @@ app.use('/user', require('./routes/userRouter'))
 app.use('/course', require('./routes/courseRouter'))
 app.use('/api', require('./routes/upload'))
 app.use('/CourseImg', require('./routes/courseImg'))
+app.use('/CourseVideo', require('./routes/courseVideo'))
 
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {

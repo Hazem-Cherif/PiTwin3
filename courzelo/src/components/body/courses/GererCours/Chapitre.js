@@ -50,7 +50,7 @@ export class Chapitre extends Component {
                                             </button>
 
                                         </div>
-                                        <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div id="collapseOne" className="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
                                             <div className="card-body">
                                                 <div className="card">
 
