@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FormCourseDetails from './FormCourseDetails';
 import Introduction from './introduction';
 import Conclusion from './conclusion';
+import Chapitre from './Chapitre';
 import axios from 'axios'
 export class AddCourse extends Component {
   
@@ -98,77 +99,95 @@ export class AddCourse extends Component {
   }
  
   
-  handleChangePhase1 =  e => {
+  handleChangePhase1 =  (e, editor) => {
+    const data = editor.getData()
     const intro=this.state.introduction;
-    intro.text1=e.target.value;
+    intro.text1= data;
     this.setState({introduction:intro
    
     });
    
     
   };
-  handleChangePhase2 =  e => {
+
+  handleChangePhase2 =  (e, editor) => {
+    const data = editor.getData()
     const intro=this.state.introduction;
-    intro.text2=e.target.value;
+    intro.text2= data;
     this.setState({introduction:intro
    
     });
    
-  };
-  handleChangePhase3 =  e => {
-    
-    const intro=this.state.introduction;
-    intro.text3=e.target.value;
-    this.setState({introduction:intro
-   
-    });
     
   };
-  handleChangePhase4 =  e => {
-    
-   const intro=this.state.introduction;
-    intro.text4=e.target.value;
+
+  handleChangePhase3 =  (e, editor) => {
+    const data = editor.getData()
+    const intro=this.state.introduction;
+    intro.text3= data;
     this.setState({introduction:intro
    
     });
-  
+   
+    
+  };
+
+   handleChangePhase4 =  (e, editor) => {
+    const data = editor.getData()
+    const intro=this.state.introduction;
+    intro.text4= data;
+    this.setState({introduction:intro
+   
+    });
+   
+    
   };
 
 
-  handleChangePhase5 =  e => {
+  handleChangePhase5 =  (e, editor) => {
+    const data = editor.getData()
     const conc=this.state.conclusion;
-    conc.text1=e.target.value;
+    conc.text1= data;
     this.setState({conclusion:conc
    
     });
-  
+   
+    
   };
-  handleChangePhase6 =  e => {
+
+  handleChangePhase6 =  (e, editor) => {
+    const data = editor.getData()
     const conc=this.state.conclusion;
-    conc.text2=e.target.value;
+    conc.text2= data;
     this.setState({conclusion:conc
    
     });
+   
     
   };
-  handleChangePhase7 =  e => {
-    
+
+  handleChangePhase7 =  (e, editor) => {
+    const data = editor.getData()
     const conc=this.state.conclusion;
-    conc.text3=e.target.value;
+    conc.text3= data;
     this.setState({conclusion:conc
    
     });
    
-  };
-  handleChangePhase8 =  e => {
     
-   const conc=this.state.conclusion;
-    conc.text4=e.target.value;
+  }; 
+
+  handleChangePhase8 =  (e, editor) => {
+    const data = editor.getData()
+    const conc=this.state.conclusion;
+    conc.text4= data;
     this.setState({conclusion:conc
    
     });
+   
     
   };
+
   render() {
     const { step } = this.state;
     const { title, description, introduction, conclusion, CourseImg } = this.state;
@@ -198,6 +217,17 @@ export class AddCourse extends Component {
         />
         );
         case 3:
+        return (
+          <Chapitre
+          nextStep={this.nextStep}
+          handleChangePhase1={this.handleChangePhase1}
+          handleChangePhase2={this.handleChangePhase2}
+          handleChangePhase3={this.handleChangePhase3}
+          handleChangePhase4={this.handleChangePhase4}
+          course={course}
+        />
+        );
+        case 4:
         return (
           <Conclusion
           nextStep={this.nextStep}
