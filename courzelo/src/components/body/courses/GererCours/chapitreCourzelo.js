@@ -88,7 +88,7 @@ import './StepForm.css';
                                       <div className="cardd-header" id="headingOne">
 
                                           <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                              <h5>Phase 1: <b> Why? </b> </h5>
+                                              <h5>Phase 1: <b> Connect </b> </h5>
                                           </button>
 
                                       </div>
@@ -96,7 +96,7 @@ import './StepForm.css';
                                           <div className="card-body">
                                               <div className="card">
 
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                                                  <p>In the first quadrant, the reason why something should be learned is created, the answer to the question ‘why?’. This makes use of the ‘right mode’ of the brain. The goal is to have the learner experience it for themselves by getting them involved. This can be done, for example, by having the learner share his or her own experiences. This way the experience is stimulated by personal meaning. The teacher or expert who wants to convey something to others has a motivating role here and only has to guide the discussion.</p>
 
 
                                                   <div className="tabset">
@@ -171,14 +171,14 @@ import './StepForm.css';
                                       <div className="cardd-header" id="headingTwo">
                                           <h2 className="mb-0">
                                               <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                  <h5>Phase 2: <b> Why? </b> </h5>
+                                                  <h5>Phase 2: <b> Attend </b> </h5>
                                               </button>
                                           </h2>
                                       </div>
                                       <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                           <div className="card-body">
                                               <div className="card">
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                                                  <p>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. The goals of the first quadrant are: giving meaning to the subject, visualising and allowing the student to integrate aspects of the subject.</p>
 
 
                                                   <div className="tabset">
@@ -258,14 +258,14 @@ import './StepForm.css';
                                       <div className="cardd-header" id="headingThree">
                                           <h2 className="mb-0">
                                               <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                  <h5>Phase 3: <b> Why? </b> </h5>
+                                                  <h5>Phase 3: <b> Imagine </b> </h5>
                                               </button>
                                           </h2>
                                       </div>
                                       <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                           <div className="card-body">
                                               <div className="card">
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                                                  <p>The question of ‘what?’ needs to be answered in the second quadrant. In this step, an attempt is made to make the student reflect more deeply. It is an integrating step in the right mode of the brain. Teachers should move the students from the concrete to the abstract. The subjective experiences will be mixed with the abstract theory that will be handled at a later stage. This allows pupils to form a picture of the subject material, which makes them reinforce their focus.</p>
 
 
                                                   <div className="tabset">
@@ -335,14 +335,14 @@ import './StepForm.css';
                                   <div className="cardd-header" id="headingFour">
                                       <h2 className="mb-0">
                                           <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                              <h5>Phase 4: <b> Why? </b> </h5>
+                                              <h5>Phase 4: <b> Inform </b> </h5>
                                           </button>
                                       </h2>
                                   </div>
                                   <div id="collapseFour" className="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                                       <div className="card-body">
                                           <div className="card">
-                                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                                              <p>In the left-hand mode of quadrant two, the teacher takes the student to the core of the conceptual information. This is all about taking in information. The information that you choose to share should be based on the concept and shared experiences, and should lead to further research by the student. The goals in quadrant two are conceptualising, defining, shaping and acquiring knowledge.</p>
 
                                               <div className="tabset">
                                                   {/* Tab 4 */}
@@ -411,14 +411,14 @@ import './StepForm.css';
                                   <div className="cardd-header" id="headingFive">
                                       <h2 className="mb-0">
                                           <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                              <h5>Phase 5: <b> Why? </b> </h5>
+                                              <h5>Phase 5: <b> Practice </b> </h5>
                                           </button>
                                       </h2>
                                   </div>
                                   <div id="collapseFive" className="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
                                       <div className="card-body">
                                           <div className="card">
-                                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                                              <p>In the third quadrant the ‘how’ question is answered. In this step, students actively get started with the knowledge gained from the previous steps from the left mode. They will use worksheets, run experiments or use related technology.</p>
 
 
                                               <div className="tabset">
@@ -487,14 +487,14 @@ import './StepForm.css';
                                   <div className="cardd-header" id="headingSix">
                                       <h2 className="mb-0">
                                           <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                              <h5>Phase 6: <b> Why? </b> </h5>
+                                              <h5>Phase 6: <b> Extand </b> </h5>
                                           </button>
                                       </h2>
                                   </div>
                                   <div id="collapseSix" className="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
                                       <div className="card-body">
                                           <div className="card">
-                                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                                              <p>The teacher can let students create a project proposal related to the curriculum, which encourages them to think actively. The objectives from quadrant three include collecting data, asking questions, hypothesising, tinkering, experimenting and making decisions.</p>
 
 
                                               <div className="tabset">
@@ -560,14 +560,14 @@ import './StepForm.css';
                                   <div className="cardd-header" id="headingSeven">
                                       <h2 className="mb-0">
                                           <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                              <h5>Phase 7: <b> Why? </b> </h5>
+                                              <h5>Phase 7: <b> Refine </b> </h5>
                                           </button>
                                       </h2>
                                   </div>
                                   <div id="collapseSeven" className="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
                                       <div className="card-body">
                                           <div className="card">
-                                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                                              <p>In the fourth quadrant, the ‘what if’ question will be answered. In this step, the students are asked to analyse what they’ve planned as an addition to what they’ve learned from the previous step. The analytical aspect to this step makes it an activity for the left mode. This seventh step requires students to refine what they’ve learned and applied in the exercises.</p>
 
 
                                               <div className="tabset">
@@ -637,14 +637,14 @@ import './StepForm.css';
                                   <div className="cardd-header" id="headingEight">
                                       <h2 className="mb-0">
                                           <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                              <h5>Phase 8: <b> Why? </b> </h5>
+                                              <h5>Phase 8: <b> Perform </b> </h5>
                                           </button>
                                       </h2>
                                   </div>
                                   <div id="collapseEight" className="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
                                       <div className="card-body">
                                           <div className="card">
-                                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                                              <p>In the final step of the 4MAT model’s learning process, the students explain to each other what they have learned or created. It’s also important in this step that the students are asked to talk about what they’ve learned and gained from this entire cycle. The goals in the fourth quadrant are, among others: identify limitations, review, close, summarise and evaluate.</p>
 
 
                                               <div className="tabset">

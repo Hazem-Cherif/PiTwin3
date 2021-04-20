@@ -63,7 +63,7 @@ export class Conclusion extends Component {
               <p className="parag">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani, quam conciliavit ipsa natura, ita contracta res est et adducta in angustum ut omnis caritas aut inter duos aut inter paucos iungeretur.</p>
               <div className="card">
                 <h5>Phase 1: <b> Why? </b> </h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                <p>We want to understand meaning and purpose, and the instructor’s role is to make connections between the material and the learners, to engage their attention.</p>
 
 
                 <div className="tabset">
@@ -131,7 +131,7 @@ export class Conclusion extends Component {
               <br />
               <div className="card">
                 <h5>Phase 2: <b> What? </b> </h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                <p>Only when we are satisfied about relevance are we ready to know ‘What?’ At this stage, the trainer provides information and satisfies our desire for facts, structure and theory.</p>
 
 
                 <div className="tabset">
@@ -198,7 +198,8 @@ export class Conclusion extends Component {
               <br />
               <div className="card">
                 <h5>Phase 3: <b> How? </b> </h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                <p>
+Once we have the knowledge, we ask ‘How?’ and we want to understand how we can apply our new insights to the real world. We focus on problems and how we can use our learning to solve them</p>
 
 
                 <div className="tabset">
@@ -264,8 +265,8 @@ export class Conclusion extends Component {
               </div>
               <br />
               <div className="card">
-                <h5>Phase 4: <b> If? </b> </h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis.</p>
+                <h5>Phase 4: <b> What If? </b> </h5>
+                <p>Finally, we want to try it out, so we ask questions like ‘What if?’ ‘What else?’ or ‘What next?’ This is when we engage in active experimentation, trial and error, pushing at the boundaries – learning by doing.</p>
 
 
                 <div className="tabset">

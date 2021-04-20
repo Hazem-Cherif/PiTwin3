@@ -43,7 +43,7 @@ function Header() {
               
               <ul  id="nav" className="ml-auto navbar-nav">
               <li className="nav-item">
-                  <Link to="/DetailAddCourse" className="header-btn btn-hover" >teacher in courzelo</Link>
+                  <Link to="/DetailAddCourse" className="header-btn btn-hover" >Teacher in courzelo</Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/profile" className="header-btn btn-hover" >Profile</Link>
