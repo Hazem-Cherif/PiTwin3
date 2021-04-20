@@ -7,9 +7,9 @@ const courseCtrl = {
           const idUser=req.user.id;
          
          
-        const {title, description,introduction,conclusion,CourseImg } = req.body;
+        const {title, description,introduction,chapitres,conclusion,CourseImg } = req.body;
        
-        const courseModel = new CourseModel({ idUser,title, description,introduction,conclusion,CourseImg })
+        const courseModel = new CourseModel({ idUser,title, description,introduction,chapitres,conclusion,CourseImg })
     
         try {
             await courseModel.save();
@@ -40,13 +40,14 @@ const courseCtrl = {
     
     updateCourse: async (req, res) => {
         try {
-         const {idUser,title, description} = req.body
-         console.log('hjhhh',req.body);
+         const {idUser,title, description,introduction,chapitres,conclusion,CourseImg} = req.body
+       
          await CourseModel.findOneAndReplace({_id: req.body._id}, {
-             idUser,title,description
+             idUser,title, description,introduction,chapitres,conclusion,CourseImg
          })
-         console.log('teshhhhh',req.body);
-         res.json({msg: "update Success!"})
+         console.log('back');
+         res.json({msg: "update Su!"})
+         
         }   catch (err) {
         return res.status(500).json({msg: err.message})
     }

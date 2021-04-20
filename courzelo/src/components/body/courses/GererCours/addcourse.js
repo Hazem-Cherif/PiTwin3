@@ -3,6 +3,8 @@ import FormCourseDetails from './FormCourseDetails';
 import Introduction from './introduction';
 import Conclusion from './conclusion';
 import Chapitre from './Chapitre';
+import ChapitresCourzelo from './chapitreCourzelo';
+
 import axios from 'axios'
 export class AddCourse extends Component {
 
@@ -14,41 +16,42 @@ export class AddCourse extends Component {
     description: '',
     introduction:
     {
-      text1: String,
-      video1: String,
-      img1: String,
+      text1: '',
+      video1: '',
+      img1: '',
 
-      text2: String,
-      video2: String,
-      img2: String,
+      text2: '',
+      video2: '',
+      img2: '',
 
-      text3: String,
-      video3: String,
-      img3: String,
+      text3: '',
+      video3: '',
+      img3: '',
 
-      text4: String,
-      video4: String,
-      img4: String
+      text4: '',
+      video4: '',
+      img4: ''
 
 
     },
+    chapitres: [],
     conclusion:
     {
-      text1: String,
-      video1: String,
-      img1: String,
+      text1: '',
+      video1: '',
+      img1: '',
 
-      text2: String,
-      video2: String,
-      img2: String,
+      text2: '',
+      video2: '',
+      img2: '',
 
-      text3: String,
-      video3: String,
-      img3: String,
+      text3: '',
+      video3: '',
+      img3: '',
 
-      text4: String,
-      video4: String,
-      img4: String
+      text4: '',
+      video4: '',
+      img4: ''
 
     },
     CourseImg: '',
@@ -646,11 +649,29 @@ export class AddCourse extends Component {
 
 
   };
-
+  handleChangePhase1ch =  e => {
+    
+    alert('ch phase1');
+     
+   };
+   handleChangePhase2ch =  e => {
+    
+    alert('ch phase2');
+     
+   };
+   handleSubmit =  chapitre => {
+    
+    let stater=this.state;
+    
+   this.state.chapitres.push(chapitre);
+   /*console.log('testetstet',this.state.chapitres);*/
+    this.setState({...stater,chapitres:this.state.chapitres});
+    /*console.log('tttttttt',this.state);*/
+   };
   render() {
     const { step } = this.state;
-    const { title, description, introduction, conclusion, CourseImg } = this.state;
-    const course = { title, description, introduction, conclusion, CourseImg };
+    const { title, description, introduction,chapitres, conclusion, CourseImg } = this.state;
+    const course = { title, description, introduction,chapitres, conclusion, CourseImg };
     console.log('testkakakakakak', this.props.match.params.token);
     switch (step) {
       case 1:
@@ -686,15 +707,11 @@ export class AddCourse extends Component {
         );
       case 3:
         return (
-          <Chapitre
-            nextStep={this.nextStep}
-            handleChangePhase1={this.handleChangePhase1}
-            handleChangePhase2={this.handleChangePhase2}
-            handleChangePhase3={this.handleChangePhase3}
-            handleChangePhase4={this.handleChangePhase4}
-            course={course}
-            token={this.props.match.params.token}
-          />
+          <ChapitresCourzelo
+          nextStep={this.nextStep}
+          handleSubmit={this.handleSubmit}
+          course={course}
+        />
         );
       case 4:
         return (

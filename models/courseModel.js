@@ -25,6 +25,7 @@ const courseSchema = mongoose.Schema({
             img4:String
          
         },
+        chapitres: [],
         conclusion:
         {
             text1:String,

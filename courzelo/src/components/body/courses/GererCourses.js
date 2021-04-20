@@ -58,7 +58,7 @@ function GererCourses() {
         {courses.map((course) => (
           <Fragment>
           <tr>
-            <td ><img src="./assets/hh.png" className="img-thumbnail" /></td>
+            <td ><img src={course.CourseImg} className="img-thumbnail" /></td>
             <td width="20%"><h5><b>{course.title}</b></h5></td>
             <td width="60%" colSpan={2}><label htmlFor="file">Finish your course:</label>
               <progress id="file" max={100} value={70}> 70% </progress></td>

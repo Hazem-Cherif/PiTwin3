@@ -11,6 +11,8 @@
     "dev": "concurrently \"npm run server\" \"npm run courzelo\""
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
+    "antd": "^4.15.2",
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.25.0",
     "cookie-parser": "^1.4.5",

@@ -1,7 +1,7 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
 import { getCourses } from '../../../../redux/actions/courseAction';
-
+import { Link } from 'react-router-dom'
 function Courses() {
   const courses = useSelector((state) => state.courses);
   const dispatch = useDispatch();
@@ -10,41 +10,7 @@ function Courses() {
     dispatch(getCourses());
   }, [ dispatch]);
   
-  const coursecard=(
-    <Fragment>
-    <div className="col-xl-4 col-lg-4 col-md-6">
-        <div className="single-course wow fadeInUp" data-wow-delay=".2s">
-          <div className="course-img">
-            <a href="course-single.html">
-              <img src="assets/images/course/full-stack.jpg" alt />
-            </a>
-          </div>
-          <div className="course-info">
-            <h4><a href="course-single.html">titre</a></h4>
-            <h4><a href="course-single.html">description</a></h4>
-            <div className="course-meta">
-              <div className="meta-item">
-                <i className="lni lni-user" />
-                <span>3.5k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-eye" />
-                <span>12k</span>
-              </div>
-              <div className="meta-item">
-                <i className="lni lni-star" />
-                <span>5.0</span>
-              </div>
-              <div className="price">
-                <span>$99.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </Fragment>
-
-)
+ 
     return (
         <div>
           <section className="page-banner pt-200 pb-100 bg_cover" style={{backgroundImage: 'url("assets/images/hero-bg.jpg")'}}>
@@ -76,51 +42,50 @@ function Courses() {
         </div>
       </div>
     </div>
-    <div className="row mb-30">
+    <div className="row mb-30" style={{marginLeft:'100px'}}>
 
     {courses.map((course) => (
           <Fragment>
-          <div className="col-xl-4 col-lg-4 col-md-6">
-              <div className="single-course wow fadeInUp" data-wow-delay=".2s">
-                <div className="course-img">
-                  <a href="course-single.html">
-                  <img src={course.CourseImg} alt />                  </a>
-                </div>
-                <div className="course-info">
-                  <h4><a href="course-single.html">{course.title}</a></h4>
-                  <h4><a href="course-single.html">{course.description}</a></h4>
-                  <div className="course-meta">
-                    <div className="meta-item">
-                      <i className="lni lni-user" />
-                      <span>3.5k</span>
-                    </div>
-                    <div className="meta-item">
-                      <i className="lni lni-eye" />
-                      <span>12k</span>
-                    </div>
-                    <div className="meta-item">
-                      <i className="lni lni-star" />
-                      <span>5.0</span>
-                    </div>
-                    <div className="price">
-                      <span>$99.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="card " style={{backgroundColor:'#FFFFFF' ,width:'300px',height:'440px' ,paddingTop :'0px', paddingLeft:'0px', paddingRight:'0px',marginRight:'30px' }}>
+      <div style={{backgroundColor: '#f2a92c',height:'50px',textAlign:'center',paddingTop:'5px',fontSize:'20px',color: '#FFFFFF'}}> <b>{course.title}</b>  </div>
+      <div className="card-body">
+     
+      <div style={{width: '200px',height:'150'}}>
+        <img
+            src={course.CourseImg}
+            
+            className="mb-3"
+            style={{ maxHeight: "100%", maxWidth: "100%" }}
+        />
+    </div>
+        <p className="card-p  mt-2" style={{color:'#000000',fontSize:'15px'}}>{course.description} </p>
+        <p className="black-9" style={{color:'#000000',fontSize:'15px'}}>Category: informatique</p>
+        <p className="black-8" style={{color:'#000000',fontSize:'15px'}}>Added on 12/32/52</p>
+       
+        
+
+        <button className="btn btn-outline-primary mt-2 mb-2 card-btn-1" style={{backgroundColor: '#f2a92c',marginLeft:'10px',color: '#FFFFFF'}} >View Course</button>
+
+        <button className="btn btn-outline-warning mt-2 mb-2 card-btn-1  " style={{backgroundColor: '#f2a92c',marginLeft:'10px',color: '#FFFFFF'}}>
+        Subscribe
+        </button>
+
+       
+      </div>
+    </div>
             </Fragment>
         ))}
 
       
       
-      
+   
       
     </div>
+    
     <div className="row">
       <div className="col-xl-12">
         <div className="text-center view-all-btn">
-          <a href="courses.html" className="main-btn">View All Course</a>
+        <Link to ="/allcourses" className="main-btn">View All Course</Link>
         </div>
       </div>
     </div>
