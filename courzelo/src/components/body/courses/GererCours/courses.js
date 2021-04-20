@@ -45,6 +45,8 @@ function Courses() {
     <div className="row mb-30" style={{marginLeft:'100px'}}>
 
     {courses.map((course) => (
+             course.validation == 1 ? 
+
           <Fragment>
           <div className="card " style={{backgroundColor:'#FFFFFF' ,width:'300px',height:'440px' ,paddingTop :'0px', paddingLeft:'0px', paddingRight:'0px',marginRight:'30px' }}>
       <div style={{backgroundColor: '#f2a92c',height:'50px',textAlign:'center',paddingTop:'5px',fontSize:'20px',color: '#FFFFFF'}}> <b>{course.title}</b>  </div>
@@ -74,6 +76,8 @@ function Courses() {
       </div>
     </div>
             </Fragment>
+            :
+            <Fragment/>
         ))}
 
       

@@ -1,136 +1,112 @@
-import React from "react";
+import React, {useState, useEffect} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {getCourses} from '../../../redux/actions/courseAction'
+import axios from 'axios'
+import * as AiIcons from 'react-icons/ai'
 
 // react-bootstrap components
 import {
+  Table,
   Card,
   Container,
   Row,
   Col,
 } from "react-bootstrap";
-
+const initialState = {
+  title: '',
+  validation: '',
+  err: '',
+  success: ''
+}
 function Typography() {
+
+const auth = useSelector(state => state.auth)
+const token = useSelector(state => state.token)
+
+const courses = useSelector(state => state.courses)
+
+const {user, isAdmin} = auth
+const [data, setData] = useState(initialState)
+
+const [CourseImg] = useState(false)
+const [ setLoading] = useState(false)
+const [callback, setCallback] = useState(false)
+
+const dispatch = useDispatch()
+
+useEffect(() => {
+  dispatch(getCourses());
+}, [ dispatch]);
+
+const handleDelete = async (id) => {
+try {
+
+        if(window.confirm("Are you sure you want to delete this course?")){
+            setLoading(true)
+            await axios.delete(`course/delete/${id}`)
+            setLoading(false)
+            setCallback(!callback)
+        }
+    
+    
+} catch (err) {
+    setData({...data, err: err.response.data.msg , success: ''})
+}
+}
   return (
     <>
-      <Container fluid>
+       <Container fluid>
         <Row>
           <Col md="12">
-            <Card>
+            <Card className="card-plain table-plain-bg">
               <Card.Header>
-                <Card.Title as="h4">Light Bootstrap Table Heading</Card.Title>
+                <Card.Title as="h4">Table on Plain Background</Card.Title>
                 <p className="card-category">
-                  Created using Montserrat Font Family
+                  Here is a subtitle for this table
                 </p>
               </Card.Header>
-              <Card.Body>
-                <div className="typography-line">
-                  <h1>
-                    <span>Header 1</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h1>
-                </div>
-                <div className="typography-line">
-                  <h2>
-                    <span>Header 2</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h2>
-                </div>
-                <div className="typography-line">
-                  <h3>
-                    <span>Header 3</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h3>
-                </div>
-                <div className="typography-line">
-                  <h4>
-                    <span>Header 4</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h4>
-                </div>
-                <div className="typography-line">
-                  <h5>
-                    <span>Header 5</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h5>
-                </div>
-                <div className="typography-line">
-                  <h6>
-                    <span>Header 6</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h6>
-                </div>
-                <div className="typography-line">
-                  <p>
-                    <span>Paragraph</span>I will be the leader of a company that
-                    ends up being worth billions of dollars, because I got the
-                    answers. I understand culture. I am the nucleus. I think
-                    that’s a responsibility that I have, to push possibilities,
-                    to show people, this is the level that things could be at.
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Quote</span>
-                  <blockquote>
-                    <p className="blockquote blockquote-primary">
-                      "I will be the leader of a company that ends up being
-                      worth billions of dollars, because I got the answers. I
-                      understand culture. I am the nucleus. I think that’s a
-                      responsibility that I have, to push possibilities, to show
-                      people, this is the level that things could be at."{" "}
-                      <br></br>
-                      <br></br>
-                      <small>- Noaa</small>
-                    </p>
-                  </blockquote>
-                </div>
-                <div className="typography-line">
-                  <span>Muted Text</span>
-                  <p className="text-muted">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Primary Text</span>
-                  <p className="text-primary">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Info Text</span>
-                  <p className="text-info">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Success Text</span>
-                  <p className="text-success">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Warning Text</span>
-                  <p className="text-warning">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Danger Text</span>
-                  <p className="text-danger">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <h2>
-                    <span>Small Tag</span>
-                    Header with small subtitle <br></br>
-                    <small>Use "small" tag for the headers</small>
-                  </h2>
-                </div>
+              <Card.Body className="table-full-width table-responsive px-0">
+                <Table className="table-hover">
+                <thead>
+                            <tr>
+                                
+                                <th>Course image </th>
+                                <th>ID</th>
+                                <th>Title </th>
+                                <th>idUser</th>
+                                <th>Validation</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                courses.map(course => (
+                                    <tr key={course._id}>
+                                        <td><img src={CourseImg ? CourseImg : course.CourseImg} alt=""/></td>
+                                        <td>{course._id}</td>
+                                        <td>{course.title}</td>
+                                        <td>{course.idUser}</td>
+                                        <td>
+                                            {
+                                                course.validation === 1
+                                                ? <AiIcons.AiOutlineCheck title="Valid"/>
+                                                : <AiIcons.AiOutlineClose title="NotValid" /> 
+                                            }
+                                        </td>
+                                        <td>
+                                            <Link to={`/update_validation/${course._id}`}>
+                                                <AiIcons.AiOutlineEdit title="Edit" />
+                                            </Link>
+                                            <AiIcons.AiOutlineDelete title="Remove"
+                                            onClick={() => handleDelete(course._id)} />
+                                        </td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                        
+                </Table>
               </Card.Body>
             </Card>
           </Col>
@@ -139,5 +115,4 @@ function Typography() {
     </>
   );
 }
-
 export default Typography;

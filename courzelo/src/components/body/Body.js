@@ -20,14 +20,17 @@ import qst from './courses/components/UserForm'
 import DetailCourse from './courses/GererCours/DetailCourse';
 import AllCourses from './courses/GererCours/AllCourses';
 
-
+import Index from '../dashboard/index'
+import Header from './header footer/header'
 
 
 
 function Body() {
     const auth = useSelector(state => state.auth)
-    const {isLogged} = auth
+    const {isLogged,isAdmin} = auth
     return (
+        <>
+        <Header/>
         <section>
             <Switch>
                 <Route path="/" component={Home} exact />
@@ -55,11 +58,13 @@ function Body() {
 
                 <Route path="/admin" component={Admin} exact />
             
+                <Route path="/index" component={isAdmin? Index: NotFound} exact/>
 
                 <Route path="/admin" component={Admin} exact />
 
             </Switch>
         </section>
+        </>
     )
 }
 

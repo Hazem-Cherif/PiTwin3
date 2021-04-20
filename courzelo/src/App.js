@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useEffect, Fragment } from 'react';
-import Header from './components/header footer/header'
-import Footer from './components/header footer/footer'
+import Footer from './components/body/header footer/footer'
+
 import Body from './components/body/Body'
 
 import {useDispatch, useSelector} from 'react-redux'
@@ -47,10 +47,8 @@ function App() {
     <Router>
       {
         
-           isAdmin? 
-           <Index/> 
-           : 
-           <Fragment> <Header/><Body/><Footer/> </Fragment> 
+           
+           <Fragment><Body/><Footer/> </Fragment> 
                      
       } 
     </Router>

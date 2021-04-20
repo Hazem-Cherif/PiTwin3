@@ -1,17 +1,17 @@
 import React, {Fragment,useState} from 'react'
 import {useSelector} from 'react-redux'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
-import Login from '../body/authentification/login'
-import Register from '../body/authentification/register'
-import ForgotPassword from '../body/authentification/ForgetPassword'
+import {Link, Redirect} from 'react-router-dom'
+import Login from '../authentification/login'
+import Register from '../authentification/register'
+import ForgotPassword from '../authentification/ForgetPassword'
 
 function Header() {
   
   
   const auth = useSelector(state => state.auth)
 
-  const {isLogged} = auth
+  const {isLogged,isAdmin} = auth
 
 
   const [isRegister, setIsRegister] = useState(false);
@@ -48,6 +48,14 @@ function Header() {
                 <li className="nav-item">
                   <Link to="/profile" className="header-btn btn-hover" >Profile</Link>
                 </li>
+                { 
+                isAdmin?
+                 <li className="nav-item">
+                  <Link to="/index" className="header-btn btn-hover" >Dashboard</Link>
+                </li>
+                :
+                <Fragment/>
+                }
                 <li className="nav-item" style={{marginRight : '-200px'}}>
                   <Link to="/" onClick={handleLogout}  className="header-btn btn-hover" >Logout</Link>
                 </li>

@@ -7,9 +7,9 @@ const courseCtrl = {
           const idUser=req.user.id;
          
          
-        const {title, description,introduction,chapitres,conclusion,CourseImg } = req.body;
+        const {title, description,validation,introduction,chapitres,conclusion,CourseImg } = req.body;
        
-        const courseModel = new CourseModel({ idUser,title, description,introduction,chapitres,conclusion,CourseImg })
+        const courseModel = new CourseModel({ idUser,title, description,validation,introduction,chapitres,conclusion,CourseImg })
     
         try {
             await courseModel.save();
@@ -61,8 +61,18 @@ const courseCtrl = {
         }   catch (err) {
         return res.status(500).json({msg: err.message})
       }
-       }
-
+       },
+       updateCourseVal: async (req, res) => {
+        try {
+         const {validation} = req.body
+         await CourseModel.findOneAndUpdate({_id: req.params.id}, {
+            validation
+         })
+         res.json({msg: "update Success!"})
+        }   catch (err) {
+        return res.status(500).json({msg: err.message})
+      }
+    }
   
  
 }

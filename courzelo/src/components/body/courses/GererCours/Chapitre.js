@@ -676,21 +676,6 @@ export class Chapitre extends Component {
 
 
 
-
-
-
-
-
-
-
-
-                            <br />
-                            <br />
-
-                            <br />
-
-
-
                             <Button
                                 color="secondary"
                                 variant="contained"
@@ -702,6 +687,9 @@ export class Chapitre extends Component {
                                 variant="contained"
                                 onClick={this.continue}
                             >Continue</Button>
+
+
+
 
                         </>
                     </MuiThemeProvider>

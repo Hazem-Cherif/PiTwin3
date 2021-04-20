@@ -6,6 +6,10 @@ const courseSchema = mongoose.Schema({
     title: String,
     description: String,
     CourseImg: String,
+    validation: {
+        type: Number,
+        default: 0 // 0 = nonValidé, 1 = validé
+    },
     introduction:
         {
             text1:String,
