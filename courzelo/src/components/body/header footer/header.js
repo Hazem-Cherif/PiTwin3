@@ -11,7 +11,7 @@ function Header() {
   
   const auth = useSelector(state => state.auth)
 
-  const {isLogged} = auth
+  const {isLogged,isAdmin} = auth
 
 
   const [isRegister, setIsRegister] = useState(false);
@@ -83,6 +83,7 @@ function Header() {
           <a href="../index.html" title="Demo eLearning II - WordPress LMS theme 2018" rel="home" className="sticky-logo" /> </div>
         <div className="width-navigation">
           <ul id="primary-menu" className="main-menu" style={{marginTop:'10px'}}>
+          <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{marginRight:'40px'}}><Link to="/" className="header-btn btn-hover" >Home</Link></li>
             <li  className=" menu-item-type-custom menu-item-object-custom menu-item-has-children " >
               <a >Courses</a>
               <ul className="sub-menu">
@@ -91,15 +92,20 @@ function Header() {
                 <li id="menu-item-6818" className=" menu-item-type-post_type menu-item-object-page menu-item-6818 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/GererCourses" className="header-btn btn-hover" >Instructor Profile</Link></li>
               </ul>
             </li>
-            <li id="menu-item-25" className=" menu-item-type-post_type menu-item-object-page menu-item-25 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default"><a href="../blog/index.html" className="tc-menu-inner" style={{marginRight:'40px'}}>Blog</a></li>
-            <li id="menu-item-25" className=" menu-item-type-post_type menu-item-object-page menu-item-25 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default"><Link style={{marginRight:'40px'}} to="/DetailAddCourse" className="header-btn btn-hover" >Teacher in courzelo</Link></li>
-            <li id="menu-item-3816" className=" menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3816 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default"><a href="#" className="tc-menu-inner">Pages</a>
-              <ul className="sub-menu">
-                <li id="menu-item-23" className=" menu-item-type-post_type menu-item-object-page menu-item-23 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/AboutUS" className="header-btn btn-hover" >About us</Link></li>
-                <li id="menu-item-3992" className=" menu-item-type-custom menu-item-object-custom menu-item-3992 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><a href="../forums/index.html" className="tc-menu-inner tc-megamenu-title">Forums</a></li>
-              </ul>
-            </li>
-            <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default"><Link to="/contact" className="header-btn btn-hover" >Contact</Link></li>
+            <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{marginRight:'10px'}}><Link to="/blog" className="header-btn btn-hover" >Blog</Link></li>
+            
+            <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{marginRight:'10px'}}><Link to="/DetailAddCourse" className="header-btn btn-hover" >Teacher in courzelo</Link></li>
+
+            <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{marginRight:'10px'}}><Link to="/AboutUS" className="header-btn btn-hover" >About us</Link></li>
+         
+            <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default"  style={{marginRight:'10px'}}><Link to="/contact" className="header-btn btn-hover" >Contact</Link></li>
+            { 
+                isAdmin?
+                <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default"  style={{marginRight:'10px'}}><Link to="/index" className="header-btn btn-hover" >Dashboard</Link></li>
+                
+                :
+                <Fragment/>
+                }
           </ul> </div>
       </div>
     </div> 

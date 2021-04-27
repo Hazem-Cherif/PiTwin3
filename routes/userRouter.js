@@ -15,6 +15,7 @@ router.get('/logout', userCtrl.logout)
 router.patch('/update', auth,  userCtrl.updateUser)
 router.patch('/update_role/:id', auth, authAdmin,  userCtrl.updateUserRole)
 router.delete('/delete/:id', auth, authAdmin,  userCtrl.deleteUser)
+router.get("/:id" ,auth, userCtrl.getUserById)
 
 // Social Login
 router.post('/google_login', userCtrl.googleLogin)

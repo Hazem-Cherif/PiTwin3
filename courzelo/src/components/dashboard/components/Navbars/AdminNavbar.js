@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
 import axios from 'axios'
 import routes from '../../routes';
-
+import "./header.css";
 function Header() {
   const location = useLocation();
   const mobileSidebarToggle = (e) => {
@@ -38,9 +38,10 @@ function Header() {
     return "Brand";
   };
   return (
-    <Navbar bg="light" expand="lg">
+   
+    <div className="topbarLeft">
       <Container fluid>
-        <div className="d-flex justify-content-center align-items-center ml-2 ml-lg-0">
+        <div>
           <Button
             variant="dark"
             className="d-lg-none btn-fill d-flex justify-content-center align-items-center rounded-circle p-2"
@@ -197,7 +198,8 @@ function Header() {
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </div>
+    
   );
 }
 

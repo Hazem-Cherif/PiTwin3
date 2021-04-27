@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {getCourses} from '../../../redux/actions/courseAction'
 import axios from 'axios'
 import * as AiIcons from 'react-icons/ai'
-
+import PaginationUsers from './paginationUsers'
 // react-bootstrap components
 import {
   Table,
@@ -34,11 +34,17 @@ const [ setLoading] = useState(false)
 const [callback, setCallback] = useState(false)
 
 const dispatch = useDispatch()
+//pagination 
+const [currentPage, setCurrentPage] = useState(1);
+const [postsPerPage] = useState(3);
 
 useEffect(() => {
   dispatch(getCourses());
 }, [ dispatch]);
-
+const indexOfLastPost = currentPage * postsPerPage;
+const indexOfFirstPost = indexOfLastPost - postsPerPage;
+const currentPosts = courses.slice(indexOfFirstPost, indexOfLastPost);
+const paginate = pageNumber => setCurrentPage(pageNumber);
 const handleDelete = async (id) => {
 try {
 
@@ -81,7 +87,7 @@ try {
                         </thead>
                         <tbody>
                             {
-                                courses.map(course => (
+                                currentPosts.map(course => (
                                     <tr key={course._id}>
                                         <td><img src={CourseImg ? CourseImg : course.CourseImg} alt=""/></td>
                                         <td>{course._id}</td>
@@ -104,6 +110,7 @@ try {
                                     </tr>
                                 ))
                             }
+                             <PaginationUsers postsPerPage={postsPerPage} totalPosts={courses.length} paginate={paginate}/>
                         </tbody>
                         
                 </Table>

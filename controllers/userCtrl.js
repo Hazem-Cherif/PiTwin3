@@ -294,7 +294,15 @@ const userCtrl = {
     } catch (err) {
         return res.status(500).json({msg: err.message})
     }
-   }
+   },
+   getUserById :async (req, res) => {
+    try {
+        const user = await Users.findById(req.params.id);
+        res.status(200).json(user);
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    }
 }
 
 

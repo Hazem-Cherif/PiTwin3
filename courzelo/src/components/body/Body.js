@@ -25,7 +25,7 @@ import Contact from './contact/contact'
 import AboutUS from './AboutUS/AboutUs'
 import Index from '../dashboard/index'
 import Header from './header footer/header'
-
+import Blog from './blog/home'
 
 
 function Body() {
@@ -51,7 +51,7 @@ function Body() {
 
                 <Route path="/profile" component={isLogged ? Profile : NotFound} exact />
                 <Route path="/DetailAddCourse" component={isLogged ? DetailAddCourse : NotFound} exact />
-                <Route path="/Questionnaire" component={isLogged ? Questionnaire : NotFound} exact />
+               
                 <Route path="/GererCourses" component={isLogged ? GererCourses : NotFound} exact />
                 <Route path="/Gerercoursemodifsupp" component={isLogged ? Gerercoursemodifsupp : NotFound} exact />
                 <Route path="/addcourse/:token" component={isLogged ? AddCourse : NotFound} exact />
@@ -63,6 +63,8 @@ function Body() {
                 <Route path="/qst" component={isLogged ? qst : NotFound} exact />
 
                 <Route path="/admin" component={Admin} exact />
+
+                <Route path="/blog" component={isLogged? Blog: NotFound} exact/>
             
                 <Route path="/index" component={isAdmin? Index: NotFound} exact/>
 

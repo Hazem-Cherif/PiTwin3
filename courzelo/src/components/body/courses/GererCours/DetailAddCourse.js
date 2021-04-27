@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import ReactPlayer from 'react-player'
 function DetailAddCourse() {
     return (
         <div>
@@ -26,7 +27,8 @@ function DetailAddCourse() {
       </div>
       <div className="col-md-6 media-box">
         <div className="media-wrapper">
-          <img width={830} height={550} src="wp-content/uploads/sites/4/2017/07/group-4.png" alt="group-4" className /> </div>
+          <ReactPlayer url="https://www.youtube.com/watch?v=xy5eM41LNiM" controls={true}></ReactPlayer>
+           </div>
       </div>
       <div className="col-md-6 content-box">
         <div className="steps-wrapper">
@@ -35,7 +37,7 @@ function DetailAddCourse() {
               <div className="tab-pane active" id="thim_60454efe17b46-step-0" role="tabpanel">
                   <h4 className="tab-title">Create a course for free</h4>
                   <p className="description">Get started with just your email and the name of your school. It’s as simple as that -- no payments or credit card information required here are many variations of passages of Lorem </p
-                  ><a href="courses/index.html" className="readmore" style={{backgroundColor: '#f2a92c'}}><Link to="/Questionnaire">Add Courses</Link> </a>
+                  ><a href="courses/index.html" className="readmore" style={{backgroundColor: '#f2a92c'}}><Link to="/GererCourses">Add Courses</Link> </a>
                   </div>
                   <div className="tab-pane " id="thim_60454efe17b46-step-1" role="tabpanel">
                       <h4 className="tab-title">Upload your content</h4>

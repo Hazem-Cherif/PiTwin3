@@ -143,9 +143,9 @@ export class AddCourse extends Component {
       headers: { 'content-type': 'multipart/form-data', Authorization: token }
     }).then(res => {
 
-      const conc = this.state.conclusion;
-      conc.img1 = res.data.url;
-      this.setState({ conclusion: conc })
+      const int = this.state.introduction;
+      int.img1 = res.data.url;
+      this.setState({ introduction: int })
     })
   }
   uploadHandlerImg2 = async e => {
@@ -173,9 +173,9 @@ export class AddCourse extends Component {
       headers: { 'content-type': 'multipart/form-data', Authorization: token }
     }).then(res => {
 
-      const conc = this.state.conclusion;
-      conc.img2 = res.data.url;
-      this.setState({ conclusion: conc })
+      const int = this.state.introduction;
+      int.img2 = res.data.url;
+      this.setState({ introduction: int })
     })
   }
   uploadHandlerImg3 = async e => {
@@ -203,9 +203,9 @@ export class AddCourse extends Component {
       headers: { 'content-type': 'multipart/form-data', Authorization: token }
     }).then(res => {
 
-      const conc = this.state.conclusion;
-      conc.img3 = res.data.url;
-      this.setState({ conclusion: conc })
+      const int = this.state.introduction;
+      int.img3 = res.data.url;
+      this.setState({ introduction: int })
     })
   }
   uploadHandlerImg4 = async e => {
@@ -233,9 +233,9 @@ export class AddCourse extends Component {
       headers: { 'content-type': 'multipart/form-data', Authorization: token }
     }).then(res => {
 
-      const conc = this.state.conclusion;
-      conc.img4 = res.data.url;
-      this.setState({ conclusion: conc })
+      const int = this.state.introduction;
+      int.img4 = res.data.url;
+      this.setState({ introduction: int })
     })
   }
   uploadHandlerImg5 = async e => {

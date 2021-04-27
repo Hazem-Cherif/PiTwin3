@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {fetchAllUsers, dispatchGetAllUsers} from '../../../redux/actions/usersAction'
 import axios from 'axios'
 import * as AiIcons from 'react-icons/ai'
-
+import PaginationUsers from './paginationUsers'
 // react-bootstrap components
 import {
 
@@ -35,8 +35,12 @@ function TableList() {
   const [avatar] = useState(false)
   const [ setLoading] = useState(false)
   const [callback, setCallback] = useState(false)
-
   const dispatch = useDispatch()
+  //pagination 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(3);
+
+
 
 useEffect(() => {
     if(isAdmin){
@@ -45,6 +49,11 @@ useEffect(() => {
         })
     }
 },[token, isAdmin, dispatch, callback])
+
+const indexOfLastPost = currentPage * postsPerPage;
+const indexOfFirstPost = indexOfLastPost - postsPerPage;
+const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
+const paginate = pageNumber => setCurrentPage(pageNumber);
 const handleDelete = async (id) => {
   try {
       if(user._id !== id){
@@ -89,7 +98,7 @@ const handleDelete = async (id) => {
                         </thead>
                         <tbody>
                             {
-                                users.map(user => (
+                                currentPosts.map(user => (
                                     <tr key={user._id}>
                                         <td><img src={avatar ? avatar : user.avatar} alt=""/></td>
                                         <td>{user._id}</td>
@@ -112,6 +121,7 @@ const handleDelete = async (id) => {
                                     </tr>
                                 ))
                             }
+                            <PaginationUsers postsPerPage={postsPerPage} totalPosts={users.length} paginate={paginate}/>
                         </tbody>
                 </Table>
               </Card.Body>
