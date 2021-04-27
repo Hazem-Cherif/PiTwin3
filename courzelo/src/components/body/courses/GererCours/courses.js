@@ -100,9 +100,9 @@ function Courses() {
                             </h3>
                             
                             <div className="thim-sc-button text-right hide-separator " style={{marginRight:'60px'}}>
-                  <a   href="courses/index.html" target="_self" className="btn btn-primary btn-lg">
+                  <Link to={`/DetailCourse/${course._id}`}  target="_self" className="btn btn-primary btn-lg">
                     <span className="text" style={{color:'#FFFFFF'}}>Detail</span>
-                  </a>
+                  </Link>
                 </div>
                       
                           </div>
