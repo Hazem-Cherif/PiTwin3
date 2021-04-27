@@ -29,7 +29,7 @@ function Modifiersupcourse() {
   
     return (
         <div>
-          <section className="page-banner pt-200 pb-100 bg_cover" style={{backgroundImage: 'url("assets/images/hero-bg.jpg")'}}>
+          <section className="page-banner pt-200 pb-100 bg_cover" style={{backgroundImage: 'url("/images/hero-bg.jpg")'}}>
   <div className="container">
     <div className="row">
       <div className="col-lg-12">

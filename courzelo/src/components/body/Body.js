@@ -13,13 +13,16 @@ import Courses from './courses/GererCours/courses';
 import Admin from '../dashboard/index'
 import DetailAddCourse from './courses/GererCours/DetailAddCourse'
 import Questionnaire from './courses/Questionnaire'
+
+import Gerercoursemodifsupp from './courses/GererCours/gerecoursemodifsupp'
 import GererCourses from './courses/GererCourses'
 import AddCourse from './courses/GererCours/addcourse'
 import Modifiersupcourse from './courses/GererCours/modifier_sup_course'
 import qst from './courses/components/UserForm'
 import DetailCourse from './courses/GererCours/DetailCourse';
 import AllCourses from './courses/GererCours/AllCourses';
-
+import Contact from './contact/contact'
+import AboutUS from './AboutUS/AboutUs'
 import Index from '../dashboard/index'
 import Header from './header footer/header'
 
@@ -34,6 +37,8 @@ function Body() {
         <section>
             <Switch>
                 <Route path="/" component={Home} exact />
+                <Route path="/contact" component={Contact} exact />
+                <Route path="/AboutUS" component={AboutUS} exact />
 
                 <Route path="/login" component={isLogged ? NotFound : Login} exact />
                 <Route path="/register" component={isLogged ? NotFound : Register} exact />
@@ -48,11 +53,12 @@ function Body() {
                 <Route path="/DetailAddCourse" component={isLogged ? DetailAddCourse : NotFound} exact />
                 <Route path="/Questionnaire" component={isLogged ? Questionnaire : NotFound} exact />
                 <Route path="/GererCourses" component={isLogged ? GererCourses : NotFound} exact />
+                <Route path="/Gerercoursemodifsupp" component={isLogged ? Gerercoursemodifsupp : NotFound} exact />
                 <Route path="/addcourse/:token" component={isLogged ? AddCourse : NotFound} exact />
                 
                 <Route path="/modifiersupcourse/:id" component={isLogged ? Modifiersupcourse : NotFound} exact />
                 <Route path="/DetailCourse/:id" component={isLogged ? DetailCourse : NotFound} exact />
-                <Route path="/courses" component={Courses} exact />
+                <Route path="/courses" component={isLogged ? GererCourses : NotFound} component={Courses} exact />
                 <Route path="/allcourses" component={AllCourses} exact /> 
                 <Route path="/qst" component={isLogged ? qst : NotFound} exact />
 

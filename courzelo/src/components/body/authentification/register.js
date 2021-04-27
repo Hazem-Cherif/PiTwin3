@@ -85,7 +85,7 @@ function Register() {
             
                     
                     <p className="login-submit">
-  <input type="submit" name="wp-submit" id="popupRegisterSubmit" style={{backgroundColor: '#f2a92c'}} value="register" className="button button-primary button-large" defaultValue="Register" />
+  <input type="submit" name="wp-submit" id="popupRegisterSubmit" style={{backgroundColor: '#1EA69A'}} value="register" className="button button-primary button-large" defaultValue="Register" />
   
 </p>
             </form>

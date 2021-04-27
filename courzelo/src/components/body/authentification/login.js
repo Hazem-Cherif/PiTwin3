@@ -110,7 +110,7 @@ function Login(props) {
         <a ><Link className="lost-pass-link" id="signin" onClick={handleCloseforget}  >Forgot your password?</Link></a>
          </div>
       <p className="login-submit">
-        <input type="submit" name="wp-submit" id="popupLoginSubmit" style={{backgroundColor: '#f2a92c'}} className="button button-primary button-large" value="Login" defaultValue="Login" />
+        <input type="submit" name="wp-submit" id="popupLoginSubmit" style={{backgroundColor: '#1EA69A'}} className="button button-primary button-large" value="Login" defaultValue="Login" />
         <input type="hidden" name="redirect_to" defaultValue="https://wordpresslms.thimpress.com/demo-coursify/" />
       </p>
       <div className="popup-message" />

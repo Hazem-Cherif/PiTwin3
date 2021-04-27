@@ -17,59 +17,155 @@ function GererCourses() {
         
 
 <div style={{width: 1400,marginLeft:50,marginBottom:180}} >
-
-  <div>
-    <h1><b><p style={{paddingLeft: 60, paddingTop: '50PX'}}>courses</p></b></h1>  
-  </div>
-  <br /><br />
-  <div className="alert alert-warning alert-dismissible fade show" role="alert" style={{marginLeft: 40, marginRight: 40, padding: 20, textAlign: 'center'}}>
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-    <span aria-hidden="true" style={{marginLeft: 500}} className="close" data-dismiss="alert" aria-label="Close"> x</span>
-  </div>
-  <br /><br />
-  <div>
-    <div className="container">
-      <div className="d-flex flex-row">
-        <div className="search-container" style={{marginRight: 50}}>
-          <form action="/action_page.php">
-            <input style={{marginRight: 20,height:10,borderColor: 'black'}} type="text" placeholder="Search.." name="search" />
-            
-          </form>
-        </div>
-        <div className="dropdown" style={{marginRight: 500}}>
-          <a style={{backgroundColor: 'transparent',height:40, borderColor: 'black', color: 'black'}} className="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Newest
-          </a>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a className="dropdown-item" href="#">Action</a>
-            <a className="dropdown-item" href="#">Another action</a>
-            <a className="dropdown-item" href="#">Something else here</a>
+<div> <section className="content-area">
+    <div className="page-title layout-1" style={{marginLeft:'-50px',marginRight:'-80px',marginBottom:'100px'}}>
+      <div className="main-top parallax" style={{backgroundImage: 'url(../../../../wp-content/uploads/sites/5/2018/10/page_title_7.jpg)'}}>
+        <span className="overlay-top-header" style={{backgroundColor: 'rgba(0,0,0,0.6)'}} />
+        <div className="content container">
+          <div className="row">
+            <div className="text-title col-md-6">
+              <h1>Profile</h1> </div>
+            <div className="text-description col-md-6">
+              <div className="banner-description"><strong className="br">The best demo education </strong> It is a long established fact that a reader.</div> </div>
           </div>
-        </div>
-        <div>
-          <button type="button" className="btn btn-primary" style={{backgroundColor: '#f2a92c',borderColor: '#f2a92c',color: 'white'}}><b><Link to={`/addcourse/${token}`} >New Course</Link></b></button>
         </div>
       </div>
     </div>
-    <br /><br /><br />
-    <div>
-      <table style={{borderColor: 'white'}} width="95%" border="none" align="center">
-        <tbody>
-        {courses.map((course) => (
-          <Fragment>
-          <tr>
-            <td ><img src={course.CourseImg} className="img-thumbnail" /></td>
-            <td width="20%"><h5><b>{course.title}</b></h5></td>
-            <td width="60%" colSpan={2}><label htmlFor="file">Finish your course:</label>
-              <progress id="file" max={100} value={70}> 70% </progress></td>
-              <td><Link to={`/modifiersupcourse/${course._id}`} >modifier/supprimer</Link></td>
-          </tr>
-         </Fragment>
-          ))}
-        </tbody></table>
-    </div>
-   
-  </div>
+    <div className="container site-content "><div className="row"><main id="main" className="site-main col-sm-12 full-width">
+          <article id="post-42" className="post-42 page type-page status-publish hentry pmpro-has-access">
+            
+                <div className="learn-press-user-profile profile-container" id="learn-press-user-profile">
+                  <div className="user-tab">
+                    <div className="user-info">
+                      <div className="author-avatar">
+                        <img src="../../../../wp-content/uploads/learn-press-profile/1/21232f297a57a5a743894a0e4a801fc3.jpg" />
+                      </div>
+                      <div className="user-information">
+                        <ul className="profile-list-social breadcrumbs" itemProp="breadcrumb" itemScope itemType="http://schema.org/BreadcrumbList" id="breadcrumbs">
+                          <li className="item" itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
+                            <a itemProp="item" href="https://facebook.com/thimpress" title="Facebook"><i className="fa fa-facebook" /></a>
+                          </li>
+                          <li className="item" itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
+                            <a itemProp="item" href="https://twitter.com/thimpress" title="Twitter"><i className="fa fa-twitter" /></a>
+                          </li>
+                          <li className="item" itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
+                            <a itemProp="item" href="skype:hotamdhv?call" title="Skype"><i className="fa fa-skype" /></a>
+                          </li>
+                        </ul>
+                        <h3 className="author-name">Courzelo</h3>
+                        <ul className="list-contact">
+                          <li><a href="tel:0975877906">0975877906</a></li>
+                          <li><a href="https://wordpresslms.thimpress.com/cdn-cgi/l/email-protection#691f000701290f06060b0508470a0604"><span className="__cf_email__" data-cfemail="bbcdd2d5d3fbddd4d4d9d7da95d8d4d6">[email&nbsp;protected]</span></a></li>
+                        </ul>
+                        <p className="description">If you are a newbie to managing a WordPress website, then congratulations! You are here...</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="profile-tabs">
+                    <a id="profile-mobile-menu" className="fa fa-bars" />
+                    <ul className="learn-press-tabs">
+                      <li className="courses active">
+                             <Link to={`/addcourse/${token}`}>Add Course</Link> 
+                      </li>
+                    
+                    </ul>
+                    <div id="learn-press-profile-content" className="tab-content">
+                      <div id="profile-content-courses">
+                        <ul className="lp-tab-sections">
+                          <li className="section-tab owned active">
+                            <span> <Link to="/GererCourses">Gerer Course</Link> </span>
+                          </li>
+                          <li className="section-tab purchased">
+                           <Link to="/Gerercoursemodifsupp">Gerer Course</Link> 
+                          </li>
+                        </ul>
+                        <div className="learn-press-subtab-content">
+                          <h3 className="profile-heading">
+                            My Courses </h3>
+                          <div className="thim-course-grid profile-courses-list">
+                            <article id="post-3656" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course lp-membership post-3656 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-mba-courses course_category-photography-and-designs course_tag-design course_tag-photoshop pmpro-has-access course">
+                              <div className="content">
+                                <div className="thumbnail">
+                                  <span className="sale">
+                                    <span className="text-sale">Sale</span>
+                                  </span>
+                                  <a href="https://wordpresslms.thimpress.com/demo-elearning-2/courses/master-web-design-in-photoshop-2/" className="img_thumbnail">
+                                    <img width={365} height={405} src="../../../../wp-content/uploads/sites/5/2017/08/pexels-photo-e1500018346477-1-365x405.jpg" alt="Master Web Design in Photoshop" className /> </a>
+                                  <span className="price">
+                                    <span className="course-origin-price"> $99.00</span>
+                                    <span className="course-price">$19.00</span>
+                                  </span>
+                                  <div className="review ">
+                                    <div className="sc-review-stars">
+                                      <div className="review-stars-rated" title="0 out of 5 stars">
+                                        <div className="review-stars empty" />
+                                        <div className="review-stars filled" style={{width: '0%'}} />
+                                      </div> </div>
+                                    <span className="vote">(0 vote)</span>
+                                  </div>
+                                  <div className="button-when-logged has-wishlist">
+                                  </div>
+                                </div>
+                                <div className="sub-content">
+                                  <h3 className="title">
+                                    <a href="https://wordpresslms.thimpress.com/demo-elearning-2/courses/master-web-design-in-photoshop-2/">Master Web Design in Photoshop</a>
+                                  </h3>
+                                  <div className="date-comment">
+                                    <span className="date-meta">June 5, 2015</span> / <span className="number-comment">No Comments</span> </div>
+                                  <div className="content-list">
+                                    <div className="course-description">
+                                      <p>This tutorial gives a complete understanding on JavaScript. Learn Online Marketing by Doing. SEO, Facebook, YouTube, Email Marketing, Social Media, Google Analytics, Adwords &amp; More</p>
+                                    </div>
+                                    <ul className="courses_list_info">
+                                      <li>
+                                        <span className="avatar">
+                                          <a href="../../index.html">
+                                            <img alt="Admin bar avatar" src="../../../../wp-content/uploads/learn-press-profile/1/21232f297a57a5a743894a0e4a801fc3.jpg" className="avatar avatar-40 photo" height={40} width={40} /> </a>
+                                        </span>
+                                        <span className="info">
+                                          <span className="major">Teacher</span>
+                                          <a href="../../index.html" className="name">
+                                            ThimPress </a>
+                                        </span>
+                                      </li>
+                                      <li>
+                                        <label>Review:</label>
+                                        <div className="review ">
+                                          <div className="sc-review-stars">
+                                            <div className="review-stars-rated" title="0 out of 5 stars">
+                                              <div className="review-stars empty" />
+                                              <div className="review-stars filled" style={{width: '0%'}} />
+                                            </div> </div>
+                                          <span className="vote">(0 vote)</span>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <label>Students:</label>
+                                        <strong className="students">1050 Students</strong>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="course-info">
+                                <div className="course-price">
+                                  <span className="origin-price">$99.00</span>
+                                  <span className="price">$19.00</span>
+                                </div>
+                                <span className="course-instructor">
+                                  <a href="../../index.html">ThimPress</a></span>
+                              </div></article>
+                            
+                             </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             
+          </article>
+        </main></div></div> </section>
+</div>
 
 
        

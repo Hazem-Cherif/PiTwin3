@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
     return (
         <div>
-            <footer id="footer" className="footer-area pt-170" style={{backgroundColor: '#f2a92c'}}>
+            <footer id="footer" className="footer-area pt-170" style={{backgroundColor: '#202121'}}>
   <div className="container">
     <div className="row">
       <div className="col-xl-3 col-lg-3 col-md-6">
@@ -16,7 +16,7 @@ function Footer() {
       </div>
       <div className="col-xl-2 col-lg-2 offset-xl-1 offset-lg-1 col-md-6">
         <div className="footer-widget">
-          <h5>Quick Links</h5>
+          <h5 style={{color:'#FFFFFF'}}>Quick Links</h5>
           <ul>
             <li><a href="javascript:void(0)">Home</a></li>
             <li><a href="javascript:void(0)">Courses</a></li>
@@ -27,7 +27,7 @@ function Footer() {
       </div>
       <div className="col-xl-2 col-lg-2 col-md-6">
         <div className="footer-widget">
-          <h5>Our Course</h5>
+          <h5 style={{color:'#FFFFFF'}}>Our Course</h5>
           <ul>
             <li><a href="javascript:void(0)">Design</a></li>
             <li><a href="javascript:void(0)">Development</a></li>
@@ -38,7 +38,7 @@ function Footer() {
       </div>
       <div className="col-xl-3 col-lg-3 col-md-6">
         <div className="footer-widget">
-          <h5>Contact Us</h5>
+          <h5 style={{color:'#FFFFFF'}}>Contact Us</h5>
           <ul>
             <li><p>Phone: +884-9273-3867</p></li>
             <li><p>Email: <a href="https://preview.uideck.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="2e464b4242416e49434f4742004d4143">[email&nbsp;protected]</a></p></li>

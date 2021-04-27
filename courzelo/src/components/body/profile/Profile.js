@@ -163,7 +163,7 @@ function Profile() {
                     </em>
                 </div>
         
-          <div className="mt-5 text-right"><button className="btn btn-primary profile-button" type="button" style={{backgroundColor: '#f2a92c'}} disabled={loading} onClick={handleUpdate}>Save Profile</button></div>
+          <div className="mt-5 text-right"><button className="btn btn-basic btn-lg" type="button" style={{backgroundColor: '#1EA69A',color:'#FFFFFF'}} disabled={loading} onClick={handleUpdate}>Save Profile</button></div>
         </div>
       </div>
     </div>
