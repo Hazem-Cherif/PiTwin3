@@ -47,7 +47,8 @@ const courseSchema = mongoose.Schema({
             text4:String,
             video4: String,
             img4:String
-        }
+        },
+        categorie:String
            
      
 }

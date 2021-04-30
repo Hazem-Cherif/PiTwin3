@@ -55,6 +55,7 @@ export class AddCourse extends Component {
 
     },
     CourseImg: '',
+    categorie:''
 
   };
 
@@ -670,8 +671,8 @@ export class AddCourse extends Component {
    };
   render() {
     const { step } = this.state;
-    const { title, description, introduction,chapitres, conclusion, CourseImg } = this.state;
-    const course = { title, description, introduction,chapitres, conclusion, CourseImg };
+    const { title, description, introduction,chapitres, conclusion, CourseImg,categorie } = this.state;
+    const course = { title, description, introduction,chapitres, conclusion, CourseImg,categorie };
     console.log('testkakakakakak', this.props.match.params.token);
     switch (step) {
       case 1:
@@ -682,6 +683,7 @@ export class AddCourse extends Component {
             uploadHandler={this.uploadHandler}
             course={course}
             token={this.props.match.params.token}
+            categories={this.props.categories}
 
           />
         );

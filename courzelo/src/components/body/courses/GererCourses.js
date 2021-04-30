@@ -54,10 +54,10 @@ function GererCourses() {
                         </ul>
                         <h3 className="author-name">Courzelo</h3>
                         <ul className="list-contact">
-                          <li><a href="tel:0975877906">0975877906</a></li>
-                          <li><a href="https://wordpresslms.thimpress.com/cdn-cgi/l/email-protection#691f000701290f06060b0508470a0604"><span className="__cf_email__" data-cfemail="bbcdd2d5d3fbddd4d4d9d7da95d8d4d6">[email&nbsp;protected]</span></a></li>
+                          <li><a href="tel:0975877906">+21650347045</a></li>
+                          <li><a href="https://wordpresslms.thimpress.com/cdn-cgi/l/email-protection#691f000701290f06060b0508470a0604"><span className="__cf_email__" data-cfemail="bbcdd2d5d3fbddd4d4d9d7da95d8d4d6">Info@Courzelo.com</span></a></li>
                         </ul>
-                        <p className="description">If you are a newbie to managing a WordPress website, then congratulations! You are here...</p>
+                        <p className="description">If you are a newbie to managing a courzelo website, then congratulations! You are here...</p>
                       </div>
                     </div>
                   </div>
@@ -82,18 +82,18 @@ function GererCourses() {
                         <div className="learn-press-subtab-content">
                           <h3 className="profile-heading">
                             My Courses </h3>
+                        
                           <div className="thim-course-grid profile-courses-list">
+                          {courses.map((course) => (
+          <Fragment>
                             <article id="post-3656" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course lp-membership post-3656 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-mba-courses course_category-photography-and-designs course_tag-design course_tag-photoshop pmpro-has-access course">
                               <div className="content">
                                 <div className="thumbnail">
-                                  <span className="sale">
-                                    <span className="text-sale">Sale</span>
-                                  </span>
-                                  <a href="https://wordpresslms.thimpress.com/demo-elearning-2/courses/master-web-design-in-photoshop-2/" className="img_thumbnail">
-                                    <img width={365} height={405} src="../../../../wp-content/uploads/sites/5/2017/08/pexels-photo-e1500018346477-1-365x405.jpg" alt="Master Web Design in Photoshop" className /> </a>
+                                  
+                                  <a  className="img_thumbnail">
+                                    <img width={365} height={405} src={course.CourseImg}    /> </a>
                                   <span className="price">
-                                    <span className="course-origin-price"> $99.00</span>
-                                    <span className="course-price">$19.00</span>
+                                    <span className="course-price">{course.title}</span>
                                   </span>
                                   <div className="review ">
                                     <div className="sc-review-stars">
@@ -101,33 +101,21 @@ function GererCourses() {
                                         <div className="review-stars empty" />
                                         <div className="review-stars filled" style={{width: '0%'}} />
                                       </div> </div>
-                                    <span className="vote">(0 vote)</span>
+                                    
                                   </div>
                                   <div className="button-when-logged has-wishlist">
                                   </div>
                                 </div>
                                 <div className="sub-content">
                                   <h3 className="title">
-                                    <a href="https://wordpresslms.thimpress.com/demo-elearning-2/courses/master-web-design-in-photoshop-2/">Master Web Design in Photoshop</a>
+                                    <a >{course.description}</a>
                                   </h3>
                                   <div className="date-comment">
-                                    <span className="date-meta">June 5, 2015</span> / <span className="number-comment">No Comments</span> </div>
+                                    <span className="date-meta">June 5, 2015</span>  </div>
                                   <div className="content-list">
-                                    <div className="course-description">
-                                      <p>This tutorial gives a complete understanding on JavaScript. Learn Online Marketing by Doing. SEO, Facebook, YouTube, Email Marketing, Social Media, Google Analytics, Adwords &amp; More</p>
-                                    </div>
+                                    
                                     <ul className="courses_list_info">
-                                      <li>
-                                        <span className="avatar">
-                                          <a href="../../index.html">
-                                            <img alt="Admin bar avatar" src="../../../../wp-content/uploads/learn-press-profile/1/21232f297a57a5a743894a0e4a801fc3.jpg" className="avatar avatar-40 photo" height={40} width={40} /> </a>
-                                        </span>
-                                        <span className="info">
-                                          <span className="major">Teacher</span>
-                                          <a href="../../index.html" className="name">
-                                            ThimPress </a>
-                                        </span>
-                                      </li>
+                                      
                                       <li>
                                         <label>Review:</label>
                                         <div className="review ">
@@ -136,27 +124,21 @@ function GererCourses() {
                                               <div className="review-stars empty" />
                                               <div className="review-stars filled" style={{width: '0%'}} />
                                             </div> </div>
-                                          <span className="vote">(0 vote)</span>
                                         </div>
                                       </li>
-                                      <li>
-                                        <label>Students:</label>
-                                        <strong className="students">1050 Students</strong>
-                                      </li>
+                                      
                                     </ul>
                                   </div>
                                 </div>
                               </div>
-                              <div className="course-info">
-                                <div className="course-price">
-                                  <span className="origin-price">$99.00</span>
-                                  <span className="price">$19.00</span>
-                                </div>
-                                <span className="course-instructor">
-                                  <a href="../../index.html">ThimPress</a></span>
-                              </div></article>
-                            
+                             </article>
+                             </Fragment>
+                               ))}
                              </div>
+
+                             
+
+
                         </div>
                       </div>
                     </div>

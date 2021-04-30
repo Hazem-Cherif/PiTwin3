@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -6,13 +6,15 @@ import Button from '@material-ui/core/Button';
 import { TextareaAutosize } from '@material-ui/core';
 import './StepForm.css';
 import '../MainCoursForm.css'
+import axios from 'axios'
 
 
 export class FormCourseDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        CourseImg: []
+        CourseImg: [],
+        categories:[]
     }
 }
   continue = e => {
@@ -23,6 +25,17 @@ export class FormCourseDetails extends Component {
   fileChangeHandler = e => {
     this.setState({ file: e.target.files[0] })
   }
+  componentDidMount()
+  {
+      
+     axios.get('/categorie').then(res => {
+        
+           
+              this.state.categories=res.data;
+     console.log('bbb',this.state);
+      }).catch(error => {
+        console.log('error');          
+      })};
   render() {
     const { course, handleChange,uploadHandler } = this.props;
     return (
@@ -68,36 +81,24 @@ export class FormCourseDetails extends Component {
             rowsMin={3} />
 
           <br />
-          <div className="selectinputs">  
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              <select class="select-css">
-                <option>Choisissez une catégorie</option>
-                <option>Design</option>
-                <option>Marketing</option>
-                <option>Informatique</option>
-                <option>Développement</option>
-              </select>
-            </label>
-
-          </form>
-
-          <br />
-
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              <select class="select-css">
-                <option>Choisissez une catégorie</option>
-                <option>Design</option>
-                <option>Marketing</option>
-                <option>Informatique</option>
-                <option>Développement</option>
-              </select>
-            </label>
-
-          </form>
-          
-          </div>
+          <div className="form-group">
+        <label>Category</label>
+       <select
+          name="category"
+          className="form-control"
+          onChange={handleChange('categorie')}
+        >
+        
+          {
+            this.state.categories.map((c) => (
+              <Fragment>
+              <option key={c._id} value={c.name}>
+                {c.name}
+              </option>
+              </Fragment>
+            ))}
+        </select>
+      </div>
           <Button
             color="primary"
             variant="contained"

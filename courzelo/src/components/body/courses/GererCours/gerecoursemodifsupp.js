@@ -39,22 +39,14 @@ function Gerercoursemodifsupp() {
                       </div>
                       <div className="user-information">
                         <ul className="profile-list-social breadcrumbs" itemProp="breadcrumb" itemScope itemType="http://schema.org/BreadcrumbList" id="breadcrumbs">
-                          <li className="item" itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-                            <a itemProp="item" href="https://facebook.com/thimpress" title="Facebook"><i className="fa fa-facebook" /></a>
-                          </li>
-                          <li className="item" itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-                            <a itemProp="item" href="https://twitter.com/thimpress" title="Twitter"><i className="fa fa-twitter" /></a>
-                          </li>
-                          <li className="item" itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-                            <a itemProp="item" href="skype:hotamdhv?call" title="Skype"><i className="fa fa-skype" /></a>
-                          </li>
+                         
                         </ul>
                         <h3 className="author-name">Courzelo</h3>
                         <ul className="list-contact">
-                          <li><a href="tel:0975877906">0975877906</a></li>
-                          <li><a href="https://wordpresslms.thimpress.com/cdn-cgi/l/email-protection#3f495651577f5950505d535e115c5052"><span className="__cf_email__" data-cfemail="7a0c1314123a1c151518161b54191517">[email&nbsp;protected]</span></a></li>
+                          <li><a href="tel:0975877906">+21650347045</a></li>
+                          <li><a ><span className="__cf_email__" data-cfemail="7a0c1314123a1c151518161b54191517">Info@Courzelo.com</span></a></li>
                         </ul>
-                        <p className="description">If you are a newbie to managing a WordPress website, then congratulations! You are here...</p>
+                        <p className="description">If you are a newbie to managing a Courzelo website, then congratulations! You are here...</p>
                       </div>
                     </div>
                   </div>
@@ -89,10 +81,12 @@ function Gerercoursemodifsupp() {
                               </tr>
                             </thead>
                             <tbody>
+                            {courses.map((course) => (
+          <Fragment>
                               <tr>
                                 <td className="column-course">
-                                  <a href="https://wordpresslms.thimpress.com/demo-elearning-2/courses/the-complete-sql-bootcamp/">
-                                    The Complete SQL Bootcamp </a>
+                                  <a >
+                                  {course.title} </a>
                                 </td>
                             
                                 
@@ -103,10 +97,11 @@ function Gerercoursemodifsupp() {
                                 </td>
                                 <td className="column-passing-grade"> <ul className="lp-tab-sections">
                           <li className="section-tab owned active">
-                            <span> <Link to="/GererCourses">Gerer</Link> </span>
+                            <span> <Link to={`/addcourse/${token}/${course._id}`} >Gerer</Link> </span>
                           </li></ul></td>
                               </tr>
-                            
+                              </Fragment>
+          ))}
                             
                             </tbody>
                             <tfoot>
