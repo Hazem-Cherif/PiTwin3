@@ -10,7 +10,53 @@ function DetailCourse() {
     const dispatch = useDispatch();
     const courses = useSelector(state => state.courses);
     console.log('j',courses);
-    const [postcourse, setCourseData] = useState({ title: '', description: '' });
+    const [postcourse, setCourseData] = useState({ 
+      title: '',
+      description: '',
+      introduction:
+      {
+        text1: '',
+        video1: '',
+        img1: '',
+        filePath1:'',
+  
+        text2: '',
+        video2: '',
+        img2: '',
+  
+        text3: '',
+        video3: '',
+        img3: '',
+  
+        text4: '',
+        video4: '',
+        img4: ''
+  
+  
+      },
+      chapitres: [],
+      conclusion:
+      {
+        text1: '',
+        video1: '',
+        img1: '',
+  
+        text2: '',
+        video2: '',
+        img2: '',
+  
+        text3: '',
+        video3: '',
+        img3: '',
+  
+        text4: '',
+        video4: '',
+        img4: ''
+  
+      },
+      CourseImg: '',
+  
+     });
     useEffect(() => {
       if(courses.length !== 0){
         courses.forEach(course => {
@@ -58,6 +104,10 @@ function DetailCourse() {
               <h3 className="mb-20">DESCRIPTION</h3>
               <p className="mb-30"> {postcourse.description}.</p>
             </div>
+            <div>
+              <a style={{display: "table-cell"}} href={postcourse.introduction.filePath1} target={postcourse.introduction.filePath1}>pdf link</a>
+            </div>
+            
             <div className="course-content pt-50 pb-35">
             <div className="course-curriculum" id="learn-press-course-curriculum">
   <div className="curriculum-heading">

@@ -19,18 +19,22 @@ export class AddCourse extends Component {
       text1: '',
       video1: '',
       img1: '',
+      filePath1:'',
 
       text2: '',
       video2: '',
       img2: '',
+      filePath2:'',
 
       text3: '',
       video3: '',
       img3: '',
+      filePath3:'',
 
       text4: '',
       video4: '',
-      img4: ''
+      img4: '',
+      filePath4:''
 
 
     },
@@ -40,18 +44,22 @@ export class AddCourse extends Component {
       text1: '',
       video1: '',
       img1: '',
+      filePath1:'',
 
       text2: '',
       video2: '',
       img2: '',
+      filePath2:'',
 
       text3: '',
       video3: '',
       img3: '',
+      filePath3:'',
 
       text4: '',
       video4: '',
-      img4: ''
+      img4: '',
+      filePath4:''
 
     },
     CourseImg: '',
@@ -669,6 +677,175 @@ export class AddCourse extends Component {
     this.setState({...stater,chapitres:this.state.chapitres});
     /*console.log('tttttttt',this.state);*/
    };
+   uploadHandlerPdf1 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss' );
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const intr = this.state.introduction;
+      console.log(res.data)
+      intr.filePath1 = res.data.url;
+      this.setState({ introduction: intr })
+    })
+   };
+   uploadHandlerPdf2 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss' );
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const intr = this.state.introduction;
+      console.log(res.data)
+      intr.filePath2 = res.data.url;
+      this.setState({ introduction: intr })
+    })
+   };
+   uploadHandlerPdf3 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss' );
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const intr = this.state.introduction;
+      console.log(res.data)
+      intr.filePath3 = res.data.url;
+      this.setState({ introduction: intr })
+    })
+   };
+   uploadHandlerPdf4 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss' );
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const intr = this.state.introduction;
+      console.log(res.data)
+      intr.filePath4 = res.data.url;
+      this.setState({ introduction: intr })
+    })
+   };
+   uploadHandlerPdf5 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss' );
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const conc = this.state.conclusion;
+      console.log(res.data)
+      conc.filePath1 = res.data.url;
+      this.setState({ conclusion: conc })
+    })
+   };
+   uploadHandlerPdf6 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss' );
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const conc = this.state.conclusion;
+      console.log(res.data)
+      conc.filePath2 = res.data.url;
+      this.setState({ conclusion: conc })
+    })
+   };
+   uploadHandlerPdf7 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss' );
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const conc = this.state.conclusion;
+      console.log(res.data)
+      conc.filePath3 = res.data.url;
+      this.setState({ conclusion: conc })
+    })
+   };
+   uploadHandlerPdf8 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss' );
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const conc = this.state.conclusion;
+      console.log(res.data)
+      conc.filePath4 = res.data.url;
+      this.setState({ conclusion: conc })
+    })
+   };
+
   render() {
     const { step } = this.state;
     const { title, description, introduction,chapitres, conclusion, CourseImg,categorie } = this.state;
@@ -690,27 +867,33 @@ export class AddCourse extends Component {
       case 2:
         return (
           <Introduction
-            nextStep={this.nextStep}
-            handleChangePhase1={this.handleChangePhase1}
-            uploadHandlerVideo1={this.uploadHandlerVideo1}
-            uploadHandlerImg1={this.uploadHandlerImg1}
-            handleChangePhase2={this.handleChangePhase2}
-            uploadHandlerVideo2={this.uploadHandlerVideo2}
-            uploadHandlerImg2={this.uploadHandlerImg2}
-            handleChangePhase3={this.handleChangePhase3}
-            uploadHandlerVideo3={this.uploadHandlerVideo3}
-            uploadHandlerImg3={this.uploadHandlerImg3}
-            handleChangePhase4={this.handleChangePhase4}
-            uploadHandlerVideo4={this.uploadHandlerVideo4}
-            uploadHandlerImg4={this.uploadHandlerImg4}
-            course={course}
-            token={this.props.match.params.token}
+          nextStep={this.nextStep}
+          prevStep={this.prevStep}
+          handleChangePhase1={this.handleChangePhase1}
+          uploadHandlerVideo1={this.uploadHandlerVideo1}
+          uploadHandlerImg1={this.uploadHandlerImg1}
+          uploadHandlerPdf1={this.uploadHandlerPdf1}
+          handleChangePhase2={this.handleChangePhase2}
+          uploadHandlerVideo2={this.uploadHandlerVideo2}
+          uploadHandlerImg2={this.uploadHandlerImg2}
+          uploadHandlerPdf2={this.uploadHandlerPdf2}
+          handleChangePhase3={this.handleChangePhase3}
+          uploadHandlerVideo3={this.uploadHandlerVideo3}
+          uploadHandlerImg3={this.uploadHandlerImg3}
+          uploadHandlerPdf3={this.uploadHandlerPdf3}
+          handleChangePhase4={this.handleChangePhase4}
+          uploadHandlerVideo4={this.uploadHandlerVideo4}
+          uploadHandlerImg4={this.uploadHandlerImg4}
+          uploadHandlerPdf4={this.uploadHandlerPdf4}
+          course={course}
+          token={this.props.match.params.token}
           />
         );
       case 3:
         return (
           <ChapitresCourzelo
           nextStep={this.nextStep}
+          prevStep={this.prevStep}
           handleSubmit={this.handleSubmit}
           course={course}
         />
@@ -718,21 +901,26 @@ export class AddCourse extends Component {
       case 4:
         return (
           <Conclusion
-            nextStep={this.nextStep}
-            handleChangePhase5={this.handleChangePhase5}
-            uploadHandlerVideo5={this.uploadHandlerVideo5}
-            uploadHandlerImg5={this.uploadHandlerImg5}
-            handleChangePhase6={this.handleChangePhase6}
-            uploadHandlerVideo6={this.uploadHandlerVideo6}
-            uploadHandlerImg6={this.uploadHandlerImg6}
-            handleChangePhase7={this.handleChangePhase7}
-            uploadHandlerVideo7={this.uploadHandlerVideo7}
-            uploadHandlerImg7={this.uploadHandlerImg7}
-            handleChangePhase8={this.handleChangePhase8}
-            uploadHandlerVideo8={this.uploadHandlerVideo8}
-            uploadHandlerImg8={this.uploadHandlerImg8}
-            course={course}
-            token={this.props.match.params.token}
+          nextStep={this.nextStep}
+          prevStep={this.prevStep}
+          handleChangePhase5={this.handleChangePhase5}
+          uploadHandlerVideo5={this.uploadHandlerVideo5}
+          uploadHandlerImg5={this.uploadHandlerImg5}
+          uploadHandlerPdf5={this.uploadHandlerPdf5}
+          handleChangePhase6={this.handleChangePhase6}
+          uploadHandlerVideo6={this.uploadHandlerVideo6}
+          uploadHandlerImg6={this.uploadHandlerImg6}
+          uploadHandlerPdf6={this.uploadHandlerPdf6}
+          handleChangePhase7={this.handleChangePhase7}
+          uploadHandlerVideo7={this.uploadHandlerVideo7}
+          uploadHandlerImg7={this.uploadHandlerImg7}
+          uploadHandlerPdf7={this.uploadHandlerPdf7}
+          handleChangePhase8={this.handleChangePhase8}
+          uploadHandlerVideo8={this.uploadHandlerVideo8}
+          uploadHandlerImg8={this.uploadHandlerImg8}
+          uploadHandlerPdf8={this.uploadHandlerPdf8}
+          course={course}
+          token={this.props.match.params.token}
           />
         );
       default:

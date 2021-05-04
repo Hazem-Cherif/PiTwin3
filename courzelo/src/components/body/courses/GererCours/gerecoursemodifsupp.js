@@ -25,7 +25,7 @@ function Gerercoursemodifsupp() {
     return (
         <div style={{width: 1400,marginLeft:50,marginBottom:180}}>
         <div id="main-content"> <section className="content-area">
-    <div className="page-title layout-1"  style={{marginLeft:'-50px',marginRight:'-80px',marginBottom:'100px'}}>
+    <div className="page-title layout-1"  style={{marginLeft:'-50px',marginRight:'-250px',marginBottom:'100px'}}>
       <div className="main-top parallax" style={{backgroundImage: 'url(../../../../wp-content/uploads/sites/5/2018/10/page_title_7.jpg)'}}>
         <span className="overlay-top-header" style={{backgroundColor: 'rgba(0,0,0,0.6)'}} />
         <div className="content container">

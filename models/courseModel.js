@@ -15,18 +15,22 @@ const courseSchema = mongoose.Schema({
             text1:String,
             video1: String,    
             img1:String,
-
+            filePath1:String,
+            
             text2:String,
             video2: String,    
             img2:String,
-
+            filePath2:String,
+            
             text3:String,
             video3: String,    
             img3:String,
+            filePath3:String,
 
             text4:String,
             video4: String,
-            img4:String
+            img4:String,
+            filePath4:String
          
         },
         chapitres: [],
@@ -35,18 +39,22 @@ const courseSchema = mongoose.Schema({
             text1:String,
             video1: String,    
             img1:String,
-
+            filePath1:String,
+            
             text2:String,
             video2: String,    
             img2:String,
-
+            filePath2:String,
+            
             text3:String,
             video3: String,    
             img3:String,
+            filePath3:String,
 
             text4:String,
             video4: String,
-            img4:String
+            img4:String,
+            filePath4:String
         },
         categorie:String
            

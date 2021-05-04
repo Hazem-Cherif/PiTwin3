@@ -76,7 +76,9 @@ export class FormCourseDetails extends Component {
           id="file_up" 
          onChange={(e)=>uploadHandler(e)}
          Value={course.CourseImg} />
+          <img src={course.CourseImg} alt></img>
 
+<br/>
           <label > Course description </label>
           <TextareaAutosize
             placeholder="Insert your course description"

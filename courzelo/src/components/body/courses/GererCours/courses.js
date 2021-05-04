@@ -59,7 +59,7 @@ const cartAllCourse = (
   <div className="learn-press-courses row">
   {courses.map((course) => (
     
-
+    course.validation == 1 ? 
     <article id="post-486" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-business course_tag-business course_tag-theme course_tag-wordpress pmpro-has-access course">
       <div className="content">
         <div className="thumbnail">
@@ -93,7 +93,8 @@ const cartAllCourse = (
         </div>
       </div>
      </article>
-      
+      :
+      <Fragment/>
           ))}
   
   </div>
@@ -103,7 +104,7 @@ const cartCourseBusiness = (
 
   <div className="learn-press-courses row">
   {courses.map((course) => (
-    
+     course.validation == 1 ? 
   <Fragment>
     {course.categorie =="Business"  ?
 
@@ -143,6 +144,8 @@ const cartCourseBusiness = (
      :<div></div>
     }
     </Fragment>
+          :
+          <Fragment/>
           ))}
   
   </div>
@@ -153,7 +156,7 @@ const cartCourseBusiness = (
 const cartCourseComputerSc = (
   <div className="learn-press-courses row">
   {courses.map((course) => (
-    
+    course.validation == 1 ? 
   <Fragment>
     {course.categorie =="computer science"  ?
 
@@ -193,7 +196,8 @@ const cartCourseComputerSc = (
      :<div></div>
     }
     </Fragment>
-          ))}
+        :
+        <Fragment/>  ))}
   
   </div>
 )
@@ -201,7 +205,7 @@ const cartCourseComputerSc = (
 const cartCourseSciences = (
 <div className="learn-press-courses row">
   {courses.map((course) => (
-    
+    course.validation == 1 ? 
   <Fragment>
     {course.categorie =="Sciences"  ?
 
@@ -241,6 +245,8 @@ const cartCourseSciences = (
      :<div></div>
     }
     </Fragment>
+         :
+         <Fragment/>
           ))}
   
   </div>
@@ -250,7 +256,7 @@ const cartCourseSciences = (
 const cartCourseOther = (
   <div className="learn-press-courses row">
   {courses.map((course) => (
-    
+    course.validation == 1 ? 
   <Fragment>
     {course.categorie =="other"  ?
 
@@ -290,6 +296,8 @@ const cartCourseOther = (
      :<div></div>
     }
     </Fragment>
+        :
+        <Fragment/>
           ))}
   
   </div>
