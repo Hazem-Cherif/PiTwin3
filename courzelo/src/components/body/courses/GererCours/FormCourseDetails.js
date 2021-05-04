@@ -7,6 +7,10 @@ import { TextareaAutosize } from '@material-ui/core';
 import './StepForm.css';
 import '../MainCoursForm.css'
 import axios from 'axios'
+import useStyles from './styles';
+import {useParams, useHistory} from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { updateCourse,deleteCourse } from '../../../../redux/actions/courseAction';
 
 
 export class FormCourseDetails extends Component {
@@ -59,8 +63,7 @@ export class FormCourseDetails extends Component {
           <TextField
             placeholder="Insert the author name"
             label="Author"
-            onChange={handleChange('description')}
-              defaultValue={course.description}
+           
             margin="normal"
             fullWidth
           />
@@ -78,6 +81,8 @@ export class FormCourseDetails extends Component {
           <TextareaAutosize
             placeholder="Insert your course description"
             label="Course subtitle"
+            onChange={handleChange('description')}
+              defaultValue={course.description}
             rowsMin={3} />
 
           <br />
@@ -88,6 +93,7 @@ export class FormCourseDetails extends Component {
           className="form-control"
           onChange={handleChange('categorie')}
         >
+          <option>select categorie</option>
         
           {
             this.state.categories.map((c) => (

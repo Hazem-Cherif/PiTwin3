@@ -18,6 +18,11 @@ import Gerercoursemodifsupp from './courses/GererCours/gerecoursemodifsupp'
 import GererCourses from './courses/GererCourses'
 import AddCourse from './courses/GererCours/addcourse'
 import Modifiersupcourse from './courses/GererCours/modifier_sup_course'
+import Modifiersupcoursform from './courses/GererCours/modifierFormCoursDetails'
+import Modifiersupintro from './courses/GererCours/modifierIntro'
+import Modifiersupchapitres from './courses/GererCours/modifierChapitres'
+import Modifiersupconclusion from './courses/GererCours/modifierConclusion'
+import CourseByCategory from './courses/GererCours/CourseByCategory'
 import qst from './courses/components/UserForm'
 import DetailCourse from './courses/GererCours/DetailCourse';
 import AllCourses from './courses/GererCours/AllCourses';
@@ -57,7 +62,14 @@ function Body() {
                 <Route path="/addcourse/:token" component={isLogged ? AddCourse : NotFound} exact />
                 
                 <Route path="/modifiersupcourse/:id" component={isLogged ? Modifiersupcourse : NotFound} exact />
+                <Route path="/modifiersupcoursform/:id" component={isLogged ? Modifiersupcoursform : NotFound} exact />
+                <Route path="/modifiersupintro/:id" component={isLogged ? Modifiersupintro : NotFound} exact />
+                <Route path="/modifiersupchapitres/:id" component={isLogged ? Modifiersupchapitres : NotFound} exact />
+                <Route path="/modifiersupconclusion/:id" component={isLogged ? Modifiersupconclusion : NotFound} exact />
+
                 <Route path="/DetailCourse/:id" component={isLogged ? DetailCourse : NotFound} exact />
+                <Route path="/CourseByCategory/:categorie" component={isLogged ? CourseByCategory : NotFound} exact />
+
                 <Route path="/courses" component={isLogged ? GererCourses : NotFound} component={Courses} exact />
                 <Route path="/allcourses" component={AllCourses} exact /> 
                 <Route path="/qst" component={isLogged ? qst : NotFound} exact />

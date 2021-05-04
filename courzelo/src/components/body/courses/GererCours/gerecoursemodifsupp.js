@@ -1,11 +1,22 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
-import { getAllCoursesByUser, getCourses } from '../../../../redux/actions/courseAction';
+import { getAllCoursesByUser, deleteCourse } from '../../../../redux/actions/courseAction';
+import {
+  Alert,
+  Button,
+  Card,
+  Modal,
+  Container,
+  Row,
+  Col,
+} from "react-bootstrap";
 import {Link} from 'react-router-dom'
 function Gerercoursemodifsupp() {
     const token = useSelector(state => state.token);
   const courses = useSelector((state) => state.courses);
   const dispatch = useDispatch();
+  const [showModal, setShowModal] = React.useState(false);
+  
   useEffect(() => {
     
     dispatch(getAllCoursesByUser(token))
@@ -78,6 +89,7 @@ function Gerercoursemodifsupp() {
                                
                                 <th className="column-status">Progress</th>
                                 <th className="column-passing-grade">Action</th>
+                                <th className="column-passing-grade"></th>
                               </tr>
                             </thead>
                             <tbody>
@@ -97,11 +109,67 @@ function Gerercoursemodifsupp() {
                                 </td>
                                 <td className="column-passing-grade"> <ul className="lp-tab-sections">
                           <li className="section-tab owned active">
-                            <span> <Link to={`/addcourse/${token}/${course._id}`} >Gerer</Link> </span>
+                            <span> <Link to={`/modifiersupcoursform/${course._id}`} >Update</Link> </span>
                           </li></ul></td>
+                          <td className="column-passing-grade"> <ul className="lp-tab-sections">
+                          
+                          <Row>
+              <Col className="text-center" md="12">
+               
+                <Button
+                  className="btn-fill btn-wd"
+                  variant="info"
+                  onClick={() => setShowModal(true)}
+                  style ={{backgroundColor :'#4BDFD2'}}
+                >
+                  Delete
+                </Button>
+              </Col>
+            </Row>
+            
+                          </ul></td>
                               </tr>
+                              <Modal
+          className="modal-mini modal-primary"
+          show={showModal}
+          onHide={() => setShowModal(false)}
+        >
+          <Modal.Header className="justify-content-center">
+            <div className="modal-profile">
+              <i className="nc-icon nc-bulb-63"></i>
+            </div>
+          </Modal.Header>
+          <Modal.Body className="text-center">
+            <p>DO you really want to delete this course</p>
+          </Modal.Body>
+          <div className="modal-footer">
+            <Button
+              className="btn-simple"
+              type="button"
+              variant="link"
+              style ={{backgroundColor :'#008000'}}
+              
+              onClick={() => dispatch(deleteCourse(course._id))}
+            >
+              yes
+            </Button>
+            <Button
+              className="btn-simple"
+              type="button"
+              variant="link"
+              style ={{backgroundColor :'#FF0000'}}
+              onClick={() => setShowModal(false)}
+             
+            >
+              no
+            </Button>
+          </div>
+        </Modal>
                               </Fragment>
+
+                              
           ))}
+           
                             
                             </tbody>
                             <tfoot>

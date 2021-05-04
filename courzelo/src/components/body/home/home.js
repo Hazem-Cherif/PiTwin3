@@ -1,46 +1,16 @@
-import React, {Fragment,useState} from 'react'
-import {useParams} from 'react-router-dom'
-import ResetPass from '../authentification/ResetPassword'
+import React, {Fragment,useState,useCallback,useEffect} from 'react'
+import { useDispatch ,useSelector} from 'react-redux';
+import { getCategories } from '../../../redux/actions/categorieAction';
+import { Link } from 'react-router-dom'
 
 const Home = () => {
-  const {token} = useParams()
-  const [setShow] = useState(false);
-  const handleShow = () => {
-    setShow(true);
-   
-    
-    console.log("test")
-};
-  const popup = (
-    
-    <Fragment>
-      <div id="thim-popup-login" Show={handleShow}>
-  <div className="thim-login-container">
-    <div className="login-html">
-      
-      <div className="login-banner" >
-      <img style={{height:'560px'}} src="assets/h.jpg" alt="fgg"></img>
-      
-        <div className="login-banner-wrap">
-          
-          <h2>Hello!</h2><h3>We are happy to see you again!</h3>
-        </div>
-      </div>
-      <div className="link-to-form">
-        <p className="content-register wrapper">
-          Not a member yet? <a href="account/index0ddc.html?action=register" className="register-link">Register Now</a> </p>
-        <p className="content-login wrapper">
-          Already a member? <a href="#" className="login-link">Login Now</a> </p>
-      </div>   
-         <ResetPass token={token}/>
-         
-    </div>
-  </div>
-</div>
+  const categories = useSelector((state) => state.categories);
+  const dispatch = useDispatch();
 
-  </Fragment>
-  )
-  
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [ dispatch]);
+ 
   return (
     <div >
   <section >
@@ -71,58 +41,26 @@ const Home = () => {
           <div className="thim-courses-collection squared-courses-collection" >
             <div className="collection-frame items-10">
               <ul className="slidee">
+              {categories.map((categorie) => (
+          <Fragment>
                 <li className="collection-item" style={{marginLeft:'70px'}}>
                   <div className="thumbnail">
-                    <a href="collections/be-your-own-boss/index.html" className="collection-link" />
-                    <img width={310} height={278} src="wp-content/uploads/sites/5/2017/08/pexels-photo-e1500018346477-1-310x278.jpg" alt="Be Your Own Boss" className /> <div className="wrapper">
+                    <a  className="collection-link" />
+                    <img style={{width:'310px', height:'287px'}}  src={categorie.description} alt="Be Your Own Boss" className /> <div className="wrapper">
                       <span className="ion-qr-scanner" />
-                      <span className="view">view courses</span>
+                      
                     </div>
                   </div>
                   <div className="collection-wrapper">
-                    <h4 className="name"><a href="collections/be-your-own-boss/index.html">Be Your Own Boss</a>
+                    <h4 className="name"><Link to={`/CourseByCategory/${categorie.name}`} >{categorie.name}</Link>
+                    
                     </h4>
-                    <div className="number-courses">9 courses</div> </div>
+                     </div>
                 </li>
-                <li className="collection-item" style={{marginLeft:'60px'}}>
-                  <div className="thumbnail">
-                    <a href="collections/be-your-own-boss/index.html" className="collection-link" />
-                    <img width={310} height={278} src="wp-content/uploads/sites/5/2017/08/pexels-photo-e1500018346477-1-310x278.jpg" alt="Be Your Own Boss" className /> <div className="wrapper">
-                      <span className="ion-qr-scanner" />
-                      <span className="view">view courses</span>
-                    </div>
-                  </div>
-                  <div className="collection-wrapper">
-                    <h4 className="name"><a href="collections/be-your-own-boss/index.html">Be Your Own Boss</a>
-                    </h4>
-                    <div className="number-courses">9 courses</div> </div>
-                </li>
-                <li className="collection-item" style={{marginLeft:'60px'}}>
-                  <div className="thumbnail">
-                    <a href="collections/be-your-own-boss/index.html" className="collection-link" />
-                    <img width={310} height={278} src="wp-content/uploads/sites/5/2017/08/pexels-photo-e1500018346477-1-310x278.jpg" alt="Be Your Own Boss" className /> <div className="wrapper">
-                      <span className="ion-qr-scanner" />
-                      <span className="view">view courses</span>
-                    </div>
-                  </div>
-                  <div className="collection-wrapper">
-                    <h4 className="name"><a href="collections/be-your-own-boss/index.html">Be Your Own Boss</a>
-                    </h4>
-                    <div className="number-courses">9 courses</div> </div>
-                </li>
-                <li className="collection-item" style={{marginLeft:'60px'}}>
-                  <div className="thumbnail">
-                    <a href="collections/be-your-own-boss/index.html" className="collection-link" />
-                    <img width={310} height={278} src="wp-content/uploads/sites/5/2017/08/pexels-photo-e1500018346477-1-310x278.jpg" alt="Be Your Own Boss" className /> <div className="wrapper">
-                      <span className="ion-qr-scanner" />
-                      <span className="view">view courses</span>
-                    </div>
-                  </div>
-                  <div className="collection-wrapper">
-                    <h4 className="name"><a href="collections/be-your-own-boss/index.html">Be Your Own Boss</a>
-                    </h4>
-                    <div className="number-courses">9 courses</div> </div>
-                </li>
+               
+                </Fragment>
+                            ))}
+             
            
               </ul>
              
@@ -251,82 +189,7 @@ const Home = () => {
 
 
   <div className="vc_row wpb_row vc_row-fluid">
-  <div className="wpb_column vc_column_container vc_col-sm-12">
-    <div className="vc_column-inner"><div $>
-        <div className="thim-course-block-3  title-center  has-filter	">
-          <div className="wrapper-title">
-            <h3 className="title title-center">Browse Our Top Courses</h3>
-          </div>
-          <div className="masonry-filter">
-            <a className="filter is-checked" data-filter="*" href="javascript:;">All</a><a className="filter" href="javascript:;" data-filter=".business">Business</a><a className="filter" href="javascript:;" data-filter=".design">Design</a><a className="filter" href="javascript:;" data-filter=".web-development">Web Development</a><a className="filter" href="javascript:;" data-filter=".photography">Photography</a> </div>
-          <div className="masonry-items" style={{marginLeft:'10px',marginRight:'10px'}}>
-            <div className="row" >
-           
-
-
-              <div className="course-item col-sm-3  free   business "  >
-              <div >
-                <div className="featured-img"><img width={342} height={299} src="wp-content/uploads/sites/5/2017/06/Half-Marathon-2014-70-1-342x299.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /><a href="courses/the-ultimate-ethical-hacking-boot-camp/index.html" className="img-link" /><div className="course-meta"><div className="price">
-                        <span className="course-price">Free</span>
-                      </div><div className="course-rating"><div className="review-stars-rated" title="0 out of 5 stars">
-                          <div className="review-stars empty" />
-                          <div className="review-stars filled" style={{width: '0%'}} />
-                        </div><span>(0 vote)</span></div></div></div>
-                        <h4 className="course-title"><a href="courses/the-ultimate-ethical-hacking-boot-camp/index.html">The Ultimate Ethical Hacking Boot Camp</a></h4><div className="participants"><a href="lp-profile/admin/index.html" className="instructor">ThimPress</a><span className="students">167 students</span>
-                        </div></div>
-                        </div>
-                        <div className="course-item col-sm-3  free   business "  >
-              <div >
-                <div className="featured-img"><img width={342} height={299} src="wp-content/uploads/sites/5/2017/06/Half-Marathon-2014-70-1-342x299.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /><a href="courses/the-ultimate-ethical-hacking-boot-camp/index.html" className="img-link" /><div className="course-meta"><div className="price">
-                        <span className="course-price">Free</span>
-                      </div><div className="course-rating"><div className="review-stars-rated" title="0 out of 5 stars">
-                          <div className="review-stars empty" />
-                          <div className="review-stars filled" style={{width: '0%'}} />
-                        </div><span>(0 vote)</span></div></div></div>
-                        <h4 className="course-title"><a href="courses/the-ultimate-ethical-hacking-boot-camp/index.html">The Ultimate Ethical Hacking Boot Camp</a></h4><div className="participants"><a href="lp-profile/admin/index.html" className="instructor">ThimPress</a><span className="students">167 students</span>
-                        </div></div>
-                        </div>
-                        <div className="course-item col-sm-3  free   business "  >
-              <div >
-                <div className="featured-img"><img width={342} height={299} src="wp-content/uploads/sites/5/2017/06/Half-Marathon-2014-70-1-342x299.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /><a href="courses/the-ultimate-ethical-hacking-boot-camp/index.html" className="img-link" /><div className="course-meta"><div className="price">
-                        <span className="course-price">Free</span>
-                      </div><div className="course-rating"><div className="review-stars-rated" title="0 out of 5 stars">
-                          <div className="review-stars empty" />
-                          <div className="review-stars filled" style={{width: '0%'}} />
-                        </div><span>(0 vote)</span></div></div></div>
-                        <h4 className="course-title"><a href="courses/the-ultimate-ethical-hacking-boot-camp/index.html">The Ultimate Ethical Hacking Boot Camp</a></h4><div className="participants"><a href="lp-profile/admin/index.html" className="instructor">ThimPress</a><span className="students">167 students</span>
-                        </div></div>
-                        </div>
-                        <div className="course-item col-sm-3  free   business "  >
-              <div >
-                <div className="featured-img"><img width={342} height={299} src="wp-content/uploads/sites/5/2017/06/Half-Marathon-2014-70-1-342x299.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /><a href="courses/the-ultimate-ethical-hacking-boot-camp/index.html" className="img-link" /><div className="course-meta"><div className="price">
-                        <span className="course-price">Free</span>
-                      </div><div className="course-rating"><div className="review-stars-rated" title="0 out of 5 stars">
-                          <div className="review-stars empty" />
-                          <div className="review-stars filled" style={{width: '0%'}} />
-                        </div><span>(0 vote)</span></div></div></div>
-                        <h4 className="course-title"><a href="courses/the-ultimate-ethical-hacking-boot-camp/index.html">The Ultimate Ethical Hacking Boot Camp</a></h4><div className="participants"><a href="lp-profile/admin/index.html" className="instructor">ThimPress</a><span className="students">167 students</span>
-                        </div></div>
-                        </div>
-                   
-            </div></div> </div>
-        <div >
-          <div className="wpb_column vc_column_container vc_col-sm-6"><div className="vc_column-inner">
-            < div className="wpb_wrapper">
-              <div className="thim-sc-button text-right hide-separator ">
-                  <a href="courses/index.html" target="_self" className="btn btn-primary btn-lg">
-                    <span className="text" style={{color:'#FFFFFF'}}>Start My Free Trial</span>
-                  </a>
-                </div>
-              </div></div></div>
-          <div className="wpb_column vc_column_container vc_col-sm-6"><div className="vc_column-inner">
-              <div className="wpb_wrapper"><div className="thim-sc-button text-left hide-separator ">
-                  <a href="course-category/web-development/index.html" target="_self" className="btn btn-basic btn-lg">
-                    <span className="text">Browse Developer Course</span>
-                  </a>
-                </div>
-              </div></div></div></div>
-      </div></div></div></div>
+</div>
 
 
 
@@ -334,7 +197,7 @@ const Home = () => {
 
 
       <div className="vc_row wpb_row vc_row-fluid vc_custom_1502265070316 thim-background-overlay">
-  <div className="overlay" style={{backgroundColor: '#1ea69a'}} />
+  <div className="overlay" style={{backgroundImage: 'url(../wp-content/uploads/sites/5/2017/08/pexels-photo-4-1-1000x500.jpg)'}} />
   <div className="wpb_column vc_column_container vc_col-sm-12">
     <div className="vc_column-inner"><div className="wpb_wrapper">
         <div className="vc_empty_space" style={{height: 80}}>

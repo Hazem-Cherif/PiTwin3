@@ -33,6 +33,16 @@ export const getAllCoursesByUser = (token) => async (dispatch) => {
 
   }
 };
+export const getAllCoursesByCategory = (token) => async (dispatch) => {
+  try {
+    console.log('test5666565');
+    const { data } = await axios.get('/course/getAllCoursesByCategory',{headers: {Authorization: token}});
+    return dispatch({ type: ACTIONS.FETCH_ALL_COURSE_BY_CATEGORIE, payload: data });
+  } catch (error) {
+    
+
+  }
+};
 export const updateCourse = (id, editCourse) => async (dispatch) => {
   try {
   

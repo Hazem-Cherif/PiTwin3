@@ -37,6 +37,15 @@ const courseCtrl = {
             res.status(404).json({ message: error.message });
         }
     },
+    getAllCoursesByCategory : async (req, res) => { 
+        try {
+            const coursesModel = await CourseModel.find({categorie: req.categorie.name});
+                    
+            res.status(200).json(coursesModel);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+    },
     
     updateCourse: async (req, res) => {
         try {
