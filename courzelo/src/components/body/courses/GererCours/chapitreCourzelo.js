@@ -54,16 +54,32 @@ import './StepForm.css';
       <div >
       <br/><br/><br/><br/><br/>
       <form >
-      { inputFields.map(inputField => (
+      
           <div className="main">
 
               <div className="side"></div>
-              <div className="userform">
+              <div className="userform" style={{marginLeft:'-400px',width:'1550px'}}>
                   <MuiThemeProvider>
                       <>
-                          <h2>Chapitres</h2>
-                          <p className="parag">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani, quam conciliavit ipsa natura, ita contracta res est et adducta in angustum ut omnis caritas aut inter duos aut inter paucos iungeretur.</p>
-                          <div className="boxcard">
+                          <h1>Chapitres</h1>
+                          <div className="row" style={{marginBottom:'100px'}}>
+              <div className=" col-sm-12 col-md-6" style={{height:'290px'}} >
+          
+              <img loading="lazy" style={{width:'600px',height:'300px'}} src="assets/kolb.png" alt="The Ultimate Ethical Hacking Boot Camp" className /> 
+
+
+              </div>
+         <div className="col-sm-12 col-md-6">            
+         <p  style={{color:'#0075BA',fontSize:'18px',fontStyle:'italic',marginTop:'100px' }}>
+-As an instructional design tool, 4MAT gives teachers and trainers a systematic
+way to train all learners to think and learn well.<br/>
+-As a professional development tool, it provides a framework for assessing the quality of any learning experience.
+-As an organisational model, it offers a method for creating an environment for continuous learning and development.</p>
+
+</div>
+
+              </div>                           { inputFields.map(inputField => (
+                          <div className="boxcard" style={{marginBottom:'50px'}}>
                             
                               <Button
                             
@@ -84,19 +100,24 @@ import './StepForm.css';
              
                               <div className="accordion" id="accordionExample">
 
-                                  <div className="cardd">
-                                      <div className="cardd-header" id="headingOne">
+                
+                                      
+  <div className="accordion" id="accordionExample">
 
-                                          <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                              <h5>Phase 1: <b> Connect </b> </h5>
-                                          </button>
+<div className="cardd">
+    <div className="cardd-header" id="headingOne">
 
-                                      </div>
-                                      <div id="collapseOne" className="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
-                                          <div className="card-body">
-                                              <div className="card">
+        <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h5>Phase 1:  </h5>
+        </button>
 
-                                                  <p>In the first quadrant, the reason why something should be learned is created, the answer to the question ‘why?’. This makes use of the ‘right mode’ of the brain. The goal is to have the learner experience it for themselves by getting them involved. This can be done, for example, by having the learner share his or her own experiences. This way the experience is stimulated by personal meaning. The teacher or expert who wants to convey something to others has a motivating role here and only has to guide the discussion.</p>
+    </div>
+    <div id="collapseOne" className="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div className="card-body">
+                                          <div className="row">
+              <div className="card col-sm-12 col-md-7" style={{backgroundColor:'#EFEFEF'}} >
+                <h5 style={{color:'black'}}><b style={{color:'#D23941',fontSize:'18px'}}> connect? </b> </h5>
+                <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
                                                   <div className="tabset">
@@ -150,39 +171,36 @@ import './StepForm.css';
 
 
                                                   </div>
+                  
+              </div>
+              <div className=" col-sm-12 col-md-1"></div>
+            <div className=" col-sm-12 col-md-4" >
+              <img loading="lazy" style={{width:'8000px',height:'320px'}} src="assets/kolbA.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /> 
 
 
-                                              </div>      </div>
-                                      </div>
-                                  </div>
+              </div>
+                                              </div>  
+                                              </div></div></div></div>
+  <div className="accordion" id="accordionExample">
 
+<div className="cardd">
+    <div className="cardd-header" id="headingTwo">
 
+        <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <h5>Phase 2:  </h5>
+        </button>
 
-
-
-
-
-
-
-
-
-
-                                  <div className="cardd">
-                                      <div className="cardd-header" id="headingTwo">
-                                          <h2 className="mb-0">
-                                              <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                  <h5>Phase 2: <b> Attend </b> </h5>
-                                              </button>
-                                          </h2>
-                                      </div>
-                                      <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                          <div className="card-body">
-                                              <div className="card">
-                                                  <p>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. The goals of the first quadrant are: giving meaning to the subject, visualising and allowing the student to integrate aspects of the subject.</p>
+    </div>
+    <div id="collapseTwo" className="collapse " aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div className="card-body"> 
+                                              <div className="row">
+              <div className="card col-sm-12 col-md-7" style={{backgroundColor:'#EFEFEF'}} >
+                <h5 style={{color:'black'}}> <b style={{color:'#D23941',fontSize:'18px'}}> Attend? </b> </h5>
+                <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
                                                   <div className="tabset">
-                                                      {/* Tab 2 */}
+                                                      {/* Tab 1 */}
                                                       <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
                                                       <label htmlFor="tab4">Select content type</label>
 
@@ -232,44 +250,36 @@ import './StepForm.css';
 
 
                                                   </div>
+                  
+              </div>
+              <div className=" col-sm-12 col-md-1"></div>
+            <div className=" col-sm-12 col-md-4" >
+              <img loading="lazy" style={{width:'8000px',height:'320px'}} src="assets/b.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /> 
 
 
-                                              </div>      </div>
-                                      </div>
-                                  </div>
+              </div>
+                                              </div> 
+                                              </div></div></div></div>
+  <div className="accordion" id="accordionExample">
 
+<div className="cardd">
+    <div className="cardd-header" id="headingThree">
 
+        <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+            <h5>Phase 3:  </h5>
+        </button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                  <div className="cardd">
-                                      <div className="cardd-header" id="headingThree">
-                                          <h2 className="mb-0">
-                                              <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                  <h5>Phase 3: <b> Imagine </b> </h5>
-                                              </button>
-                                          </h2>
-                                      </div>
-                                      <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                          <div className="card-body">
-                                              <div className="card">
-                                                  <p>The question of ‘what?’ needs to be answered in the second quadrant. In this step, an attempt is made to make the student reflect more deeply. It is an integrating step in the right mode of the brain. Teachers should move the students from the concrete to the abstract. The subjective experiences will be mixed with the abstract theory that will be handled at a later stage. This allows pupils to form a picture of the subject material, which makes them reinforce their focus.</p>
+    </div>
+    <div id="collapseThree" className="collapse " aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div className="card-body">
+                                              <div className="row">
+              <div className="card col-sm-12 col-md-7" style={{backgroundColor:'#EFEFEF'}} >
+                <h5 style={{color:'black'}}> <b style={{color:'#D23941',fontSize:'18px'}}> Image? </b> </h5>
+                <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
                                                   <div className="tabset">
-                                                      {/* Tab 4 */}
+                                                      {/* Tab 1 */}
                                                       <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
                                                       <label htmlFor="tab4">Select content type</label>
 
@@ -293,7 +303,7 @@ import './StepForm.css';
                                                                           <CKEditor
                                                                               editor={ClassicEditor}
 
-                                                                            //  onChange={handleChangePhase4}
+                                                                              onChange={event => handleChangeInput(inputField.id, event)}
 
                                                                           />
                                                                       </div>    </div>
@@ -319,428 +329,435 @@ import './StepForm.css';
 
 
                                                   </div>
+                  
+              </div>
+              <div className=" col-sm-12 col-md-1"></div>
+            <div className=" col-sm-12 col-md-4" >
+              <img loading="lazy" style={{width:'8000px',height:'320px'}} src="assets/kolbC.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /> 
 
 
-                                              </div>      </div>
-                                      </div>
-                                  </div>
-                              </div>
+              </div>
+                                              </div> 
+                                              </div></div></div></div>
+  <div className="accordion" id="accordionExample">
+
+<div className="cardd">
+    <div className="cardd-header" id="headingFour">
+
+        <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+            <h5>Phase 4:  </h5>
+        </button>
+
+    </div>
+    <div id="collapseFour" className="collapse " aria-labelledby="headingFour" data-parent="#accordionExample">
+        <div className="card-body">
+                                              <div className="row">
+              <div className="card col-sm-12 col-md-7" style={{backgroundColor:'#EFEFEF'}} >
+                <h5 style={{color:'black'}}> <b style={{color:'#D23941',fontSize:'18px'}}> Inform? </b> </h5>
+                <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
+                                                  <div className="tabset">
+                                                      {/* Tab 1 */}
+                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
+                                                      <label htmlFor="tab4">Select content type</label>
 
+                                                      <div className="tab-panels">
 
-
-
-                              <div className="cardd">
-                                  <div className="cardd-header" id="headingFour">
-                                      <h2 className="mb-0">
-                                          <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                              <h5>Phase 4: <b> Inform </b> </h5>
-                                          </button>
-                                      </h2>
-                                  </div>
-                                  <div id="collapseFour" className="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                                      <div className="card-body">
-                                          <div className="card">
-                                              <p>In the left-hand mode of quadrant two, the teacher takes the student to the core of the conceptual information. This is all about taking in information. The information that you choose to share should be based on the concept and shared experiences, and should lead to further research by the student. The goals in quadrant two are conceptualising, defining, shaping and acquiring knowledge.</p>
-
-                                              <div className="tabset">
-                                                  {/* Tab 4 */}
-                                                  <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                  <label htmlFor="tab4">Select content type</label>
-
-                                                  <div className="tab-panels">
-
-                                                      <>
-                                                          <section id="marzen" className="tab-panel">
-                                                              <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                              <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                              <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
-                                                          </section>
-
-
-
-
-
-
-                                                          <div className="collapse" id="collapseExample4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <CKEditor
-                                                                          editor={ClassicEditor}
-
-                                                                         // onChange={handleChangePhase4}
-
-                                                                      />
-                                                                  </div>    </div>
-                                                          </div>
-
-                                                          <div className="collapse" id="collapseExampleImg4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <p>image</p>
-                                                                  </div>    </div>
-                                                          </div>
-
-                                                          <div className="collapse" id="collapseExampleVid4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <p>vid</p>
-                                                                  </div>    </div>
-                                                          </div>
-                                                      </>
-
-
-                                                  </div>
-
-
-                                              </div>
-
-
-                                          </div>      </div>
-                                  </div>
-                              </div>
+                                                          <>
+                                                              <section id="marzen" className="tab-panel">
+                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              </section>
 
 
 
 
 
 
+                                                              <div className="collapse" id="collapseExample4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <CKEditor
+                                                                              editor={ClassicEditor}
 
-                              <div className="cardd">
-                                  <div className="cardd-header" id="headingFive">
-                                      <h2 className="mb-0">
-                                          <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                              <h5>Phase 5: <b> Practice </b> </h5>
-                                          </button>
-                                      </h2>
-                                  </div>
-                                  <div id="collapseFive" className="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-                                      <div className="card-body">
-                                          <div className="card">
-                                              <p>In the third quadrant the ‘how’ question is answered. In this step, students actively get started with the knowledge gained from the previous steps from the left mode. They will use worksheets, run experiments or use related technology.</p>
+                                                                              onChange={event => handleChangeInput(inputField.id, event)}
 
+                                                                          />
+                                                                      </div>    </div>
+                                                              </div>
 
-                                              <div className="tabset">
-                                                  {/* Tab 4 */}
-                                                  <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                  <label htmlFor="tab4">Select content type</label>
+                                                              <div className="collapse" id="collapseExampleImg4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <p>image</p>
+                                                                      </div>    </div>
+                                                              </div>
 
-                                                  <div className="tab-panels">
-
-                                                      <>
-                                                          <section id="marzen" className="tab-panel">
-                                                              <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                              <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                              <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
-                                                          </section>
+                                                              <div className="collapse" id="collapseExampleVid4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <p>vid</p>
+                                                                      </div>    </div>
+                                                              </div>
+                                                          </>
 
 
-
-
-
-
-                                                          <div className="collapse" id="collapseExample4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <CKEditor
-                                                                          editor={ClassicEditor}
-
-                                                                        //  onChange={handleChangePhase4}
-
-                                                                      />
-                                                                  </div>    </div>
-                                                          </div>
-
-                                                          <div className="collapse" id="collapseExampleImg4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <p>image</p>
-                                                                  </div>    </div>
-                                                          </div>
-
-                                                          <div className="collapse" id="collapseExampleVid4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <p>vid</p>
-                                                                  </div>    </div>
-                                                          </div>
-                                                      </>
+                                                      </div>
 
 
                                                   </div>
+                  
+              </div>
+              <div className=" col-sm-12 col-md-1"></div>
+            <div className=" col-sm-12 col-md-4" >
+              <img loading="lazy" style={{width:'8000px',height:'320px'}} src="assets/kolbD.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /> 
 
 
-                                              </div>
+              </div>
+                                              </div> 
+                                              </div></div></div></div>
+  <div className="accordion" id="accordionExample">
+
+<div className="cardd">
+    <div className="cardd-header" id="headingFive">
+
+        <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+            <h5>Phase 5:  </h5>
+        </button>
+
+    </div>
+    <div id="collapseFive" className="collapse " aria-labelledby="headingFive" data-parent="#accordionExample">
+        <div className="card-body">
+                                              <div className="row">
+              <div className="card col-sm-12 col-md-7" style={{backgroundColor:'#EFEFEF'}} >
+                <h5 style={{color:'black'}}> <b style={{color:'#D23941',fontSize:'18px'}}> Practice? </b> </h5>
+                <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                          </div>      </div>
-                                  </div>
-                              </div>
+                                                  <div className="tabset">
+                                                      {/* Tab 1 */}
+                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
+                                                      <label htmlFor="tab4">Select content type</label>
 
+                                                      <div className="tab-panels">
 
-
-
-
-
-                              <div className="cardd">
-                                  <div className="cardd-header" id="headingSix">
-                                      <h2 className="mb-0">
-                                          <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                              <h5>Phase 6: <b> Extand </b> </h5>
-                                          </button>
-                                      </h2>
-                                  </div>
-                                  <div id="collapseSix" className="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
-                                      <div className="card-body">
-                                          <div className="card">
-                                              <p>The teacher can let students create a project proposal related to the curriculum, which encourages them to think actively. The objectives from quadrant three include collecting data, asking questions, hypothesising, tinkering, experimenting and making decisions.</p>
-
-
-                                              <div className="tabset">
-                                                  {/* Tab 4 */}
-                                                  <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                  <label htmlFor="tab4">Select content type</label>
-
-                                                  <div className="tab-panels">
-
-                                                      <>
-                                                          <section id="marzen" className="tab-panel">
-                                                              <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                              <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                              <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
-                                                          </section>
-
-
-
-
-
-
-                                                          <div className="collapse" id="collapseExample4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <CKEditor
-                                                                          editor={ClassicEditor}
-
-                                                                         // onChange={handleChangePhase4}
-
-                                                                      />
-                                                                  </div>    </div>
-                                                          </div>
-
-                                                          <div className="collapse" id="collapseExampleImg4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <p>image</p>
-                                                                  </div>    </div>
-                                                          </div>
-
-                                                          <div className="collapse" id="collapseExampleVid4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <p>vid</p>
-                                                                  </div>    </div>
-                                                          </div>
-                                                      </>
-
-
-                                                  </div>
-
-
-                                              </div>
-
-
-                                          </div>      </div>
-                                  </div>
-                              </div>
-
-
-
-                              <div className="cardd">
-                                  <div className="cardd-header" id="headingSeven">
-                                      <h2 className="mb-0">
-                                          <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                              <h5>Phase 7: <b> Refine </b> </h5>
-                                          </button>
-                                      </h2>
-                                  </div>
-                                  <div id="collapseSeven" className="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
-                                      <div className="card-body">
-                                          <div className="card">
-                                              <p>In the fourth quadrant, the ‘what if’ question will be answered. In this step, the students are asked to analyse what they’ve planned as an addition to what they’ve learned from the previous step. The analytical aspect to this step makes it an activity for the left mode. This seventh step requires students to refine what they’ve learned and applied in the exercises.</p>
-
-
-                                              <div className="tabset">
-                                                  {/* Tab 4 */}
-                                                  <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                  <label htmlFor="tab4">Select content type</label>
-
-                                                  <div className="tab-panels">
-
-                                                      <>
-                                                          <section id="marzen" className="tab-panel">
-                                                              <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                              <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                              <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
-                                                          </section>
+                                                          <>
+                                                              <section id="marzen" className="tab-panel">
+                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              </section>
 
 
 
 
 
 
-                                                          <div className="collapse" id="collapseExample4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <CKEditor
-                                                                          editor={ClassicEditor}
+                                                              <div className="collapse" id="collapseExample4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <CKEditor
+                                                                              editor={ClassicEditor}
 
-                                                                        //  onChange={handleChangePhase4}
+                                                                              onChange={event => handleChangeInput(inputField.id, event)}
 
-                                                                      />
-                                                                  </div>    </div>
-                                                          </div>
+                                                                          />
+                                                                      </div>    </div>
+                                                              </div>
 
-                                                          <div className="collapse" id="collapseExampleImg4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <p>image</p>
-                                                                  </div>    </div>
-                                                          </div>
+                                                              <div className="collapse" id="collapseExampleImg4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <p>image</p>
+                                                                      </div>    </div>
+                                                              </div>
 
-                                                          <div className="collapse" id="collapseExampleVid4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <p>vid</p>
-                                                                  </div>    </div>
-                                                          </div>
-                                                      </>
+                                                              <div className="collapse" id="collapseExampleVid4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <p>vid</p>
+                                                                      </div>    </div>
+                                                              </div>
+                                                          </>
+
+
+                                                      </div>
 
 
                                                   </div>
+                  
+              </div>
+              <div className=" col-sm-12 col-md-1"></div>
+            <div className=" col-sm-12 col-md-4" >
+              <img loading="lazy" style={{width:'8000px',height:'320px'}} src="assets/kolbE.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /> 
 
 
-                                              </div>
+              </div>
+                                              </div> 
+                                              </div></div></div></div>
+  <div className="accordion" id="accordionExample">
+
+<div className="cardd">
+    <div className="cardd-header" id="headingSix">
+
+        <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+            <h5>Phase 6:  </h5>
+        </button>
+
+    </div>
+    <div id="collapseSix" className="collapse " aria-labelledby="headingSix" data-parent="#accordionExample">
+        <div className="card-body">
+                                              <div className="row">
+              <div className="card col-sm-12 col-md-7" style={{backgroundColor:'#EFEFEF'}} >
+                <h5 style={{color:'black'}}><b style={{color:'#D23941',fontSize:'18px'}}> Extend? </b> </h5>
+                <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                          </div>      </div>
-                                  </div>
-                              </div>
+                                                  <div className="tabset">
+                                                      {/* Tab 1 */}
+                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
+                                                      <label htmlFor="tab4">Select content type</label>
 
+                                                      <div className="tab-panels">
 
-
-
-
-
-
-                              <div className="cardd">
-                                  <div className="cardd-header" id="headingEight">
-                                      <h2 className="mb-0">
-                                          <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                              <h5>Phase 8: <b> Perform </b> </h5>
-                                          </button>
-                                      </h2>
-                                  </div>
-                                  <div id="collapseEight" className="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
-                                      <div className="card-body">
-                                          <div className="card">
-                                              <p>In the final step of the 4MAT model’s learning process, the students explain to each other what they have learned or created. It’s also important in this step that the students are asked to talk about what they’ve learned and gained from this entire cycle. The goals in the fourth quadrant are, among others: identify limitations, review, close, summarise and evaluate.</p>
-
-
-                                              <div className="tabset">
-                                                  {/* Tab 8 */}
-                                                  <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                  <label htmlFor="tab4">Select content type</label>
-
-                                                  <div className="tab-panels">
-
-                                                      <>
-                                                          <section id="marzen" className="tab-panel">
-                                                              <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                              <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                              <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
-                                                          </section>
-
-
+                                                          <>
+                                                              <section id="marzen" className="tab-panel">
+                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              </section>
 
 
 
 
-                                                          <div className="collapse" id="collapseExample4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <CKEditor
-                                                                          editor={ClassicEditor}
 
-                                                                        //  onChange={handleChangePhase4}
 
-                                                                      />
-                                                                  </div>    </div>
-                                                          </div>
+                                                              <div className="collapse" id="collapseExample4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <CKEditor
+                                                                              editor={ClassicEditor}
 
-                                                          <div className="collapse" id="collapseExampleImg4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <p>image</p>
-                                                                  </div>    </div>
-                                                          </div>
+                                                                              onChange={event => handleChangeInput(inputField.id, event)}
 
-                                                          <div className="collapse" id="collapseExampleVid4">
-                                                              <div className="cardd card-body">
-                                                                  <div className="form-group">
-                                                                      <p>vid</p>
-                                                                  </div>    </div>
-                                                          </div>
-                                                      </>
+                                                                          />
+                                                                      </div>    </div>
+                                                              </div>
+
+                                                              <div className="collapse" id="collapseExampleImg4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <p>image</p>
+                                                                      </div>    </div>
+                                                              </div>
+
+                                                              <div className="collapse" id="collapseExampleVid4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <p>vid</p>
+                                                                      </div>    </div>
+                                                              </div>
+                                                          </>
+
+
+                                                      </div>
 
 
                                                   </div>
+                  
+              </div>
+              <div className=" col-sm-12 col-md-1"></div>
+            <div className=" col-sm-12 col-md-4" >
+              <img loading="lazy" style={{width:'8000px',height:'320px'}} src="assets/kolbF.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /> 
 
 
-                                              </div>
+              </div>
+                                              </div> 
+                                              </div></div></div></div>
+  <div className="accordion" id="accordionExample">
+
+<div className="cardd">
+    <div className="cardd-header" id="headingEight">
+
+        <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+            <h5>Phase 7:  </h5>
+        </button>
+
+    </div>
+    <div id="collapseEight" className="collapse " aria-labelledby="headingEight" data-parent="#accordionExample">
+        <div className="card-body">
+                                              <div className="row">
+              <div className="card col-sm-12 col-md-7" style={{backgroundColor:'#EFEFEF'}} >
+                <h5 style={{color:'black'}}> <b style={{color:'#D23941',fontSize:'18px'}}> Refine? </b> </h5>
+                <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                          </div>
-                                      </div>
-                                  </div>
+                                                  <div className="tabset">
+                                                      {/* Tab 1 */}
+                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
+                                                      <label htmlFor="tab4">Select content type</label>
+
+                                                      <div className="tab-panels">
+
+                                                          <>
+                                                              <section id="marzen" className="tab-panel">
+                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              </section>
+
+
+
+
+
+
+                                                              <div className="collapse" id="collapseExample4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <CKEditor
+                                                                              editor={ClassicEditor}
+
+                                                                              onChange={event => handleChangeInput(inputField.id, event)}
+
+                                                                          />
+                                                                      </div>    </div>
+                                                              </div>
+
+                                                              <div className="collapse" id="collapseExampleImg4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <p>image</p>
+                                                                      </div>    </div>
+                                                              </div>
+
+                                                              <div className="collapse" id="collapseExampleVid4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <p>vid</p>
+                                                                      </div>    </div>
+                                                              </div>
+                                                          </>
+
+
+                                                      </div>
+
+
+                                                  </div>
+                  
+              </div>
+              <div className=" col-sm-12 col-md-1"></div>
+            <div className=" col-sm-12 col-md-4" >
+              <img loading="lazy" style={{width:'8000px',height:'320px'}} src="assets/kolbG.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /> 
+
+
+              </div>
+                                              </div> 
+                                              </div></div></div></div>
+  <div className="accordion" id="accordionExample">
+
+<div className="cardd">
+    <div className="cardd-header" id="headingOnev">
+
+        <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOnev" aria-expanded="true" aria-controls="collapseOnev">
+            <h5>Phase 8:  </h5>
+        </button>
+
+    </div>
+    <div id="collapseOnev" className="collapse " aria-labelledby="headingOnev" data-parent="#accordionExample">
+        <div className="card-body">
+                                              <div className="row">
+              <div className="card col-sm-12 col-md-7" style={{backgroundColor:'#EFEFEF'}} >
+                <h5 style={{color:'black'}}> <b style={{color:'#D23941',fontSize:'18px'}}> Perform? </b> </h5>
+                <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
+
+
+                                                  <div className="tabset">
+                                                      {/* Tab 1 */}
+                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
+                                                      <label htmlFor="tab4">Select content type</label>
+
+                                                      <div className="tab-panels">
+
+                                                          <>
+                                                              <section id="marzen" className="tab-panel">
+                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              </section>
+
+
+
+
+
+
+                                                              <div className="collapse" id="collapseExample4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <CKEditor
+                                                                              editor={ClassicEditor}
+
+                                                                              onChange={event => handleChangeInput(inputField.id, event)}
+
+                                                                          />
+                                                                      </div>    </div>
+                                                              </div>
+
+                                                              <div className="collapse" id="collapseExampleImg4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <p>image</p>
+                                                                      </div>    </div>
+                                                              </div>
+
+                                                              <div className="collapse" id="collapseExampleVid4">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                          <p>vid</p>
+                                                                      </div>    </div>
+                                                              </div>
+                                                          </>
+
+
+                                                      </div>
+
+
+                                                  </div>
+                  
+              </div>
+              <div className=" col-sm-12 col-md-1"></div>
+            <div className=" col-sm-12 col-md-4" >
+              <img loading="lazy" style={{width:'8000px',height:'320px'}} src="assets/kolbb.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /> 
+
+
+              </div>
+                                              </div> 
+
+                                              </div></div></div></div>
+                                 
+
                               </div>
+
+
+
+
+
 
                           </div>
+ 
 
-
-
+                          )) };
                           <br />
 
-                          <br />
-
-                          <br />
+                         
 
 
 
-
-
-
-
-
-
-
-
-
-                          <br />
-                          <br />
-
-                          <br />
-
-                      </>
-                  </MuiThemeProvider>
-              </div>
-          </div>
-       )) };
-     
-       <Button
+                          <Button
             color="secondary"
             variant="contained"
-           
+            style={{marginLeft:'600px'}}
           >Back</Button>
 
           <Button
@@ -749,6 +766,18 @@ import './StepForm.css';
             onClick={Continue}
             
           >Continue</Button>
+
+                        
+
+                          <br />
+
+                      </>
+                  </MuiThemeProvider>
+              </div>
+          </div>
+     
+     
+       
           </form>
   </div>
     );
