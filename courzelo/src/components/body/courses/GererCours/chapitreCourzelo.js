@@ -10,6 +10,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ckeditor, { CKEditor } from '@ckeditor/ckeditor5-react';
 import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+
 import './StepForm.css';
 
 
@@ -17,7 +21,7 @@ import './StepForm.css';
  function ChapitresCourzelo({nextStep,handleSubmit})   {
  
   const [inputFields, setInputFields] = useState([
-    { id: uuidv4(), text1: '', text2: '' },
+    { id: uuidv4(), text1: '', text2: '', text3: '' },
   ]);
 
   const handleChangeInput = (id, event) => {
@@ -31,7 +35,7 @@ import './StepForm.css';
     setInputFields(newInputFields);
   }
   const handleAddFields = () => {
-    setInputFields([...inputFields, { id: uuidv4(),  text1: '', text2: '' }])
+    setInputFields([...inputFields, { id: uuidv4(),  text1: '', text2: '', text3: '' }])
   }
   const handleRemoveFields = id => {
     const values  = [...inputFields];
@@ -120,18 +124,18 @@ way to train all learners to think and learn well.<br/>
                 <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                                  <div className="tabset">
+                                                  <div >
                                                       {/* Tab 1 */}
-                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                      <label htmlFor="tab4">Select content type</label>
+                                                    
 
-                                                      <div className="tab-panels">
+                                                      <div >
 
                                                           <>
-                                                              <section id="marzen" className="tab-panel">
-                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              <section >
+                                                                  <i > < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i style={{marginLeft:'100px'}}> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}} >  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}}>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf1" aria-expanded="false" aria-controls="collapseExamplepdf1" /> </i>
                                                               </section>
 
 
@@ -142,26 +146,44 @@ way to train all learners to think and learn well.<br/>
                                                               <div className="collapse" id="collapseExample4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <CKEditor
-                                                                              editor={ClassicEditor}
-
-                                                                              onChange={event => handleChangeInput(inputField.id, event)}
-
-                                                                          />
+                                                                      <textarea
+                   placeholder=" phase 1"
+                   label="phase1"
+                   onChange={event => handleChangeInput(inputField.id, event)}
+                   name="text1"
+                   defaultValue=''
+                   margin="normal"
+                   fullWidth
+                 />
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleImg4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>image</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleVid4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>vid</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
+                                                                      </div>    </div>
+                                                              </div>
+                                                              <div className="collapse" id="collapseExamplepdf1">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
                                                           </>
@@ -199,18 +221,19 @@ way to train all learners to think and learn well.<br/>
                 <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                                  <div className="tabset">
+                <div >
                                                       {/* Tab 1 */}
-                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                      <label htmlFor="tab4">Select content type</label>
+                                                    
 
-                                                      <div className="tab-panels">
+                                                      <div >
 
                                                           <>
-                                                              <section id="marzen" className="tab-panel">
-                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              <section >
+                                                                  <i > < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i style={{marginLeft:'100px'}}> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}} >  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}}>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf1" aria-expanded="false" aria-controls="collapseExamplepdf1" /> </i>
+
                                                               </section>
 
 
@@ -221,26 +244,44 @@ way to train all learners to think and learn well.<br/>
                                                               <div className="collapse" id="collapseExample4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <CKEditor
-                                                                              editor={ClassicEditor}
-
-                                                                              onChange={event => handleChangeInput(inputField.id, event)}
-
-                                                                          />
+                                                                      <textarea
+                   placeholder=" phase 2"
+                   label="phase2"
+                   onChange={event => handleChangeInput(inputField.id, event)}
+                   name="text2"
+                   defaultValue=''
+                   margin="normal"
+                   fullWidth
+                 />
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleImg4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>image</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleVid4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>vid</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
+                                                                      </div>    </div>
+                                                              </div>
+                                                              <div className="collapse" id="collapseExamplepdf1">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
                                                           </>
@@ -278,18 +319,19 @@ way to train all learners to think and learn well.<br/>
                 <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                                  <div className="tabset">
+                <div >
                                                       {/* Tab 1 */}
-                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                      <label htmlFor="tab4">Select content type</label>
+                                                    
 
-                                                      <div className="tab-panels">
+                                                      <div >
 
                                                           <>
-                                                              <section id="marzen" className="tab-panel">
-                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              <section >
+                                                                  <i > < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i style={{marginLeft:'100px'}}> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}} >  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}}>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf1" aria-expanded="false" aria-controls="collapseExamplepdf1" /> </i>
+
                                                               </section>
 
 
@@ -300,26 +342,44 @@ way to train all learners to think and learn well.<br/>
                                                               <div className="collapse" id="collapseExample4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <CKEditor
-                                                                              editor={ClassicEditor}
-
-                                                                              onChange={event => handleChangeInput(inputField.id, event)}
-
-                                                                          />
+                                                                      <textarea
+                   placeholder=" phase 3"
+                   label="phase3"
+                   onChange={event => handleChangeInput(inputField.id, event)}
+                   name="text3"
+                   defaultValue=''
+                   margin="normal"
+                   fullWidth
+                 />
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleImg4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>image</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleVid4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>vid</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
+                                                                      </div>    </div>
+                                                              </div>
+                                                              <div className="collapse" id="collapseExamplepdf1">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
                                                           </>
@@ -357,18 +417,19 @@ way to train all learners to think and learn well.<br/>
                 <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                                  <div className="tabset">
+                <div >
                                                       {/* Tab 1 */}
-                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                      <label htmlFor="tab4">Select content type</label>
+                                                    
 
-                                                      <div className="tab-panels">
+                                                      <div >
 
                                                           <>
-                                                              <section id="marzen" className="tab-panel">
-                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              <section >
+                                                                  <i > < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i style={{marginLeft:'100px'}}> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}} >  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}}>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf1" aria-expanded="false" aria-controls="collapseExamplepdf1" /> </i>
+
                                                               </section>
 
 
@@ -379,26 +440,44 @@ way to train all learners to think and learn well.<br/>
                                                               <div className="collapse" id="collapseExample4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <CKEditor
-                                                                              editor={ClassicEditor}
-
-                                                                              onChange={event => handleChangeInput(inputField.id, event)}
-
-                                                                          />
+                                                                      <textarea
+                   placeholder=" phase 1"
+                   label="phase1"
+                   onChange={event => handleChangeInput(inputField.id, event)}
+                   name="text1"
+                   defaultValue=''
+                   margin="normal"
+                   fullWidth
+                 />
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleImg4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>image</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleVid4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>vid</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
+                                                                      </div>    </div>
+                                                              </div>
+                                                              <div className="collapse" id="collapseExamplepdf1">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
                                                           </>
@@ -436,18 +515,19 @@ way to train all learners to think and learn well.<br/>
                 <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                                  <div className="tabset">
+                <div >
                                                       {/* Tab 1 */}
-                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                      <label htmlFor="tab4">Select content type</label>
+                                                    
 
-                                                      <div className="tab-panels">
+                                                      <div >
 
                                                           <>
-                                                              <section id="marzen" className="tab-panel">
-                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              <section >
+                                                                  <i > < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i style={{marginLeft:'100px'}}> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}} >  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}}>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf1" aria-expanded="false" aria-controls="collapseExamplepdf1" /> </i>
+
                                                               </section>
 
 
@@ -458,26 +538,44 @@ way to train all learners to think and learn well.<br/>
                                                               <div className="collapse" id="collapseExample4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <CKEditor
-                                                                              editor={ClassicEditor}
-
-                                                                              onChange={event => handleChangeInput(inputField.id, event)}
-
-                                                                          />
+                                                                      <textarea
+                   placeholder=" phase 1"
+                   label="phase1"
+                   onChange={event => handleChangeInput(inputField.id, event)}
+                   name="text1"
+                   defaultValue=''
+                   margin="normal"
+                   fullWidth
+                 />
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleImg4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>image</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleVid4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>vid</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
+                                                                      </div>    </div>
+                                                              </div>
+                                                              <div className="collapse" id="collapseExamplepdf1">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
                                                           </>
@@ -487,7 +585,6 @@ way to train all learners to think and learn well.<br/>
 
 
                                                   </div>
-                  
               </div>
               <div className=" col-sm-12 col-md-1"></div>
             <div className=" col-sm-12 col-md-4" >
@@ -515,18 +612,19 @@ way to train all learners to think and learn well.<br/>
                 <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                                  <div className="tabset">
+                <div >
                                                       {/* Tab 1 */}
-                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                      <label htmlFor="tab4">Select content type</label>
+                                                    
 
-                                                      <div className="tab-panels">
+                                                      <div >
 
                                                           <>
-                                                              <section id="marzen" className="tab-panel">
-                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              <section >
+                                                                  <i > < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i style={{marginLeft:'100px'}}> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}} >  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}}>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf1" aria-expanded="false" aria-controls="collapseExamplepdf1" /> </i>
+
                                                               </section>
 
 
@@ -537,26 +635,44 @@ way to train all learners to think and learn well.<br/>
                                                               <div className="collapse" id="collapseExample4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <CKEditor
-                                                                              editor={ClassicEditor}
-
-                                                                              onChange={event => handleChangeInput(inputField.id, event)}
-
-                                                                          />
+                                                                      <textarea
+                   placeholder=" phase 1"
+                   label="phase1"
+                   onChange={event => handleChangeInput(inputField.id, event)}
+                   name="text1"
+                   defaultValue=''
+                   margin="normal"
+                   fullWidth
+                 />
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleImg4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>image</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleVid4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>vid</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
+                                                                      </div>    </div>
+                                                              </div>
+                                                              <div className="collapse" id="collapseExamplepdf1">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
                                                           </>
@@ -594,18 +710,19 @@ way to train all learners to think and learn well.<br/>
                 <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                                  <div className="tabset">
+                <div >
                                                       {/* Tab 1 */}
-                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                      <label htmlFor="tab4">Select content type</label>
+                                                    
 
-                                                      <div className="tab-panels">
+                                                      <div >
 
                                                           <>
-                                                              <section id="marzen" className="tab-panel">
-                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              <section >
+                                                                  <i > < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i style={{marginLeft:'100px'}}> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}} >  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}}>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf1" aria-expanded="false" aria-controls="collapseExamplepdf1" /> </i>
+
                                                               </section>
 
 
@@ -616,26 +733,44 @@ way to train all learners to think and learn well.<br/>
                                                               <div className="collapse" id="collapseExample4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <CKEditor
-                                                                              editor={ClassicEditor}
-
-                                                                              onChange={event => handleChangeInput(inputField.id, event)}
-
-                                                                          />
+                                                                      <textarea
+                   placeholder=" phase 1"
+                   label="phase1"
+                   onChange={event => handleChangeInput(inputField.id, event)}
+                   name="text1"
+                   defaultValue=''
+                   margin="normal"
+                   fullWidth
+                 />
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleImg4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>image</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleVid4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>vid</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
+                                                                      </div>    </div>
+                                                              </div>
+                                                              <div className="collapse" id="collapseExamplepdf1">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
                                                           </>
@@ -673,18 +808,19 @@ way to train all learners to think and learn well.<br/>
                 <p style={{color:'black'}}>In the left-hand mode of quadrant 1, the students examine the experience. The method once again involves a discussion, but this time students are asked to look past their own experience. The experience then flows into a meaningful dialogue and reflection. </p>
 
 
-                                                  <div className="tabset">
+                <div >
                                                       {/* Tab 1 */}
-                                                      <input type="radio" name="tabset" id="tab4" aria-controls="marzen" />
-                                                      <label htmlFor="tab4">Select content type</label>
+                                                    
 
-                                                      <div className="tab-panels">
+                                                      <div >
 
                                                           <>
-                                                              <section id="marzen" className="tab-panel">
-                                                                  <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
-                                                                  <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
-                                                                  <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                              <section >
+                                                                  <i > < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
+                                                                  <i style={{marginLeft:'100px'}}> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}} >  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
+                                                                  <i style={{marginLeft:'100px'}}>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf1" aria-expanded="false" aria-controls="collapseExamplepdf1" /> </i>
+
                                                               </section>
 
 
@@ -695,26 +831,44 @@ way to train all learners to think and learn well.<br/>
                                                               <div className="collapse" id="collapseExample4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <CKEditor
-                                                                              editor={ClassicEditor}
-
-                                                                              onChange={event => handleChangeInput(inputField.id, event)}
-
-                                                                          />
+                                                                      <textarea
+                   placeholder=" phase 1"
+                   label="phase1"
+                   onChange={event => handleChangeInput(inputField.id, event)}
+                   name="text1"
+                   defaultValue=''
+                   margin="normal"
+                   fullWidth
+                 />
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleImg4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>image</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
 
                                                               <div className="collapse" id="collapseExampleVid4">
                                                                   <div className="cardd card-body">
                                                                       <div className="form-group">
-                                                                          <p>vid</p>
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
+                                                                      </div>    </div>
+                                                              </div>
+                                                              <div className="collapse" id="collapseExamplepdf1">
+                                                                  <div className="cardd card-body">
+                                                                      <div className="form-group">
+                                                                      <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                       ></input> 
                                                                       </div>    </div>
                                                               </div>
                                                           </>
