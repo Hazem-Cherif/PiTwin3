@@ -100,6 +100,7 @@ export class AddCourse extends Component {
 
 
   uploadHandler = async e => {
+    
     e.preventDefault()
 
     const data = this.state
@@ -128,6 +129,7 @@ export class AddCourse extends Component {
     })
   }
   uploadHandlerImg1 = async e => {
+
     e.preventDefault()
 
     const data = this.state

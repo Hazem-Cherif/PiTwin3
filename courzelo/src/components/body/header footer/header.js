@@ -94,7 +94,7 @@ function Header() {
             </li>
             <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{marginRight:'10px'}}><Link to="/blog" className="header-btn btn-hover" >Blog</Link></li>
             
-            <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{marginRight:'10px'}}><Link to="/DetailAddCourse" className="header-btn btn-hover" >Teacher in courzelo</Link></li>
+            <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{marginRight:'10px'}}><Link to="/DetailAddCourse" className="header-btn btn-hover" >Teacher </Link></li>
 
             <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{marginRight:'10px'}}><Link to="/AboutUS" className="header-btn btn-hover" >About us</Link></li>
          
