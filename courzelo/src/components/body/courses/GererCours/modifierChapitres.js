@@ -775,18 +775,28 @@ function ModifierChapitres() {
                           <br />
 
                           
-                          <div >
+                          
           <div className="wpb_column vc_column_container vc_col-sm-6"><div className="vc_column-inner">
             < div className="wpb_wrapper">
               <div className="thim-sc-button text-right hide-separator ">
                   <a  target="_self" className="btn btn-primary btn-lg">
-                  <Link to={`/modifiersupconclusion/${postcourse._id}`}  >
-                    <span className="text" style={{color:'#FFFFFF'}}>update</span>
+                  <Link  to={`/modifiersupconclusion/${postcourse._id}`}>
+                    <span className="text" style={{color:'#FFFFFF'}}>Continue</span>
                     </Link>
                   </a>
                 </div>
               </div></div></div>
-         </div>
+          <div className="wpb_column vc_column_container vc_col-sm-6"><div className="vc_column-inner">
+              <div className="wpb_wrapper"><div className="thim-sc-button text-left hide-separator ">
+                  <a target="_self" className="btn btn-basic btn-lg" >
+                  <Button     type="submit" >update</Button>
+                  </a>
+                </div>
+               
+
+              </div>
+              </div></div>
+          
 
                       </>
                   </MuiThemeProvider>

@@ -3,7 +3,7 @@ import { useDispatch ,useSelector} from 'react-redux';
 import { getAllCoursesByUser, getCourses } from '../../../redux/actions/courseAction';
 import useStyles from './GererCours/styles';
 import {Link} from 'react-router-dom'
-
+import Swal from 'sweetalert2'
 function GererCourses() {
   const token = useSelector(state => state.token);
   const courses = useSelector((state) => state.courses);
@@ -12,6 +12,58 @@ function GererCourses() {
     
     dispatch(getAllCoursesByUser(token))
   }, [ dispatch(getAllCoursesByUser(token))]);
+  useEffect(() => {
+    
+    dispatch(getAllCoursesByUser(token))
+  }, [ dispatch(getAllCoursesByUser(token))]);
+  const notif = async e => {
+    Swal.mixin({
+      confirmButtonText: 'Next &rarr;',
+      showCancelButton: true,
+      progressSteps: ['1', '2', '3']
+    }).queue([
+      {
+        title: 'Click to Add Hard Skills',
+        text: 'The blue button on left',
+        imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      },{
+        title: 'Mouse Scroll on the added Skills',
+        text: 'Scroll on the picture, a button will appear',
+        imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image'
+     
+      },{
+        title: 'Select add Score Button',
+        text: 'A PoP UP will appear , be free to add your score between 0 & 100',
+        imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image'
+        
+      }
+    ]).then((result) => {
+      if (result.value) {
+        const answers = JSON.stringify(result.value)
+        Swal.fire({
+      title: '<strong>We are here to <u>HELP YOU</u></strong>',
+      icon: 'info',
+      html:
+        'You can use <b>HELP SECTION</b>, ' +
+        'for more details, hope it was clear for you', 
+      showCloseButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+        '<i class="fa fa-thumbs-up"></i> Clear!',
+      confirmButtonAriaLabel: 'Great! Enjoy it!',
+    })
+      }
+    })
+  }
   
     return (
         
@@ -67,13 +119,15 @@ function GererCourses() {
                       <li className="courses active">
                              <Link to={`/addcourse/${token}`}>Add Course</Link> 
                       </li>
-                    
+                      <li className="courses active">
+                             <Link  onClick={notif} > Help me</Link> 
+                      </li>
                     </ul>
                     <div id="learn-press-profile-content" className="tab-content">
                       <div id="profile-content-courses">
                         <ul className="lp-tab-sections">
                           <li className="section-tab owned active">
-                            <span> <Link to="/GererCourses">Gerer Course</Link> </span>
+                            <span> <Link to="/GererCourses">My Courses</Link> </span>
                           </li>
                           <li className="section-tab purchased">
                            <Link to="/Gerercoursemodifsupp">Gerer Course</Link> 

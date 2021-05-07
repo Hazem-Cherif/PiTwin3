@@ -1,6 +1,7 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
 import { getAllCoursesByUser, deleteCourse } from '../../../../redux/actions/courseAction';
+import Swal from 'sweetalert2'
 import {
   Alert,
   Button,
@@ -21,7 +22,54 @@ function Gerercoursemodifsupp() {
     
     dispatch(getAllCoursesByUser(token))
   }, [ dispatch(getAllCoursesByUser(token))]);
-  
+  const notif = async e => {
+    Swal.mixin({
+      confirmButtonText: 'Next &rarr;',
+      showCancelButton: true,
+      progressSteps: ['1', '2', '3']
+    }).queue([
+      {
+        title: 'Click to Add A COURSE',
+        text: 'The blue button on left',
+        imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      },{
+        title: 'fill the blanks',
+        text: 'Scroll on the picture, a button will appear',
+        imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image'
+     
+      },{
+        title: 'Select add Score Button',
+        text: 'A PoP UP will appear , be free to add your score between 0 & 100',
+        imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image'
+        
+      }
+    ]).then((result) => {
+      if (result.value) {
+        const answers = JSON.stringify(result.value)
+        Swal.fire({
+      title: '<strong>We are here to <u>HELP YOU</u></strong>',
+      icon: 'info',
+      html:
+        'You can use <b>HELP SECTION</b>, ' +
+        'for more details, hope it was clear for you', 
+      showCloseButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+        '<i class="fa fa-thumbs-up"></i> Clear!',
+      confirmButtonAriaLabel: 'Great! Enjoy it!',
+    })
+      }
+    })
+  }
     return (
         <div style={{width: 1400,marginLeft:50,marginBottom:180}}>
         <div id="main-content"> <section className="content-area">
@@ -67,13 +115,15 @@ function Gerercoursemodifsupp() {
                       <li className="courses active">
                              <Link to={`/addcourse/${token}`}>Add Course</Link> 
                       </li>
-                    
+                      <li className="courses active">
+                             <Link  onClick={notif} > Help me</Link> 
+                      </li>
                     </ul>
                     <div id="learn-press-profile-content" className="tab-content">
                       <div id="profile-content-courses">
                       <ul className="lp-tab-sections">
                           <li className="section-tab owned active">
-                            <span> <Link to="/GererCourses">Gerer Course</Link> </span>
+                            <span> <Link to="/GererCourses">My Courses</Link> </span>
                           </li>
                           <li className="section-tab purchased">
                            <Link to="/Gerercoursemodifsupp">Gerer Course</Link> 
@@ -147,7 +197,8 @@ function Gerercoursemodifsupp() {
               className="btn-simple"
               type="button"
               variant="link"
-              style ={{backgroundColor :'#008000'}}
+              style ={{backgroundColor :'#FF0000'}}
+           
               
               onClick={() => dispatch(deleteCourse(course._id))}
             >
@@ -157,7 +208,7 @@ function Gerercoursemodifsupp() {
               className="btn-simple"
               type="button"
               variant="link"
-              style ={{backgroundColor :'#FF0000'}}
+              style ={{backgroundColor :'#008000'}}
               onClick={() => setShowModal(false)}
              
             >
