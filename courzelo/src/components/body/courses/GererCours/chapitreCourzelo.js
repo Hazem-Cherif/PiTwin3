@@ -87,7 +87,7 @@ const uploadimg1 = async(id, event) => {
 const uploadvid1 = async(id, event) => {
     event.preventDefault()
 
-    const file = e.target.files[0]
+    const file = event.target.files[0]
 
     if (!file) return 'no file';
 
@@ -112,7 +112,7 @@ const uploadvid1 = async(id, event) => {
 }    
 const uploadpdf1 = async(id, event) => {
     event.preventDefault()
-    const file = e.target.files[0]
+    const file = event.target.files[0]
     
     if (!file) return "no file";
 
@@ -168,7 +168,7 @@ const uploadimg2 = async(id, event) => {
 const uploadvid2 = async(id, event) => {
 event.preventDefault()
 
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return 'no file';
 
@@ -193,7 +193,7 @@ const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
 }    
 const uploadpdf2 = async(id, event) => {
 event.preventDefault()
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return "no file";
 
@@ -249,7 +249,7 @@ const uploadimg3 = async(id, event) => {
 const uploadvid3 = async(id, event) => {
 event.preventDefault()
 
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return 'no file';
 
@@ -274,7 +274,7 @@ const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
 }    
 const uploadpdf3 = async(id, event) => {
 event.preventDefault()
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return "no file";
 
@@ -330,7 +330,7 @@ const uploadimg4 = async(id, event) => {
 const uploadvid4 = async(id, event) => {
 event.preventDefault()
 
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return 'no file';
 
@@ -355,7 +355,7 @@ const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
 }    
 const uploadpdf4 = async(id, event) => {
 event.preventDefault()
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return "no file";
 
@@ -411,7 +411,7 @@ const uploadimg5 = async(id, event) => {
 const uploadvid5 = async(id, event) => {
 event.preventDefault()
 
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return 'no file';
 
@@ -436,7 +436,7 @@ const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
 }    
 const uploadpdf5 = async(id, event) => {
 event.preventDefault()
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return "no file";
 
@@ -492,7 +492,7 @@ const uploadimg6 = async(id, event) => {
 const uploadvid6 = async(id, event) => {
 event.preventDefault()
 
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return 'no file';
 
@@ -517,7 +517,7 @@ const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
 }    
 const uploadpdf6 = async(id, event) => {
 event.preventDefault()
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return "no file";
 
@@ -573,7 +573,7 @@ const uploadimg7 = async(id, event) => {
 const uploadvid7 = async(id, event) => {
 event.preventDefault()
 
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return 'no file';
 
@@ -598,7 +598,7 @@ const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
 }    
 const uploadpdf7 = async(id, event) => {
 event.preventDefault()
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return "no file";
 
@@ -654,7 +654,7 @@ const uploadimg8 = async(id, event) => {
 const uploadvid8 = async(id, event) => {
 event.preventDefault()
 
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return 'no file';
 
@@ -679,7 +679,7 @@ const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
 }    
 const uploadpdf8 = async(id, event) => {
 event.preventDefault()
-const file = e.target.files[0]
+const file = event.target.files[0]
 
 if (!file) return "no file";
 
