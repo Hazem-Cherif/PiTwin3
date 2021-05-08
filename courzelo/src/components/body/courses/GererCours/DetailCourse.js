@@ -2,8 +2,11 @@ import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
 import { getCourses } from '../../../../redux/actions/courseAction';
 import {useParams, useHistory} from 'react-router-dom'
-
-
+import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
+import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
+import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+import ReactPlayer from 'react-player'
 function DetailCourse() {
   
   const {id} = useParams();
@@ -104,9 +107,7 @@ function DetailCourse() {
               <h3 className="mb-20">DESCRIPTION</h3>
               <p className="mb-30"> {postcourse.description}.</p>
             </div>
-            <div>
-              <a style={{display: "table-cell"}} href={postcourse.introduction.filePath1} target={postcourse.introduction.filePath1}>pdf link</a>
-            </div>
+           
             
             <div className="course-content pt-50 pb-35">
             <div className="course-curriculum" id="learn-press-course-curriculum">
@@ -119,7 +120,7 @@ function DetailCourse() {
     <span className="total-time">Time: <span className="text">10 weeks</span></span>
   </div>
   <ul className="curriculum-sections">
-    <li className="section" id="section-230" data-id={230}>
+    <li className="section" id="section-230" >
       <h4 className="section-header">
         <span className="collapse" />
         Step 1&nbsp;
@@ -130,58 +131,259 @@ function DetailCourse() {
         </span>
       </h4>
       <ul className="section-content">
-        <li className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
-          <span className="course-format-icon"><i className="fa fa-file-o" /></span>
-          <div className="meta-rank">
-            <div className="rank"><span className="label">Lecture</span>1.1</div>
-          </div>
-          <a className="section-item-link" href="lessons/a-note-on-asking-for-help3/index.html">
-            <span className="item-name">A Note On Asking For Help23</span>
+
+        <li className="accordion" id="accordionExample" className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
+         <ul>
+
+         <li >
+        
+          <a className="section-item-link" id="headingOne">
+            <span className="item-name">Phase1</span>
             <span className="course-item-meta">
-              <span className="item-meta duration">30 min</span>
-              <span className="lp-label lp-label-preview">Preview</span>
+              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+             Preview
+                                                        </button>
             </span>
           </a>
-        </li>
-        <li className="course-item course-item-lp_lesson course-item-460 item-preview has-status" data-type="lp_lesson">
-          <span className="course-format-icon"><i className="fa fa-file-o" /></span>
-          <div className="meta-rank">
-            <div className="rank"><span className="label">Lecture</span>1.2</div>
+          </li>
+          <li>
+          <div id="collapseOne" className="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+          {postcourse.introduction.text1  =="" ?
+          <div/>:
+                                                        <div className="card-body" style={{width:'1200px'}}>
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
+                                                                    <p style={{ color: 'black' }}>{postcourse.introduction.text1} </p>
+
+                                                          </div>
+                                                          </div>
+                                                 }
+                                                 {postcourse.introduction.img1  =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Image </b> </h5>
+                                                                    <img style={{ width:'365px',height:'260px' }} src={postcourse.introduction.img1} /> 
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.introduction.video1  =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
+                    <div className="video" >
+                      <div>
+                        <div style={{ width: '100px' }}>
+                          <ReactPlayer url={postcourse.introduction.video1} controls={true}></ReactPlayer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.introduction.filePath1  =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Pdf </b> </h5>
+                                                                    <a style={{display: "table-cell"}} href={postcourse.introduction.filePath1} target={postcourse.introduction.filePath1}>pdf link</a>
+                                                          </div>
+                                                          </div>}
           </div>
-          <a className="section-item-link" href="lessons/introducing-our-ta-12/index.html">
-            <span className="item-name">Introducing Our TA</span>
+          </li>
+          </ul>
+        </li>
+ <li className="accordion" id="accordionExample" className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
+         <ul>
+
+         <li >
+        
+          <a className="section-item-link" id="headingOne1">
+            <span className="item-name">Phase2</span>
             <span className="course-item-meta">
-              <span className="item-meta duration">30 min</span>
-              <span className="lp-label lp-label-preview">Preview</span>
+              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+             Preview
+                                                        </button>
             </span>
           </a>
-        </li>
-        <li className="course-item course-item-lp_lesson course-item-461 item-preview has-status" data-type="lp_lesson">
-          <span className="course-format-icon"><i className="fa fa-file-o" /></span>
-          <div className="meta-rank">
-            <div className="rank"><span className="label">Lecture</span>1.3</div>
+          </li>
+          <li>
+          <div id="collapseOne1" className="collapse " aria-labelledby="headingOne1" data-parent="#accordionExample">
+          {postcourse.introduction.text2 =="" ?
+          <div/>:
+                                                        <div className="card-body" style={{width:'1200px'}}>
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
+                                                                    <p style={{ color: 'black' }}>{postcourse.introduction.text2} </p>
+
+                                                          </div>
+                                                          </div>
+                                                 }
+                                                 {postcourse.introduction.img2  =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Image </b> </h5>
+                                                                    <img style={{ width:'365px',height:'260px' }} src={postcourse.introduction.img2} /> 
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.introduction.video2 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
+                    <div className="video" >
+                      <div>
+                        <div style={{ width: '100px' }}>
+                          <ReactPlayer url={postcourse.introduction.video2} controls={true}></ReactPlayer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.introduction.filePath2 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Pdf </b> </h5>
+                                                                    <a style={{display: "table-cell"}} href={postcourse.introduction.filePath2} target={postcourse.introduction.filePath2}>pdf link</a>
+                                                          </div>
+                                                          </div>}
           </div>
-          <a className="section-item-link" href="lessons/our-class-chat-room-4-2/index.html">
-            <span className="item-name">Our Class Chat Room</span>
+          </li>
+          </ul>
+        </li>
+        <li className="accordion" id="accordionExample" className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
+         <ul>
+
+         <li >
+        
+          <a className="section-item-link" id="headingOne2">
+            <span className="item-name">Phase3</span>
             <span className="course-item-meta">
-              <span className="item-meta duration">30 min</span>
-              <span className="lp-label lp-label-preview">Preview</span>
+              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
+             Preview
+                                                        </button>
             </span>
           </a>
-        </li>
-        <li className="course-item course-item-lp_lesson course-item-462 item-preview has-status" data-type="lp_lesson">
-          <span className="course-format-icon"><i className="fa fa-file-o" /></span>
-          <div className="meta-rank">
-            <div className="rank"><span className="label">Lecture</span>1.4</div>
+          </li>
+          <li>
+          <div id="collapseOne2" className="collapse " aria-labelledby="headingOne2" data-parent="#accordionExample">
+          {postcourse.introduction.text3 =="" ?
+          <div/>:
+                                                        <div className="card-body" style={{width:'1200px'}}>
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
+                                                                    <p style={{ color: 'black' }}>{postcourse.introduction.text3} </p>
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.introduction.img3 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Image </b> </h5>
+                                                                    <img style={{ width:'365px',height:'260px' }} src={postcourse.introduction.img3} /> 
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.introduction.video3 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
+                    <div className="video" >
+                      <div>
+                        <div style={{ width: '100px' }}>
+                          <ReactPlayer url={postcourse.introduction.video3} controls={true}></ReactPlayer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.introduction.filePath3 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Pdf </b> </h5>
+                                                                    <a style={{display: "table-cell"}} href={postcourse.introduction.filePath3} target={postcourse.introduction.filePath3}>pdf link</a>
+                                                          </div>
+                                                          </div>}
           </div>
-          <a className="section-item-link" href="lessons/why-this-course-c4/index.html">
-            <span className="item-name">Why This Course?</span>
+          </li>
+          </ul>
+        </li>
+        <li className="accordion" id="accordionExample" className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
+         <ul>
+
+         <li >
+        
+          <a className="section-item-link" id="headingOne3">
+            <span className="item-name">Phase4</span>
             <span className="course-item-meta">
-              <span className="item-meta duration">30 min</span>
-              <span className="lp-label lp-label-preview">Preview</span>
+              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne3" aria-expanded="true" aria-controls="collapseOne3">
+             Preview
+                                                        </button>
             </span>
           </a>
+          </li>
+          <li>
+          <div id="collapseOne3" className="collapse " aria-labelledby="headingOne3" data-parent="#accordionExample">
+          {postcourse.introduction.text4 =="" ?
+          <div/>:
+                                                        <div className="card-body" style={{width:'1200px'}}>
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
+                                                                    <p style={{ color: 'black' }}>{postcourse.introduction.text4} </p>
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.introduction.img4 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Image </b> </h5>
+                                                                    <img style={{ width:'365px',height:'260px' }} src={postcourse.introduction.img4} /> 
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.introduction.video4 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
+                    <div className="video" >
+                      <div>
+                        <div style={{ width: '100px' }}>
+                          <ReactPlayer url={postcourse.introduction.video4} controls={true}></ReactPlayer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.introduction.filePath4 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Pdf </b> </h5>
+                                                                    <a style={{display: "table-cell"}} href={postcourse.introduction.filePath4} target={postcourse.introduction.filePath4}>pdf link</a>
+                                                          </div>
+                                                          </div>}
+          </div>
+          </li>
+          </ul>
         </li>
+       
+       
       </ul>
     </li>
     <li className="section" id="section-231" data-id={231}>
@@ -213,61 +415,266 @@ function DetailCourse() {
       <h4 className="section-header">
         <span className="collapse" />
         Step 3&nbsp;
-        <span className="section-description"> Conclusion tou this course</span>
+        <span className="section-description"> Conclusion to this course</span>
         <span className="meta">
           <span className="step">
             0/4</span>
         </span>
       </h4>
       <ul className="section-content">
-        <li className="course-item course-item-lp_lesson course-item-467 item-locked" data-type="lp_lesson">
-          <span className="course-format-icon"><i className="fa fa-file-o" /></span>
-          <div className="meta-rank">
-            <div className="rank"><span className="label">Lecture</span>3.1</div>
-          </div>
-          <div className="section-item-link">
-            <span className="item-name">Unit Objectives</span>
+
+        <li className="accordion" id="accordionExample2" className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
+         <ul>
+
+         <li >
+        
+          <a className="section-item-link" id="headingOnec">
+            <span className="item-name">Phase1</span>
             <span className="course-item-meta">
-              <span className="item-meta duration">30 min</span>
+              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOnec" aria-expanded="true" aria-controls="collapseOnec">
+             Preview
+                                                        </button>
             </span>
+          </a>
+          </li>
+          <li>
+          <div id="collapseOnec" className="collapse " aria-labelledby="headingOnec" data-parent="#accordionExample">
+          {postcourse.conclusion.text1  =="" ?
+          <div/>:
+                                                        <div className="card-body" style={{width:'1200px'}}>
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
+                                                                    <p style={{ color: 'black' }}>{postcourse.conclusion.text1} </p>
+
+                                                          </div>
+                                                          </div>
+                                                 }
+                                                 {postcourse.conclusion.img1  =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Image </b> </h5>
+                                                                    <img style={{ width:'365px',height:'260px' }} src={postcourse.conclusion.img1} /> 
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.conclusion.video1  =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
+                    <div className="video" >
+                      <div>
+                        <div style={{ width: '100px' }}>
+                          <ReactPlayer url={postcourse.conclusion.video1} controls={true}></ReactPlayer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.conclusion.filePath1  =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Pdf </b> </h5>
+                                                                    <a style={{display: "table-cell"}} href={postcourse.conclusion.filePath1} target={postcourse.conclusion.filePath1}>pdf link</a>
+                                                          </div>
+                                                          </div>}
           </div>
+          </li>
+          </ul>
         </li>
-        <li className="course-item course-item-lp_lesson course-item-468 item-locked" data-type="lp_lesson">
-          <span className="course-format-icon"><i className="fa fa-file-o" /></span>
-          <div className="meta-rank">
-            <div className="rank"><span className="label">Lecture</span>3.2</div>
-          </div>
-          <div className="section-item-link">
-            <span className="item-name">HTML Basics</span>
+ <li className="accordion" id="accordionExample2" className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
+         <ul>
+
+         <li >
+        
+          <a className="section-item-link" id="headingOne1c">
+            <span className="item-name">Phase2</span>
             <span className="course-item-meta">
-              <span className="item-meta duration">30 min</span>
+              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne1c" aria-expanded="true" aria-controls="collapseOne1c">
+             Preview
+                                                        </button>
             </span>
+          </a>
+          </li>
+          <li>
+          <div id="collapseOne1c" className="collapse " aria-labelledby="headingOne1c" data-parent="#accordionExample">
+          {postcourse.conclusion.text2 =="" ?
+          <div/>:
+                                                        <div className="card-body" style={{width:'1200px'}}>
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
+                                                                    <p style={{ color: 'black' }}>{postcourse.conclusion.text2} </p>
+
+                                                          </div>
+                                                          </div>
+                                                 }
+                                                 {postcourse.conclusion.img2  =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Image </b> </h5>
+                                                                    <img style={{ width:'365px',height:'260px' }} src={postcourse.conclusion.img2} /> 
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.conclusion.video2 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
+                    <div className="video" >
+                      <div>
+                        <div style={{ width: '100px' }}>
+                          <ReactPlayer url={postcourse.conclusion.video2} controls={true}></ReactPlayer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.conclusion.filePath2 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Pdf </b> </h5>
+                                                                    <a style={{display: "table-cell"}} href={postcourse.conclusion.filePath2} target={postcourse.conclusion.filePath2}>pdf link</a>
+                                                          </div>
+                                                          </div>}
           </div>
+          </li>
+          </ul>
         </li>
-        <li className="course-item course-item-lp_lesson course-item-469 item-locked" data-type="lp_lesson">
-          <span className="course-format-icon"><i className="fa fa-file-o" /></span>
-          <div className="meta-rank">
-            <div className="rank"><span className="label">Lecture</span>3.3</div>
-          </div>
-          <div className="section-item-link">
-            <span className="item-name">Introduction to MDN</span>
+        <li className="accordion" id="accordionExample2" className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
+         <ul>
+
+         <li >
+        
+          <a className="section-item-link" id="headingOne2">
+            <span className="item-name">Phase3</span>
             <span className="course-item-meta">
-              <span className="item-meta duration">30 min</span>
+              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne2c" aria-expanded="true" aria-controls="collapseOne2c">
+             Preview
+                                                        </button>
             </span>
+          </a>
+          </li>
+          <li>
+          <div id="collapseOne2c" className="collapse " aria-labelledby="headingOne2c" data-parent="#accordionExample">
+          {postcourse.conclusion.text3 =="" ?
+          <div/>:
+                                                        <div className="card-body" style={{width:'1200px'}}>
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
+                                                                    <p style={{ color: 'black' }}>{postcourse.conclusion.text3} </p>
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.conclusion.img3 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Image </b> </h5>
+                                                                    <img style={{ width:'365px',height:'260px' }} src={postcourse.conclusion.img3} /> 
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.conclusion.video3 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
+                    <div className="video" >
+                      <div>
+                        <div style={{ width: '100px' }}>
+                          <ReactPlayer url={postcourse.conclusion.video3} controls={true}></ReactPlayer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.conclusion.filePath3 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Pdf </b> </h5>
+                                                                    <a style={{display: "table-cell"}} href={postcourse.conclusion.filePath3} target={postcourse.conclusion.filePath3}>pdf link</a>
+                                                          </div>
+                                                          </div>}
           </div>
+          </li>
+          </ul>
         </li>
-        <li className="course-item course-item-lp_lesson course-item-470 item-locked" data-type="lp_lesson">
-          <span className="course-format-icon"><i className="fa fa-file-o" /></span>
-          <div className="meta-rank">
-            <div className="rank"><span className="label">Lecture</span>3.4</div>
-          </div>
-          <div className="section-item-link">
-            <span className="item-name">HTML Boilerplate and Comments</span>
+        <li className="accordion" id="accordionExample2" className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
+         <ul>
+
+         <li >
+        
+          <a className="section-item-link" id="headingOne3">
+            <span className="item-name">Phase4</span>
             <span className="course-item-meta">
-              <span className="item-meta duration">30 min</span>
+              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne3c" aria-expanded="true" aria-controls="collapseOne3c">
+             Preview
+                                                        </button>
             </span>
+          </a>
+          </li>
+          <li>
+          <div id="collapseOne3c" className="collapse " aria-labelledby="headingOne3c" data-parent="#accordionExample">
+          {postcourse.conclusion.text4 =="" ?
+          <div/>:
+                                                        <div className="card-body" style={{width:'1200px'}}>
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
+                                                                    <p style={{ color: 'black' }}>{postcourse.conclusion.text4} </p>
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.conclusion.img4 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Image </b> </h5>
+                                                                    <img style={{ width:'365px',height:'260px' }} src={postcourse.conclusion.img4} /> 
+
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.conclusion.video4 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
+                    <div className="video" >
+                      <div>
+                        <div style={{ width: '100px' }}>
+                          <ReactPlayer url={postcourse.conclusion.video4} controls={true}></ReactPlayer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                                          </div>
+                                                          </div>}
+                                                          {postcourse.conclusion.filePath4 =="" ?
+          <div/>:
+                                                          <div className="card-body">
+                                                        <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Pdf </b> </h5>
+                                                                    <a style={{display: "table-cell"}} href={postcourse.conclusion.filePath4} target={postcourse.conclusion.filePath4}>pdf link</a>
+                                                          </div>
+                                                          </div>}
           </div>
+          </li>
+          </ul>
         </li>
+       
+       
       </ul>
     </li> </ul>
 </div>
