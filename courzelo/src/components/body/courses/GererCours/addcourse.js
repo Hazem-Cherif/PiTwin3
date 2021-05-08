@@ -13,7 +13,10 @@ export class AddCourse extends Component {
     step: 1,
     idUser: '',
     title: '',
+    author:'',
     description: '',
+    prerequisite:'',
+    comprendre:'',
     introduction:
     {
       text1: '',
@@ -850,8 +853,8 @@ export class AddCourse extends Component {
 
   render() {
     const { step } = this.state;
-    const { title, description, introduction,chapitres, conclusion, CourseImg,categorie } = this.state;
-    const course = { title, description, introduction,chapitres, conclusion, CourseImg,categorie };
+    const { title, author, description, prerequisite, comprendre, introduction,chapitres, conclusion, CourseImg,categorie } = this.state;
+    const course = { title, author, description, prerequisite, comprendre, introduction,chapitres, conclusion, CourseImg,categorie };
     console.log('testkakakakakak', this.props.match.params.token);
     switch (step) {
       case 1:

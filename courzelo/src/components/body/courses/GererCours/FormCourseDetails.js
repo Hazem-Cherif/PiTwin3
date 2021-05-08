@@ -13,6 +13,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateCourse,deleteCourse } from '../../../../redux/actions/courseAction';
 
 
+
+
 export class FormCourseDetails extends Component {
   constructor(props) {
     super(props);
@@ -44,26 +46,28 @@ export class FormCourseDetails extends Component {
     const { course, handleChange,uploadHandler } = this.props;
     return (
       <div className="main">
-           
            <div className="side"></div>
-<div className="userform">
+          
+<div className="userform"style={{ marginLeft: '-400px', width: '1550px' }}>
       <MuiThemeProvider>
         <>
           <h2>Course landing page</h2>
           <AppBar title="Titre du cours" />
           <TextField
+          className="inputline"
             placeholder="Insert your course title"
             label="Course title"
             onChange={handleChange('title')}
               defaultValue={course.title}
             margin="normal"
-            fullWidth
+            fullWidth 
           />
           <br />
-          <TextField
+          <TextField className="inputline"
             placeholder="Insert the author name"
             label="Author"
-           
+            onChange={handleChange('author')}
+            defaultValue={course.author}
             margin="normal"
             fullWidth
           />
@@ -79,6 +83,8 @@ export class FormCourseDetails extends Component {
           <img src={course.CourseImg} alt></img>
 
 <br/>
+<br />
+          <br />
           <label > Course description </label>
           <TextareaAutosize
             placeholder="Insert your course description"
@@ -87,6 +93,31 @@ export class FormCourseDetails extends Component {
               defaultValue={course.description}
             rowsMin={3} />
 
+          <br />
+          <div className="taxonomy">
+            <div >
+          <label > Prerequisite </label>
+          <TextareaAutosize
+            placeholder="Insert your course description"
+            label="Course subtitle"
+            onChange={handleChange('prerequisite')}
+              defaultValue={course.prerequisite}
+            rowsMin={1} />
+</div>
+            <div>
+          <label > What to learn </label>
+          <TextareaAutosize
+            placeholder="Insert your course description"
+            label="Course subtitle"
+            onChange={handleChange('comprendre')}
+              defaultValue={course.comprendre}
+            rowsMin={1} />
+</div>
+</div>
+
+          <br />
+          
+          
           <br />
           <div className="form-group">
         <label>Category</label>

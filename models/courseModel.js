@@ -4,7 +4,10 @@ const courseSchema = mongoose.Schema({
     
     idUser: String,
     title: String,
+    author: String,
     description: String,
+    prerequisite: String,
+    comprendre: String,
     CourseImg: String,
     validation: {
         type: Number,

@@ -213,3 +213,23 @@ body {
   padding-bottom: 10px;
   border: none;
 }
+
+
+.taxonomy{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.inputline{
+  padding: 15px 0 !important ;
+}
+
+
+.btnIcons{
+  border: none;
+}
+
+.btnIcons:hover{
+  background-color: unset !important;
+}
