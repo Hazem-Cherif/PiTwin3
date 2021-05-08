@@ -5,7 +5,7 @@ import ACTIONS from './index'
 export const addCategorie = (token,post) => async (dispatch) => {
   try {
     const { data } = await axios.post('/categorie',post,{headers: {Authorization: token}});
-    console.log('redux',data);
+    
 
     return dispatch({ type: ACTIONS.CREATE_CATEGORIE, payload: data });
   } catch (error) {
@@ -16,7 +16,7 @@ export const addCategorie = (token,post) => async (dispatch) => {
 export const getCategories = () => async (dispatch) => {
   try {
     const { data } = await axios.get('/categorie');
-    console.log('test5666565');
+    
     return dispatch({ type: ACTIONS.FETCH_ALLCATEGORIE, payload: data });
   } catch (error) {
     

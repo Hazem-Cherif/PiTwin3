@@ -9,101 +9,413 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ckeditor, { CKEditor } from '@ckeditor/ckeditor5-react';
 import TextField from '@material-ui/core/TextField';
-import ReactPlayer from 'react-player'
-import {useParams, useHistory} from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { updateCourse,deleteCourse } from '../../../../redux/actions/courseAction'
+import { updateCourse, deleteCourse } from '../../../../redux/actions/courseAction'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import {Fragment,useState,useCallback,useEffect} from 'react'
+import { Fragment, useState, useCallback, useEffect } from 'react'
+import axios from 'axios'
+import ReactPlayer from 'react-player'
+
+function ModifierIntro() {
 
 
-function   ModifierIntro () {
 
 
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const courses = useSelector(state => state.courses);
+
+
+  const [postcourse, setCourseData] = useState({
+    title: '',
+    description: '',
+    introduction:
+    {
+      text1: '',
+      video1: '',
+      img1: '',
+      filePath1: '',
+
+      text2: '',
+      video2: '',
+      img2: '',
+      filePath2: '',
+      text3: '',
+      video3: '',
+      img3: '',
+      filePath3: '',
+      text4: '',
+      video4: '',
+      img4: '',
+      filePath4: ''
+
+    },
+    chapitres: [],
+    conclusion:
+    {
+      text1: '',
+      video1: '',
+      img1: '',
+
+      text2: '',
+      video2: '',
+      img2: '',
+
+      text3: '',
+      video3: '',
+      img3: '',
+
+      text4: '',
+      video4: '',
+      img4: ''
+
+    },
+    CourseImg: '',
+    categorie: ''
+  });
+  useEffect(() => {
+
+    if (courses.length !== 0) {
+      courses.forEach(course => {
+        if (course._id === id) {
+          setCourseData(course)
+
+        }
+      })
+    }
+  }, [courses, id])
+
+
+  const handleSubmit = async (e) => {
+    alert('hello');
+    e.preventDefault();
+    console.log('test1', postcourse);
+    dispatch(updateCourse(id, postcourse));
+    console.log('test2', postcourse);
+
+
+  }
+  const handleChangePhase1 = (e, editor) => {
+    const data = editor.getData()
+    const intro = postcourse.introduction;
+    intro.text1 = data;
+    setCourseData({ ...postcourse, introduction: intro });
+  }
+
+  const token = useSelector(state => state.token)
+  const changeimg1 = async (e) => {
+    e.preventDefault()
+
+    const file = e.target.files[0]
+
+    if (!file) return this.state;
+
+    if (file.size > 1024 * 1024)
+      return this.state
+
+    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+      return this.state;
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+
+    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.img1 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    }
+    )
+  }
+  const uploadHandlerVideo1 = async e => {
+    e.preventDefault()
+
+
+
+    const file = e.target.files[0]
+
+    if (!file) return this.state;
+
+
+    if (file.type !== 'video/mp4')
+      return this.state;
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+
+    const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.video1 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    })
+  }
+  const uploadHandlerPdf1 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss');
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.filePath1 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    })
+  };
+
+  const handleChangePhase2 = (e, editor) => {
+    const data = editor.getData()
+    const intro = postcourse.introduction;
+    intro.text2 = data;
+    setCourseData({ ...postcourse, introduction: intro });
+  }
+
+  const changeimg2 = async (e) => {
+    e.preventDefault()
+
+    const file = e.target.files[0]
+
+    if (!file) return this.state;
+
+    if (file.size > 1024 * 1024)
+      return this.state
+
+    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+      return this.state;
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+
+    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.img2 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    }
+    )
+  }
+  const uploadHandlerVideo2 = async e => {
+    e.preventDefault()
+
+
+    const file = e.target.files[0]
+
+    if (!file) return this.state;
+
+
+    if (file.type !== 'video/mp4')
+      return this.state;
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+
+    const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.video2 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    })
+  }
+  const uploadHandlerPdf2 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss');
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.filePath2 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    })
+  };
+  const handleChangePhase3 = (e, editor) => {
+    const data = editor.getData()
+    const intro = postcourse.introduction;
+    intro.text3 = data;
+    setCourseData({ ...postcourse, introduction: intro });
+  }
+
+  const changeimg3 = async (e) => {
+    e.preventDefault()
+
+    const file = e.target.files[0]
+
+    if (!file) return this.state;
+
+    if (file.size > 1024 * 1024)
+      return this.state
+
+    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+      return this.state;
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+
+    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.img3 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    }
+    )
+  }
+  const uploadHandlerVideo3 = async e => {
+    e.preventDefault()
+
+
+
+    const file = e.target.files[0]
+
+    if (!file) return this.state;
+
+
+    if (file.type !== 'video/mp4')
+      return this.state;
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+
+    const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.video3 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    })
+  }
+  const uploadHandlerPdf3 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss');
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.filePath3 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    })
+  };
+  const handleChangePhase4 = (e, editor) => {
+    const data = editor.getData()
+    const intro = postcourse.introduction;
+    intro.text4 = data;
+    setCourseData({ ...postcourse, introduction: intro });
+  }
+
+  const changeimg4 = async (e) => {
+    e.preventDefault()
+
+    const file = e.target.files[0]
+
+    if (!file) return this.state;
+
+    if (file.size > 1024 * 1024)
+      return this.state
+
+    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+      return this.state;
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+
+    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.img4 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    }
+    )
+  }
+  const uploadHandlerVideo4 = async e => {
+    e.preventDefault()
+
+
+
+    const file = e.target.files[0]
+
+    if (!file) return this.state;
+
+
+    if (file.type !== 'video/mp4')
+      return this.state;
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+
+    const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.video4 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    })
+  }
+  const uploadHandlerPdf4 = async e => {
+    const token = this.props.token;
+    const file = e.target.files[0]
+    console.log(file)
+    if (!file) return this.state;
+
+    if (file.type !== 'application/pdf')
+      return (this.state, 'opsssss');
+
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await axios.post('/CoursePdf/singleFile', formData, {
+      headers: { 'content-type': 'multipart/form-data', Authorization: token }
+    }).then(res => {
+      const int = postcourse.introduction;
+      int.filePath4 = res.data.url;
+      setCourseData({ ...postcourse, introduction: int })
+    })
+  };
   
-    
-    const {id} = useParams();
-    const dispatch = useDispatch();
-    const courses = useSelector(state => state.courses);
-   
-   
-    const [postcourse, setCourseData] = useState({ 
-        title: '',
-        description: '',
-        introduction:
-        {
-          text1: '',
-          video1: '',
-          img1: '',
-    
-          text2: '',
-          video2: '',
-          img2: '',
-    
-          text3: '',
-          video3: '',
-          img3: '',
-    
-          text4: '',
-          video4: '',
-          img4: ''
-    
-    
-        },
-        chapitres: [],
-        conclusion:
-        {
-          text1: '',
-          video1: '',
-          img1: '',
-    
-          text2: '',
-          video2: '',
-          img2: '',
-    
-          text3: '',
-          video3: '',
-          img3: '',
-    
-          text4: '',
-          video4: '',
-          img4: ''
-    
-        },
-        CourseImg: '',
-        categorie:''
-    });
-    useEffect(() => {
-      
-      if(courses.length !== 0){
-        courses.forEach(course => {
-              if(course._id === id){
-                setCourseData(course)
-                  
-              }
-          })
-      }
-  },[courses, id])
+  return (
+    <div className="main">
 
- 
-    const handleSubmit = async (e) => {
-      alert('hello');
-      e.preventDefault();
-      console.log('test1',postcourse);
-        dispatch(updateCourse(id, postcourse));
-        console.log('test2',postcourse);
-
-
-      }
- 
-
-
-    return (
-      <div className="main">
-
-        <div className="side"></div>
-        <div className="userform" style={{ marginLeft: '-400px', width: '1550px' }}>
-          <div></div>
+      <div className="side"></div>
+      <div className="userform" style={{ marginLeft: '-400px', width: '1550px' }}>
+        <form onSubmit={handleSubmit}>
           <MuiThemeProvider>
             <>
               <h1 style={{ marginBottom: '50px' }}>Introduction</h1>
@@ -206,8 +518,8 @@ way to train all learners to think and learn well.<br />
                                       <CKEditor
                                         editor={ClassicEditor}
 
-                                      
-
+                                        data={postcourse.introduction.text1}
+                                        onChange={handleChangePhase1}
                                       />
                                     </div>    </div>
                                 </div>
@@ -220,7 +532,14 @@ way to train all learners to think and learn well.<br />
                                     </div> <input type="file"
                                       name="file"
                                       id="file_up"
-                                       />
+                                      onChange={e => changeimg1(e)}
+                                    />
+
+                                  </div>
+                                  <div className="wpb_column vc_column_container vc_col-sm-6">
+                                    <img src={postcourse.introduction.img1}
+                                    />
+
                                   </div>
                                 </div>
 
@@ -231,20 +550,37 @@ way to train all learners to think and learn well.<br />
                                     </div> <input type="file"
                                       name="file"
                                       id="file_up"
-                                       ></input>   </div>
-                                </div>
-
-                                <div className="collapse" id="collapseExamplepdf1">
-                        <div className="cardd card-body">
-                          <div className="form-group">
-
-                          </div> <input type="file"
-                            name="file"
-                            id="file_up"
-                          />
-
+                                      onChange={(e) => uploadHandlerVideo1(e)}
+                                    ></input>
+                                  </div>
+                                  <div className="thim-sc-video-box" >
+                    <div className="video" >
+                      <div>
+                        <div style={{ width: '100px' }}>
+                          <ReactPlayer url={postcourse.introduction.video1} controls={true}></ReactPlayer>
                         </div>
                       </div>
+                    </div>
+                  </div>
+
+                                </div>
+
+
+                                <div className="collapse" id="collapseExamplepdf1">
+                                  <div className="cardd card-body">
+                                    <div className="form-group">
+
+                                    </div> <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                      onChange={(e) => uploadHandlerPdf1(e)}
+                                    />
+
+                                  </div>
+                                  <div>
+                                    <a style={{ display: "table-cell" }} href={postcourse.introduction.filePath1} target={postcourse.introduction.filePath1}>pdf link</a>
+                                  </div>
+                                </div>
                               </>
 
 
@@ -295,7 +631,7 @@ way to train all learners to think and learn well.<br />
                                   <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" /></i>
                                   <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid2" aria-expanded="false" aria-controls="collapseExampleVid2" /> </i>
                                   <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg2" aria-expanded="false" aria-controls="collapseExampleImg2" /> </i>
-                                  <i>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf2" aria-expanded="false" aria-controls="collapseExamplepdf2"/> </i>
+                                  <i>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf2" aria-expanded="false" aria-controls="collapseExamplepdf2" /> </i>
 
                                 </section>
 
@@ -309,8 +645,9 @@ way to train all learners to think and learn well.<br />
                                     <div className="form-group">
                                       <CKEditor
                                         editor={ClassicEditor}
+                                        data={postcourse.introduction.text2}
+                                        onChange={handleChangePhase2}
 
-                                     
 
                                       />
                                     </div>    </div>
@@ -323,9 +660,16 @@ way to train all learners to think and learn well.<br />
                                     </div>  <input type="file"
                                       name="file"
                                       id="file_up"
-                                 />
+                                      onChange={e => changeimg2(e)}
+                                      />
+  
+                                    </div>
+                                    <div className="wpb_column vc_column_container vc_col-sm-6">
+                                      <img src={postcourse.introduction.img2}
+                                      />
+  
+                                    </div>
                                   </div>
-                                </div>
 
                                 <div className="collapse" id="collapseExampleVid2">
                                   <div className="cardd card-body">
@@ -334,20 +678,36 @@ way to train all learners to think and learn well.<br />
                                     </div><input type="file"
                                       name="file"
                                       id="file_up"
-                                ></input>     </div>
-                                </div>
-
-                                <div className="collapse" id="collapseExamplepdf2">
-                        <div className="cardd card-body">
-                          <div className="form-group">
-
-                          </div> <input type="file"
-                            name="file"
-                            id="file_up"
-                           />
-
+                                      onChange={(e) => uploadHandlerVideo2(e)}
+                                      ></input>
+                                    </div>
+                                    <div className="thim-sc-video-box" >
+                      <div className="video" >
+                        <div>
+                          <div style={{ width: '100px' }}>
+                            <ReactPlayer url={postcourse.introduction.video2} controls={true}></ReactPlayer>
+                          </div>
                         </div>
                       </div>
+                    </div>
+  
+                                  </div>
+
+                                <div className="collapse" id="collapseExamplepdf2">
+                                  <div className="cardd card-body">
+                                    <div className="form-group">
+
+                                    </div> <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                      onChange={(e) => uploadHandlerPdf2(e)}
+                                      />
+  
+                                    </div>
+                                    <div>
+                                      <a style={{ display: "table-cell" }} href={postcourse.introduction.filePath2} target={postcourse.introduction.filePath1}>pdf link</a>
+                                    </div>
+                                  </div>
                               </>
 
 
@@ -398,7 +758,7 @@ way to train all learners to think and learn well.<br />
                                   <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3" /></i>
                                   <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid3" aria-expanded="false" aria-controls="collapseExampleVid3" /> </i>
                                   <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg3" aria-expanded="false" aria-controls="collapseExampleImg3" /> </i>
-                                  <i>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf3" aria-expanded="false" aria-controls="collapseExamplepdf3"/> </i>
+                                  <i>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf3" aria-expanded="false" aria-controls="collapseExamplepdf3" /> </i>
 
                                 </section>
 
@@ -412,8 +772,9 @@ way to train all learners to think and learn well.<br />
                                     <div className="form-group">
                                       <CKEditor
                                         editor={ClassicEditor}
+                                        data={postcourse.introduction.text3}
+                                        onChange={handleChangePhase3}
 
-                                      
 
                                       />
                                     </div>    </div>
@@ -426,9 +787,16 @@ way to train all learners to think and learn well.<br />
                                     </div><input type="file"
                                       name="file"
                                       id="file_up"
-                                      
-                                 />    </div>
-                                </div>
+                                      onChange={e => changeimg3(e)}
+                                      />
+  
+                                    </div>
+                                    <div className="wpb_column vc_column_container vc_col-sm-6">
+                                      <img src={postcourse.introduction.img3}
+                                      />
+  
+                                    </div>
+                                  </div>
 
                                 <div className="collapse" id="collapseExampleVid3">
                                   <div className="cardd card-body">
@@ -437,19 +805,35 @@ way to train all learners to think and learn well.<br />
                                     </div> <input type="file"
                                       name="file"
                                       id="file_up"
-                                     ></input>    </div>
-                                </div>
-                                <div className="collapse" id="collapseExamplepdf3">
-                        <div className="cardd card-body">
-                          <div className="form-group">
-
-                          </div> <input type="file"
-                            name="file"
-                            id="file_up"
-                          />
-
+                                      onChange={(e) => uploadHandlerVideo3(e)}
+                                      ></input>
+                                    </div>
+                                    <div className="thim-sc-video-box" >
+                      <div className="video" >
+                        <div>
+                          <div style={{ width: '100px' }}>
+                            <ReactPlayer url={postcourse.introduction.video3} controls={true}></ReactPlayer>
+                          </div>
                         </div>
                       </div>
+                    </div>
+  
+                                  </div>
+                                <div className="collapse" id="collapseExamplepdf3">
+                                  <div className="cardd card-body">
+                                    <div className="form-group">
+
+                                    </div> <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                      onChange={(e) => uploadHandlerPdf3(e)}
+                                      />
+  
+                                    </div>
+                                    <div>
+                                      <a style={{ display: "table-cell" }} href={postcourse.introduction.filePath3} target={postcourse.introduction.filePath1}>pdf link</a>
+                                    </div>
+                                  </div>
                               </>
 
 
@@ -499,7 +883,7 @@ way to train all learners to think and learn well.<br />
                                   <i> < DescriptionTwoToneIcon data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" /></i>
                                   <i> <QueuePlayNextTwoToneIcon data-toggle="collapse" href="#collapseExampleVid4" aria-expanded="false" aria-controls="collapseExampleVid4" /> </i>
                                   <i>  <PermMediaTwoToneIcon data-toggle="collapse" href="#collapseExampleImg4" aria-expanded="false" aria-controls="collapseExampleImg4" /> </i>
-                                  <i>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf4" aria-expanded="false" aria-controls="collapseExamplepdf4"/> </i>
+                                  <i>  <PictureAsPdfIcon data-toggle="collapse" href="#collapseExamplepdf4" aria-expanded="false" aria-controls="collapseExamplepdf4" /> </i>
 
                                 </section>
 
@@ -512,7 +896,9 @@ way to train all learners to think and learn well.<br />
                                   <div className="cardd card-body">
                                     <div className="form-group">
                                       <CKEditor
-                                      
+                                       editor={ClassicEditor}
+                                       data={postcourse.introduction.text4}
+                                       onChange={handleChangePhase4}
 
                                       />
                                     </div>    </div>
@@ -525,8 +911,16 @@ way to train all learners to think and learn well.<br />
                                     </div>   <input type="file"
                                       name="file"
                                       id="file_up"
-                                    /> </div>
-                                </div>
+                                      onChange={e => changeimg4(e)}
+                                      />
+  
+                                    </div>
+                                    <div className="wpb_column vc_column_container vc_col-sm-6">
+                                      <img src={postcourse.introduction.img4}
+                                      />
+  
+                                    </div>
+                                  </div>
 
                                 <div className="collapse" id="collapseExampleVid4">
                                   <div className="cardd card-body">
@@ -535,19 +929,35 @@ way to train all learners to think and learn well.<br />
                                     </div> <input type="file"
                                       name="file"
                                       id="file_up"
-                                       ></input>    </div>
-                                </div>
-                                <div className="collapse" id="collapseExamplepdf4">
-                        <div className="cardd card-body">
-                          <div className="form-group">
-
-                          </div> <input type="file"
-                            name="file"
-                            id="file_up"
-                             />
-
+                                      onChange={(e) => uploadHandlerVideo4(e)}
+                                      ></input>
+                                    </div>
+                                    <div className="thim-sc-video-box" >
+                      <div className="video" >
+                        <div>
+                          <div style={{ width: '100px' }}>
+                            <ReactPlayer url={postcourse.introduction.video4} controls={true}></ReactPlayer>
+                          </div>
                         </div>
                       </div>
+                    </div>
+  
+                                  </div>
+                                <div className="collapse" id="collapseExamplepdf4">
+                                  <div className="cardd card-body">
+                                    <div className="form-group">
+
+                                    </div> <input type="file"
+                                      name="file"
+                                      id="file_up"
+                                      onChange={(e) => uploadHandlerPdf4(e)}
+                                      />
+  
+                                    </div>
+                                    <div>
+                                      <a style={{ display: "table-cell" }} href={postcourse.introduction.filePath4} target={postcourse.introduction.filePath1}>pdf link</a>
+                                    </div>
+                                  </div>
                               </>
 
 
@@ -574,33 +984,34 @@ way to train all learners to think and learn well.<br />
 
 
               <div >
-          <div className="wpb_column vc_column_container vc_col-sm-6"><div className="vc_column-inner">
-            < div className="wpb_wrapper">
-              <div className="thim-sc-button text-right hide-separator ">
-                  <a  target="_self" className="btn btn-primary btn-lg">
-                  <Link  to={`/modifiersupchapitres/${postcourse._id}`}>
-                    <span className="text" style={{color:'#FFFFFF'}}>Continue</span>
-                    </Link>
-                  </a>
-                </div>
-              </div></div></div>
-          <div className="wpb_column vc_column_container vc_col-sm-6"><div className="vc_column-inner">
-              <div className="wpb_wrapper"><div className="thim-sc-button text-left hide-separator ">
-                  <a target="_self" className="btn btn-basic btn-lg" >
-                  <Button     type="submit" >modifier</Button>
-                  </a>
-                </div>
-               
+                <div className="wpb_column vc_column_container vc_col-sm-6"><div className="vc_column-inner">
+                  < div className="wpb_wrapper">
+                    <div className="thim-sc-button text-right hide-separator ">
+                      <a target="_self" className="btn btn-primary btn-lg">
+                        <Link to={`/modifiersupchapitres/${postcourse._id}`}>
+                          <span className="text" style={{ color: '#FFFFFF' }}>Continue</span>
+                        </Link>
+                      </a>
+                    </div>
+                  </div></div></div>
+                <div className="wpb_column vc_column_container vc_col-sm-6"><div className="vc_column-inner">
+                  <div className="wpb_wrapper"><div className="thim-sc-button text-left hide-separator ">
+                    <a target="_self" className="btn btn-basic btn-lg" >
+                      <Button type="submit" >modifier</Button>
+                    </a>
+                  </div>
 
-              </div>
-              </div></div></div>
+
+                  </div>
+                </div></div></div>
 
             </>
           </MuiThemeProvider>
-        </div>
+        </form>
       </div>
-    );
-  
+    </div>
+  );
+
 }
 
 export default ModifierIntro;

@@ -22,7 +22,7 @@ const categorieCtrl = {
     getAllCategories : async (req, res) => { 
         try {
             const categoriesModel = await CategorieModel.find();
-                   console.log('testcontroler') ;
+                   
             res.status(200).json(categoriesModel);
         } catch (error) {
             res.status(404).json({ message: error.message });
@@ -32,11 +32,11 @@ const categorieCtrl = {
     updateCategorie: async (req, res) => {
         try {
          const {idUser,title, description} = req.body
-         console.log('hjhhh',req.body);
+         
          await categorieModel.findOneAndReplace({_id: req.body._id}, {
              idUser,title,description
          })
-         console.log('teshhhhh',req.body);
+         
          res.json({msg: "update Success!"})
         }   catch (err) {
         return res.status(500).json({msg: err.message})

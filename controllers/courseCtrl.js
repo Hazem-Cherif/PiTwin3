@@ -22,7 +22,7 @@ const courseCtrl = {
     getAllCourses : async (req, res) => { 
         try {
             const coursesModel = await CourseModel.find();
-                   console.log('testcontroler') ;
+                  
             res.status(200).json(coursesModel);
         } catch (error) {
             res.status(404).json({ message: error.message });
@@ -54,7 +54,7 @@ const courseCtrl = {
          await CourseModel.findOneAndReplace({_id: req.body._id}, {
              idUser,title, description,introduction,chapitres,conclusion,CourseImg,categorie
          })
-         console.log('back');
+         
          res.json({msg: "update Su!"})
          
         }   catch (err) {

@@ -14,7 +14,6 @@ import './StepForm.css';
 import '../MainCoursForm.css'
 import axios from 'axios'
 
-
 import { Link } from 'react-router-dom'
 function ModifierFormCours() {
   const classes = useStyles();
@@ -25,7 +24,7 @@ function ModifierFormCours() {
     const [ListCategories, setCategorieData] = useState({ 
         name: '',
         description: ''});
-        
+      
     const [postcourse, setCourseData] = useState({ 
         title: '',
         description: '',
@@ -84,17 +83,41 @@ function ModifierFormCours() {
       }
   },[courses, id, dispatch])
 
- 
+  const token = useSelector(state => state.token)
     const handleSubmit = async (e) => {
       alert('hello');
       e.preventDefault();
-      console.log('test1',postcourse);
+     
         dispatch(updateCourse(id, postcourse));
-        console.log('test2',postcourse);
-
-
+       
       }
- 
+      const changeAvatar = async(e) => {
+        e.preventDefault()
+
+        const file = e.target.files[0]
+
+        if (!file) return this.state;
+    
+        if (file.size > 1024 * 1024)
+          return this.state
+    
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+          return this.state;
+    
+        let formData = new FormData()
+        formData.append('file', file)
+    
+    
+        const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+          headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+        
+       setCourseData({ ...postcourse, CourseImg: res.data.url })
+
+    }
+  )
+}
+    
     return (
         <div>
             <div className="main">
@@ -132,7 +155,7 @@ function ModifierFormCours() {
           name="file"
           id="file_up" 
       
-          onChange={(e) => setCourseData({ ...postcourse, CourseImg: e.target.value })}
+          onChange={e => changeAvatar(e)}
        />
        </div>
        <div className="wpb_column vc_column_container vc_col-sm-6">

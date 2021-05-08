@@ -5,7 +5,7 @@ import ACTIONS from './index'
 export const addCourse = (token,post) => async (dispatch) => {
   try {
     const { data } = await axios.post('/course',post,{headers: {Authorization: token}});
-    console.log(data);
+    
 
     return dispatch({ type: ACTIONS.CREATE_COURSE, payload: data });
   } catch (error) {
@@ -16,7 +16,7 @@ export const addCourse = (token,post) => async (dispatch) => {
 export const getCourses = () => async (dispatch) => {
   try {
     const { data } = await axios.get('/course');
-    console.log('test5666565');
+    
     return dispatch({ type: ACTIONS.FETCH_ALL, payload: data });
   } catch (error) {
     
@@ -25,7 +25,7 @@ export const getCourses = () => async (dispatch) => {
 };
 export const getAllCoursesByUser = (token) => async (dispatch) => {
   try {
-    console.log('test5666565');
+    
     const { data } = await axios.get('/course/coursebyuser',{headers: {Authorization: token}});
     return dispatch({ type: ACTIONS.FETCH_ALL_COURSE_BY_USER, payload: data });
   } catch (error) {
@@ -35,7 +35,7 @@ export const getAllCoursesByUser = (token) => async (dispatch) => {
 };
 export const getAllCoursesByCategory = (token) => async (dispatch) => {
   try {
-    console.log('test5666565');
+    
     const { data } = await axios.get('/course/getAllCoursesByCategory',{headers: {Authorization: token}});
     return dispatch({ type: ACTIONS.FETCH_ALL_COURSE_BY_CATEGORIE, payload: data });
   } catch (error) {
