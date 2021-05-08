@@ -7,6 +7,8 @@ import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
 import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import ReactPlayer from 'react-player'
+import { Markup } from 'interweave';
+
 function DetailCourse() {
   
   const {id} = useParams();
@@ -153,8 +155,8 @@ function DetailCourse() {
                                                         <div className="card-body" style={{width:'1200px'}}>
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
                                                                     <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
-                                                                    <p style={{ color: 'black' }}>{postcourse.introduction.text1} </p>
-
+                                                                    <Markup content={postcourse.introduction.text1} /> 
+                                                                    
                                                           </div>
                                                           </div>
                                                  }
@@ -216,7 +218,7 @@ function DetailCourse() {
                                                         <div className="card-body" style={{width:'1200px'}}>
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
                                                                     <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
-                                                                    <p style={{ color: 'black' }}>{postcourse.introduction.text2} </p>
+                                                                    <Markup content={postcourse.introduction.text2} />
 
                                                           </div>
                                                           </div>
@@ -279,7 +281,7 @@ function DetailCourse() {
                                                         <div className="card-body" style={{width:'1200px'}}>
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
                                                                     <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
-                                                                    <p style={{ color: 'black' }}>{postcourse.introduction.text3} </p>
+                                                                    <Markup content={postcourse.introduction.text3} />
 
                                                           </div>
                                                           </div>}
@@ -341,7 +343,7 @@ function DetailCourse() {
                                                         <div className="card-body" style={{width:'1200px'}}>
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
                                                                     <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
-                                                                    <p style={{ color: 'black' }}>{postcourse.introduction.text4} </p>
+                                                                    <Markup content={postcourse.introduction.text4} />
 
                                                           </div>
                                                           </div>}
@@ -444,7 +446,7 @@ function DetailCourse() {
                                                         <div className="card-body" style={{width:'1200px'}}>
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
                                                                     <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
-                                                                    <p style={{ color: 'black' }}>{postcourse.conclusion.text1} </p>
+                                                                    <Markup content={postcourse.conclusion.text1} />
 
                                                           </div>
                                                           </div>
@@ -507,7 +509,7 @@ function DetailCourse() {
                                                         <div className="card-body" style={{width:'1200px'}}>
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
                                                                     <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
-                                                                    <p style={{ color: 'black' }}>{postcourse.conclusion.text2} </p>
+                                                                    <Markup content={postcourse.conclusion.text2} />
 
                                                           </div>
                                                           </div>
@@ -570,7 +572,7 @@ function DetailCourse() {
                                                         <div className="card-body" style={{width:'1200px'}}>
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
                                                                     <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
-                                                                    <p style={{ color: 'black' }}>{postcourse.conclusion.text3} </p>
+                                                                    <Markup content={postcourse.conclusion.text3} />
 
                                                           </div>
                                                           </div>}
@@ -632,7 +634,7 @@ function DetailCourse() {
                                                         <div className="card-body" style={{width:'1200px'}}>
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
                                                                     <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Text</b> </h5>
-                                                                    <p style={{ color: 'black' }}>{postcourse.conclusion.text4} </p>
+                                                                    <Markup content={postcourse.conclusion.text4} />
 
                                                           </div>
                                                           </div>}
