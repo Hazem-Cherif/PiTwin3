@@ -6,11 +6,11 @@ export const addCourse = (token,post) => async (dispatch) => {
   try {
     const { data } = await axios.post('/course',post,{headers: {Authorization: token}});
     
-
+console.log('lalalal');
     return dispatch({ type: ACTIONS.CREATE_COURSE, payload: data });
   } catch (error) {
     
-
+    console.log('error');
   }
 };
 export const getCourses = () => async (dispatch) => {

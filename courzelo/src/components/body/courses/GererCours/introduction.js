@@ -12,7 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import ReactPlayer from 'react-player'
 
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-
+import { addCourse } from '../../../../redux/actions/courseAction';
 
 export class Introduction extends Component {
   constructor(props) {
@@ -49,6 +49,16 @@ export class Introduction extends Component {
     e.preventDefault();
     this.props.prevStep();
   };
+  handleSubmit = async (dispatch) => {
+
+    alert('test');
+    //e.preventDefault();
+    
+    this.props.dispatch(addCourse(this.props.token, this.props.course));
+    console.log(this.props.token);
+    console.log(this.props.course);
+
+  };
 
   render() {
     const { course, handleChangePhase1, handleChangePhase2, handleChangePhase3, handleChangePhase4, uploadHandlerVideo1, uploadHandlerVideo2, uploadHandlerVideo3, uploadHandlerVideo4, uploadHandlerImg1, uploadHandlerImg2, uploadHandlerImg3, uploadHandlerImg4, uploadHandlerPdf1, uploadHandlerPdf2, uploadHandlerPdf3, uploadHandlerPdf4 } = this.props;
@@ -60,6 +70,7 @@ export class Introduction extends Component {
           <div></div>
           <MuiThemeProvider>
             <>
+           
               <h1 style={{ marginBottom: '50px' }}>Introduction</h1>
               <div className="row" style={{ marginBottom: '150px' }}>
                 <div className=" col-sm-12 col-md-6" style={{ height: '290px' }} >
@@ -549,6 +560,12 @@ way to train all learners to think and learn well.<br />
                 onClick={this.continue}
 
               >Continue</Button>
+              <Button
+            color="primary"
+            variant="contained"
+           onClick={(e) => this.handleSubmit(e)}
+            style={{ marginLeft: '50px'}}
+          >Annuler</Button>
 
             </>
           </MuiThemeProvider>

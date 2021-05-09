@@ -399,18 +399,22 @@ function DetailCourse() {
         </span>
       </h4>
       <ul className="section-content">
+        {console.log('coursechapitre',postcourse.chapitres)}
+      {postcourse.chapitres.map((detailChapitres) => (
+        detailChapitres.map((course) => (
         <li className="course-item course-item-lp_lesson course-item-464 item-locked" data-type="lp_lesson">
           <span className="course-format-icon"><i className="fa fa-file-o" /></span>
           <div className="meta-rank">
             <div className="rank"><span className="label">Lecture</span>2.1</div>
           </div>
           <div className="section-item-link">
-            <span className="item-name">Unit Objectives</span>
+            <span className="item-name">{course.text1}</span>
             <span className="course-item-meta">
               <span className="item-meta duration">30 min</span>
             </span>
           </div>
-        </li>
+        </li>))
+      ))}
       </ul>
     </li>
     <li className="section" id="section-232" data-id={232}>

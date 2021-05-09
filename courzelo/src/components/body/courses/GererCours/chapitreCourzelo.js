@@ -713,6 +713,7 @@ const res = await axios.post('/CoursePdf/singleFile', formData, {
                     <div className="userform" style={{ marginLeft: '-400px', width: '1550px' }}>
                         <MuiThemeProvider>
                             <>
+                           
                                 <h1>Chapitres</h1>
                                 <div className="row" style={{ marginBottom: '100px' }}>
                                     <div className=" col-sm-12 col-md-6" style={{ height: '290px' }} >

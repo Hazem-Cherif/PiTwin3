@@ -11,7 +11,9 @@ import useStyles from './styles';
 import {useParams, useHistory} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCourse,deleteCourse } from '../../../../redux/actions/courseAction';
-
+import swal from 'sweetalert';
+import { Link ,Route,Redirect} from 'react-router-dom'
+import { addCourse } from '../../../../redux/actions/courseAction';
 
 
 
@@ -26,6 +28,60 @@ export class FormCourseDetails extends Component {
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
+   
+  };
+  
+  handleSubmit = async (dispatch) => {
+
+    alert('test');
+    //e.preventDefault();
+    const res = await axios.post('/course',this.props.course,{headers: {Authorization: this.props.token}}).then(res => {
+  
+    })
+   
+  
+
+  };
+  alert = e => {
+   
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: {
+        cancel: "cancel",
+        catch: {
+          text: "yes",
+          value: "catch",
+        },
+        
+        defeat: "no",
+      },
+      
+    })
+    .then((value) => {
+      switch (value) {
+ 
+        case "defeat":
+          swal("Pikachu fainted! You gained 500 XP!");
+
+          window.location = "/Gerercoursemodifsupp";
+          break;
+     
+        case "catch":
+          swal("Gotcha!", "Pikachu was caught!", "success");
+          this.handleSubmit();
+          window.location = "/Gerercoursemodifsupp";
+          
+          
+          
+          break;
+     
+        default:
+          swal("Got away safely!");
+      }
+    });
+   
   };
 
   fileChangeHandler = e => {
@@ -38,9 +94,9 @@ export class FormCourseDetails extends Component {
         
            
               this.state.categories=res.data;
-     console.log('bbb',this.state);
+   
       }).catch(error => {
-        console.log('error');          
+               
       })};
   render() {
     const { course, handleChange,uploadHandler } = this.props;
@@ -51,6 +107,8 @@ export class FormCourseDetails extends Component {
 <div className="userform"style={{ marginLeft: '-400px', width: '1550px' }}>
       <MuiThemeProvider>
         <>
+        
+          
           <h2>Course landing page</h2>
           <AppBar title="Titre du cours" />
           <TextField
@@ -142,7 +200,15 @@ export class FormCourseDetails extends Component {
             color="primary"
             variant="contained"
             onClick={this.continue}
+            style={{ marginLeft: '550px',marginTop:'100px' }}
           >Continue</Button>
+        
+          <Button
+            color="primary"
+            variant="contained"
+           onClick={this.alert}
+            style={{ marginLeft: '50px',marginTop:'100px' }}
+          >Annuler</Button>
 
         </>
       </MuiThemeProvider>

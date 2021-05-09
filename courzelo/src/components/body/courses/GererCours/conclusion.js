@@ -47,7 +47,14 @@ export class Conclusion extends Component {
     // dispatch(addCourse(this.props.token,this.props.course));
 
   };
+  handleSubmitt = async (dispatch) => {
 
+    alert('test');
+    //e.preventDefault();
+    this.props.dispatch(addCourse(this.props.token, this.props.course));
+    // dispatch(addCourse(this.props.token,this.props.course));
+
+  };
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -68,6 +75,7 @@ export class Conclusion extends Component {
           <div></div>
           <MuiThemeProvider>
             <>
+            
               <h1 style={{ marginBottom: '50px' }}>Conclusion</h1>
               <div className="row" style={{ marginBottom: '150px' }}>
                 <div className=" col-sm-12 col-md-6" style={{ height: '290px' }} >
@@ -556,6 +564,12 @@ way to train all learners to think and learn well.<br />
                 onClick={(e) => this.handleSubmit(e)}
 
               >Continue</Button>
+               <Button
+                color="primary"
+                variant="contained"
+                onClick={(e) => this.handleSubmitt(e)}
+
+              >annuler</Button>
 
 
             </>

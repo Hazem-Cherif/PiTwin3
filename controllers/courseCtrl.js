@@ -5,7 +5,7 @@ const Users = require('../models/userModel')
 const courseCtrl = {
       addCourse : async (req, res) => {
           const idUser=req.user.id;
-         
+          console.log('kbal');
          
         const {title, author, description, prerequisite, comprendre, validation,introduction,chapitres,conclusion,CourseImg,categorie } = req.body;
        
@@ -13,7 +13,7 @@ const courseCtrl = {
     
         try {
             await courseModel.save();
-    
+    console.log('back');
             res.status(201).json(courseModel );
         } catch (error) {
             res.status(409).json({ message: error.message });
