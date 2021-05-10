@@ -59,7 +59,11 @@ const courseSchema = mongoose.Schema({
             img4:String,
             filePath4:String
         },
-        categorie:String
+        categorie:String,
+        pourcentage:{
+            type: Number,
+            default: 0 
+        }
            
      
 }

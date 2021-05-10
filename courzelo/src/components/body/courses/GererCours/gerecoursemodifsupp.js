@@ -153,9 +153,13 @@ function Gerercoursemodifsupp() {
                             
                                 
                                 <td className="column-status">
-                                  <span className="result-percent">0%</span>
-                                  <span className="lp-label label-failed">
-                                    Failed </span>
+                                  <span className="result-percent">{course.pourcentage}%</span>
+                                  {course.pourcentage==100 ?
+                                  <span className="lp-label label-sucess" style ={{backgroundColor:'#008000'
+                                  }}>
+                                    sucess </span> 
+:   <span className="lp-label label-failed">
+Failed </span>}
                                 </td>
                                 <td className="column-passing-grade"> <ul className="lp-tab-sections">
                           <li className="section-tab owned active">

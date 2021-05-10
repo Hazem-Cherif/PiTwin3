@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ckeditor, { CKEditor } from '@ckeditor/ckeditor5-react';
 import ReactPlayer from 'react-player'
+import swal from 'sweetalert';
 
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 
@@ -41,15 +42,16 @@ export class Conclusion extends Component {
 
   handleSubmit = async (dispatch) => {
 
-    alert('test');
+    
     //e.preventDefault();
     this.props.dispatch(addCourse(this.props.token, this.props.course));
     // dispatch(addCourse(this.props.token,this.props.course));
+    console.log(this.props.course)
 
   };
   handleSubmitt = async (dispatch) => {
 
-    alert('test');
+    
     //e.preventDefault();
     this.props.dispatch(addCourse(this.props.token, this.props.course));
     // dispatch(addCourse(this.props.token,this.props.course));
@@ -58,24 +60,68 @@ export class Conclusion extends Component {
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
+    this.props.nextPourcentage();
+    console.log('hazem bhim',this.props.course.pourcentage)
   };
 
   back = e => {
     e.preventDefault();
     this.props.prevStep();
   };
+  alert = e => {
+   
+    swal({
+      title: "Are you sure?",
+      text: "Are you sure you want to add this course",
+      icon: "warning",
+      buttons: {
+        cancel: "cancel",
+        catch: {
+          text: "yes",
+          value: "catch",
+        },
+        
+        defeat: "no",
+      },
+      
+    })
+    .then((value) => {
+      switch (value) {
+ 
+        case "defeat":
+          swal("this course was droped !");
 
+          window.location = "/Gerercoursemodifsupp";
+          break;
+     
+        case "catch":
+          swal("your", "course have been sauvgarded", "success");
+          this.handleSubmit();
+          window.location = "/Gerercoursemodifsupp";
+          
+          
+          
+          break;
+     
+        default:
+          swal("Got away safely!");
+      }
+    });
+   
+  };
   render() {
     const { course, handleChangePhase5, handleChangePhase6, handleChangePhase7, handleChangePhase8, uploadHandlerVideo5, uploadHandlerVideo6, uploadHandlerVideo7, uploadHandlerVideo8, uploadHandlerImg5, uploadHandlerImg6, uploadHandlerImg7, uploadHandlerImg8, uploadHandlerPdf5, uploadHandlerPdf6, uploadHandlerPdf7, uploadHandlerPdf8 } = this.props;
     return (
       <div className="main">
 
         
-        <div className="userform" >
+        <div className="userform" style={{ marginLeft: '100px', width: '1550px' }} >
           <div></div>
           <MuiThemeProvider>
             <>
-            
+            <div class="progress mb-3">
+                <div class="progress-bar w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
               <h1 style={{ marginBottom: '50px' }}>Conclusion</h1>
               <div className="row" style={{ marginBottom: '150px' }}>
                 <div className=" col-sm-12 col-md-6" style={{ height: '290px' }} >
@@ -561,15 +607,10 @@ way to train all learners to think and learn well.<br />
               <Button
                 color="primary"
                 variant="contained"
-                onClick={(e) => this.handleSubmit(e)}
+                onClick={this.alert}
 
-              >Continue</Button>
-               <Button
-                color="primary"
-                variant="contained"
-                onClick={(e) => this.handleSubmitt(e)}
-
-              >annuler</Button>
+              >ADD</Button>
+              
 
 
             </>

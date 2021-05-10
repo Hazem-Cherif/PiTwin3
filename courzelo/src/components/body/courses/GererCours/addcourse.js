@@ -66,7 +66,8 @@ export class AddCourse extends Component {
 
     },
     CourseImg: '',
-    categorie:''
+    categorie:'',
+    pourcentage: 25
 
   };
 
@@ -75,6 +76,12 @@ export class AddCourse extends Component {
     const { step } = this.state;
     this.setState({
       step: step + 1
+    });
+  };
+  nextPourcentage = () => {
+    const { pourcentage } = this.state;
+    this.setState({
+      pourcentage: pourcentage + 25
     });
   };
 
@@ -100,6 +107,7 @@ export class AddCourse extends Component {
     });
 
   };
+  
 
 
   uploadHandler = async e => {
@@ -853,14 +861,15 @@ export class AddCourse extends Component {
 
   render() {
     const { step } = this.state;
-    const { title, author, description, prerequisite, comprendre, introduction,chapitres, conclusion, CourseImg,categorie } = this.state;
-    const course = { title, author, description, prerequisite, comprendre, introduction,chapitres, conclusion, CourseImg,categorie };
+    const { title, author, description, prerequisite, comprendre, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage } = this.state;
+    const course = { title, author, description, prerequisite, comprendre, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage };
     console.log('testkakakakakak', this.props.match.params.token);
     switch (step) {
       case 1:
         return (
           <FormCourseDetails
             nextStep={this.nextStep}
+           nextPourcentage={this.nextPourcentage}
             handleChange={this.handleChange}
             uploadHandler={this.uploadHandler}
             course={course}
@@ -873,6 +882,7 @@ export class AddCourse extends Component {
         return (
           <Introduction
           nextStep={this.nextStep}
+          nextPourcentage={this.nextPourcentage}
           prevStep={this.prevStep}
           handleChangePhase1={this.handleChangePhase1}
           uploadHandlerVideo1={this.uploadHandlerVideo1}
@@ -898,15 +908,18 @@ export class AddCourse extends Component {
         return (
           <ChapitresCourzelo
           nextStep={this.nextStep}
+          nextPourcentage={this.nextPourcentage}
           prevStep={this.prevStep}
           handleSubmit={this.handleSubmit}
           course={course}
+          ttoken={this.props.match.params.token}
         />
         );
       case 4:
         return (
           <Conclusion
           nextStep={this.nextStep}
+          nextPourcentage={this.nextPourcentage}
           prevStep={this.prevStep}
           handleChangePhase5={this.handleChangePhase5}
           uploadHandlerVideo5={this.uploadHandlerVideo5}

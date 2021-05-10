@@ -4,19 +4,21 @@ import Button from '@material-ui/core/Button';
 import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
 import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
 import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {useSelector, useDispatch} from 'react-redux'
-
+import ReactPlayer from 'react-player'
+import swal from 'sweetalert';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import axios from 'axios'
 import './StepForm.css';
 
 
 
-function ChapitresCourzelo({ nextStep, handleSubmit }) {
+function ChapitresCourzelo({ nextStep, handleSubmit,prevStep,nextPourcentage,course,ttoken}) {
+   
 
     const [inputFields, setInputFields] = useState([
         { id: uuidv4(), text1: '' , img1:'', vid1:'', pdf1:'', text2: '', img2:'', vid2:'', pdf2:'', text3: '', img3:'', vid3:'', pdf3:'', text4: '', img4:'', vid4:'', pdf4:'', text5: '', img5:'', vid5:'', pdf5:'', text6: '', img6:'', vid6:'', pdf6:'', text7: '', img7:'', vid7:'', pdf7:'', text8: '', img8:'', vid8:'', pdf8:'' },
@@ -47,11 +49,66 @@ function ChapitresCourzelo({ nextStep, handleSubmit }) {
 
         console.log("InputFields", inputFields);
     };
+   const handleSubmits = async (dispatch) => {
+       alert('hello')
+
+   
+        const res = await axios.post('/course',course,{headers: {Authorization:ttoken}}).then(res => {
+      
+        })
+    };
+   const alert = e => {
+   
+        swal({
+          title: "Are you sure?",
+          text: "in case you want to edit this course ! there is an updte button!",
+          icon: "warning",
+          buttons: {
+            cancel: "cancel",
+            catch: {
+              text: "yes",
+              value: "catch",
+            },
+            
+            defeat: "no",
+          },
+          
+        })
+        .then((value) => {
+          switch (value) {
+     
+            case "defeat":
+              swal("the information was deleted!");
+    
+              window.location = "/Gerercoursemodifsupp";
+              break;
+         
+            case "catch":
+              swal("your", "information have been sauvgarded", "success");
+              handleSubmits();
+              window.location = "/Gerercoursemodifsupp";
+              
+              
+              
+              break;
+         
+            default:
+              swal("Got away safely!");
+          }
+        });
+       
+      };
     const Continue = e => {
         // e.preventDefault();
         handleSubmit(inputFields);
         nextStep();
+        nextPourcentage();
+       
     };
+    const back = e => {
+        e.preventDefault();
+        prevStep();
+      };
 
     const token = useSelector(state => state.token)
 const uploadimg1 = async(id, event) => {
@@ -713,7 +770,9 @@ const res = await axios.post('/CoursePdf/singleFile', formData, {
                     <div className="userform" style={{ marginLeft: '-400px', width: '1550px' }}>
                         <MuiThemeProvider>
                             <>
-                           
+                            <div class="progress mb-3">
+                <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
                                 <h1>Chapitres</h1>
                                 <div className="row" style={{ marginBottom: '100px' }}>
                                     <div className=" col-sm-12 col-md-6" style={{ height: '290px' }} >
@@ -1584,6 +1643,7 @@ way to train all learners to think and learn well.<br />
                                     color="secondary"
                                     variant="contained"
                                     style={{ marginLeft: '600px' }}
+                                    onClick={back}
                                 >Back</Button>
 
                                 <Button
@@ -1593,7 +1653,12 @@ way to train all learners to think and learn well.<br />
 
                                 >Continue</Button>
 
-
+<Button
+            color="warning"
+            variant="contained"
+           onClick={alert}
+            style={{ marginLeft: '20px'}}
+          >cancel</Button>
 
                                 <br />
 

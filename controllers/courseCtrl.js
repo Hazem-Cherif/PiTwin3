@@ -7,11 +7,12 @@ const courseCtrl = {
           const idUser=req.user.id;
           console.log('kbal');
          
-        const {title, author, description, prerequisite, comprendre, validation,introduction,chapitres,conclusion,CourseImg,categorie } = req.body;
+        const {title, author, description, prerequisite, comprendre, validation,introduction,chapitres,conclusion,CourseImg,categorie,pourcentage} = req.body;
        
-        const courseModel = new CourseModel({ idUser,title, author, description, prerequisite, comprendre, validation,introduction,chapitres,conclusion,CourseImg,categorie })
+        const courseModel = new CourseModel({ idUser,title, author, description, prerequisite, comprendre, validation,introduction,chapitres,conclusion,CourseImg,categorie,pourcentage })
     
         try {
+           
             await courseModel.save();
     console.log('back');
             res.status(201).json(courseModel );
@@ -49,10 +50,10 @@ const courseCtrl = {
     
     updateCourse: async (req, res) => {
         try {
-         const {idUser,title, description,introduction,chapitres,conclusion,CourseImg,categorie} = req.body
+         const {idUser,title, description,introduction,chapitres,conclusion,CourseImg,categorie,pourcentage} = req.body
        
          await CourseModel.findOneAndReplace({_id: req.body._id}, {
-             idUser,title, description,introduction,chapitres,conclusion,CourseImg,categorie
+             idUser,title, description,introduction,chapitres,conclusion,CourseImg,categorie,pourcentage
          })
          
          res.json({msg: "update Su!"})

@@ -10,9 +10,10 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ckeditor, { CKEditor } from '@ckeditor/ckeditor5-react';
 import TextField from '@material-ui/core/TextField';
 import ReactPlayer from 'react-player'
-
+import swal from 'sweetalert';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import { addCourse } from '../../../../redux/actions/courseAction';
+import axios from 'axios'
+
 
 export class Introduction extends Component {
   constructor(props) {
@@ -43,23 +44,64 @@ export class Introduction extends Component {
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
+    this.props.nextPourcentage();
+    console.log('hazem bhim',this.props.course.pourcentage)
   };
 
   back = e => {
     e.preventDefault();
     this.props.prevStep();
   };
+  
   handleSubmit = async (dispatch) => {
 
-    alert('test');
-    //e.preventDefault();
-    
-    this.props.dispatch(addCourse(this.props.token, this.props.course));
-    console.log(this.props.token);
-    console.log(this.props.course);
-
+   
+    const res = await axios.post('/course',this.props.course,{headers: {Authorization: this.props.token}}).then(res => {
+  
+    })
   };
+  alert = e => {
+   
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: {
+        cancel: "cancel",
+        catch: {
+          text: "yes",
+          value: "catch",
+        },
+        
+        defeat: "no",
+      },
+      
+    })
+    .then((value) => {
+      switch (value) {
+ 
+        case "defeat":
+          swal("Pikachu fainted! You gained 500 XP!");
 
+          window.location = "/Gerercoursemodifsupp";
+          break;
+     
+        case "catch":
+          swal("Gotcha!", "Pikachu was caught!", "success");
+           this.handleSubmit();
+          window.location = "/Gerercoursemodifsupp";
+          
+          
+          
+          break;
+     
+        default:
+          swal("Got away safely!");
+      }
+    });
+   
+  };
+ 
   render() {
     const { course, handleChangePhase1, handleChangePhase2, handleChangePhase3, handleChangePhase4, uploadHandlerVideo1, uploadHandlerVideo2, uploadHandlerVideo3, uploadHandlerVideo4, uploadHandlerImg1, uploadHandlerImg2, uploadHandlerImg3, uploadHandlerImg4, uploadHandlerPdf1, uploadHandlerPdf2, uploadHandlerPdf3, uploadHandlerPdf4 } = this.props;
     return (
@@ -70,7 +112,9 @@ export class Introduction extends Component {
           <div></div>
           <MuiThemeProvider>
             <>
-           
+            <div class="progress mb-3">
+                <div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
               <h1 style={{ marginBottom: '50px' }}>Introduction</h1>
               <div className="row" style={{ marginBottom: '150px' }}>
                 <div className=" col-sm-12 col-md-6" style={{ height: '290px' }} >
@@ -561,11 +605,12 @@ way to train all learners to think and learn well.<br />
 
               >Continue</Button>
               <Button
-            color="primary"
+            color="warning"
             variant="contained"
-           onClick={(e) => this.handleSubmit(e)}
-            style={{ marginLeft: '50px'}}
-          >Annuler</Button>
+            onClick={this.alert}
+          
+            style={{ marginLeft: '20px'}}
+          >cancel</Button>
 
             </>
           </MuiThemeProvider>

@@ -22,19 +22,20 @@ export class FormCourseDetails extends Component {
     super(props);
     this.state = {
         CourseImg: [],
-        categories:[]
+        categories:[],
+      
+       
     }
 }
   continue = e => {
     e.preventDefault();
-    this.props.nextStep();
-   
-  };
+    this.props.nextStep(); 
+    this.props.nextPourcentage();
+};
   
   handleSubmit = async (dispatch) => {
 
-    alert('test');
-    //e.preventDefault();
+   
     const res = await axios.post('/course',this.props.course,{headers: {Authorization: this.props.token}}).then(res => {
   
     })
@@ -46,7 +47,7 @@ export class FormCourseDetails extends Component {
    
     swal({
       title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
+      text: "in case you want to edit this course ! there is an updte button!",
       icon: "warning",
       buttons: {
         cancel: "cancel",
@@ -63,13 +64,13 @@ export class FormCourseDetails extends Component {
       switch (value) {
  
         case "defeat":
-          swal("Pikachu fainted! You gained 500 XP!");
+          swal("the information was deleted!");
 
           window.location = "/Gerercoursemodifsupp";
           break;
      
         case "catch":
-          swal("Gotcha!", "Pikachu was caught!", "success");
+          swal("your", "information have been sauvgarded", "success");
           this.handleSubmit();
           window.location = "/Gerercoursemodifsupp";
           
@@ -107,7 +108,9 @@ export class FormCourseDetails extends Component {
 <div className="userform"style={{ marginLeft: '-400px', width: '1550px' }}>
       <MuiThemeProvider>
         <>
-        
+        <div class="progress mb-3">
+                <div class="progress-bar w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" pourcentage={this.state.pourcentage}></div>
+            </div>
           
           <h2>Course landing page</h2>
           <AppBar title="Titre du cours" />
@@ -142,7 +145,7 @@ export class FormCourseDetails extends Component {
 
 <br/>
 <br />
-          <br />
+
           <label > Course description </label>
           <TextareaAutosize
             placeholder="Insert your course description"
@@ -201,14 +204,15 @@ export class FormCourseDetails extends Component {
             variant="contained"
             onClick={this.continue}
             style={{ marginLeft: '550px',marginTop:'100px' }}
+            
           >Continue</Button>
         
           <Button
-            color="primary"
+             color="warning"
             variant="contained"
            onClick={this.alert}
-            style={{ marginLeft: '50px',marginTop:'100px' }}
-          >Annuler</Button>
+            style={{ marginLeft: '20px',marginTop:'100px' }}
+          >cancel</Button>
 
         </>
       </MuiThemeProvider>
