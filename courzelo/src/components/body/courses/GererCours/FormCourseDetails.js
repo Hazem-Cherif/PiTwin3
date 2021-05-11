@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import { TextareaAutosize } from '@material-ui/core';
 import './StepForm.css';
 import '../MainCoursForm.css'
+import './bareeProgression.css'
 import axios from 'axios'
 import useStyles from './styles';
 import {useParams, useHistory} from 'react-router-dom'
@@ -14,6 +15,7 @@ import { updateCourse,deleteCourse } from '../../../../redux/actions/courseActio
 import swal from 'sweetalert';
 import { Link ,Route,Redirect} from 'react-router-dom'
 import { addCourse } from '../../../../redux/actions/courseAction';
+import Swall from 'sweetalert2'
 
 
 
@@ -84,7 +86,54 @@ export class FormCourseDetails extends Component {
     });
    
   };
-
+   notif = async e => {
+    Swall.mixin({
+      confirmButtonText: 'Next &rarr;',
+      showCancelButton: true,
+      progressSteps: ['1', '2', '3']
+    }).queue([
+      {
+        title: 'Click to Continue to passed to next step',
+        text: 'The green button on down',
+        imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      },{
+        title: 'Click to Cancel to quit and you have choice to save your information',
+        text: 'the gris button on down',
+        imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image'
+     
+      },{
+        title: 'Click to Add to Add Your course',
+        text: 'the green button on down  in step 4 conclusion   of add course ',
+        imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image'
+        
+      }
+    ]).then((result) => {
+      if (result.value) {
+        const answers = JSON.stringify(result.value)
+        Swall.fire({
+      title: '<strong>We are here to <u>HELP YOU</u></strong>',
+      icon: 'info',
+      html:
+        'You can use <b>HELP SECTION</b>, ' +
+        'for more details, hope it was clear for you', 
+      showCloseButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+        '<i class="fa fa-thumbs-up"></i> Clear!',
+      confirmButtonAriaLabel: 'Great! Enjoy it!',
+    })
+      }
+    })
+  }
   fileChangeHandler = e => {
     this.setState({ file: e.target.files[0] })
   }
@@ -104,15 +153,81 @@ export class FormCourseDetails extends Component {
     return (
       <div className="main">
            <div className="side"></div>
-          
-<div className="userform"style={{ marginLeft: '-400px', width: '1550px' }}>
+           <div className="row">
+             <div className=" vc_col-sm-2" >
+      <div >
+      <div className="vc_column-inner vc_custom_1502265039449"><div className="wpb_wrapper">
+          <div className="thim-sc-icon-box custom-style layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-ios-barcode-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Learn From The Experts </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 25}}><span className="vc_empty_space_inner" /></div>
+          <div className="thim-sc-icon-box  layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-ios-bookmarks-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Book Library &amp; Store </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 25}}><span className="vc_empty_space_inner" /></div>
+          <div className="thim-sc-icon-box  layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-social-buffer-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Learn Anything Online </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 30}}><span className="vc_empty_space_inner" /></div>
+          <div className="thim-sc-icon-box  layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-ios-lightbulb-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Best Industry Leaders </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 59}}><span className="vc_empty_space_inner" /></div></div></div></div>
+      </div>
+                        <div className=" vc_col-sm-10" >      
+<div className="userform" style={{marginLeft:'30px',width:'1300px',height:'1200px'}}>
       <MuiThemeProvider>
         <>
-        <div class="progress mb-3">
-                <div class="progress-bar w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" pourcentage={this.state.pourcentage}></div>
-            </div>
-          
-          <h2>Course landing page</h2>
+        <ul className="progressbar">
+          <li class="active">Page de garde </li>
+          <li>Introduction</li>
+          <li>Chapitres</li>
+          <li>Conclusion</li>
+  </ul>
+       
+          <div className="row">
+            <div  className=" vc_col-sm-6">
+          <h2>Course landing page</h2> 
+          </div>
+          <div  className=" vc_col-sm-6" style={{marginTop:'40px'}}>
+          <Button
+            
+            variant="contained"
+            onClick={this.notif}
+            style={{ width:'150px',backgroundColor:'#1EA69A',color:'#FFFFFF' }}
+            
+          >Help</Button>
+          </div>
+          </div>
+                  
           <AppBar title="Titre du cours" />
           <TextField
           className="inputline"
@@ -139,6 +254,7 @@ export class FormCourseDetails extends Component {
           <input type="file" 
           name="file"
           id="file_up" 
+       
          onChange={(e)=>uploadHandler(e)}
          Value={course.CourseImg} />
           <img src={course.CourseImg} alt></img>
@@ -146,8 +262,9 @@ export class FormCourseDetails extends Component {
 <br/>
 <br />
 
-          <label > Course description </label>
+          <label style={{color:'black'}} ><b> Course description</b> </label>
           <TextareaAutosize
+          style={{borderBlockColor:'black'}}
             placeholder="Insert your course description"
             label="Course subtitle"
             onChange={handleChange('description')}
@@ -157,8 +274,9 @@ export class FormCourseDetails extends Component {
           <br />
           <div className="taxonomy">
             <div >
-          <label > Prerequisite </label>
+          <label style={{color:'black'}}> <b>Prerequisite</b> </label>
           <TextareaAutosize
+          style={{borderBlockColor:'black'}}
             placeholder="Insert your course description"
             label="Course subtitle"
             onChange={handleChange('prerequisite')}
@@ -166,8 +284,9 @@ export class FormCourseDetails extends Component {
             rowsMin={1} />
 </div>
             <div>
-          <label > What to learn </label>
+          <label style={{color:'black'}}> <b>What to learn</b> </label>
           <TextareaAutosize
+          style={{borderBlockColor:'black'}}
             placeholder="Insert your course description"
             label="Course subtitle"
             onChange={handleChange('comprendre')}
@@ -181,8 +300,9 @@ export class FormCourseDetails extends Component {
           
           <br />
           <div className="form-group">
-        <label>Category</label>
+        <label style={{color:'black'}}><b>Category</b></label>
        <select
+       
           name="category"
           className="form-control"
           onChange={handleChange('categorie')}
@@ -200,10 +320,10 @@ export class FormCourseDetails extends Component {
         </select>
       </div>
           <Button
-            color="primary"
+            
             variant="contained"
             onClick={this.continue}
-            style={{ marginLeft: '550px',marginTop:'100px' }}
+            style={{ marginLeft: '550px',marginTop:'100px',backgroundColor:'#1EA69A',color:'#FFFFFF' }}
             
           >Continue</Button>
         
@@ -216,6 +336,9 @@ export class FormCourseDetails extends Component {
 
         </>
       </MuiThemeProvider>
+      </div>
+      </div>
+      
       </div>
       </div>
     );

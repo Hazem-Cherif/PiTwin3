@@ -13,7 +13,7 @@ import ReactPlayer from 'react-player'
 import swal from 'sweetalert';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import axios from 'axios'
-
+import './bareeProgression.css'
 
 export class Introduction extends Component {
   constructor(props) {
@@ -112,9 +112,12 @@ export class Introduction extends Component {
           <div></div>
           <MuiThemeProvider>
             <>
-            <div class="progress mb-3">
-                <div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+            <ul className="progressbar" style={{marginLeft:'1px'}}>
+          <li class="active">Page de garde </li>
+          <li class="active">Introduction</li>
+          <li>Chapitres</li>
+          <li>Conclusion</li>
+  </ul>
               <h1 style={{ marginBottom: '50px' }}>Introduction</h1>
               <div className="row" style={{ marginBottom: '150px' }}>
                 <div className=" col-sm-12 col-md-6" style={{ height: '290px' }} >
@@ -599,10 +602,10 @@ way to train all learners to think and learn well.<br />
               >Back</Button>
 
               <Button
-                color="primary"
+               
                 variant="contained"
                 onClick={this.continue}
-
+                 style={{backgroundColor:'#1EA69A',color:'#FFFFFF'}}
               >Continue</Button>
               <Button
             color="warning"

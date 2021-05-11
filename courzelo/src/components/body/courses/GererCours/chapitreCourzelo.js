@@ -7,7 +7,7 @@ import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
 import { Link, useParams } from 'react-router-dom';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './bareeProgression.css'
 import {useSelector, useDispatch} from 'react-redux'
 import ReactPlayer from 'react-player'
 import swal from 'sweetalert';
@@ -770,9 +770,12 @@ const res = await axios.post('/CoursePdf/singleFile', formData, {
                     <div className="userform" style={{ marginLeft: '-400px', width: '1550px' }}>
                         <MuiThemeProvider>
                             <>
-                            <div class="progress mb-3">
-                <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+                            <ul className="progressbar" style={{marginLeft:'1px'}}>
+          <li class="active">Page de garde </li>
+          <li class="active">Introduction</li>
+          <li class="active">Chapitres</li>
+          <li>Conclusion</li>
+  </ul>
                                 <h1>Chapitres</h1>
                                 <div className="row" style={{ marginBottom: '100px' }}>
                                     <div className=" col-sm-12 col-md-6" style={{ height: '290px' }} >
@@ -1647,10 +1650,10 @@ way to train all learners to think and learn well.<br />
                                 >Back</Button>
 
                                 <Button
-                                    color="primary"
+                                   
                                     variant="contained"
                                     onClick={Continue}
-
+                                    style={{backgroundColor:'#1EA69A',color:'#FFFFFF'}}
                                 >Continue</Button>
 
 <Button

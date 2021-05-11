@@ -27,6 +27,93 @@ const Home = () => {
           </div>
           <a href="index.html" className="btn btn-default"><span className="text">Read More</span></a></div>
       </div></div></div></div>
+      <>
+  <div  className="vc_row wpb_row vc_row-fluid thim-column-gap-70 vc_custom_1502087455074 vc_row-has-fill">
+    <div className="wpb_column vc_column_container vc_col-sm-9" >
+      <div className="vc_column-inner vc_custom_1502081858697"><div style={{marginLeft:'40px'}}>
+          <div className="thim-course-block-3   	">
+            <div className="wrapper-title">
+              <h3 className="title">Discover Our New Courses</h3>
+              <Link to='/courses'><a  className="view-courses-button">View All</a></Link> </div>
+            <div className="masonry-items">
+              <div className="row">
+                <div className="course-item col-sm-4  free   business ">
+                  <div ><div className="featured-img">
+                    <img width={480} height={360} src="wp-content/uploads/sites/5/2017/06/Half-Marathon-2014-70-1-480x360.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className /><a className="img-link" />
+                    <div className="course-meta"><div className="price">
+                          <span className="course-price">SPORT</span>
+                        </div><div className="course-rating">
+                          <div className="review-stars-rated" title="0 out of 5 stars">
+                            <div className="review-stars empty" />
+                            <div className="review-stars filled" style={{width: '0%'}} />
+                           
+                          </div></div></div>
+                          </div><h4 className="course-title"><a >The Ultimate Ethical Hacking Boot Camp</a>
+                          </h4><div className="participants"></div></div>
+                          </div><div className="course-item col-sm-4  free in-membership  business design ">
+                            <div ><div className="featured-img">
+                              <img width={480} height={360} src="wp-content/uploads/sites/5/2017/08/layer-86-e1503482220669-480x360.jpg" alt="Affiliate Marketing – A Beginner’s Guide" className />
+                              <a  className="img-link" /><div className="course-meta">
+                                <div className="price" /><div className="course-rating"><div className="review-stars-rated" title="0 out of 5 stars">
+                            <div className="review-stars empty" />
+                            <div className="review-stars filled" style={{width: '0%'}} />
+                          </div></div></div></div><h4 className="course-title">
+                            <a >Affiliate Marketing – A Beginner’s Guide</a></h4><div className="participants"><a className="instructor" /></div></div></div><div className="course-item col-sm-4  sale    web-development "><div ><div className="featured-img"><img width={480} height={360} src="wp-content/uploads/sites/5/2017/06/shutterstock_184641842-5-e1503481994491-480x360.jpg" alt="AWS Certified Solutions  Architect" className /><a  className="img-link" /><div className="course-meta"><div className="price">
+                          <span className="course-price">BUSINESS</span>
+                        </div><div className="course-rating"><div className="review-stars-rated" title="0 out of 5 stars">
+                            <div className="review-stars empty" />
+                            <div className="review-stars filled" style={{width: '0%'}} />
+                          </div></div></div></div><h4 className="course-title"><a >AWS Certified Solutions Architect</a></h4><div className="participants"><a  className="instructor" /></div></div></div></div></div> </div>
+        </div></div>
+    </div>
+    <div className="wpb_column vc_column_container vc_col-sm-3 vc_col-has-fill">
+      <div className="vc_column-inner vc_custom_1502265039449"><div className="wpb_wrapper">
+          <div className="thim-sc-icon-box custom-style layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-ios-barcode-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Learn From The Experts </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 25}}><span className="vc_empty_space_inner" /></div>
+          <div className="thim-sc-icon-box  layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-ios-bookmarks-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Book Library &amp; Store </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 25}}><span className="vc_empty_space_inner" /></div>
+          <div className="thim-sc-icon-box  layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-social-buffer-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Learn Anything Online </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 30}}><span className="vc_empty_space_inner" /></div>
+          <div className="thim-sc-icon-box  layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-ios-lightbulb-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Best Industry Leaders </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 59}}><span className="vc_empty_space_inner" /></div></div></div></div></div>
+  <div className="vc_row-full-width vc_clearfix" />
+</>
 
 
       <div className="vc_row wpb_row vc_row-fluid">

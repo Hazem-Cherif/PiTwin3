@@ -63,8 +63,8 @@ const cartAllCourse = (
     <article id="post-486" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-business course_tag-business course_tag-theme course_tag-wordpress pmpro-has-access course">
       <div className="content">
         <div className="thumbnail">
-          <a href="the-ultimate-ethical-hacking-boot-camp/index.html" className="img_thumbnail">
-            <img loading="lazy" width={365} height={405} src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
+          <a  className="img_thumbnail">
+            <img style={{width:'365px',height:'300px'}}  src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
           <span className="price">
             <span className="course-price">{course.title}</span>
           </span>
@@ -111,8 +111,8 @@ const cartCourseBusiness = (
     <article id="post-486" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-business course_tag-business course_tag-theme course_tag-wordpress pmpro-has-access course">
       <div className="content">
         <div className="thumbnail">
-          <a href="the-ultimate-ethical-hacking-boot-camp/index.html" className="img_thumbnail">
-            <img loading="lazy" width={365} height={405} src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
+          <a  className="img_thumbnail">
+            <img loading="lazy" style={{width:'365px',height:'300px'}}  src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
           <span className="price">
             <span className="course-price">{course.title}</span>
           </span>
@@ -163,8 +163,8 @@ const cartCourseComputerSc = (
     <article id="post-486" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-business course_tag-business course_tag-theme course_tag-wordpress pmpro-has-access course">
       <div className="content">
         <div className="thumbnail">
-          <a href="the-ultimate-ethical-hacking-boot-camp/index.html" className="img_thumbnail">
-            <img loading="lazy" width={365} height={405} src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
+          <a className="img_thumbnail">
+            <img style={{width:'365px',height:'300px'}}  src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
           <span className="price">
             <span className="course-price">{course.title}</span>
           </span>
@@ -212,8 +212,8 @@ const cartCourseSciences = (
     <article id="post-486" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-business course_tag-business course_tag-theme course_tag-wordpress pmpro-has-access course">
       <div className="content">
         <div className="thumbnail">
-          <a href="the-ultimate-ethical-hacking-boot-camp/index.html" className="img_thumbnail">
-            <img loading="lazy" width={365} height={405} src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
+          <a className="img_thumbnail">
+            <img style={{width:'365px',height:'300px'}} src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
           <span className="price">
             <span className="course-price">{course.title}</span>
           </span>
@@ -263,8 +263,8 @@ const cartCourseOther = (
     <article id="post-486" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-business course_tag-business course_tag-theme course_tag-wordpress pmpro-has-access course">
       <div className="content">
         <div className="thumbnail">
-          <a href="the-ultimate-ethical-hacking-boot-camp/index.html" className="img_thumbnail">
-            <img loading="lazy" width={365} height={405} src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
+          <a  className="img_thumbnail">
+            <img style={{width:'365px',height:'300px'}} src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
           <span className="price">
             <span className="course-price">{course.title}</span>
           </span>
@@ -337,13 +337,12 @@ const cartCourseOther = (
                   </div>
                  </div></div></div></div> </div>
       </div>
-      <div className="container site-content " >
+      <div >
         <div className="row">
-        <main id="main" className="site-main col-sm-12 col-md-9 flex-first">
 
-            <article id="post-0" className="post-0 post type-post status-publish format-standard hentry pmpro-no-access page type-page">
-              <div className="entry-content">
-                <div style={{marginTop:'- 110px' , marginLeft:'50px', marginRight:'50px',paddingTop:'50px', paddingBottom:'50px'}} id="lp-archive-courses" className="lp-archive-courses" data-all-courses-url="index.html">
+            <article  style={{width:'1100px',marginLeft:'150px',marginTop:'110px'}}>
+              <div  >
+                <div   >
                   <div className="thim-course-top">
                     <div className="display grid-list-switch lpr_course-switch " data-cookie="lpr_course-switch" data-layout="grid">
                       <a href="javascript:;" className="grid switchToGrid switcher-active"><i className="fa fa-th" /></a>
@@ -368,25 +367,13 @@ const cartCourseOther = (
                   {isBusiness ? cartCourseBusiness : isSciences ? cartCourseSciences : isComputerSc ?  cartCourseComputerSc : isOther ? cartCourseOther : cartAllCourse }
                   
 
-                    <nav className="learn-press-pagination">
-                      <ul className="page-numbers">
-                        <li><span aria-current="page" className="page-numbers current">1</span></li>
-                        <li><a className="page-numbers" href="page/2/index.html">2</a></li>
-                        <li><a className="page-numbers" href="page/3/index.html">3</a></li>
-                        <li><a className="next page-numbers" href="page/2/index.html">&gt;</a></li>
-                      </ul>
-                    </nav>
-                    <div className="thim-loading-icon">
-                      <div className="sk-three-bounce">
-                        <div className="sk-child sk-bounce1" />
-                        <div className="sk-child sk-bounce2" />
-                        <div className="sk-child sk-bounce3" />
-                      </div></div>
+                    
+                   
                   </div>
                 </div> </div>
             </article>
-          </main> 
-          <aside style={{marginTop:'110px',}} className="sidebar-courses widget-area col-md-3 ">
+          
+          <aside style={{marginTop:'100px'}} className="sidebar-courses widget-area col-md-3 ">
             <aside ><h4 className="widget-title">Categories</h4>
           
              <ul className="courses-categories">
