@@ -93,23 +93,23 @@ export class FormCourseDetails extends Component {
       progressSteps: ['1', '2', '3']
     }).queue([
       {
-        title: 'Click to Continue to passed to next step',
-        text: 'The green button on down',
+        title: 'Click to Continue button and passe to next step',
+        text: 'The green button to the bottom',
         imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image',
       },{
-        title: 'Click to Cancel to quit and you have choice to save your information',
-        text: 'the gris button on down',
+        title: 'Click to Cancel button and quit , you have choice to save your information',
+        text: 'the grey button to the bottom',
         imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image'
      
       },{
-        title: 'Click to Add to Add Your course',
-        text: 'the green button on down  in step 4 conclusion   of add course ',
+        title: 'Click to Add button and Add Your course',
+        text: 'the green button to the bottom  in step 4 conclusion   of add course ',
         imageUrl: 'https://i.pinimg.com/736x/61/62/5b/61625b91c47e4a58d0b1d338a8fd0596.jpg',
       imageWidth: 400,
       imageHeight: 200,
@@ -203,7 +203,7 @@ export class FormCourseDetails extends Component {
           <div className="vc_empty_space" style={{height: 59}}><span className="vc_empty_space_inner" /></div></div></div></div>
       </div>
                         <div className=" vc_col-sm-10" >      
-<div className="userform" style={{marginLeft:'30px',width:'1300px',height:'1200px'}}>
+<div className="userform" style={{marginLeft:'30px',width:'1200px',height:'1200px'}}>
       <MuiThemeProvider>
         <>
         <ul className="progressbar">
@@ -323,7 +323,7 @@ export class FormCourseDetails extends Component {
             
             variant="contained"
             onClick={this.continue}
-            style={{ marginLeft: '550px',marginTop:'100px',backgroundColor:'#1EA69A',color:'#FFFFFF' }}
+            style={{ marginLeft: '400px',marginTop:'100px',backgroundColor:'#1EA69A',color:'#FFFFFF' }}
             
           >Continue</Button>
         

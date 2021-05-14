@@ -50,7 +50,7 @@ function CourseByCategory() {
                     <div className="content">
                       <div className="thumbnail">
                         <a href="../../courses/the-ultimate-ethical-hacking-boot-camp/index.html" className="img_thumbnail">
-                          <img  style = {{ width:'365',height:'405'}}  src={course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
+                          <img  style = {{ width:'365px',height:'300px'}}  src={course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
                         <span className="price">
                           <span className="course-price">{course.title}</span>
                         </span>

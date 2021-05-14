@@ -114,9 +114,9 @@ export class Conclusion extends Component {
     return (
       <div className="main">
 
-        
-        <div className="userform" style={{ marginLeft: '100px', width: '1550px' }} >
-          <div></div>
+<div className="side"></div>
+        <div className="userform" style={{ marginLeft: '-400px', width: '1480px' }}>
+          
           <MuiThemeProvider>
             <>
             <ul className="progressbar" style={{marginLeft:'1px'}}>

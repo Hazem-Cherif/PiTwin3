@@ -2,7 +2,7 @@
 .progressbar {
     counter-reset: step;
     height: 50px;
-    width: 1450px;
+    width: 1320px;
     margin-left: -180px;
 }
 .progressbar li {

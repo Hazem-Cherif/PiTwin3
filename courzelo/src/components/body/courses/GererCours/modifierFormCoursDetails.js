@@ -120,13 +120,70 @@ function ModifierFormCours() {
     
     return (
         <div>
-            <div className="main">
-           
+          <div className="main">
            <div className="side"></div>
-<div className="userform">
+           <div className="row">
+             <div className=" vc_col-sm-2" >
+      <div >
+      <div className="vc_column-inner vc_custom_1502265039449"><div className="wpb_wrapper">
+          <div className="thim-sc-icon-box custom-style layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-ios-barcode-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Learn From The Experts </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 25}}><span className="vc_empty_space_inner" /></div>
+          <div className="thim-sc-icon-box  layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-ios-bookmarks-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Book Library &amp; Store </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 25}}><span className="vc_empty_space_inner" /></div>
+          <div className="thim-sc-icon-box  layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-social-buffer-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Learn Anything Online </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 30}}><span className="vc_empty_space_inner" /></div>
+          <div className="thim-sc-icon-box  layout-6 style_kit">
+            <div className="icon-box-wrapper" style={{}}>
+              <div className="box-icon" style={{backgroundColor: ''}}>
+                <i className="icon-ionicons ion-ios-lightbulb-outline" aria-hidden="true" /> </div>
+              <div className="box-content">
+                <h3 className="title">
+                  Best Industry Leaders </h3>
+              </div>
+            </div>
+          </div>
+          <div className="vc_empty_space" style={{height: 59}}><span className="vc_empty_space_inner" /></div></div></div></div>
+      </div>
+                        <div className=" vc_col-sm-10" >      
+<div className="userform" style={{marginLeft:'30px',width:'1200px',height:'900px'}}>
+      
   <form onSubmit={handleSubmit}>
       <MuiThemeProvider>
         <>
+        <ul className="progressbar">
+          <li class="active">Page de garde </li>
+          <li>Introduction</li>
+          <li>Chapitres</li>
+          <li>Conclusion</li>
+  </ul>
+       
           <h2>Course landing page</h2>
           <AppBar title="Titre du cours" />
           <TextField
@@ -197,7 +254,7 @@ function ModifierFormCours() {
          
         </select>
       </div>
-      <div >
+      <div style={{marginTop:'100px'}}>
           <div className="wpb_column vc_column_container vc_col-sm-6"><div className="vc_column-inner">
             < div className="wpb_wrapper">
               <div className="thim-sc-button text-right hide-separator ">
@@ -222,6 +279,8 @@ function ModifierFormCours() {
         </>
       </MuiThemeProvider>
       </form>
+      </div>
+      </div>
       </div>
       </div>
         </div>

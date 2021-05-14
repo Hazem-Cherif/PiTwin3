@@ -340,7 +340,7 @@ const cartCourseOther = (
       <div >
         <div className="row">
 
-            <article  style={{width:'1100px',marginLeft:'150px',marginTop:'110px'}}>
+            <article  style={{width:'1000px',marginLeft:'150px',marginTop:'110px'}}>
               <div  >
                 <div   >
                   <div className="thim-course-top">

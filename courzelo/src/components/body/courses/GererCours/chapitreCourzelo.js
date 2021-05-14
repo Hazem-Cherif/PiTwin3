@@ -767,7 +767,7 @@ const res = await axios.post('/CoursePdf/singleFile', formData, {
                 <div className="main">
 
                     <div className="side"></div>
-                    <div className="userform" style={{ marginLeft: '-400px', width: '1550px' }}>
+                    <div className="userform" style={{ marginLeft: '-400px', width: '1480px' }}>
                         <MuiThemeProvider>
                             <>
                             <ul className="progressbar" style={{marginLeft:'1px'}}>

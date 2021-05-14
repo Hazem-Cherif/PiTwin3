@@ -108,7 +108,7 @@ export class Introduction extends Component {
       <div className="main">
 
         <div className="side"></div>
-        <div className="userform" style={{ marginLeft: '-400px', width: '1550px' }}>
+        <div className="userform" style={{ marginLeft: '-400px', width: '1480px' }}>
           <div></div>
           <MuiThemeProvider>
             <>
