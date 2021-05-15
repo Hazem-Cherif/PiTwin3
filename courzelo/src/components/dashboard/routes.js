@@ -26,14 +26,7 @@ import Upgrade from "./views/Upgrade.js";
 import ajouterCategorie from "./views/ajouterCategorie";
 
 const dashboardRoutes = [
-  {
-    upgrade: true,
-    path: "/upgrade",
-    name: "Upgrade to PRO",
-    icon: "nc-icon nc-alien-33",
-    component: Upgrade,
-    layout: "/admin",
-  },
+ 
   {
     path: "/dashboard",
     name: "Dashboard",
@@ -62,13 +55,7 @@ const dashboardRoutes = [
     component: Typography,
     layout: "/admin",
   },
-  {
-    path: "/icons",
-    name: "Icons",
-    icon: "nc-icon nc-atom",
-    component: Icons,
-    layout: "/admin",
-  },
+  
   {
     path: "/maps",
     name: "Maps",
@@ -76,13 +63,7 @@ const dashboardRoutes = [
     component: Maps,
     layout: "/admin",
   },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    icon: "nc-icon nc-bell-55",
-    component: Notifications,
-    layout: "/admin",
-  },
+  
   {
     path: "/",
     name: "ajouter categorie",

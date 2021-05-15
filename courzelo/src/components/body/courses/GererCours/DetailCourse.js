@@ -173,7 +173,7 @@ function DetailCourse() {
           <div/>:
                                                           <div className="card-body">
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
-                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Video </b> </h5>
                                                                     <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
                     <div className="video" >
                       <div>
@@ -236,7 +236,7 @@ function DetailCourse() {
           <div/>:
                                                           <div className="card-body">
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
-                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Video </b> </h5>
                                                                     <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
                     <div className="video" >
                       <div>
@@ -298,7 +298,7 @@ function DetailCourse() {
           <div/>:
                                                           <div className="card-body">
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
-                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Video </b> </h5>
                                                                     <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
                     <div className="video" >
                       <div>
@@ -360,7 +360,7 @@ function DetailCourse() {
           <div/>:
                                                           <div className="card-body">
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
-                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Video </b> </h5>
                                                                     <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
                     <div className="video" >
                       <div>
@@ -468,7 +468,7 @@ function DetailCourse() {
           <div/>:
                                                           <div className="card-body">
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
-                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Video </b> </h5>
                                                                     <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
                     <div className="video" >
                       <div>
@@ -531,7 +531,7 @@ function DetailCourse() {
           <div/>:
                                                           <div className="card-body">
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
-                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Video </b> </h5>
                                                                     <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
                     <div className="video" >
                       <div>
@@ -593,7 +593,7 @@ function DetailCourse() {
           <div/>:
                                                           <div className="card-body">
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
-                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Video </b> </h5>
                                                                     <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
                     <div className="video" >
                       <div>
@@ -655,7 +655,7 @@ function DetailCourse() {
           <div/>:
                                                           <div className="card-body">
                                                         <div className="card col-sm-12 col-md-7" style={{ backgroundColor: '#EFEFEF' }} >
-                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Vedio </b> </h5>
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#D23941', fontSize: '18px' }}> Video </b> </h5>
                                                                     <div className="thim-sc-video-box" style={{marginLeft:'-50px'}} >
                     <div className="video" >
                       <div>
@@ -699,16 +699,16 @@ function DetailCourse() {
                   <span className="text-right">November 22, 2030</span>
                 </li>
                 <li className="d-flex justify-content-between">
-                  <span>Duration:</span>
-                  <span className="text-right"> 28 Weeks</span>
+                <span>Author:</span>
+                  <span className="text-right"> {postcourse.author}</span>
                 </li>
                 <li className="d-flex justify-content-between">
-                  <span>Study Level:</span>
-                  <span className="text-right">Intermediate</span>
+                  <span>Prerequisite:</span>
+                  <span className="text-right">{postcourse.prerequisite}</span>
                 </li>
                 <li className="d-flex justify-content-between">
-                  <span>Discipline:</span>
-                  <span className="text-right"><a href="javascript:void(0)">Other Courses</a>, <a>Tech Courses</a></span>
+                  <span>What to learn:</span>
+                  <span className="text-right">{postcourse.comprendre}</span>
                 </li>
                 <li className="d-flex justify-content-between">
                   <span>Price:</span>

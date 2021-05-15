@@ -32,7 +32,7 @@ function Gerercoursemodifsupp() {
         <div className="content container">
           <div className="row">
             <div className="text-title col-md-6">
-              <h1>Profile</h1> </div>
+              <h1>My Courses</h1> </div>
             <div className="text-description col-md-6">
               <div className="banner-description"><strong className="br">The best demo education </strong> It is a long established fact that a reader.</div> </div>
           </div>
@@ -58,7 +58,7 @@ function Gerercoursemodifsupp() {
                           <li><a href="tel:0975877906">+21650347045</a></li>
                           <li><a ><span className="__cf_email__" data-cfemail="7a0c1314123a1c151518161b54191517">Info@Courzelo.com</span></a></li>
                         </ul>
-                        <p className="description">If you are a newbie to managing a Courzelo website, then congratulations! You are here...</p>
+                        <p className="description">you can add , update or delete your courses here! ...</p>
                       </div>
                     </div>
                   </div>
@@ -76,7 +76,7 @@ function Gerercoursemodifsupp() {
                             <span> <Link to="/GererCourses">My Courses</Link> </span>
                           </li>
                           <li className="section-tab purchased">
-                           <Link to="/Gerercoursemodifsupp">Gerer Course</Link> 
+                           <Link to="/Gerercoursemodifsupp">Edit Course</Link> 
                           </li>
                         </ul>
                         <div className="learn-press-subtab-content">

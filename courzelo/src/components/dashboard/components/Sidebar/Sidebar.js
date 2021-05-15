@@ -21,6 +21,8 @@ import { useLocation, NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 
 import "./sidebar.css"
+import puma from "../../assets/puma.png"
+
 function Sidebar({ color, image, routes }) {
   const location = useLocation();
   const activeRoute = (routeName) => {
@@ -40,17 +42,16 @@ function Sidebar({ color, image, routes }) {
             href="https://www.creative-tim.com?ref=lbd-sidebar"
             className="simple-text logo-mini mx-1"
           >
-            <div className="logo-img">
-              <img
-                src={require("../../assets/img/reactlogo.png").default}
-                alt="..."
+           
+          </a>
+          <div className="logoimg">
+          <img
+                src={puma}
               />
             </div>
-          </a>
-          <a className="simple-text" href="/home">
-            Cour Zelo
-          </a>
+          
         </div>
+
         <Nav>
           {routes.map((prop, key) => {
             if (!prop.redirect)

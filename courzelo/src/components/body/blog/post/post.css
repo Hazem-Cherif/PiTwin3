@@ -76,3 +76,10 @@
     border-bottom: 1px dashed gray;
     font-size: 15px;
 }
+
+.dislikeIcon{
+  width: 45px;
+  height: 45px;
+  margin-right: 5px;
+  cursor: pointer;
+}

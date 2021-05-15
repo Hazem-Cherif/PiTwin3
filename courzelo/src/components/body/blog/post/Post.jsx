@@ -72,8 +72,8 @@ export default function Post({ post }) {
               alt=""
             />
             <img
-              className="likeIcon"
-              src="assets/heart.png"
+              className="dislikeIcon"
+              src="assets/dislike.png"
               onClick={likeHandler}
               alt=""
             />

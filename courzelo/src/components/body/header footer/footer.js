@@ -51,16 +51,16 @@ function Footer() {
       <div className="row">
         <div className="col-md-6">
           <div className="text-center copy-right text-md-left">
-            <p>copyright hazem hadhri   <a href="https://uideck.com/" rel="nofollow">hazem cherif</a></p>
+            <p>copyright Coding   <a href="https://uideck.com/" rel="nofollow">Squad</a></p>
           </div>
         </div>
         <div className="col-md-6">
           <div className="footer-social">
             <ul className="d-flex justify-content-md-end justify-content-center">
-              <li><a href="javascript:void(0)"><i className="lni lni-facebook-filled" /></a></li>
-              <li><a href="javascript:void(0)"><i className="lni lni-twitter-filled" /></a></li>
-              <li><a href="javascript:void(0)"><i className="lni lni-instagram-filled" /></a></li>
-              <li><a href="javascript:void(0)"><i className="lni lni-linkedin-original" /></a></li>
+              <li><a href="https://www.facebook.com/Courzelo-111439097753579"><i className="lni lni-facebook-filled" /></a></li>
+            
+              <li><a href="https://www.instagram.com/courzelo/"><i className="lni lni-instagram-filled" /></a></li>
+              
             </ul>
           </div>
         </div>

@@ -187,6 +187,7 @@ function ModifierFormCours() {
           <h2>Course landing page</h2>
           <AppBar title="Titre du cours" />
           <TextField
+          className="inputline"
             placeholder="Insert your course title"
             label="Course title"
             value={postcourse.title}
@@ -196,6 +197,7 @@ function ModifierFormCours() {
           />
           <br />
           <TextField
+          className="inputline"
             placeholder="Insert the author name"
             label="Author"
            

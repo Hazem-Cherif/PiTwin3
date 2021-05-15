@@ -29,7 +29,7 @@ function GererCourses() {
         <div className="content container">
           <div className="row">
             <div className="text-title col-md-6">
-              <h1>Profile</h1> </div>
+              <h1>My Coures</h1> </div>
             <div className="text-description col-md-6">
               <div className="banner-description"><strong className="br">The best demo education </strong> It is a long established fact that a reader.</div> </div>
           </div>
@@ -62,7 +62,7 @@ function GererCourses() {
                           <li><a href="tel:0975877906">+21650347045</a></li>
                           <li><a href="https://wordpresslms.thimpress.com/cdn-cgi/l/email-protection#691f000701290f06060b0508470a0604"><span className="__cf_email__" data-cfemail="bbcdd2d5d3fbddd4d4d9d7da95d8d4d6">Info@Courzelo.com</span></a></li>
                         </ul>
-                        <p className="description">If you are a newbie to managing a courzelo website, then congratulations! You are here...</p>
+                        <p className="description">you can add , update or delete your courses here...</p>
                       </div>
                     </div>
                   </div>
@@ -81,7 +81,7 @@ function GererCourses() {
                             <span> <Link to="/GererCourses">My Courses</Link> </span>
                           </li>
                           <li className="section-tab purchased">
-                           <Link to="/Gerercoursemodifsupp">Gerer Course</Link> 
+                           <Link to="/Gerercoursemodifsupp">Edit Course</Link> 
                           </li>
                         </ul>
                         <div className="learn-press-subtab-content">

@@ -301,13 +301,7 @@ const handleUpdate = () => {
           <Col md="4">
             <Card className="card-user">
               <div className="card-image">
-                <img
-                  alt="..."
-                  src={
-                    require("../assets/img/photo-1431578500526-4d9613015464.jpeg")
-                      .default
-                  }
-                ></img>
+                
               </div>
               <Card.Body>
                 <div className="author">
