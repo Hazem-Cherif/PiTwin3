@@ -1,0 +1,9 @@
+li.navBarRec  {
+   margin-top: -6px !important; 
+   margin-right: 20px !important;
+}
+
+.navBarRec span{
+    display: none !important;
+}
+
