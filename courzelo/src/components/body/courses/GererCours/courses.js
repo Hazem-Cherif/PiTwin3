@@ -65,9 +65,14 @@ const cartAllCourse = (
         <div className="thumbnail">
           <a  className="img_thumbnail">
             <img style={{width:'365px',height:'300px'}}  src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
+          
+          
           <span className="price">
-            <span className="course-price">{course.title}</span>
+            <span className="course-price">courzelo</span>
+            <b>Courses</b>
           </span>
+
+          
           <div className="review ">
             <div className="sc-review-stars">
               <div className="review-stars-rated" title="0 out of 5 stars">
