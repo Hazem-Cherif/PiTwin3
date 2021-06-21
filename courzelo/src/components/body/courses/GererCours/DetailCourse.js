@@ -75,43 +75,103 @@ function DetailCourse() {
  
     return (
         <div>
-        
-  <section className="page-banner pt-200 pb-100 bg_cover" style={{backgroundImage: 'url("assets/images/hero-bg.jpg")'}}>
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-12">
-          <div className="banner-content text-center">
-            <h1 className="text-white">Course Single</h1>
-            <nav aria-label="breadcrumb">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li className="breadcrumb-item active" aria-current="page">Course Single</li>
-              </ol>
-            </nav>
+     <div id="main-content"> <section className="content-area">
+    <div className="page-title layout-2">
+      <div className="main-top parallax" style={{backgroundImage: 'url(../../wp-content/uploads/sites/5/2018/10/page_title_7.jpg)'}}>
+        <span className="overlay-top-header" style={{backgroundColor: 'rgba(0,0,0,0.6)'}} />
+        <div className="content container">
+          <div className="text-title">
+            <h1>AWS Certified Solutions Architect</h1> </div>
+          <div className="text-description">
+            <div className="banner-description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.<div className="price">
+                <span className="course-origin-price"> $44.00</span>
+                <span className="course-price">$33.00</span>
+              </div></div> </div>
+        </div>
+      </div>
+      <div className="breadcrumb-content">
+        <div className="breadcrumbs-wrapper container">
+          <div className="learn-press-course-buttons"> 
+            <form name="purchase-course" className="purchase-course guest_checkout" >
+              <input type="hidden" name="purchase-course"  />
+              <input type="hidden" name="purchase-course-nonce"  />
+              <button className="lp-button button button-purchase-course">
+                Buy this course </button>
+              <input type="hidden" name="redirect_to"  />
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <section id="course" className="course-area pt-140" style={{width:'1350px',marginLeft:'100px'}}>
-    
-      <div className="row">
-        <div className="col-lg-8">
-          <div className="single-course-wrapper">
-            <div className="course-title mb-30">
-              <h3 className="mb-20">{postcourse.title}</h3>
-              <p>you can read this course</p>
-            </div>
-            <div className="course-img mb-30">
-              <img src={postcourse.CourseImg}  style={{width:'600px',height:'300px'}} alt />
-            </div>
-            <div className="course-description pb-20 border-bottom">
-              <h3 className="mb-20">DESCRIPTION</h3>
-              <p className="mb-30"> {postcourse.description}.</p>
-            </div>
-           
-            
-            <div className="course-content pt-50 pb-35">
+    <div className="container site-content "><div className="row"><main id="main" className="site-main col-sm-12 full-width">
+          <article id="post-444" className="sidebar-right post-444 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-web-development course_tag-business course_tag-theme course_tag-wordpress pmpro-has-access course">
+            <div className="entry-content">
+              <div id="lp-single-course" className="lp-single-course">
+                <div id="learn-press-course">
+                  <div className="course-summary">
+                    <div className="landing-1">
+                      <div className="course-info">
+                        <ul className="list-inline clearfix">
+                          <li className="list-inline-item item-author">
+                            <div className="author" itemProp="creator">
+                              <span className="avatar"><img alt src="https://secure.gravatar.com/avatar/?s=60&d=mm&r=g" srcSet="https://secure.gravatar.com/avatar/?s=120&d=mm&r=g 2x" className="avatar avatar-60 photo avatar-default" height={60} width={60} loading="lazy" /></span>
+                              <div className="info">
+                                <label>Teacher</label>
+                                <a href="#">
+                                </a>
+                              </div>
+                            </div>
+                          </li>
+                          <li className="list-inline-item item-categories">
+                            <label>Categories</label>
+                            <span className="cat-links"><a href="../../course-category/web-development/index.html" rel="tag">Web Development</a></span> </li>
+                          <li className="list-inline-item item-students">
+                            <label>Students</label>
+                            169 (Registered) </li>
+                          <li className="list-inline-item item-review">
+                            <label>Review</label>
+                            <div className="review-stars-rated" title="0 out of 5 stars">
+                              <div className="review-stars empty" />
+                              <div className="review-stars filled" style={{width: '0%'}} />
+                            </div>(0 Review) </li>
+                        </ul>
+                      </div>
+                      <div className="course-thumbnail">
+                        <img src="../../wp-content/uploads/sites/5/2017/06/shutterstock_184641842-5-e1503481994491-1000x500.jpg" alt="shutterstock" title="shutterstock" /> <a href="https://www.youtube.com/watch?v=TtoHkSuKJwE" className="play-button video-thumbnail">
+                          <span className="video-thumbnail hvr-push" />
+                        </a>
+                        <div className="time">
+                          <div className="date-start">21</div>
+                          <div className="month-start">Jul</div>
+                        </div>
+                      </div>
+                      <div className="course-landing-summary has-social">
+                        
+                        <div className="content-landing-1">
+                          <div className="course-meta">
+                          </div>
+                        
+                          <div className="course-description" id="learn-press-course-description">
+                            <div id="tab-overview">
+                              <h4>Course Description</h4>
+                              <p>If you are a newbie to managing a WordPress website, then congratulations! You are here at the right track with us because we are going to introduce you one of the most basic knowledge when owning a WordPress page: how to find your site the best WordPress Hosting service. This process is often overlooked by most of the website owners. But it can be considered the most important key point to bring your site to stand out of the crowd. A great hosting service could help you to improve SEO and increase sales as well.</p>
+                              <h4>Certification</h4>
+                              <p>If you are a newbie to managing a WordPress website, then congratulations! You are here at the right track with us because we are going to introduce you one of the most basic knowledge when owning a WordPress page: how to find your site the best WordPress Hosting service. This process is often overlooked by most of the website owners. But it can be considered the most important key point to bring your site to stand out of the crowd. A great hosting service could help you to improve SEO and increase sales as well.</p>
+                              <h4>Learning Outcomes</h4>
+                              <ul>
+                                <li>Over 37 lectures and 55.5 hours of content!</li>
+                                <li>LIVE PROJECT End to End Software Testing Training Included.</li>
+                                <li>Learn Software Testing and Automation basics from a professional trainer from your own desk.</li>
+                                <li>Information packed practical training starting from basics to advanced testing techniques.</li>
+                                <li>Best suitable for beginners to advanced level users and who learn faster when demonstrated.</li>
+                                <li>Course content designed by considering current software testing technology and the job market.</li>
+                                <li>Practical assignments at the end of every session.</li>
+                                <li>Practical learning experience with live project work and examples.</li>
+                              </ul>
+                            </div>
+                          </div> 
+                          
+                          <div className="course-content pt-50 pb-35">
             <div className="course-curriculum" id="learn-press-course-curriculum">
   <div className="curriculum-heading">
     <div className="title">
@@ -687,47 +747,37 @@ function DetailCourse() {
 
               
             </div>
-          </div>
-        </div>
-        <div className="col-lg-4">
-          <div className="right-sidebar">
-            <div className="course-info mb-50">
-              <h3 className="mb-20 text-center">Course Information</h3>
-              <ul className="mb-30">
-                <li className="d-flex justify-content-between">
-                  <span>Starts:</span>
-                  <span className="text-right">November 22, 2030</span>
-                </li>
-                <li className="d-flex justify-content-between">
-                <span>Author:</span>
-                  <span className="text-right"> {postcourse.author}</span>
-                </li>
-                <li className="d-flex justify-content-between">
-                  <span>Prerequisite:</span>
-                  <span className="text-right">{postcourse.prerequisite}</span>
-                </li>
-                <li className="d-flex justify-content-between">
-                  <span>What to learn:</span>
-                  <span className="text-right">{postcourse.comprendre}</span>
-                </li>
-                <li className="d-flex justify-content-between">
-                  <span>Price:</span>
-                  <span className="text-right text-warning">$45.00</span>
-                </li>
-              </ul>
-              <a href="javascript:void(0)" className="main-btn btn-hover">Add Card</a>
-            </div>
-            <div className="course-category">
-              <h3 className="mb-20">Course Category</h3>
-              <ul>
-                <li><a href="javascript:void(0)"><i className="lni lni-chevron-right mr-2" />Site Template</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-   
-  </section>
+                          <div id="tab-instructor" style={{height: 40}} />
+                          <div className="course-author">
+                            <h3>Instructor</h3>
+                            <div className="thim-course-author teacher">
+                              <div className="author-avatar">
+                                <img alt src="https://secure.gravatar.com/avatar/?s=150&d=mm&r=g" srcSet="https://secure.gravatar.com/avatar/?s=300&d=mm&r=g 2x" className="avatar avatar-150 photo avatar-default" height={150} width={150} loading="lazy" />
+                                <ul className="social-link">
+                                </ul>
+                              </div>
+                              <div className="author-bio">
+                                <div className="name">
+                                  <a href="#" /> </div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                              
+                          <div className="thim-related-course">
+                            <h3 className="related-title">Related Courses</h3>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> </div>
+          </article>
+        </main></div></div> </section>
+</div>
+
 
 
 
