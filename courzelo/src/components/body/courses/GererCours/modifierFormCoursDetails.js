@@ -10,7 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { TextareaAutosize } from '@material-ui/core';
 import  Modifiersupintro from './modifierIntro';
-import './StepForm.css';
+ 
 import '../MainCoursForm.css'
 import axios from 'axios'
 

@@ -44,6 +44,7 @@ function Body() {
                 <Route path="/" component={Home} exact />
                 <Route path="/contact" component={Contact} exact />
                 <Route path="/AboutUS" component={AboutUS} exact />
+                
 
                 <Route path="/login" component={isLogged ? NotFound : Login} exact />
                 <Route path="/register" component={isLogged ? NotFound : Register} exact />
