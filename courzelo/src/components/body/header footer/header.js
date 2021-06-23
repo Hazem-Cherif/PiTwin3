@@ -6,8 +6,8 @@ import Login from '../authentification/login'
 import Register from '../authentification/register'
 import ForgotPassword from '../authentification/ForgetPassword'
 import './DropDown.css';
-
-import Button from '@material-ui/core/Button';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import Avatar from '@material-ui/core/Avatar';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
@@ -15,16 +15,30 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import TuneIcon from '@material-ui/icons/Tune';
+import CheckIcon from '@material-ui/icons/Check';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
   },
   paper: {
     marginRight: theme.spacing(2),
   },
+  small: {
+    width: theme.spacing(3),
+    height: theme.spacing(3),
+  },
+  large: {
+    width: theme.spacing(5),
+    height: theme.spacing(5),
+  },
 }));
-
 
 function Header() {
 
@@ -41,6 +55,7 @@ function Header() {
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
+  
 
   const handleClosee = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
@@ -210,16 +225,14 @@ function Header() {
 
           <div className={classes.root}>
             <div className="action">
-              <Button
-                ref={anchorRef}
+             
+
+          <Avatar ref={anchorRef}
                 aria-controls={open ? 'menu-list-grow' : undefined}
-                aria-haspopup="true"
-                onClick={handleToggle}
-              >
+                aria-haspopup="false"
+                onClick={handleToggle} alt="Remy Sharp" src={user.avatar} className={classes.large} />
 
-                <img className="topbarImg" src={user.avatar} alt="" />
-
-              </Button>
+              
               <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                 {({ TransitionProps, placement }) => (
                   <Grow
@@ -229,11 +242,11 @@ function Header() {
                     <Paper>
                       <ClickAwayListener onClickAway={handleClosee}>
                         <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                          <MenuItem > <a href="/profile">Profile </a></MenuItem>
-                          <MenuItem ><a href="#">Settings</a></MenuItem>
-                          <MenuItem ><a herf="#1">My Courses</a></MenuItem>
-                          <MenuItem ><a herf="#1">My Progress</a></MenuItem>
-                          <MenuItem onClick={handleLogout}> <a href="/">Logout </a></MenuItem>
+                          <MenuItem ><PersonOutlineIcon/><a style={{ color: 'black' }} href="/profile">&nbsp;  Profile </a></MenuItem>
+                          <MenuItem ><TuneIcon/><a  style={{ color: 'black' }} href="/">&nbsp;  Settings</a></MenuItem>
+                          <MenuItem ><BookmarkBorderIcon/><a  style={{ color: 'black' }} href="/">&nbsp; My Courses</a></MenuItem>
+                          <MenuItem ><CheckIcon/><a  style={{ color: 'black' }} href="/">&nbsp;  My Progress</a></MenuItem>
+                          <MenuItem onClick={handleLogout}><ExitToAppIcon/> <a  style={{ color: 'black' }} href="/">&nbsp;  Logout </a></MenuItem>
                         </MenuList>
                       </ClickAwayListener>
                     </Paper>
@@ -327,24 +340,15 @@ function Header() {
           </div>
         </div>
       </div>
-
     </Fragment>
   )
   const transForm = {
     transform: isLogged ? "translateY(-5px)" : 0
   }
 
-
-
-
   return (
     <div>
-
-
-
-
       {
-
         isLogged ? userLink :
           <div className="content-pusher creative-right bg-type-color">
             <header id="masthead" className="site-header affix-top template-layout-2 sticky-header has-retina-logo has-retina-logo-sticky palette-custom header-overlay custom-sticky">
@@ -374,10 +378,8 @@ function Header() {
                               <div className="widget widget_thim-login">
                                 <div className="thim-link-login thim-login-popup textSign">
                                   <Link id="signin" onClick={handleShow} className="header-btn btn-hover">Sign in / </Link>
-
                                   <Link id="signup" onClick={(e) => handleShow(e)} className="header-btn btn-hover">Sign up</Link>
                                   {isForgetPassword ? popupR : isRegister ? popupp : show ? popup : null}
-
                                 </div>
                               </div>
                             </div>
@@ -410,9 +412,7 @@ function Header() {
                     </div>
                   </div>
                 </div>
-
               </div>
-
               <div className="posiLogOut">
                 <li className="list-inline-item"> <a>Courzelo For Business</a></li>
               </div>

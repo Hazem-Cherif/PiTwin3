@@ -7,6 +7,11 @@ import {fetchAllUsers, dispatchGetAllUsers} from '../../../redux/actions/usersAc
 
 const initialState = {
     name: '',
+    First_name:'',
+    Last_name:'',
+    Address:'',
+    Country:'',
+    Description:'',
     password: '',
     cf_password: '',
     err: '',
@@ -20,7 +25,8 @@ function Profile() {
 
     const {user, isAdmin} = auth
     const [data, setData] = useState(initialState)
-    const {name, password, cf_password, err, success} = data
+    const {name,First_name,Last_name,Address,Country,Description, password, cf_password, err, success} = data
+
 
     const [avatar, setAvatar] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -37,9 +43,16 @@ function Profile() {
     },[token, isAdmin, dispatch, callback])
 
     const handleChange = e => {
-        const {name, value} = e.target
-        setData({...data, [name]:value, err:'', success: ''})
+        const {First_name,Last_name,Address,Country,Description, name, value} = e.target
+        setData({...data, [First_name]: value,
+                          [Last_name]: value,
+                          [Address]: value,
+                          [Country]: value,
+                          [Description]: value,
+                          [name]:value , 
+                          err:'', success: ''})
     }
+  
 
     const changeAvatar = async(e) => {
         e.preventDefault()
@@ -73,6 +86,11 @@ function Profile() {
     const updateInfor = () => {
         try {
             axios.patch('/user/update', {
+                First_name: First_name ? First_name : user.First_name,
+                Last_name: Last_name ? Last_name : user.Last_name,
+                Address: Address ? Address : user.Address,
+                Country: Country ? Country : user.Country,
+                Description: Description ? Description : user.Description,
                 name: name ? name : user.name,
                 avatar: avatar ? avatar : user.avatar
             },{
@@ -104,7 +122,7 @@ function Profile() {
     }
 
     const handleUpdate = () => {
-        if(name || avatar) updateInfor()
+        if(First_name || Last_name || Address || Country || Description || name || avatar ) updateInfor()
         if(password) updatePassword()
     }
 
@@ -146,7 +164,7 @@ function Profile() {
           </div>
           <div className="row mt-2">
             <div className="col-md-6"><input type="text" className="form-control" name="name" id="name" defaultValue={user.name}
-                    placeholder="Your name" onChange={handleChange} /></div>
+                    placeholder="UserName" onChange={handleChange} /></div>
             <div className="col-md-6"><input type="text" className="form-control" name="password" id="password"
                     placeholder="Your password" value={password} onChange={handleChange} /></div>
           </div>
@@ -155,6 +173,21 @@ function Profile() {
                     placeholder="Your email address" disabled /></div>
             <div className="col-md-6"><input type="text" className="form-control"  name="cf_password" id="cf_password"
                     placeholder="Confirm password" value={cf_password} onChange={handleChange} /></div>
+          </div>
+          <div className="row mt-4">
+            <div className="col-md-6"><input type="text" className="form-control" name="name" id="name" defaultValue={user.First_name}
+                    placeholder="First Name" onChange={handleChange} /></div>
+            <div className="col-md-6"><input type="text" className="form-control" name="name" id="name"
+                    placeholder="Last Name" defaultValue={user.Last_name} onChange={handleChange} /></div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-md-6"><input type="text" className="form-control" name="Address" id="Address" defaultValue={user.Address}
+                    placeholder="Your Address" onChange={handleChange} /></div>
+            
+          </div>
+          <div className="row mt-6">
+            <div className="col-md-12"><input type="text" className="form-control" name="About Me" id="About Me" defaultValue={user.Description}
+                    placeholder="About Me" onChange={handleChange}/></div>
           </div>
           <div style={{marginTop:"20px"}}>
                     <em style={{color: "crimson"}}> 
