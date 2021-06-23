@@ -24,7 +24,7 @@ li.navBarRec  {
 .action .prof img
 {
     position: absolute;
-    top: 0;
+    top: -7px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -80,9 +80,26 @@ li.navBarRec  {
 {
     color: blue;
 }
+
 .posi
 {
     position: fixed;
-    top: 23px;
+    top:  20px;
     right: 40px;
+}
+
+.posiLogOut
+{
+    position: fixed;
+    top:  18px;
+    right: 40px;
+}
+
+.textSign{
+    width: 130px !important;
+    padding-bottom: 16px;
+}
+
+.navbarHeight{
+    height: 56px;
 }

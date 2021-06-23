@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Header() {
 
- 
+
   const auth = useSelector(state => state.auth)
   const { user } = auth;
   const { isLogged, isAdmin } = auth
@@ -95,7 +95,7 @@ function Header() {
       <div className="content-pusher creative-right bg-type-color">
 
         <header id="masthead" className="site-header affix-top template-layout-2 sticky-header has-retina-logo has-retina-logo-sticky palette-custom header-overlay custom-sticky">
-          <div id="thim-header-topbar">
+          <div id="thim-header-topbar" className="navbarHeight">
             <div className="container">
               <div id="thim_layout_builder-8" className="widget widget_thim_layout_builder"><p />
                 <div className="vc_row wpb_row vc_row-fluid"><div className="wpb_column vc_column_container vc_col-sm-7"><div className="vc_column-inner"><div className="wpb_wrapper">
@@ -140,22 +140,22 @@ function Header() {
               <div id="woocommerce_widget_cart-3" className="widget woocommerce widget_shopping_cart">
                 <div className="minicart_hover" id="header-mini-cart">
                   <span className="cart-items-number">
-                    <span className="text">My Cart</span> 
+                    <span className="text">My Cart</span>
                     <i className="ion ion-android-cart" />
                     <span className="wrapper-items-number ">
                       <span className="items-number">0</span>
-                      </span>
-                      </span>
+                    </span>
+                  </span>
                   <div className="clear" /></div>
                 <div className="widget_shopping_cart_content" style={{ display: 'none', height: 67, paddingTop: 10, marginTop: 0, paddingBottom: 0, marginBottom: 0 }}>
                   <p className="woocommerce-mini-cart__empty-message">No products in the cart.</p>
                 </div>
-              </div>  
-              <div className="posi">
-              <li className="list-inline-item"> <a>Courzelo For Business</a></li>
               </div>
-      </div>
- 
+              <div className="posi">
+                <li className="list-inline-item"> <a>Courzelo For Business</a></li>
+              </div>
+            </div>
+
           </div>
           <div className="header-wrapper header-v2 default" style={{ height: '60px' }}>
             <div className="main-header container">
@@ -207,42 +207,42 @@ function Header() {
                 </ul> </div>
             </div>
           </div>
-         
-              <div className={classes.root}>
-      <div className="action"> 
-        <Button 
-          ref={anchorRef}
-          aria-controls={open ? 'menu-list-grow' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-        >
-          
-                  <img className="topbarImg" src={ user.avatar} alt=""   />
-                
-        </Button>
-        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClosee}>
-                  <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem > <a href="/profile">Profile </a></MenuItem>
-                    <MenuItem ><a href="#">Settings</a></MenuItem>
-                    <MenuItem ><a herf="#1">My Courses</a></MenuItem>
-                    <MenuItem ><a herf="#1">My Progress</a></MenuItem>
-                    <MenuItem onClick={handleLogout}> <a href="/">Logout </a></MenuItem>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
-      </div>
-    </div>
-  
+
+          <div className={classes.root}>
+            <div className="action">
+              <Button
+                ref={anchorRef}
+                aria-controls={open ? 'menu-list-grow' : undefined}
+                aria-haspopup="true"
+                onClick={handleToggle}
+              >
+
+                <img className="topbarImg" src={user.avatar} alt="" />
+
+              </Button>
+              <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                {({ TransitionProps, placement }) => (
+                  <Grow
+                    {...TransitionProps}
+                    style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                  >
+                    <Paper>
+                      <ClickAwayListener onClickAway={handleClosee}>
+                        <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                          <MenuItem > <a href="/profile">Profile </a></MenuItem>
+                          <MenuItem ><a href="#">Settings</a></MenuItem>
+                          <MenuItem ><a herf="#1">My Courses</a></MenuItem>
+                          <MenuItem ><a herf="#1">My Progress</a></MenuItem>
+                          <MenuItem onClick={handleLogout}> <a href="/">Logout </a></MenuItem>
+                        </MenuList>
+                      </ClickAwayListener>
+                    </Paper>
+                  </Grow>
+                )}
+              </Popper>
+            </div>
+          </div>
+
         </header>
 
 
@@ -348,7 +348,7 @@ function Header() {
         isLogged ? userLink :
           <div className="content-pusher creative-right bg-type-color">
             <header id="masthead" className="site-header affix-top template-layout-2 sticky-header has-retina-logo has-retina-logo-sticky palette-custom header-overlay custom-sticky">
-              <div id="thim-header-topbar">
+              <div id="thim-header-topbar" className="navbarHeight">
                 <div className="container">
                   <div id="thim_layout_builder-8" className="widget widget_thim_layout_builder"><p />
                     <div className="vc_row wpb_row vc_row-fluid">
@@ -372,7 +372,7 @@ function Header() {
                           <div className="wpb_wrapper">
                             <div className="thim-sc-login ">
                               <div className="widget widget_thim-login">
-                                <div className="thim-link-login thim-login-popup">
+                                <div className="thim-link-login thim-login-popup textSign">
                                   <Link id="signin" onClick={handleShow} className="header-btn btn-hover">Sign in / </Link>
 
                                   <Link id="signup" onClick={(e) => handleShow(e)} className="header-btn btn-hover">Sign up</Link>
@@ -410,10 +410,12 @@ function Header() {
                     </div>
                   </div>
                 </div>
-                <li className="list-inline-item">Have any question?</li>
+
               </div>
 
-
+              <div className="posiLogOut">
+                <li className="list-inline-item"> <a>Courzelo For Business</a></li>
+              </div>
               <div className="header-wrapper header-v2 default" style={{ height: '60px' }}>
                 <div className="main-header container">
                   <div className="menu-mobile-effect navbar-toggle" data-effect="mobile-effect">
@@ -425,7 +427,7 @@ function Header() {
                   </div>
                   <div class="width-logo">
                     <a class="no-sticky-logo" href="/" rel="home"><img class="logo" src="assets/puma.png" alt="Demo eLearning II" width="131" height="45" /><img class="retina-logo" src="../wp-content/uploads/sites/5/2017/09/logo-2-1.png" alt="Demo eLearning II" width="131" height="45" /><img class="mobile-logo" src="../wp-content/themes/wordpress-lms/assets/images/mobile-logo.png" alt="Demo eLearning II" width="131" height="45" /></a> </div>
-                 {/* <div className="width-navigation">
+                  {/* <div className="width-navigation">
                     <ul id="primary-menu" className="main-menu" style={{ marginTop: '10px' }}>
                       <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{ marginRight: '20px' }}><Link to="/" className="header-btn btn-hover" >Home</Link></li>
                       <li className=" menu-item-type-custom menu-item-object-custom menu-item-has-children navBarRec " >
@@ -451,7 +453,7 @@ function Header() {
                           <Fragment />
                       }
                     </ul> </div>*/}
-                </div> 
+                </div>
               </div>
             </header>
           </div>
