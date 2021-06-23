@@ -7,14 +7,65 @@ import Register from '../authentification/register'
 import ForgotPassword from '../authentification/ForgetPassword'
 import './DropDown.css';
 
+import Button from '@material-ui/core/Button';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  paper: {
+    marginRight: theme.spacing(2),
+  },
+}));
 
 
 function Header() {
 
-
+ 
   const auth = useSelector(state => state.auth)
-
+  const { user } = auth;
   const { isLogged, isAdmin } = auth
+
+
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
+  const handleClosee = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  function handleListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen(false);
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(open);
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
 
 
   const [isRegister, setIsRegister] = useState(false);
@@ -62,17 +113,6 @@ function Header() {
                 </div>
                   <div className="pull-right wpb_column vc_column_container vc_col-sm-5"><div className="vc_column-inner">
                     <div className="wpb_wrapper">
-                      <div className="thim-sc-login ">
-                        <div className="widget widget_thim-login">
-                          <div className="thim-link-login thim-login-popup" style={{ marginTop: 20 }}>
-
-
-                            <Link to="/profile" className="header-btn btn-hover" >Profile        /</Link>
-                            <Link to="/" onClick={handleLogout} className="header-btn btn-hover" >Logout</Link>
-
-                          </div>
-                        </div>
-                      </div>
 
                       <div className="thim-sc-course-search  ">
                         <form role="search" method="get" action="https://wordpresslms.thimpress.com/demo-elearning-2/courses/">
@@ -98,14 +138,24 @@ function Header() {
                 </div>
               </div>
               <div id="woocommerce_widget_cart-3" className="widget woocommerce widget_shopping_cart">
-                <div className="minicart_hover" id="header-mini-cart"><span className="cart-items-number"><span className="text">My Cart</span> <i className="ion ion-android-cart" /><span className="wrapper-items-number "><span className="items-number">0</span></span></span>
+                <div className="minicart_hover" id="header-mini-cart">
+                  <span className="cart-items-number">
+                    <span className="text">My Cart</span> 
+                    <i className="ion ion-android-cart" />
+                    <span className="wrapper-items-number ">
+                      <span className="items-number">0</span>
+                      </span>
+                      </span>
                   <div className="clear" /></div>
                 <div className="widget_shopping_cart_content" style={{ display: 'none', height: 67, paddingTop: 10, marginTop: 0, paddingBottom: 0, marginBottom: 0 }}>
                   <p className="woocommerce-mini-cart__empty-message">No products in the cart.</p>
                 </div>
+              </div>  
+              <div className="posi">
+              <li className="list-inline-item"> <a>Courzelo For Business</a></li>
               </div>
-
-            </div>
+      </div>
+ 
           </div>
           <div className="header-wrapper header-v2 default" style={{ height: '60px' }}>
             <div className="main-header container">
@@ -124,15 +174,27 @@ function Header() {
                     <a >Courses</a>
                     <ul className="sub-menu ">
                       <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-23 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/courses" className="header-btn btn-hover" >All Courses</Link></li>
-                      <li id="menu-item-60" className=" menu-item-type-custom menu-item-object-custom menu-item-3992 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/" className="header-btn btn-hover" >become Instructor</Link></li>
-                      <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-6818 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/GererCourses" className="header-btn btn-hover" >Instructor Profile</Link></li>
+                      <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-6818 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/#" className="header-btn btn-hover" >Free access courses</Link></li>
+                      <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-6818 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/#" className="header-btn btn-hover" >Payed courses</Link></li>
+                      <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-6818 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/GererCourses" className="header-btn btn-hover" >Teacher</Link></li>
+
+                      <li id="menu-item-60" className=" menu-item-type-custom menu-item-object-custom menu-item-3992 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/" className="header-btn btn-hover" >Become an instructor</Link></li>
+                      <li id="menu-item-60" className=" menu-item-type-custom menu-item-object-custom menu-item-3992 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/" className="header-btn btn-hover" >Categories</Link></li>
+
                     </ul>
                   </li>
+                  <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{ marginRight: '30px' }}><Link to="/" className="header-btn btn-hover" >Certifications</Link></li>
+
                   <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{ marginRight: '30px' }}><Link to="/blog" className="header-btn btn-hover" >Blog</Link></li>
 
-                  <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{ marginRight: '30px' }}><Link to="/DetailAddCourse" className="header-btn btn-hover" >Teacher </Link></li>
-
-                  <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{ marginRight: '30px' }}><Link to="/AboutUS" className="header-btn btn-hover" >About us</Link></li>
+                  <li className=" menu-item-type-custom menu-item-object-custom menu-item-has-children navBarRec " >
+                    <a >Pages</a>
+                    <ul className="sub-menu ">
+                      <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-23 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/" className="header-btn btn-hover" >MembreShip</Link></li>
+                      <li id="menu-item-60" className=" menu-item-type-custom menu-item-object-custom menu-item-3992 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/aboutUs" className="header-btn btn-hover" >AboutUS</Link></li>
+                      <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-6818 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/#" className="header-btn btn-hover" >Shop</Link></li>
+                    </ul>
+                  </li>
 
                   <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{ marginRight: '30px' }}><Link to="/contact" className="header-btn btn-hover" >Contact</Link></li>
                   {
@@ -145,6 +207,42 @@ function Header() {
                 </ul> </div>
             </div>
           </div>
+         
+              <div className={classes.root}>
+      <div className="action"> 
+        <Button 
+          ref={anchorRef}
+          aria-controls={open ? 'menu-list-grow' : undefined}
+          aria-haspopup="true"
+          onClick={handleToggle}
+        >
+          
+                  <img className="topbarImg" src={ user.avatar} alt=""   />
+                
+        </Button>
+        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+          {({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+            >
+              <Paper>
+                <ClickAwayListener onClickAway={handleClosee}>
+                  <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                    <MenuItem > <a href="/profile">Profile </a></MenuItem>
+                    <MenuItem ><a href="#">Settings</a></MenuItem>
+                    <MenuItem ><a herf="#1">My Courses</a></MenuItem>
+                    <MenuItem ><a herf="#1">My Progress</a></MenuItem>
+                    <MenuItem onClick={handleLogout}> <a href="/">Logout </a></MenuItem>
+                  </MenuList>
+                </ClickAwayListener>
+              </Paper>
+            </Grow>
+          )}
+        </Popper>
+      </div>
+    </div>
+  
         </header>
 
 
@@ -365,3 +463,6 @@ function Header() {
 }
 
 export default Header;
+
+
+
