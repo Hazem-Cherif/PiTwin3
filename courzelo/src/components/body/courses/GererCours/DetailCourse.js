@@ -1,7 +1,7 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
 import { getCourses } from '../../../../redux/actions/courseAction';
-import {useParams, useHistory} from 'react-router-dom'
+import {useParams, useHistory, Link} from 'react-router-dom'
 import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
 import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
 import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
@@ -75,7 +75,10 @@ function DetailCourse() {
  
     return (
         <div>
-     <div id="main-content"> <section className="content-area">
+          <body className="bp-nouveau lp_course-template-default single single-lp_course postid-458 wp-embed-responsive theme-wordpress-lms wordpress-lms learnpress learnpress-page pmpro-body-has-access woocommerce-no-js pagetitle-show bg-type-color thim-body-visual-composer responsive lp_login_popup box-shadow auto-login ltr learnpress-v3 buy-through-membership course-no-free header-template-overlay thim-lp-layout-1 lp-landing wpb-js-composer js-comp-ver-6.4.1 vc_responsive no-js">
+
+         
+     <div id="main-content" style={{marginTop:'50px'}}> <section className="content-area">
     <div className="page-title layout-2">
       <div className="main-top parallax" style={{backgroundImage: 'url(../../wp-content/uploads/sites/5/2018/10/page_title_7.jpg)'}}>
         <span className="overlay-top-header" style={{backgroundColor: 'rgba(0,0,0,0.6)'}} />
@@ -202,8 +205,8 @@ function DetailCourse() {
           <a className="section-item-link" id="headingOne">
             <span className="item-name">Phase1</span>
             <span className="course-item-meta">
-              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-             Preview
+              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" >
+            <Link to={`/PhaseADetail/${id}`} >Preview</Link> 
                                                         </button>
             </span>
           </a>
@@ -552,7 +555,7 @@ function DetailCourse() {
           </li>
           </ul>
         </li>
- <li className="accordion" id="accordionExample2" className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
+ <li className="accordion"  className="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type="lp_lesson">
          <ul>
 
          <li >
@@ -567,7 +570,7 @@ function DetailCourse() {
           </a>
           </li>
           <li>
-          <div id="collapseOne1c" className="collapse " aria-labelledby="headingOne1c" data-parent="#accordionExample">
+          <div id="collapseOne1c" className="collapse " aria-labelledby="headingOne1c" >
           {postcourse.conclusion.text2 =="" ?
           <div/>:
                                                         <div className="card-body" style={{width:'1200px'}}>
@@ -778,7 +781,7 @@ function DetailCourse() {
         </main></div></div> </section>
 </div>
 
-
+</body>
 
 
         </div>

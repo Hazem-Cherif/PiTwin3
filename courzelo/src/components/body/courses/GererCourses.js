@@ -40,7 +40,7 @@ function GererCourses() {
           <article id="post-42" className="post-42 page type-page status-publish hentry pmpro-has-access">
             
                 <div className="learn-press-user-profile profile-container" id="learn-press-user-profile">
-                  <div className="user-tab">
+                  <div className="user-tab" >
                     <div className="user-info">
                       <div className="author-avatar">
                         <img src="../../../../wp-content/uploads/learn-press-profile/1/21232f297a57a5a743894a0e4a801fc3.jpg" />
@@ -66,25 +66,12 @@ function GererCourses() {
                       </div>
                     </div>
                   </div>
-                  <div className="profile-tabs">
-                    <a id="profile-mobile-menu" className="fa fa-bars" />
-                    <ul className="learn-press-tabs">
-                      <li className="courses active">
-                             <Link to={`/addcourse/${token}`}>Add Course</Link> 
-                      </li>
-                      
-                    </ul>
+                  <div className="profile-tabs" >
+                  
                     <div id="learn-press-profile-content" className="tab-content">
                       <div id="profile-content-courses">
-                        <ul className="lp-tab-sections">
-                          <li className="section-tab owned active">
-                            <span> <Link to="/GererCourses">My Courses</Link> </span>
-                          </li>
-                          <li className="section-tab purchased">
-                           <Link to="/Gerercoursemodifsupp">Edit Course</Link> 
-                          </li>
-                        </ul>
-                        <div className="learn-press-subtab-content">
+                      
+                        <div className="learn-press-subtab-content" style={{marginTop:'-50px'}}>
                           <h3 className="profile-heading">
                             My Courses </h3>
                         

@@ -68,8 +68,8 @@ const cartAllCourse = (
           
           
           <span className="price">
-            <span className="course-price">courzelo</span>
-            <b>Courses</b>
+            <span className="course-price"></span>
+            <b>{course.title}</b>
           </span>
 
           

@@ -15,6 +15,9 @@ import DetailAddCourse from './courses/GererCours/DetailAddCourse'
 import Questionnaire from './courses/Questionnaire'
 
 import Gerercoursemodifsupp from './courses/GererCours/gerecoursemodifsupp'
+import MyCourses from './courses/GererCours/MyCourses'
+
+
 import GererCourses from './courses/GererCourses'
 import AddCourse from './courses/GererCours/addcourse'
 import Modifiersupcourse from './courses/GererCours/modifier_sup_course'
@@ -25,6 +28,7 @@ import Modifiersupconclusion from './courses/GererCours/modifierConclusion'
 import CourseByCategory from './courses/GererCours/CourseByCategory'
 import qst from './courses/components/UserForm'
 import DetailCourse from './courses/GererCours/DetailCourse';
+import PhaseADetail from './courses/GererCours/PhaseADetail';
 import AllCourses from './courses/GererCours/AllCourses';
 import Contact from './contact/contact'
 import AboutUS from './AboutUS/AboutUs'
@@ -56,6 +60,8 @@ function Body() {
                 <Route path="/user/reset/:token" component={isLogged ? NotFound : ResetPass} exact />
 
                 <Route path="/profile" component={isLogged ? Profile : NotFound} exact />
+                
+                <Route path="/MyCourses" component={isLogged ? MyCourses : NotFound} exact />
                 <Route path="/DetailAddCourse" component={isLogged ? DetailAddCourse : NotFound} exact />
                
                 <Route path="/GererCourses" component={isLogged ? GererCourses : NotFound} exact />
@@ -69,6 +75,7 @@ function Body() {
                 <Route path="/modifiersupconclusion/:id" component={isLogged ? Modifiersupconclusion : NotFound} exact />
 
                 <Route path="/DetailCourse/:id" component={isLogged ? DetailCourse : NotFound} exact />
+                <Route path="/PhaseADetail/:id" component={isLogged ? PhaseADetail : NotFound} exact />
                 <Route path="/CourseByCategory/:categorie" component={isLogged ? CourseByCategory : NotFound} exact />
 
                 <Route path="/courses" component={isLogged ? GererCourses : NotFound} component={Courses} exact />

@@ -71,14 +71,7 @@ function Gerercoursemodifsupp() {
                     </ul>
                     <div id="learn-press-profile-content" className="tab-content">
                       <div id="profile-content-courses">
-                      <ul className="lp-tab-sections">
-                          <li className="section-tab owned active">
-                            <span> <Link to="/GererCourses">My Courses</Link> </span>
-                          </li>
-                          <li className="section-tab purchased">
-                           <Link to="/Gerercoursemodifsupp">Edit Course</Link> 
-                          </li>
-                        </ul>
+                      
                         <div className="learn-press-subtab-content">
                          
                           <table className="lp-list-table profile-list-courses profile-list-table">

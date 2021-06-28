@@ -244,7 +244,7 @@ function Header() {
                         <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                           <MenuItem ><PersonOutlineIcon/><a style={{ color: 'black' }} href="/profile">&nbsp;  Profile </a></MenuItem>
                           <MenuItem ><TuneIcon/><a  style={{ color: 'black' }} href="/">&nbsp;  Settings</a></MenuItem>
-                          <MenuItem ><BookmarkBorderIcon/><a  style={{ color: 'black' }} href="/">&nbsp; My Courses</a></MenuItem>
+                          <MenuItem ><BookmarkBorderIcon/><a  style={{ color: 'black' }} href="/MyCourses">&nbsp; My Courses</a></MenuItem>
                           <MenuItem ><CheckIcon/><a  style={{ color: 'black' }} href="/">&nbsp;  My Progress</a></MenuItem>
                           <MenuItem onClick={handleLogout}><ExitToAppIcon/> <a  style={{ color: 'black' }} href="/">&nbsp;  Logout </a></MenuItem>
                         </MenuList>
