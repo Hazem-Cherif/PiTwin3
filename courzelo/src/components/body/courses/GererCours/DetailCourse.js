@@ -268,8 +268,8 @@ function DetailCourse() {
           <a className="section-item-link" id="headingOne1">
             <span className="item-name">Phase2</span>
             <span className="course-item-meta">
-              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
-             Preview
+            <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" >
+            <Link to={`/PhaseBDetail/${id}`} >Preview</Link> 
                                                         </button>
             </span>
           </a>
@@ -331,8 +331,8 @@ function DetailCourse() {
           <a className="section-item-link" id="headingOne2">
             <span className="item-name">Phase3</span>
             <span className="course-item-meta">
-              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
-             Preview
+            <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" >
+            <Link to={`/PhaseCDetail/${id}`} >Preview</Link> 
                                                         </button>
             </span>
           </a>
@@ -393,8 +393,8 @@ function DetailCourse() {
           <a className="section-item-link" id="headingOne3">
             <span className="item-name">Phase4</span>
             <span className="course-item-meta">
-              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne3" aria-expanded="true" aria-controls="collapseOne3">
-             Preview
+            <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" >
+            <Link to={`/PhaseDDetail/${id}`} >Preview</Link> 
                                                         </button>
             </span>
           </a>
@@ -467,13 +467,13 @@ function DetailCourse() {
         detailChapitres.map((course) => (
         <li className="course-item course-item-lp_lesson course-item-464 item-locked" data-type="lp_lesson">
           <span className="course-format-icon"><i className="fa fa-file-o" /></span>
-          <div className="meta-rank">
-            <div className="rank"><span className="label">Lecture</span>2.1</div>
-          </div>
+         
           <div className="section-item-link">
-            <span className="item-name">{course.text1}</span>
+           { <span className="item-name">chapitre{course.n}</span>}
             <span className="course-item-meta">
-              <span className="item-meta duration">30 min</span>
+            <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'-170px'}} type="button" >
+            <Link to={`/chapitre${course.n}Detail/${id}`} >Preview</Link> 
+                                                        </button>
             </span>
           </div>
         </li>))
@@ -500,8 +500,8 @@ function DetailCourse() {
           <a className="section-item-link" id="headingOnec">
             <span className="item-name">Phase1</span>
             <span className="course-item-meta">
-              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOnec" aria-expanded="true" aria-controls="collapseOnec">
-             Preview
+            <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" >
+            <Link to={`/PhaseEDetail/${id}`} >Preview</Link> 
                                                         </button>
             </span>
           </a>
@@ -563,8 +563,8 @@ function DetailCourse() {
           <a className="section-item-link" id="headingOne1c">
             <span className="item-name">Phase2</span>
             <span className="course-item-meta">
-              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne1c" aria-expanded="true" aria-controls="collapseOne1c">
-             Preview
+            <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" >
+            <Link to={`/PhaseFDetail/${id}`} >Preview</Link> 
                                                         </button>
             </span>
           </a>
@@ -626,8 +626,8 @@ function DetailCourse() {
           <a className="section-item-link" id="headingOne2">
             <span className="item-name">Phase3</span>
             <span className="course-item-meta">
-              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne2c" aria-expanded="true" aria-controls="collapseOne2c">
-             Preview
+            <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" >
+            <Link to={`/PhaseGDetail/${id}`} >Preview</Link> 
                                                         </button>
             </span>
           </a>
@@ -688,8 +688,8 @@ function DetailCourse() {
           <a className="section-item-link" id="headingOne3">
             <span className="item-name">Phase4</span>
             <span className="course-item-meta">
-              <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" data-toggle="collapse" data-target="#collapseOne3c" aria-expanded="true" aria-controls="collapseOne3c">
-             Preview
+            <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'650px'}} type="button" >
+            <Link to={`/PhaseHDetail/${id}`} >Preview</Link> 
                                                         </button>
             </span>
           </a>

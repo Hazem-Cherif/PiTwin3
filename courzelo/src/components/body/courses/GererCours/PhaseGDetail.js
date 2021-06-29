@@ -9,7 +9,7 @@ import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import ReactPlayer from 'react-player'
 import { Markup } from 'interweave';
 
-function PhaseADetail() {
+function PhaseGDetail() {
   
   const {id} = useParams();
     const dispatch = useDispatch();
@@ -112,7 +112,7 @@ function PhaseADetail() {
                           </span>
                         </h4>
                         <ul className="section-content">
-                          <li className="course-item course-item-lp_lesson course-item-487 current item-preview has-status" data-type="lp_lesson">
+                          <li className="course-item course-item-lp_lesson course-item-487 item-preview has-status" data-type="lp_lesson">
                             <span className="course-format-icon"><i className="fa fa-file-o" /></span>
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>1.1</div>
@@ -204,7 +204,7 @@ function PhaseADetail() {
                           </span>
                         </h4>
                         <ul className="section-content">
-                          <li className="course-item course-item-lp_lesson course-item-487  item-preview has-status" data-type="lp_lesson">
+                          <li className="course-item course-item-lp_lesson course-item-487 item-preview has-status" data-type="lp_lesson">
                             <span className="course-format-icon"><i className="fa fa-file-o" /></span>
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>3.1</div>
@@ -230,7 +230,7 @@ function PhaseADetail() {
                               </span>
                             </a>
                           </li>
-                          <li className="course-item course-item-lp_lesson course-item-489 item-preview has-status" data-type="lp_lesson">
+                          <li className="course-item course-item-lp_lesson course-item-489 current item-preview has-status" data-type="lp_lesson">
                             <span className="course-format-icon"><i className="fa fa-play" /></span>
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>3.3</div>
@@ -341,4 +341,4 @@ function PhaseADetail() {
     )
 }
 
-export default PhaseADetail
+export default PhaseGDetail

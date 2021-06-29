@@ -29,6 +29,13 @@ import CourseByCategory from './courses/GererCours/CourseByCategory'
 import qst from './courses/components/UserForm'
 import DetailCourse from './courses/GererCours/DetailCourse';
 import PhaseADetail from './courses/GererCours/PhaseADetail';
+import PhaseBDetail from './courses/GererCours/PhaseBDetail';
+import PhaseCDetail from './courses/GererCours/PhaseCDetail';
+import PhaseDDetail from './courses/GererCours/PhaseDDetail';
+import PhaseEDetail from './courses/GererCours/PhaseEDetail';
+import PhaseFDetail from './courses/GererCours/PhaseFDetail';
+import PhaseGDetail from './courses/GererCours/PhaseGDetail';
+import PhaseHDetail from './courses/GererCours/PhaseHDetail';
 import AllCourses from './courses/GererCours/AllCourses';
 import Contact from './contact/contact'
 import AboutUS from './AboutUS/AboutUs'
@@ -76,6 +83,13 @@ function Body() {
 
                 <Route path="/DetailCourse/:id" component={isLogged ? DetailCourse : NotFound} exact />
                 <Route path="/PhaseADetail/:id" component={isLogged ? PhaseADetail : NotFound} exact />
+                <Route path="/PhaseBDetail/:id" component={isLogged ? PhaseBDetail : NotFound} exact />
+                <Route path="/PhaseCDetail/:id" component={isLogged ? PhaseCDetail : NotFound} exact />
+                <Route path="/PhaseDDetail/:id" component={isLogged ? PhaseDDetail : NotFound} exact />
+                <Route path="/PhaseEDetail/:id" component={isLogged ? PhaseEDetail : NotFound} exact />
+                <Route path="/PhaseFDetail/:id" component={isLogged ? PhaseFDetail : NotFound} exact />
+                <Route path="/PhaseGDetail/:id" component={isLogged ? PhaseGDetail : NotFound} exact />
+                <Route path="/PhaseHDetail/:id" component={isLogged ? PhaseHDetail : NotFound} exact />
                 <Route path="/CourseByCategory/:categorie" component={isLogged ? CourseByCategory : NotFound} exact />
 
                 <Route path="/courses" component={isLogged ? GererCourses : NotFound} component={Courses} exact />
