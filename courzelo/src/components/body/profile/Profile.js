@@ -43,13 +43,14 @@ function Profile() {
     },[token, isAdmin, dispatch, callback])
 
     const handleChange = e => {
-        const {First_name,Last_name,Address,Country,Description, name, value} = e.target
-        setData({...data, [First_name]: value,
+        const {name ,First_name,Last_name,Address,Country,Description, value} = e.target
+        setData({...data, [name]:value ,
+                          [First_name]: value,
                           [Last_name]: value,
                           [Address]: value,
                           [Country]: value,
                           [Description]: value,
-                          [name]:value , 
+                           
                           err:'', success: ''})
     }
   
@@ -86,12 +87,13 @@ function Profile() {
     const updateInfor = () => {
         try {
             axios.patch('/user/update', {
+                name: name ? name : user.name,
                 First_name: First_name ? First_name : user.First_name,
                 Last_name: Last_name ? Last_name : user.Last_name,
                 Address: Address ? Address : user.Address,
                 Country: Country ? Country : user.Country,
                 Description: Description ? Description : user.Description,
-                name: name ? name : user.name,
+               
                 avatar: avatar ? avatar : user.avatar
             },{
                 headers: {Authorization: token}
@@ -122,7 +124,7 @@ function Profile() {
     }
 
     const handleUpdate = () => {
-        if(First_name || Last_name || Address || Country || Description || name || avatar ) updateInfor()
+        if(name || First_name || Last_name || Address || Country || Description ||  avatar ) updateInfor()
         if(password) updatePassword()
     }
 
@@ -163,30 +165,33 @@ function Profile() {
             {loading && <h3>Loading.....</h3>}
           </div>
           <div className="row mt-2">
-            <div className="col-md-6"><input type="text" className="form-control" name="name" id="name" defaultValue={user.name}
+            <div className="col-md-6">
+                <label className="font-weight-bold">  User Name</label><input type="text" className="form-control" name="name" id="name" defaultValue={user.name}
                     placeholder="UserName" onChange={handleChange} /></div>
-            <div className="col-md-6"><input type="text" className="form-control" name="password" id="password"
+            <div className="col-md-6"><label className="font-weight-bold">  Password</label><input type="text" className="form-control" name="password" id="password"
                     placeholder="Your password" value={password} onChange={handleChange} /></div>
           </div>
           <div className="row mt-3">
-            <div className="col-md-6"><input type="text" className="form-control" name="email" id="email" defaultValue={user.email}
+            <div className="col-md-6"><label className="font-weight-bold">  Email </label><input type="text" className="form-control" name="email" id="email" defaultValue={user.email}
                     placeholder="Your email address" disabled /></div>
-            <div className="col-md-6"><input type="text" className="form-control"  name="cf_password" id="cf_password"
+            <div className="col-md-6"><label className="font-weight-bold">  Confirm Password</label><input type="text" className="form-control"  name="cf_password" id="cf_password"
                     placeholder="Confirm password" value={cf_password} onChange={handleChange} /></div>
           </div>
           <div className="row mt-4">
-            <div className="col-md-6"><input type="text" className="form-control" name="name" id="name" defaultValue={user.First_name}
+            <div className="col-md-6"><label className="font-weight-bold">  First Name</label><input type="text" className="form-control" name="First_name" id="First_name" defaultValue={user.First_name}
                     placeholder="First Name" onChange={handleChange} /></div>
-            <div className="col-md-6"><input type="text" className="form-control" name="name" id="name"
+
+            <div className="col-md-6"><label className="font-weight-bold">  Last Name</label><input type="text" className="form-control" name="Last_name" id="Last_name"
                     placeholder="Last Name" defaultValue={user.Last_name} onChange={handleChange} /></div>
           </div>
           <div className="row mt-5">
-            <div className="col-md-6"><input type="text" className="form-control" name="Address" id="Address" defaultValue={user.Address}
+            <div className="col-md-6"><label className="font-weight-bold">  Address</label><input type="text" className="form-control" name="Address" id="Address" defaultValue={user.Address}
                     placeholder="Your Address" onChange={handleChange} /></div>
             
           </div>
+          <br/>
           <div className="row mt-6">
-            <div className="col-md-12"><input type="text" className="form-control" name="About Me" id="About Me" defaultValue={user.Description}
+            <div className="col-md-12"><label className="font-weight-bold"> About Me</label><input type="text" className="form-control" name="Description" id="Description" defaultValue={user.Description}
                     placeholder="About Me" onChange={handleChange}/></div>
           </div>
           <div style={{marginTop:"20px"}}>

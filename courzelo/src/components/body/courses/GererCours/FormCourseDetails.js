@@ -8,13 +8,7 @@ import './StepForm.css';
 import '../MainCoursForm.css'
 import './bareeProgression.css'
 import axios from 'axios'
-import useStyles from './styles';
-import {useParams, useHistory} from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import { updateCourse,deleteCourse } from '../../../../redux/actions/courseAction';
 import swal from 'sweetalert';
-import { Link ,Route,Redirect} from 'react-router-dom'
-import { addCourse } from '../../../../redux/actions/courseAction';
 import Swall from 'sweetalert2'
 
 
@@ -243,7 +237,7 @@ export class FormCourseDetails extends Component {
             placeholder="Insert the author name"
             label="Author"
             onChange={handleChange('author')}
-            defaultValue={course.author}
+            Value={course.author}
             margin="normal"
             fullWidth
           />
@@ -297,7 +291,18 @@ export class FormCourseDetails extends Component {
 
           <br />
           
-          
+          <div className="taxonomy">
+            <div >
+          <label style={{color:'black'}}> <b>Price :</b> </label>
+          <TextareaAutosize
+          style={{borderBlockColor:'black'}}
+            placeholder="Course Price in Dollars $"
+            label="Course Price"
+            onChange={handleChange('price')}
+            defaultValue={course.price}
+            rowsMin={1} />
+  </div>
+</div>
           <br />
           <div className="form-group">
         <label style={{color:'black'}}><b>Category</b></label>
@@ -319,6 +324,8 @@ export class FormCourseDetails extends Component {
             ))}
         </select>
       </div>
+
+     
           <Button
             
             variant="contained"

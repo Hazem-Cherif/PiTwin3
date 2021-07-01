@@ -47,7 +47,8 @@ import AboutUS from './AboutUS/AboutUs'
 import Index from '../dashboard/index'
 import Header from './header footer/header'
 import Blog from './blog/home'
-
+import FreeCourses from './courses/GererCours/FreeCourses'
+import PayedCourses from './courses/GererCours/PayedCourses'
 
 function Body() {
     const auth = useSelector(state => state.auth)
@@ -106,6 +107,10 @@ function Body() {
 
                 <Route path="/courses" component={isLogged ? GererCourses : NotFound} component={Courses} exact />
                 <Route path="/allcourses" component={AllCourses} exact /> 
+                <Route path="/FreeCourses"component={isLogged ? GererCourses : NotFound}  component={FreeCourses} exact /> 
+
+                <Route path="/PayedCourses"component={isLogged ? GererCourses : NotFound}  component={PayedCourses} exact /> 
+
                 <Route path="/qst" component={isLogged ? qst : NotFound} exact />
 
                 <Route path="/admin" component={Admin} exact />

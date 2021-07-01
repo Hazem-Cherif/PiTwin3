@@ -17,6 +17,7 @@ export class AddCourse extends Component {
     description: '',
     prerequisite:'',
     comprendre:'',
+    price:'',
     introduction:
     {
       text1: '',
@@ -861,9 +862,8 @@ export class AddCourse extends Component {
 
   render() {
     const { step } = this.state;
-    const { title, author, description, prerequisite, comprendre, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage } = this.state;
-    const course = { title, author, description, prerequisite, comprendre, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage };
-    console.log('testkakakakakak', this.props.match.params.token);
+    const { title, author, description, prerequisite, comprendre,price, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage } = this.state;
+    const course = { title, author, description, prerequisite, comprendre,price, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage };
     switch (step) {
       case 1:
         return (
