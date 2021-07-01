@@ -8,6 +8,8 @@ const coursesReducer = (state = courses , action) => {
             return action.payload;
         case ACTIONS.FETCH_ALL_COURSE_BY_USER:
             return action.payload;
+        case ACTIONS.FETCH_ALL_COURSE_BY_ID:
+            return action.payload;
         case ACTIONS.FETCH_ALL_COURSE_BY_CATEGORIE:
                 return action.payload;
         case ACTIONS.CREATE_COURSE:

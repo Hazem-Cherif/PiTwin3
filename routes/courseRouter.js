@@ -5,6 +5,7 @@ const auth = require('../middleware/auth')
 router.post('/',auth, courseCtrl.addCourse );
 router.get('/', courseCtrl.getAllCourses);
 router.get('/coursebyuser', auth, courseCtrl.getAllCoursesByUser);
+router.get('/coursebyid', auth, courseCtrl.getAllCoursesById);
 router.get('/coursebycategory', auth, courseCtrl.getAllCoursesByCategory);
 router.patch('/updateCourse/:id',  courseCtrl.updateCourse);
 router.delete('/delete/:id', courseCtrl.deleteCourse);

@@ -29,6 +29,19 @@ const courseCtrl = {
             res.status(404).json({ message: error.message });
         }
     },
+    getAllCoursesById : async (req, res) => { 
+        try {
+           
+            const {validation} = req.body
+            await CourseModel.find({_id: req.params.id}, {
+               validation
+            })
+            res.status(200).json(coursesModel);
+            
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+    },
     getAllCoursesByUser : async (req, res) => { 
         try {
             const coursesModel = await CourseModel.find({idUser: req.user.id});

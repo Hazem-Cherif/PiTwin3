@@ -36,6 +36,11 @@ import PhaseEDetail from './courses/GererCours/PhaseEDetail';
 import PhaseFDetail from './courses/GererCours/PhaseFDetail';
 import PhaseGDetail from './courses/GererCours/PhaseGDetail';
 import PhaseHDetail from './courses/GererCours/PhaseHDetail';
+import Chapitre0Detail from './courses/GererCours/Chapitre0Detail';
+import Chapitre1Detail from './courses/GererCours/Chapitre1Detail';
+import Chapitre2Detail from './courses/GererCours/Chapitre2Detail';
+import Chapitre3Detail from './courses/GererCours/Chapitre3Detail';
+import Chapitre4Detail from './courses/GererCours/Chapitre4Detail';
 import AllCourses from './courses/GererCours/AllCourses';
 import Contact from './contact/contact'
 import AboutUS from './AboutUS/AboutUs'
@@ -90,6 +95,13 @@ function Body() {
                 <Route path="/PhaseFDetail/:id" component={isLogged ? PhaseFDetail : NotFound} exact />
                 <Route path="/PhaseGDetail/:id" component={isLogged ? PhaseGDetail : NotFound} exact />
                 <Route path="/PhaseHDetail/:id" component={isLogged ? PhaseHDetail : NotFound} exact />
+
+                <Route path="/Chapitre0Detail/:id" component={isLogged ? Chapitre0Detail : NotFound} exact />
+                <Route path="/Chapitre1Detail/:id" component={isLogged ? Chapitre1Detail : NotFound} exact />
+                <Route path="/Chapitre2Detail/:id" component={isLogged ? Chapitre2Detail : NotFound} exact />
+                <Route path="/Chapitre3Detail/:id" component={isLogged ? Chapitre3Detail : NotFound} exact />
+                <Route path="/Chapitre4Detail/:id" component={isLogged ? Chapitre4Detail : NotFound} exact />
+
                 <Route path="/CourseByCategory/:categorie" component={isLogged ? CourseByCategory : NotFound} exact />
 
                 <Route path="/courses" component={isLogged ? GererCourses : NotFound} component={Courses} exact />

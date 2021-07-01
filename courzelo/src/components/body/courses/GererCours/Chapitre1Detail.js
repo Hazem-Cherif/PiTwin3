@@ -9,78 +9,25 @@ import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import ReactPlayer from 'react-player'
 import { Markup } from 'interweave';
 
-function PhaseCDetail() {
+function Chapitre1Detail() {
   
   const {id} = useParams();
-    const dispatch = useDispatch();
-    const courses = useSelector(state => state.courses);
-    const{n}=1;
-    console.log('j',courses);
-    const [postcourse, setCourseData] = useState({ 
-      title: '',
-      description: '',
-      introduction:
-      {
-        text1: '',
-        video1: '',
-        img1: '',
-        filePath1:'',
   
-        text2: '',
-        video2: '',
-        img2: '',
-  
-        text3: '',
-        video3: '',
-        img3: '',
-  
-        text4: '',
-        video4: '',
-        img4: ''
-  
-  
-      },
-      chapitres: [],
-      conclusion:
-      {
-        text1: '',
-        video1: '',
-        img1: '',
-  
-        text2: '',
-        video2: '',
-        img2: '',
-  
-        text3: '',
-        video3: '',
-        img3: '',
-  
-        text4: '',
-        video4: '',
-        img4: ''
-  
-      },
-      CourseImg: '',
-  
-     });
     
-    useEffect(() => {
-      if(courses.length !== 0){
-        courses.forEach(course => {
-          
-              if(course._id === id){
-                
-                setCourseData(course)
-                
-              }
-          })
-      }
-  },[courses, id])
+  const courses = useSelector((state) => state.courses);
+  console.log('courses',courses)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCourses()); 
+  }, [ dispatch]);
  
     return (
      
         <div >
-        
+         {courses.map((course) => (
+            <Fragment>
+            {course._id == id ?
      <body  className="bp-nouveau lp_course-template-default single single-lp_course postid-458 wp-embed-responsive theme-wordpress-lms wordpress-lms learnpress learnpress-page pmpro-body-has-access woocommerce-no-js pagetitle-show bg-type-color thim-body-visual-composer responsive lp_login_popup box-shadow auto-login ltr learnpress-v3 in-membership course-free header-template-overlay thim-lp-layout-1 lp-landing wpb-js-composer js-comp-ver-6.4.1 vc_responsive course-item-popup viewing-course-item viewing-course-item-459 course-item-lp_lesson no-js">
  
      <div id="main-content">
@@ -93,9 +40,9 @@ function PhaseCDetail() {
                 <div id="tab-curriculum" style={{height: 68}} />
                   <div className="course-curriculum" id="learn-press-course-curriculum"   style={{marginTop:'28px'}}>
                     <nav className="thim-font-heading learn-press-breadcrumb" itemProp="breadcrumb">
-                      <a href="https://wordpresslms.thimpress.com/demo-elearning-2">Home</a> <span className="delimiter">/</span> <a href="../../../index.html">Courses</a>
-                      <span className="delimiter">/</span> <a href="../../../../course-category/business/index.html">Business</a> <span className="delimiter">/</span>
-                      <span className="item-name">The Ultimate Ethical Hacking Boot Camp</span></nav>
+                      <a href="/">Home</a> <span className="delimiter">/</span> <a href="/course">Courses</a>
+                      <span className="delimiter">/</span>  <span className="delimiter"></span>
+                      <span className="item-name">{course.title}</span></nav>
                     <ul className="curriculum-sections">
                       <li className="section" id="section-255" data-id={255}>
                         <h4 className="section-header">
@@ -108,7 +55,7 @@ function PhaseCDetail() {
                           </span>
                         </h4>
                         <ul className="section-content">
-                          <li className="course-item course-item-lp_lesson course-item-487  item-preview has-status" data-type="lp_lesson">
+                          <li className="course-item course-item-lp_lesson course-item-487 current item-preview has-status" data-type="lp_lesson">
                             <span className="course-format-icon"><i className="fa fa-file-o" /></span>
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>1.1</div>
@@ -126,7 +73,7 @@ function PhaseCDetail() {
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>1.2</div>
                             </div>
-                            <a className="section-item-link" href="../introducing-our-ta-copy-copy-copy-copy-copy-copy/index.html">
+                            <a className="section-item-link" href={`/PhaseBDetail/${id}`}>
                               <span className="item-name">Phase 2</span>
                               <span className="course-item-meta">
                                 <span className="item-meta duration">30 min</span>
@@ -134,12 +81,12 @@ function PhaseCDetail() {
                               </span>
                             </a>
                           </li>
-                          <li className="course-item course-item-lp_lesson course-item-489 current item-preview has-status" data-type="lp_lesson">
+                          <li className="course-item course-item-lp_lesson course-item-489 item-preview has-status" data-type="lp_lesson">
                             <span className="course-format-icon"><i className="fa fa-play" /></span>
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>1.3</div>
                             </div>
-                            <a className="section-item-link" href="../our-class-chat-room-copy-copy-copy-copy-copy-copy/index.html">
+                            <a className="section-item-link" href={`/PhaseCDetail/${id}`}>
                               <span className="item-name">Phase 3</span>
                               <span className="course-item-meta">
                                 <span className="item-meta duration">30 min</span>
@@ -152,7 +99,7 @@ function PhaseCDetail() {
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>1.4</div>
                             </div>
-                            <a className="section-item-link" href="../why-this-course-copy-copy-copy-copy-copy-copy/index.html">
+                            <a className="section-item-link" href={`/PhaseDDetail/${id}`}>
                               <span className="item-name">Phase 4</span>
                               <span className="course-item-meta">
                                 <span className="item-meta duration">30 min</span>
@@ -173,16 +120,16 @@ function PhaseCDetail() {
                           </span>
                         </h4>
                         <ul className="section-content">
-                        {postcourse.chapitres.map((detailChapitres) => (
-        detailChapitres.map((course) => (
+                        {course.chapitres.map((detailChapitres) => (
+        detailChapitres.map((coursee) => (
                           <li className="course-item course-item-lp_lesson course-item-492 item-preview has-status" data-type="lp_lesson">
                             <span className="course-format-icon"><i className="fa fa-file-o" /></span>
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>2.1</div>
                             </div>
-                            <a className="section-item-link" href="../unit-objectives-copy-copy-copy-copy-copy-copy/index.html">
+                            <a className="section-item-link" href={`/chapitre${coursee.n}Detail/${id}`}>
                            
-                              <span className="item-name">chapitre{course.n}</span>
+                              <span className="item-name">chapitre{coursee.n}</span>
                               <span className="course-item-meta">
                                 <span className="item-meta duration">30 min</span>
                                 <span className="lp-label lp-label-preview">Preview</span>
@@ -209,7 +156,7 @@ function PhaseCDetail() {
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>3.1</div>
                             </div>
-                            <a className="section-item-link" href="index.html">
+                            <a className="section-item-link" href={`/PhaseEDetail/${id}`}>
                               <span className="item-name">Phase 1</span>
                               <span className="course-item-meta">
                                 <span className="item-meta duration">30 min</span>
@@ -222,7 +169,7 @@ function PhaseCDetail() {
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>3.2</div>
                             </div>
-                            <a className="section-item-link" href="../introducing-our-ta-copy-copy-copy-copy-copy-copy/index.html">
+                            <a className="section-item-link" href={`/PhaseFDetail/${id}`}>
                               <span className="item-name">Phase 2</span>
                               <span className="course-item-meta">
                                 <span className="item-meta duration">30 min</span>
@@ -235,7 +182,7 @@ function PhaseCDetail() {
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>3.3</div>
                             </div>
-                            <a className="section-item-link" href="../our-class-chat-room-copy-copy-copy-copy-copy-copy/index.html">
+                            <a className="section-item-link" href={`/PhaseGDetail/${id}`}>
                               <span className="item-name">Phase 3</span>
                               <span className="course-item-meta">
                                 <span className="item-meta duration">30 min</span>
@@ -248,7 +195,7 @@ function PhaseCDetail() {
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>3.4</div>
                             </div>
-                            <a className="section-item-link" href="../why-this-course-copy-copy-copy-copy-copy-copy/index.html">
+                            <a className="section-item-link" href={`/PhaseHDetail/${id}`}>
                               <span className="item-name">Phase 4</span>
                               <span className="course-item-meta">
                                 <span className="item-meta duration">30 min</span>
@@ -260,7 +207,10 @@ function PhaseCDetail() {
                       </li>
                     </ul>
                   </div>
-                  
+                  {course.chapitres.map((detailChapitres) => (
+        detailChapitres.map((coursee) => (
+          <Fragment>
+                  {coursee.n == 1 ?
                   <div className="course-curriculum" id="learn-press-course-curriculum"   style={{marginTop:'28px',marginLeft:'400px',width:'1420px'}}>
                   <div className="content-item-wrap">
                         <div className="learn-press-video-intro thim-lesson-media" style={{height:'550px'}}>
@@ -272,7 +222,7 @@ function PhaseCDetail() {
                           <div className="content-item-description lesson-description"><h3>Course Description</h3>
                             <p>If you are a newbie to managing a WordPress website, then congratulations! You are here at the right track with us because we are going to introduce you one of the most basic knowledge when owning a WordPress page: how to find your site the best WordPress Hosting service. This process is often overlooked by most of the website owners. But it can be considered the most important key point to bring your site to stand out of the crowd. A great hosting service could help you to improve SEO and increase sales as well.</p>
                             <h4><img loading="lazy" className="aligncenter wp-image-3983 size-full" src="../../../../../wp-content/uploads/2017/08/formula_screenshot.png" alt width={594} height={378} /></h4>
-                            <h4>Learning Outcomes</h4>
+                            <h4>{coursee.text1}</h4>
                             <ul>
                               <li>Over 37 lectures and 55.5 hours of content!</li>
                               <li>LIVE PROJECT End to End Software Testing Training Included.</li>
@@ -303,15 +253,20 @@ function PhaseCDetail() {
                         <div className="course-item-nav">
                           <div className="next">
                             <span>Next</span>
-                            <a href="../introducing-our-ta-copy-copy-copy-copy-copy-copy/index.html">
+                            <a href={`/PhaseGDetail/${id}`}>
                               Phase 2</a>
                           </div>
                         </div>
                       </div>
                    
                   </div>
+                  :<div></div>}
+                  </Fragment>
+                  ))
+      ))}
                   <div   style={{marginTop:'27px'}}>
                     <div >
+                   
                       <div id="course-item-content-header" className="thim-course-item-header">
                         <div className="course-item-search">
                           <form>
@@ -319,15 +274,15 @@ function PhaseCDetail() {
                             <button type="button" />
                           </form>
                         </div>
-                        <div className="thim-course-item-popup-logo">
-                          <a className="lesson-logo" href="../../../../index.html" title="Demo eLearning II - WordPress LMS theme 2018" rel="home">
-                            <img className="logo" src="../../../../../demo-3/wp-content/themes/wordpress-lms/assets/images/logo-2.png" alt width={131} height={45} />
-                          </a>
-                        </div>
-                        <a  className="back_course"><i className="fa fa-close" /></a>
+                         
+                        <div class="width-logo">
+                <a class="no-sticky-logo" href="/" rel="home">
+                  <img class="retina-logo" src="../wp-content/uploads/sites/5/2017/09/logo-2-1.png" alt="Demo eLearning II" width="131" height="45" style={{marginLeft:'1000px'}}/>
+                  </a> </div>
+                        <a  className="back_course" href={`/DetailCourse/${id}`}><i className="fa fa-close" /></a>
                         
-                      </div>
                       
+                        </div> 
                       
                     </div>
                   </div>
@@ -339,10 +294,11 @@ function PhaseCDetail() {
 
 
 </body>
-
+ :<div></div>} </Fragment>
+ ))}
         </div>
      
     )
 }
 
-export default PhaseCDetail
+export default Chapitre1Detail

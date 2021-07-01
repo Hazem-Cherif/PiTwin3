@@ -63,16 +63,15 @@ function PhaseBDetail() {
       CourseImg: '',
   
      });
-    const load = () => {
-      n=0;
-      document.location.reload()
-    };
+    
     useEffect(() => {
       if(courses.length !== 0){
         courses.forEach(course => {
+          
               if(course._id === id){
+                
                 setCourseData(course)
-                document.location.reload();
+                
               }
           })
       }
@@ -81,10 +80,7 @@ function PhaseBDetail() {
     return (
      
         <div >
-           {n==1?
-        load
-          
-         :
+        
      <body  className="bp-nouveau lp_course-template-default single single-lp_course postid-458 wp-embed-responsive theme-wordpress-lms wordpress-lms learnpress learnpress-page pmpro-body-has-access woocommerce-no-js pagetitle-show bg-type-color thim-body-visual-composer responsive lp_login_popup box-shadow auto-login ltr learnpress-v3 in-membership course-free header-template-overlay thim-lp-layout-1 lp-landing wpb-js-composer js-comp-ver-6.4.1 vc_responsive course-item-popup viewing-course-item viewing-course-item-459 course-item-lp_lesson no-js">
  
      <div id="main-content">
@@ -94,7 +90,7 @@ function PhaseBDetail() {
             <div className="entry-content" >
               <div id="lp-single-course" className="lp-single-course" >
                 <div id="learn-press-course" className="course-summary">
-                  <div id="tab-curriculum" style={{height: 68}} />
+                <div id="tab-curriculum" style={{height: 68}} />
                   <div className="course-curriculum" id="learn-press-course-curriculum"   style={{marginTop:'28px'}}>
                     <nav className="thim-font-heading learn-press-breadcrumb" itemProp="breadcrumb">
                       <a href="https://wordpresslms.thimpress.com/demo-elearning-2">Home</a> <span className="delimiter">/</span> <a href="../../../index.html">Courses</a>
@@ -112,7 +108,7 @@ function PhaseBDetail() {
                           </span>
                         </h4>
                         <ul className="section-content">
-                          <li className="course-item course-item-lp_lesson course-item-487 item-preview has-status" data-type="lp_lesson">
+                          <li className="course-item course-item-lp_lesson course-item-487  item-preview has-status" data-type="lp_lesson">
                             <span className="course-format-icon"><i className="fa fa-file-o" /></span>
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>1.1</div>
@@ -177,19 +173,23 @@ function PhaseBDetail() {
                           </span>
                         </h4>
                         <ul className="section-content">
+                        {postcourse.chapitres.map((detailChapitres) => (
+        detailChapitres.map((course) => (
                           <li className="course-item course-item-lp_lesson course-item-492 item-preview has-status" data-type="lp_lesson">
                             <span className="course-format-icon"><i className="fa fa-file-o" /></span>
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>2.1</div>
                             </div>
                             <a className="section-item-link" href="../unit-objectives-copy-copy-copy-copy-copy-copy/index.html">
-                              <span className="item-name">Unit Objectives – Big Video</span>
+                           
+                              <span className="item-name">chapitre{course.n}</span>
                               <span className="course-item-meta">
                                 <span className="item-meta duration">30 min</span>
                                 <span className="lp-label lp-label-preview">Preview</span>
                               </span>
                             </a>
-                          </li>
+                          </li>))
+      ))}
                         </ul>
                       </li>
 
@@ -204,7 +204,7 @@ function PhaseBDetail() {
                           </span>
                         </h4>
                         <ul className="section-content">
-                          <li className="course-item course-item-lp_lesson course-item-487 item-preview has-status" data-type="lp_lesson">
+                          <li className="course-item course-item-lp_lesson course-item-487  item-preview has-status" data-type="lp_lesson">
                             <span className="course-format-icon"><i className="fa fa-file-o" /></span>
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>3.1</div>
@@ -261,24 +261,8 @@ function PhaseBDetail() {
                     </ul>
                   </div>
                   
-                  <div id="learn-press-content-item"  style={{marginTop:'27px'}}>
-                    <div className="content-item-scrollable">
-                      <div id="course-item-content-header" className="thim-course-item-header">
-                        <div className="course-item-search">
-                          <form>
-                            <input type="text" placeholder="Search item" />
-                            <button type="button" />
-                          </form>
-                        </div>
-                        <div className="thim-course-item-popup-logo">
-                          <a className="lesson-logo" href="../../../../index.html" title="Demo eLearning II - WordPress LMS theme 2018" rel="home">
-                            <img className="logo" src="../../../../../demo-3/wp-content/themes/wordpress-lms/assets/images/logo-2.png" alt width={131} height={45} />
-                          </a>
-                        </div>
-                        <a  className="back_course"><i className="fa fa-close" /></a>
-                        
-                      </div>
-                      <div className="content-item-wrap">
+                  <div className="course-curriculum" id="learn-press-course-curriculum"   style={{marginTop:'28px',marginLeft:'400px',width:'1420px'}}>
+                  <div className="content-item-wrap">
                         <div className="learn-press-video-intro thim-lesson-media" style={{height:'550px'}}>
                           <div className="wrapper" >
                             <iframe style={{width:'980px',height:'550px'}}  src="https://www.youtube.com/embed/TtoHkSuKJwE?rel=0&showinfo=0" frameBorder={0} allowFullScreen /> </div>
@@ -324,10 +308,30 @@ function PhaseBDetail() {
                           </div>
                         </div>
                       </div>
-                      <div id="course-item-content-footer">
+                   
+                  </div>
+                  <div   style={{marginTop:'27px'}}>
+                    <div >
+                      <div id="course-item-content-header" className="thim-course-item-header">
+                        <div className="course-item-search">
+                          <form>
+                            <input type="text" placeholder="Search item" />
+                            <button type="button" />
+                          </form>
+                        </div>
+                        <div className="thim-course-item-popup-logo">
+                          <a className="lesson-logo" href="../../../../index.html" title="Demo eLearning II - WordPress LMS theme 2018" rel="home">
+                            <img className="logo" src="../../../../../demo-3/wp-content/themes/wordpress-lms/assets/images/logo-2.png" alt width={131} height={45} />
+                          </a>
+                        </div>
+                        <a  className="back_course"><i className="fa fa-close" /></a>
+                        
                       </div>
+                      
+                      
                     </div>
-                  </div></div>
+                  </div>
+                  </div>
               </div> </div>
           </article>
         </main></div></div> </section>
@@ -335,7 +339,7 @@ function PhaseBDetail() {
 
 
 </body>
- }
+
         </div>
      
     )
