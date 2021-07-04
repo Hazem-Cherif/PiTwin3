@@ -207,6 +207,7 @@ function Chapitre0Detail() {
                       </li>
                     </ul>
                   </div>
+                  
                   {course.chapitres.map((detailChapitres) => (
         detailChapitres.map((coursee) => (
           <Fragment>

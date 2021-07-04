@@ -75,6 +75,7 @@ const courseCtrl = {
         return res.status(500).json({msg: err.message})
     }
        },
+    
        deleteCourse: async (req, res) => {
         try {
          
@@ -84,6 +85,20 @@ const courseCtrl = {
         }   catch (err) {
         return res.status(500).json({msg: err.message})
       }
+       },
+       updateCoursesubscribe: async (req, res) => {
+        try {
+         const {subscribe} = req.body
+       
+         await CourseModel.findOneAndUpdate({_id: req.params.id}, {
+              subscribe
+         })
+         
+         res.json({msg: "update Su!"})
+         
+        }   catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
        },
        updateCourseVal: async (req, res) => {
         try {

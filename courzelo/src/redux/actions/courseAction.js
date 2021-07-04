@@ -63,6 +63,16 @@ export const updateCourse = (id, editCourse) => async (dispatch) => {
     
   }
 };
+export const updateCoursesubscribe = (id, editCourse) => async (dispatch) => {
+  try {
+  
+    const { data } = await axios.patch(`/course/updateCourse/${editCourse._id}`,editCourse.subscribe);
+
+    return dispatch({ type: ACTIONS.UPDATE_COURSE, payload: data });
+  } catch (error) {
+    
+  }
+};
 export const deleteCourse = (id) => async (dispatch) => {
   try {
   

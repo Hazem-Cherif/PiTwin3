@@ -1,6 +1,6 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
-import { getAllCoursesById,getCourses, deleteCourse,updateCourse } from '../../../../redux/actions/courseAction';
+import { getAllCoursesById,getCourses, deleteCourse,updateCourse,updateCoursesubscribe } from '../../../../redux/actions/courseAction';
 import {useParams, useHistory, Link} from 'react-router-dom'
 import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
 import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
@@ -8,6 +8,8 @@ import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import ReactPlayer from 'react-player'
 import { Markup } from 'interweave';
+import axios from 'axios'
+
 
 
 function DetailCourse() {
@@ -16,7 +18,7 @@ function DetailCourse() {
   
  
   const courses = useSelector((state) => state.courses);
-  const [stsub, setState] = useState(courses);
+
   console.log('courses')
   const dispatch = useDispatch();
   
@@ -25,17 +27,12 @@ function DetailCourse() {
     dispatch(getCourses()); 
   }, [ dispatch]);
  
-  const subscribe = ()=>{
-    courses.map((course) => {
-      setState([{... course.subscribe =1 }]) 
-      dispatch(updateCourse(id));
-      console.log('text5',course.subscribe);
-    });
   
-      
-    
-    
-    
+    const subscribe = async () => {
+    const res = await axios.patch(`/course/updateCoursesubscribe/${id}`, {
+      subscribe:1
+  })
+      console.log('text5');
     
 document.getElementById("myButton1").value="already subscribed";
  }

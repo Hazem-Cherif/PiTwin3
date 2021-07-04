@@ -24,6 +24,7 @@ function Courses() {
 
 
   const handleShowBusiness = (e) => {
+    
     setisBusiness(true);
     setisSciences(false);
     setisComputerSc(false);
