@@ -17,6 +17,7 @@ export class AddCourse extends Component {
     description: '',
     prerequisite:'',
     comprendre:'',
+    subscribe:0,
     price:'',
     introduction:
     {
@@ -862,8 +863,8 @@ export class AddCourse extends Component {
 
   render() {
     const { step } = this.state;
-    const { title, author, description, prerequisite, comprendre,price, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage } = this.state;
-    const course = { title, author, description, prerequisite, comprendre,price, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage };
+    const { title, author, description, prerequisite, comprendre,subscribe,price, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage } = this.state;
+    const course = { title, author, description, prerequisite, comprendre,subscribe,price, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage };
     switch (step) {
       case 1:
         return (

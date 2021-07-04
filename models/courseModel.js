@@ -12,6 +12,10 @@ const courseSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
+    subscribe: {
+        type: Number,
+        default: 0
+    },
     time : { 
         type : Date, 
         default: Date.now 

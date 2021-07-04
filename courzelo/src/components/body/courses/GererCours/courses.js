@@ -61,43 +61,82 @@ const cartAllCourse = (
     
     course.validation == 1 ? 
     <article id="post-486" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-business course_tag-business course_tag-theme course_tag-wordpress pmpro-has-access course">
-      <div className="content">
-        <div className="thumbnail">
-          <a  className="img_thumbnail">
-            <img style={{width:'365px',height:'300px'}}  src= {course.CourseImg} alt="The Ultimate Ethical Hacking Boot Camp" className /> </a>
-          
-          
-          <span className="price">
-            <span className="course-price"></span>
-            <b>{course.title}</b>
-          </span>
-
-          
-          <div className="review ">
-            <div className="sc-review-stars">
-              <div className="review-stars-rated" title="0 out of 5 stars">
-                <div className="review-stars empty" />
-                <div className="review-stars filled" style={{width: '0%'}} />
-              </div> </div>
-            <span className="vote">(0 vote)</span>
-          </div>
-          <div className="button-when-logged has-wishlist">
-          </div>
-        </div>
-        <div className="sub-content">
-          <h3 className="title">
-            <a href="the-ultimate-ethical-hacking-boot-camp/index.html">Added on 12/32/52</a>
-          </h3>
-          
-          <div className="thim-sc-button text-right hide-separator " style={{marginRight:'60px'}}>
-<Link to={`/DetailCourse/${course._id}`}  target="_self" className="btn btn-primary btn-lg">
+  <div className="content">
+    <div className="thumbnail">
+      <a href={`/DetailCourse/${course._id}`}  className="img_thumbnail">
+        <img loading="lazy"  style={{width:'700px',height:'"350px'}} src= {course.CourseImg}  className /> </a>
+      <span className="price">
+        { course.price == null?
+        <span className="course-price">Free</span>
+        :
+        <span className="course-price">{course.price}£</span>
+      }
+      </span>
+      <div className="review ">
+        <div className="sc-review-stars">
+          <div className="review-stars-rated" title="0 out of 5 stars">
+            <div className="review-stars empty" />
+            <div className="review-stars filled" style={{"width":"0%"}} />
+          </div> </div>
+        <span className="vote">(0 vote)</span>
+      </div>
+      <div className="button-when-logged has-wishlist">
+      </div>
+    </div>
+    <div className="sub-content">
+      <h3 className="title">
+        <a href={`/DetailCourse/${course._id}`} >{course.title}</a>
+      </h3>
+      <div className="date-comment">
+         <span className="number-comment">
+        <div className="thim-sc-button text-right hide-separator ">
+<Link to={`/DetailCourse/${course._id}`}  target="_self" className="btn btn-primary btn-lg"  style={{marginLeft:'40px'}}>
   <span className="text" style={{color:'#FFFFFF'}}>Detail</span>
 </Link>
 </div>
-    
+</span> </div>
+      <div className="content-list">
+        <div className="course-description">
+          <p>LearnPress is the best WordPress Learning Management System and it comes with many great features. This is the best WPLMS theme available in the market. </p>
         </div>
+        <ul className="courses_list_info">
+          <li>
+            <span className="avatar">
+              <a href="../lp-profile/admin/index.html">
+                <img loading="lazy" alt="Admin bar avatar" src="../wp-content/uploads/learn-press-profile/1/21232f297a57a5a743894a0e4a801fc3.jpg" className="avatar avatar-40 photo" height={40} width={40} /> </a>
+            </span>
+            <span className="info">
+              <span className="major">Teacher</span>
+              <a href="../lp-profile/admin/index.html" className="name">
+                ThimPress </a>
+            </span>
+          </li>
+          <li>
+            <label>Review:</label>
+            <div className="review ">
+              <div className="sc-review-stars">
+                <div className="review-stars-rated" title="0 out of 5 stars">
+                  <div className="review-stars empty" />
+                  <div className="review-stars filled" style={{"width":"0%"}} />
+                </div> </div>
+              <span className="vote">(0 vote)</span>
+            </div>
+          </li>
+          <li>
+            <label>Students:</label>
+            <strong className="students">168 Students</strong>
+          </li>
+        </ul>
       </div>
-     </article>
+    </div>
+  </div>
+  <div className="course-info">
+    <div className="course-price">
+      <span className="price">Free</span>
+    </div>
+    <span className="course-instructor">
+      <a href="../lp-profile/admin/index.html">ThimPress</a></span>
+  </div></article>
       :
       <Fragment/>
           ))}

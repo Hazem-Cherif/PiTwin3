@@ -1,6 +1,6 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
-import { getAllCoursesById,getCourses, deleteCourse } from '../../../../redux/actions/courseAction';
+import { getAllCoursesById,getCourses, deleteCourse,updateCourse } from '../../../../redux/actions/courseAction';
 import {useParams, useHistory, Link} from 'react-router-dom'
 import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
 import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
@@ -9,18 +9,38 @@ import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import ReactPlayer from 'react-player'
 import { Markup } from 'interweave';
 
+
 function DetailCourse() {
   
   const {id} = useParams();
   
-    
+ 
   const courses = useSelector((state) => state.courses);
-  console.log('courses',courses)
+  const [stsub, setState] = useState(courses);
+  console.log('courses')
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     dispatch(getCourses()); 
   }, [ dispatch]);
+ 
+  const subscribe = ()=>{
+    courses.map((course) => {
+      setState([{... course.subscribe =1 }]) 
+      dispatch(updateCourse(id));
+      console.log('text5',course.subscribe);
+    });
+  
+      
+    
+    
+    
+    
+document.getElementById("myButton1").value="already subscribed";
+ }
+
+  
  
     return (
         <div>
@@ -40,21 +60,37 @@ function DetailCourse() {
                  <h1>{course.title}</h1> </div>
                <div className="text-description">
                  <div className="banner-description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.<div className="price">
-                     <span className="course-origin-price"> $44.00</span>
-                     <span className="course-price">$33.00</span>
+                     { course.price == null ?
+                     <span className="course-price">Free</span>
+                     :
+                     <span className="course-price">£{course.price}</span>
+                    }
                    </div></div> </div>
              </div>
            </div>
            <div className="breadcrumb-content">
              <div className="breadcrumbs-wrapper container">
                <div className="learn-press-course-buttons"> 
-                 <form name="purchase-course" className="purchase-course guest_checkout" >
-                   <input type="hidden" name="purchase-course"  />
-                   <input type="hidden" name="purchase-course-nonce"  />
-                   <button className="lp-button button button-purchase-course">
+                 
+              
+                   { course.price == null? 
+                   <Fragment
+                   >
+                    { course.subscribe == 0 ?
+                   <input  className="lp-button button button-purchase-course" type="button" value="subscribe now" id="myButton1" onClick = {subscribe}  style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
+                     </input>
+                     :
+                     <input  className="lp-button button button-purchase-course" type="button" value="already subscribed" id="myButton1"   style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
+                     </input>
+
+                    }
+                    </Fragment>
+                     :
+                     <button className="lp-button button button-purchase-course">
                      Buy this course </button>
+                     }
                    <input type="hidden" name="redirect_to"  />
-                 </form>
+               
                </div>
              </div>
            </div>
