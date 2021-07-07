@@ -1,6 +1,6 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
-import { getAllCoursesByUser, getCourses } from '../../../redux/actions/courseAction';
+import { getAllCourses, getCourses } from '../../../redux/actions/courseAction';
 import useStyles from './GererCours/styles';
 import {Link} from 'react-router-dom'
 
@@ -10,12 +10,12 @@ function GererCourses() {
   const dispatch = useDispatch();
   useEffect(() => {
     
-    dispatch(getAllCoursesByUser(token))
-  }, [ dispatch(getAllCoursesByUser(token))]);
+    dispatch(getCourses())
+  }, [ dispatch(getCourses())]);
   useEffect(() => {
     
-    dispatch(getAllCoursesByUser(token))
-  }, [ dispatch(getAllCoursesByUser(token))]);
+    dispatch(getCourses())
+  }, [ dispatch(getCourses())]);
  
   
     return (
@@ -78,6 +78,7 @@ function GererCourses() {
                           <div className="thim-course-grid profile-courses-list">
                           {courses.map((course) => (
           <Fragment>
+            { course.subscribe == 1 ?
                             <article id="post-3656" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course lp-membership post-3656 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-mba-courses course_category-photography-and-designs course_tag-design course_tag-photoshop pmpro-has-access course">
                               <div className="content">
                                 <div className="thumbnail">
@@ -124,6 +125,9 @@ function GererCourses() {
                                 </div>
                               </div>
                              </article>
+                             :
+                             <h1></h1>
+                             }
                              </Fragment>
                                ))}
                              </div>

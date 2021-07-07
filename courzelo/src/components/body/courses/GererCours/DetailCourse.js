@@ -388,10 +388,74 @@ document.getElementById("myButton1").value="already subscribed";
                                  </div>
                                </div>
                            
-                                   
+                              
+                              
                                <div className="thim-related-course">
                                  <h3 className="related-title">Related Courses</h3>
-                                 
+                                 {courses.map((courseRelated) => (
+                                   courseRelated.validation == 1  && courseRelated.categorie == course.categorie ? 
+                                  
+                                     <Fragment>
+                                       <div class="courses-carousel archive-courses course-grid owl-carousel owl-theme" data-cols="3">
+<div class="inner-course in-membership">
+<div class="wrapper-course-thumbnail"></div>
+                                 <article id="post-3656" className="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course lp-membership post-3656 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-mba-courses course_category-photography-and-designs course_tag-design course_tag-photoshop pmpro-has-access course">
+                              <div className="content">
+                                <div className="thumbnail">
+                                  
+                                  <a  className="img_thumbnail">
+                                    <img style={{width:'365px'}}height={405} src={courseRelated.CourseImg}    /> </a>
+                                    { courseRelated.price == null ?
+                                  <span className="price">
+                                    <span className="course-price">Free</span>
+                                  </span>
+                                  :
+                                  <span className="price">
+                                  <span className="course-price">{courseRelated.price}</span>
+                                </span>
+}
+                                  <div className="review ">
+                                    <div className="sc-review-stars">
+                                      <div className="review-stars-rated" title="0 out of 5 stars">
+                                        <div className="review-stars empty" />
+                                        <div className="review-stars filled" style={{width: '0%'}} />
+                                      </div> </div>
+                                    
+                                  </div>
+                                  <div className="button-when-logged has-wishlist">
+                                  </div>
+                                </div>
+                                <div className="sub-content">
+                                  <h3 className="title">
+                                    <a >{course.title}</a>
+                                  </h3>
+                                  <div className="date-comment">
+                                    <span className="date-meta">June 5, 2015</span>  </div>
+                                  <div className="content-list">
+                                    
+                                    <ul className="courses_list_info">
+                                      
+                                      <li>
+                                        <label>Review:</label>
+                                        <div className="review ">
+                                          <div className="sc-review-stars">
+                                            <div className="review-stars-rated" title="0 out of 5 stars">
+                                              <div className="review-stars empty" />
+                                              <div className="review-stars filled" style={{width: '0%'}} />
+                                            </div> </div>
+                                        </div>
+                                      </li>
+                                      
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                             </article>
+                             </div>
+                             </div>
+                             </Fragment>
+        :
+                             <Fragment/>  ))}
                                </div>
                              </div>
                            </div>
