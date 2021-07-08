@@ -1,4 +1,4 @@
-import React, { Component, Form, useState } from 'react';
+import React, { Component, Form, Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Button from '@material-ui/core/Button';
 import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
@@ -20,10 +20,35 @@ import './StepForm.css';
 function ChapitresCourzelo({ nextStep, handleSubmit,prevStep,nextPourcentage,course,ttoken}) {
    
     const [count, setCount] = useState(1);
+    const [inputquiz, setInputquiz] = useState([]);
     const [inputFields, setInputFields] = useState([
-        { id: uuidv4(),n:0, text1: '' , img1:'', vid1:'', pdf1:'', text2: '', img2:'', vid2:'', pdf2:'', text3: '', img3:'', vid3:'', pdf3:'', text4: '', img4:'', vid4:'', pdf4:'', text5: '', img5:'', vid5:'', pdf5:'', text6: '', img6:'', vid6:'', pdf6:'', text7: '', img7:'', vid7:'', pdf7:'', text8: '', img8:'', vid8:'', pdf8:'' },
+        { id: uuidv4(),n:0, text1: '' , img1:'', vid1:'', pdf1:'', text2: '', img2:'', vid2:'', pdf2:'', text3: '', img3:'', vid3:'', pdf3:'', text4: '', img4:'', vid4:'', pdf4:'', text5: '', img5:'', vid5:'', pdf5:'', text6: '', img6:'', vid6:'', pdf6:'', text7: '', img7:'', vid7:'', pdf7:'', text8: '', img8:'', vid8:'', pdf8:'' ,quiz:[inputquiz] },
     ]);
 
+    const handleAddquiz = () => {
+     
+        setInputquiz([...inputquiz,{ idd: uuidv4(),quest: '' }]);
+       
+        setInputFields([{quiz:[inputquiz]}])
+
+
+   
+     } 
+     console.log(inputquiz);
+     console.log(inputFields);
+   
+   
+    const handleChangein = (idd, event) => {
+        const newInputquiz = inputquiz.map(i => {
+            if (idd === i.idd) {
+                i[event.target.name] = event.target.value
+
+            }
+            return i;
+        })
+
+        setInputFields(newInputquiz);
+    }
     
     const handleChangeInput = (id, event) => {
         const newInputFields = inputFields.map(i => {
@@ -36,12 +61,16 @@ function ChapitresCourzelo({ nextStep, handleSubmit,prevStep,nextPourcentage,cou
 
         setInputFields(newInputFields);
     }
-    
+   
     const handleAddFields = () => {
        setCount(count + 1);
       console.log(count);
-        setInputFields([...inputFields, { id: uuidv4(),n:count, text1: '' , img1:'', vid1:'', pdf1:'', text2: '', img2:'', vid2:'', pdf2:'', text3: '', img3:'', vid3:'', pdf3:'', text4: '', img4:'', vid4:'', pdf4:'', text5: '', img5:'', vid5:'', pdf5:'', text6: '', img6:'', vid6:'', pdf6:'', text7: '', img7:'', vid7:'', pdf7:'', text8: '', img8:'', vid8:'', pdf8:''  }])
+     
+        setInputFields([...inputFields, { id: uuidv4(),n:count, text1: '' , img1:'', vid1:'', pdf1:'', text2: '', img2:'', vid2:'', pdf2:'', text3: '', img3:'', vid3:'', pdf3:'', text4: '', img4:'', vid4:'', pdf4:'', text5: '', img5:'', vid5:'', pdf5:'', text6: '', img6:'', vid6:'', pdf6:'', text7: '', img7:'', vid7:'', pdf7:'', text8: '', img8:'', vid8:'', pdf8:'',quiz:[inputquiz]  }])
+       
     }
+  
+   
     const handleRemoveFields = id => {
         const values = [...inputFields];
         values.splice(values.findIndex(value => value.id === id), 1);
@@ -798,6 +827,9 @@ way to train all learners to think and learn well.<br />
                                     </div>
 
                                 </div>                           {inputFields.map(inputField => (
+
+
+
                                     <div className="boxcard" style={{ marginBottom: '50px' }}>
 
                                         <Button
@@ -816,6 +848,13 @@ way to train all learners to think and learn well.<br />
                                             onClick={() => handleRemoveFields(inputField.id)}
 
                                         >-</Button>
+                                        <Button
+
+color="primary"
+variant="contained"
+onClick={handleAddquiz}
+
+>+</Button>
 
                                         <div className="accordion" id="accordionExample">
 
@@ -1633,10 +1672,26 @@ way to train all learners to think and learn well.<br />
 
 
 
-
+                                       { inputquiz.map(inputquizone => (
+    <div>
+         <div className="cardd card-body">
+                                                                                        <div className="form-group">
+                                                                                            <textarea
+                                                                                                placeholder=" phase 7"
+                                                                                                label="phase7"
+                                                                                                onChange={event => handleChangein(inputquizone.idd, event)}
+                                                                                                name="text7"
+                                                                                                defaultValue=''
+                                                                                                margin="normal"
+                                                                                                fullWidth
+                                                                                            />
+                                                                                        </div>    </div>
+    </div>
+    ))};
 
 
                                     </div>
+
 
 
                                 ))};
