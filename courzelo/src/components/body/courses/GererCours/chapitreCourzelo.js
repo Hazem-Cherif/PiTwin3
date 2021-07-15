@@ -1,4 +1,4 @@
-import React, { Component, Form, Fragment, useState } from 'react';
+import React, { Component, Form, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Button from '@material-ui/core/Button';
 import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
@@ -8,48 +8,23 @@ import { Link, useParams } from 'react-router-dom';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bareeProgression.css'
-import {useSelector, useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import ReactPlayer from 'react-player'
 import swal from 'sweetalert';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import axios from 'axios'
 import './StepForm.css';
+import TextField from '@material-ui/core/TextField';
 
 
+function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, course, ttoken }) {
 
-function ChapitresCourzelo({ nextStep, handleSubmit,prevStep,nextPourcentage,course,ttoken}) {
-   
     const [count, setCount] = useState(1);
-    const [inputquiz, setInputquiz] = useState([]);
     const [inputFields, setInputFields] = useState([
-        { id: uuidv4(),n:0, text1: '' , img1:'', vid1:'', pdf1:'', text2: '', img2:'', vid2:'', pdf2:'', text3: '', img3:'', vid3:'', pdf3:'', text4: '', img4:'', vid4:'', pdf4:'', text5: '', img5:'', vid5:'', pdf5:'', text6: '', img6:'', vid6:'', pdf6:'', text7: '', img7:'', vid7:'', pdf7:'', text8: '', img8:'', vid8:'', pdf8:'' ,quiz:[inputquiz] },
+        { id: uuidv4(), n: 0, text1: '', img1: '', vid1: '', pdf1: '', text2: '', img2: '', vid2: '', pdf2: '', text3: '', img3: '', vid3: '', pdf3: '', text4: '', img4: '', vid4: '', pdf4: '', text5: '', img5: '', vid5: '', pdf5: '', text6: '', img6: '', vid6: '', pdf6: '', text7: '', img7: '', vid7: '', pdf7: '', text8: '', img8: '', vid8: '', pdf8: '', q1: '', rv1: '', rf11: '', rf12: '', q2: '', rv2: '', rf21: '', rf22: '', q3: '', rv3: '', rf31: '', rf32: '', q4: '', rv4: '', rf41: '', rf42: '', q5: '', rv5: '', rf51: '', rf52: '' },
     ]);
 
-    const handleAddquiz = () => {
-     
-        setInputquiz([...inputquiz,{ idd: uuidv4(),quest: '' }]);
-       
-        setInputFields([{quiz:[inputquiz]}])
 
-
-   
-     } 
-     console.log(inputquiz);
-     console.log(inputFields);
-   
-   
-    const handleChangein = (idd, event) => {
-        const newInputquiz = inputquiz.map(i => {
-            if (idd === i.idd) {
-                i[event.target.name] = event.target.value
-
-            }
-            return i;
-        })
-
-        setInputFields(newInputquiz);
-    }
-    
     const handleChangeInput = (id, event) => {
         const newInputFields = inputFields.map(i => {
             if (id === i.id) {
@@ -61,16 +36,26 @@ function ChapitresCourzelo({ nextStep, handleSubmit,prevStep,nextPourcentage,cou
 
         setInputFields(newInputFields);
     }
-   
+
     const handleAddFields = () => {
-       setCount(count + 1);
-      console.log(count);
-     
-        setInputFields([...inputFields, { id: uuidv4(),n:count, text1: '' , img1:'', vid1:'', pdf1:'', text2: '', img2:'', vid2:'', pdf2:'', text3: '', img3:'', vid3:'', pdf3:'', text4: '', img4:'', vid4:'', pdf4:'', text5: '', img5:'', vid5:'', pdf5:'', text6: '', img6:'', vid6:'', pdf6:'', text7: '', img7:'', vid7:'', pdf7:'', text8: '', img8:'', vid8:'', pdf8:'',quiz:[inputquiz]  }])
-       
+        setCount(count + 1);
+        console.log(count);
+        setInputFields([...inputFields, {
+            id: uuidv4(), n: count, text1: '', img1: '', vid1: '', pdf1: '', text2: '', img2: '', vid2: '',
+            pdf2: '', text3: '', img3: '', vid3: '', pdf3: '', text4: '', img4: '', vid4: '', pdf4: '', text5: '', img5: '',
+            vid5: '', pdf5: '', text6: '', img6: '', vid6: '', pdf6: '', text7: '', img7: '', vid7: '', pdf7: '', text8: '',
+            img8: '', vid8: '', pdf8: '', q1: '', rv1: '', rf11: '', rf12: '',
+            q2: '', rv2: '', rf21: '', rf22: ''
+            , q3: '', rv3: '', rf31: '', rf32: ''
+            , q4: '', rv4: '', rf41: '', rf42: ''
+            , q5: '', rv5: '', rf51: '', rf52: ''
+            , q6: '', rv6: '', rf61: '', rf62: ''
+            , q7: '', rv7: '', rf71: '', rf72: ''
+            , q8: '', rv8: '', rf81: '', rf82: ''
+            , q9: '', rv9: '', rf91: '', rf92: ''
+            , q10: '', rv10: '', rf101: '', rf102: ''
+        }])
     }
-  
-   
     const handleRemoveFields = id => {
         const values = [...inputFields];
         values.splice(values.findIndex(value => value.id === id), 1);
@@ -82,88 +67,87 @@ function ChapitresCourzelo({ nextStep, handleSubmit,prevStep,nextPourcentage,cou
 
         console.log("InputFields", inputFields);
     };
-   const handleSubmits = async (dispatch) => {
-       alert('hello')
+    const handleSubmits = async (dispatch) => {
 
-   
-        const res = await axios.post('/course',course,{headers: {Authorization:ttoken}}).then(res => {
-      
+
+        const res = await axios.post('/course', course, { headers: { Authorization: ttoken } }).then(res => {
+
         })
     };
-   const alert = e => {
-   
+    const alert = e => {
+
         swal({
-          title: "Are you sure?",
-          text: "in case you want to edit this course ! there is an updte button!",
-          icon: "warning",
-          buttons: {
-            cancel: "cancel",
-            catch: {
-              text: "yes",
-              value: "catch",
+            title: "Are you sure?",
+            text: "in case you want to edit this course ! there is an updte button!",
+            icon: "warning",
+            buttons: {
+                cancel: "cancel",
+                catch: {
+                    text: "yes",
+                    value: "catch",
+                },
+
+                defeat: "no",
             },
-            
-            defeat: "no",
-          },
-          
+
         })
-        .then((value) => {
-          switch (value) {
-     
-            case "defeat":
-              swal("the information was deleted!");
-    
-              window.location = "/Gerercoursemodifsupp";
-              break;
-         
-            case "catch":
-              swal("your", "information have been sauvgarded", "success");
-              handleSubmits();
-              window.location = "/Gerercoursemodifsupp";
-              
-              
-              
-              break;
-         
-            default:
-              swal("Got away safely!");
-          }
-        });
-       
-      };
+            .then((value) => {
+                switch (value) {
+
+                    case "defeat":
+                        swal("the information was deleted!");
+
+                        window.location = "/Gerercoursemodifsupp";
+                        break;
+
+                    case "catch":
+                        swal("your", "information have been sauvgarded", "success");
+                        handleSubmits();
+                        window.location = "/Gerercoursemodifsupp";
+
+
+
+                        break;
+
+                    default:
+                        swal("Got away safely!");
+                }
+            });
+
+    };
     const Continue = e => {
         // e.preventDefault();
         handleSubmit(inputFields);
         nextStep();
         nextPourcentage();
-       
+
     };
     const back = e => {
         e.preventDefault();
         prevStep();
-      };
+    };
 
     const token = useSelector(state => state.token)
-const uploadimg1 = async(id, event) => {
+    const uploadimg1 = async (id, event) => {
         event.preventDefault()
-    
+
         const file = event.target.files[0]
-    
+
         if (!file) return 'no file';
-    
+
         if (file.size > 1024 * 1024)
-          return 'big size'
-    
+            return 'big size'
+
         if (file.type !== 'image/jpeg' && file.type !== 'image/png')
-          return 'wrong type';
-    
+            return 'wrong type';
+
         let formData = new FormData()
         formData.append('file', file)
-    
+
         const res = await axios.post('/CourseImg/upload_Course_img', formData, {
-          headers: { 'content-type': 'multipart/form-data', Authorization: token }
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
         }).then(res => {
-            
+
             const newInputFields = inputFields.map(i => {
                 if (id === i.id) {
                     i.img1 = res.data.url
@@ -172,626 +156,626 @@ const uploadimg1 = async(id, event) => {
             })
             setInputFields(newInputFields);
         }
-    )
-}
-const uploadvid1 = async(id, event) => {
-    event.preventDefault()
+        )
+    }
+    const uploadvid1 = async (id, event) => {
+        event.preventDefault()
 
-    const file = event.target.files[0]
+        const file = event.target.files[0]
 
-    if (!file) return 'no file';
+        if (!file) return 'no file';
 
-    if (file.type !== 'video/mp4')
-      return 'wrong type';
+        if (file.type !== 'video/mp4')
+            return 'wrong type';
 
-    let formData = new FormData()
-    formData.append('file', file)
+        let formData = new FormData()
+        formData.append('file', file)
 
-    const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
-      headers: { 'content-type': 'multipart/form-data', Authorization: token }
-    }).then(res => {
-        const newInputFields = inputFields.map(i => {
-            if (id === i.id) {
-                i.vid1 = res.data.url
-            }
-            return i;
-        })
-        setInputFields(newInputFields);
+        const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.vid1 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-    )
-}    
-const uploadpdf1 = async(id, event) => {
-    event.preventDefault()
-    const file = event.target.files[0]
-    
-    if (!file) return "no file";
+        )
+    }
+    const uploadpdf1 = async (id, event) => {
+        event.preventDefault()
+        const file = event.target.files[0]
 
-    if (file.type !== 'application/pdf')
-      return "opsss";
+        if (!file) return "no file";
 
-    let formData = new FormData()
-    formData.append('file', file)
+        if (file.type !== 'application/pdf')
+            return "opsss";
 
-    const res = await axios.post('/CoursePdf/singleFile', formData, {
-      headers: { 'content-type': 'multipart/form-data', Authorization: token }
-    }).then(res => {
-        const newInputFields = inputFields.map(i => {
-            if (id === i.id) {
-                i.pdf1 = res.data.url
-            }
-            return i;
-        })
-        setInputFields(newInputFields);
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CoursePdf/singleFile', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.pdf1 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-    )
-};
-const uploadimg2 = async(id, event) => {
-    event.preventDefault()
+        )
+    };
+    const uploadimg2 = async (id, event) => {
+        event.preventDefault()
 
-    const file = event.target.files[0]
+        const file = event.target.files[0]
 
-    if (!file) return 'no file';
+        if (!file) return 'no file';
 
-    if (file.size > 1024 * 1024)
-      return 'big size'
+        if (file.size > 1024 * 1024)
+            return 'big size'
 
-    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
-      return 'wrong type';
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+            return 'wrong type';
 
-    let formData = new FormData()
-    formData.append('file', file)
+        let formData = new FormData()
+        formData.append('file', file)
 
-    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
-      headers: { 'content-type': 'multipart/form-data', Authorization: token }
-    }).then(res => {
-        
-        const newInputFields = inputFields.map(i => {
-            if (id === i.id) {
-                i.img2 = res.data.url
-            }
-            return i;
-        })
-        setInputFields(newInputFields);
-    }
-)
-}
-const uploadvid2 = async(id, event) => {
-event.preventDefault()
+        const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
 
-const file = event.target.files[0]
-
-if (!file) return 'no file';
-
-if (file.type !== 'video/mp4')
-  return 'wrong type';
-
-let formData = new FormData()
-formData.append('file', file)
-
-const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.vid2 = res.data.url
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.img2 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
+        )
     }
-)
-}    
-const uploadpdf2 = async(id, event) => {
-event.preventDefault()
-const file = event.target.files[0]
+    const uploadvid2 = async (id, event) => {
+        event.preventDefault()
 
-if (!file) return "no file";
+        const file = event.target.files[0]
 
-if (file.type !== 'application/pdf')
-  return "opsss";
+        if (!file) return 'no file';
 
-let formData = new FormData()
-formData.append('file', file)
+        if (file.type !== 'video/mp4')
+            return 'wrong type';
 
-const res = await axios.post('/CoursePdf/singleFile', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.pdf2 = res.data.url
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.vid2 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
+        )
     }
-)
-};
-const uploadimg3 = async(id, event) => {
-    event.preventDefault()
+    const uploadpdf2 = async (id, event) => {
+        event.preventDefault()
+        const file = event.target.files[0]
 
-    const file = event.target.files[0]
+        if (!file) return "no file";
 
-    if (!file) return 'no file';
+        if (file.type !== 'application/pdf')
+            return "opsss";
 
-    if (file.size > 1024 * 1024)
-      return 'big size'
+        let formData = new FormData()
+        formData.append('file', file)
 
-    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
-      return 'wrong type';
-
-    let formData = new FormData()
-    formData.append('file', file)
-
-    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
-      headers: { 'content-type': 'multipart/form-data', Authorization: token }
-    }).then(res => {
-        
-        const newInputFields = inputFields.map(i => {
-            if (id === i.id) {
-                i.img3 = res.data.url
-            }
-            return i;
-        })
-        setInputFields(newInputFields);
-    }
-)
-}
-const uploadvid3 = async(id, event) => {
-event.preventDefault()
-
-const file = event.target.files[0]
-
-if (!file) return 'no file';
-
-if (file.type !== 'video/mp4')
-  return 'wrong type';
-
-let formData = new FormData()
-formData.append('file', file)
-
-const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.vid3 = res.data.url
+        const res = await axios.post('/CoursePdf/singleFile', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.pdf2 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
-    }
-)
-}    
-const uploadpdf3 = async(id, event) => {
-event.preventDefault()
-const file = event.target.files[0]
+        )
+    };
+    const uploadimg3 = async (id, event) => {
+        event.preventDefault()
 
-if (!file) return "no file";
+        const file = event.target.files[0]
 
-if (file.type !== 'application/pdf')
-  return "opsss";
+        if (!file) return 'no file';
 
-let formData = new FormData()
-formData.append('file', file)
+        if (file.size > 1024 * 1024)
+            return 'big size'
 
-const res = await axios.post('/CoursePdf/singleFile', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.pdf3 = res.data.url
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+            return 'wrong type';
+
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.img3 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
+        )
     }
-)
-};
-const uploadimg4 = async(id, event) => {
-    event.preventDefault()
+    const uploadvid3 = async (id, event) => {
+        event.preventDefault()
 
-    const file = event.target.files[0]
+        const file = event.target.files[0]
 
-    if (!file) return 'no file';
+        if (!file) return 'no file';
 
-    if (file.size > 1024 * 1024)
-      return 'big size'
+        if (file.type !== 'video/mp4')
+            return 'wrong type';
 
-    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
-      return 'wrong type';
+        let formData = new FormData()
+        formData.append('file', file)
 
-    let formData = new FormData()
-    formData.append('file', file)
-
-    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
-      headers: { 'content-type': 'multipart/form-data', Authorization: token }
-    }).then(res => {
-        
-        const newInputFields = inputFields.map(i => {
-            if (id === i.id) {
-                i.img4 = res.data.url
-            }
-            return i;
-        })
-        setInputFields(newInputFields);
-    }
-)
-}
-const uploadvid4 = async(id, event) => {
-event.preventDefault()
-
-const file = event.target.files[0]
-
-if (!file) return 'no file';
-
-if (file.type !== 'video/mp4')
-  return 'wrong type';
-
-let formData = new FormData()
-formData.append('file', file)
-
-const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.vid4 = res.data.url
+        const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.vid3 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
+        )
     }
-)
-}    
-const uploadpdf4 = async(id, event) => {
-event.preventDefault()
-const file = event.target.files[0]
+    const uploadpdf3 = async (id, event) => {
+        event.preventDefault()
+        const file = event.target.files[0]
 
-if (!file) return "no file";
+        if (!file) return "no file";
 
-if (file.type !== 'application/pdf')
-  return "opsss";
+        if (file.type !== 'application/pdf')
+            return "opsss";
 
-let formData = new FormData()
-formData.append('file', file)
+        let formData = new FormData()
+        formData.append('file', file)
 
-const res = await axios.post('/CoursePdf/singleFile', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.pdf4 = res.data.url
+        const res = await axios.post('/CoursePdf/singleFile', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.pdf3 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
-    }
-)
-};
-const uploadimg5 = async(id, event) => {
-    event.preventDefault()
+        )
+    };
+    const uploadimg4 = async (id, event) => {
+        event.preventDefault()
 
-    const file = event.target.files[0]
+        const file = event.target.files[0]
 
-    if (!file) return 'no file';
+        if (!file) return 'no file';
 
-    if (file.size > 1024 * 1024)
-      return 'big size'
+        if (file.size > 1024 * 1024)
+            return 'big size'
 
-    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
-      return 'wrong type';
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+            return 'wrong type';
 
-    let formData = new FormData()
-    formData.append('file', file)
+        let formData = new FormData()
+        formData.append('file', file)
 
-    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
-      headers: { 'content-type': 'multipart/form-data', Authorization: token }
-    }).then(res => {
-        
-        const newInputFields = inputFields.map(i => {
-            if (id === i.id) {
-                i.img5 = res.data.url
-            }
-            return i;
-        })
-        setInputFields(newInputFields);
-    }
-)
-}
-const uploadvid5 = async(id, event) => {
-event.preventDefault()
+        const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
 
-const file = event.target.files[0]
-
-if (!file) return 'no file';
-
-if (file.type !== 'video/mp4')
-  return 'wrong type';
-
-let formData = new FormData()
-formData.append('file', file)
-
-const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.vid5 = res.data.url
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.img4 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
+        )
     }
-)
-}    
-const uploadpdf5 = async(id, event) => {
-event.preventDefault()
-const file = event.target.files[0]
+    const uploadvid4 = async (id, event) => {
+        event.preventDefault()
 
-if (!file) return "no file";
+        const file = event.target.files[0]
 
-if (file.type !== 'application/pdf')
-  return "opsss";
+        if (!file) return 'no file';
 
-let formData = new FormData()
-formData.append('file', file)
+        if (file.type !== 'video/mp4')
+            return 'wrong type';
 
-const res = await axios.post('/CoursePdf/singleFile', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.pdf5 = res.data.url
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.vid4 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
+        )
     }
-)
-};
-const uploadimg6 = async(id, event) => {
-    event.preventDefault()
+    const uploadpdf4 = async (id, event) => {
+        event.preventDefault()
+        const file = event.target.files[0]
 
-    const file = event.target.files[0]
+        if (!file) return "no file";
 
-    if (!file) return 'no file';
+        if (file.type !== 'application/pdf')
+            return "opsss";
 
-    if (file.size > 1024 * 1024)
-      return 'big size'
+        let formData = new FormData()
+        formData.append('file', file)
 
-    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
-      return 'wrong type';
-
-    let formData = new FormData()
-    formData.append('file', file)
-
-    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
-      headers: { 'content-type': 'multipart/form-data', Authorization: token }
-    }).then(res => {
-        
-        const newInputFields = inputFields.map(i => {
-            if (id === i.id) {
-                i.img6 = res.data.url
-            }
-            return i;
-        })
-        setInputFields(newInputFields);
-    }
-)
-}
-const uploadvid6 = async(id, event) => {
-event.preventDefault()
-
-const file = event.target.files[0]
-
-if (!file) return 'no file';
-
-if (file.type !== 'video/mp4')
-  return 'wrong type';
-
-let formData = new FormData()
-formData.append('file', file)
-
-const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.vid6 = res.data.url
+        const res = await axios.post('/CoursePdf/singleFile', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.pdf4 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
-    }
-)
-}    
-const uploadpdf6 = async(id, event) => {
-event.preventDefault()
-const file = event.target.files[0]
+        )
+    };
+    const uploadimg5 = async (id, event) => {
+        event.preventDefault()
 
-if (!file) return "no file";
+        const file = event.target.files[0]
 
-if (file.type !== 'application/pdf')
-  return "opsss";
+        if (!file) return 'no file';
 
-let formData = new FormData()
-formData.append('file', file)
+        if (file.size > 1024 * 1024)
+            return 'big size'
 
-const res = await axios.post('/CoursePdf/singleFile', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.pdf6 = res.data.url
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+            return 'wrong type';
+
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.img5 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
+        )
     }
-)
-};
-const uploadimg7 = async(id, event) => {
-    event.preventDefault()
+    const uploadvid5 = async (id, event) => {
+        event.preventDefault()
 
-    const file = event.target.files[0]
+        const file = event.target.files[0]
 
-    if (!file) return 'no file';
+        if (!file) return 'no file';
 
-    if (file.size > 1024 * 1024)
-      return 'big size'
+        if (file.type !== 'video/mp4')
+            return 'wrong type';
 
-    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
-      return 'wrong type';
+        let formData = new FormData()
+        formData.append('file', file)
 
-    let formData = new FormData()
-    formData.append('file', file)
-
-    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
-      headers: { 'content-type': 'multipart/form-data', Authorization: token }
-    }).then(res => {
-        
-        const newInputFields = inputFields.map(i => {
-            if (id === i.id) {
-                i.img7 = res.data.url
-            }
-            return i;
-        })
-        setInputFields(newInputFields);
-    }
-)
-}
-const uploadvid7 = async(id, event) => {
-event.preventDefault()
-
-const file = event.target.files[0]
-
-if (!file) return 'no file';
-
-if (file.type !== 'video/mp4')
-  return 'wrong type';
-
-let formData = new FormData()
-formData.append('file', file)
-
-const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.vid7 = res.data.url
+        const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.vid5 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
+        )
     }
-)
-}    
-const uploadpdf7 = async(id, event) => {
-event.preventDefault()
-const file = event.target.files[0]
+    const uploadpdf5 = async (id, event) => {
+        event.preventDefault()
+        const file = event.target.files[0]
 
-if (!file) return "no file";
+        if (!file) return "no file";
 
-if (file.type !== 'application/pdf')
-  return "opsss";
+        if (file.type !== 'application/pdf')
+            return "opsss";
 
-let formData = new FormData()
-formData.append('file', file)
+        let formData = new FormData()
+        formData.append('file', file)
 
-const res = await axios.post('/CoursePdf/singleFile', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.pdf7 = res.data.url
+        const res = await axios.post('/CoursePdf/singleFile', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.pdf5 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
-    }
-)
-};
-const uploadimg8 = async(id, event) => {
-    event.preventDefault()
+        )
+    };
+    const uploadimg6 = async (id, event) => {
+        event.preventDefault()
 
-    const file = event.target.files[0]
+        const file = event.target.files[0]
 
-    if (!file) return 'no file';
+        if (!file) return 'no file';
 
-    if (file.size > 1024 * 1024)
-      return 'big size'
+        if (file.size > 1024 * 1024)
+            return 'big size'
 
-    if (file.type !== 'image/jpeg' && file.type !== 'image/png')
-      return 'wrong type';
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+            return 'wrong type';
 
-    let formData = new FormData()
-    formData.append('file', file)
+        let formData = new FormData()
+        formData.append('file', file)
 
-    const res = await axios.post('/CourseImg/upload_Course_img', formData, {
-      headers: { 'content-type': 'multipart/form-data', Authorization: token }
-    }).then(res => {
-        
-        const newInputFields = inputFields.map(i => {
-            if (id === i.id) {
-                i.img8 = res.data.url
-            }
-            return i;
-        })
-        setInputFields(newInputFields);
-    }
-)
-}
-const uploadvid8 = async(id, event) => {
-event.preventDefault()
+        const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
 
-const file = event.target.files[0]
-
-if (!file) return 'no file';
-
-if (file.type !== 'video/mp4')
-  return 'wrong type';
-
-let formData = new FormData()
-formData.append('file', file)
-
-const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.vid8 = res.data.url
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.img6 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
+        )
     }
-)
-}    
-const uploadpdf8 = async(id, event) => {
-event.preventDefault()
-const file = event.target.files[0]
+    const uploadvid6 = async (id, event) => {
+        event.preventDefault()
 
-if (!file) return "no file";
+        const file = event.target.files[0]
 
-if (file.type !== 'application/pdf')
-  return "opsss";
+        if (!file) return 'no file';
 
-let formData = new FormData()
-formData.append('file', file)
+        if (file.type !== 'video/mp4')
+            return 'wrong type';
 
-const res = await axios.post('/CoursePdf/singleFile', formData, {
-  headers: { 'content-type': 'multipart/form-data', Authorization: token }
-}).then(res => {
-    const newInputFields = inputFields.map(i => {
-        if (id === i.id) {
-            i.pdf8 = res.data.url
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.vid6 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
         }
-        return i;
-    })
-    setInputFields(newInputFields);
+        )
     }
-)
-};
+    const uploadpdf6 = async (id, event) => {
+        event.preventDefault()
+        const file = event.target.files[0]
+
+        if (!file) return "no file";
+
+        if (file.type !== 'application/pdf')
+            return "opsss";
+
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CoursePdf/singleFile', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.pdf6 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
+        }
+        )
+    };
+    const uploadimg7 = async (id, event) => {
+        event.preventDefault()
+
+        const file = event.target.files[0]
+
+        if (!file) return 'no file';
+
+        if (file.size > 1024 * 1024)
+            return 'big size'
+
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+            return 'wrong type';
+
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.img7 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
+        }
+        )
+    }
+    const uploadvid7 = async (id, event) => {
+        event.preventDefault()
+
+        const file = event.target.files[0]
+
+        if (!file) return 'no file';
+
+        if (file.type !== 'video/mp4')
+            return 'wrong type';
+
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.vid7 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
+        }
+        )
+    }
+    const uploadpdf7 = async (id, event) => {
+        event.preventDefault()
+        const file = event.target.files[0]
+
+        if (!file) return "no file";
+
+        if (file.type !== 'application/pdf')
+            return "opsss";
+
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CoursePdf/singleFile', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.pdf7 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
+        }
+        )
+    };
+    const uploadimg8 = async (id, event) => {
+        event.preventDefault()
+
+        const file = event.target.files[0]
+
+        if (!file) return 'no file';
+
+        if (file.size > 1024 * 1024)
+            return 'big size'
+
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+            return 'wrong type';
+
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CourseImg/upload_Course_img', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.img8 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
+        }
+        )
+    }
+    const uploadvid8 = async (id, event) => {
+        event.preventDefault()
+
+        const file = event.target.files[0]
+
+        if (!file) return 'no file';
+
+        if (file.type !== 'video/mp4')
+            return 'wrong type';
+
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CourseVideo/upload_Course_Video', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.vid8 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
+        }
+        )
+    }
+    const uploadpdf8 = async (id, event) => {
+        event.preventDefault()
+        const file = event.target.files[0]
+
+        if (!file) return "no file";
+
+        if (file.type !== 'application/pdf')
+            return "opsss";
+
+        let formData = new FormData()
+        formData.append('file', file)
+
+        const res = await axios.post('/CoursePdf/singleFile', formData, {
+            headers: { 'content-type': 'multipart/form-data', Authorization: token }
+        }).then(res => {
+            const newInputFields = inputFields.map(i => {
+                if (id === i.id) {
+                    i.pdf8 = res.data.url
+                }
+                return i;
+            })
+            setInputFields(newInputFields);
+        }
+        )
+    };
     return (
         <div >
             <br /><br /><br /><br /><br />
@@ -803,12 +787,12 @@ const res = await axios.post('/CoursePdf/singleFile', formData, {
                     <div className="userform" style={{ marginLeft: '-400px', width: '1480px' }}>
                         <MuiThemeProvider>
                             <>
-                            <ul className="progressbar" style={{marginLeft:'1px'}}>
-          <li class="active">Page de garde </li>
-          <li class="active">Introduction</li>
-          <li class="active">Chapitres</li>
-          <li>Conclusion</li>
-  </ul>
+                                <ul className="progressbar" style={{ marginLeft: '1px' }}>
+                                    <li class="active">Page de garde </li>
+                                    <li class="active">Introduction</li>
+                                    <li class="active">Chapitres</li>
+                                    <li>Conclusion</li>
+                                </ul>
                                 <h1>Chapitres</h1>
                                 <div className="row" style={{ marginBottom: '100px' }}>
                                     <div className=" col-sm-12 col-md-6" style={{ height: '290px' }} >
@@ -820,16 +804,14 @@ const res = await axios.post('/CoursePdf/singleFile', formData, {
                                     <div className="col-sm-12 col-md-6">
                                         <p style={{ color: '#0075BA', fontSize: '18px', fontStyle: 'italic', marginTop: '100px' }}>
                                             -As an instructional design tool, 4MAT gives teachers and trainers a systematic
-way to train all learners to think and learn well.<br />
--As a professional development tool, it provides a framework for assessing the quality of any learning experience.
--As an organisational model, it offers a method for creating an environment for continuous learning and development.</p>
+                                            way to train all learners to think and learn well.<br />
+                                            -As a professional development tool, it provides a framework for assessing the quality of any learning experience.
+                                            -As an organisational model, it offers a method for creating an environment for continuous learning and development.</p>
 
                                     </div>
 
-                                </div>                           {inputFields.map(inputField => (
-
-
-
+                                </div>
+                                {inputFields.map(inputField => (
                                     <div className="boxcard" style={{ marginBottom: '50px' }}>
 
                                         <Button
@@ -848,16 +830,11 @@ way to train all learners to think and learn well.<br />
                                             onClick={() => handleRemoveFields(inputField.id)}
 
                                         >-</Button>
-                                        <Button
 
-color="primary"
-variant="contained"
-onClick={handleAddquiz}
 
->+</Button>
+                                        {/*partie chapitre*/}
 
                                         <div className="accordion" id="accordionExample">
-
 
 
                                             <div className="accordion" id="accordionExample">
@@ -915,10 +892,10 @@ onClick={handleAddquiz}
                                                                                 <div className="collapse" id="collapseExampleImg1">
                                                                                     <div className="cardd card-body">
                                                                                         <div className="form-group">
-                                                                                        <input type="file" 
-                                                                                        name="file" 
-                                                                                        id="file_up" 
-                                                                                        onChange={event => uploadimg1(inputField.id , event)} />
+                                                                                            <input type="file"
+                                                                                                name="file"
+                                                                                                id="file_up"
+                                                                                                onChange={event => uploadimg1(inputField.id, event)} />
                                                                                         </div>    </div>
                                                                                 </div>
 
@@ -928,7 +905,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadvid1(inputField.id , event)}
+                                                                                                onChange={event => uploadvid1(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -938,7 +915,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadpdf1(inputField.id, event)}
+                                                                                                onChange={event => uploadpdf1(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -958,7 +935,10 @@ onClick={handleAddquiz}
 
                                                                 </div>
                                                             </div>
-                                                        </div></div></div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div className="accordion" id="accordionExample">
 
                                                 <div className="cardd">
@@ -1018,7 +998,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event => uploadimg2(inputField.id , event)}
+                                                                                                onChange={event => uploadimg2(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1029,7 +1009,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadvid2(inputField.id , event)}
+                                                                                                onChange={event => uploadvid2(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1039,7 +1019,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadpdf2(inputField.id , event)}
+                                                                                                onChange={event => uploadpdf2(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1119,7 +1099,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event => uploadimg3(inputField.id , event)}
+                                                                                                onChange={event => uploadimg3(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1130,7 +1110,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadvid3(inputField.id , event)}
+                                                                                                onChange={event => uploadvid3(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1140,7 +1120,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadpdf3(inputField.id , event)}
+                                                                                                onChange={event => uploadpdf3(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1220,7 +1200,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event => uploadimg4(inputField.id , event)}
+                                                                                                onChange={event => uploadimg4(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1231,7 +1211,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadvid4(inputField.id , event)}
+                                                                                                onChange={event => uploadvid4(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1241,7 +1221,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadpdf4(inputField.id , event)}
+                                                                                                onChange={event => uploadpdf4(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1321,7 +1301,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event => uploadimg5(inputField.id , event)}
+                                                                                                onChange={event => uploadimg5(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1332,7 +1312,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadvid5(inputField.id , event)}
+                                                                                                onChange={event => uploadvid5(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1342,7 +1322,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadpdf5(inputField.id , event)}
+                                                                                                onChange={event => uploadpdf5(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1421,7 +1401,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event => uploadimg6(inputField.id , event)}
+                                                                                                onChange={event => uploadimg6(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1432,7 +1412,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadvid6(inputField.id , event)}
+                                                                                                onChange={event => uploadvid6(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1442,7 +1422,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadpdf6(inputField.id , event)}
+                                                                                                onChange={event => uploadpdf6(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1522,7 +1502,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event => uploadimg7(inputField.id , event)}
+                                                                                                onChange={event => uploadimg7(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1533,7 +1513,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadvid7(inputField.id , event)}
+                                                                                                onChange={event => uploadvid7(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1543,7 +1523,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadpdf7(inputField.id , event)}
+                                                                                                onChange={event => uploadpdf7(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1623,7 +1603,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event => uploadimg8(inputField.id , event)}
+                                                                                                onChange={event => uploadimg8(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1634,7 +1614,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadvid8(inputField.id , event)}
+                                                                                                onChange={event => uploadvid8(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1644,7 +1624,7 @@ onClick={handleAddquiz}
                                                                                             <input type="file"
                                                                                                 name="file"
                                                                                                 id="file_up"
-                                                                                                onChange={event =>uploadpdf8(inputField.id , event)}
+                                                                                                onChange={event => uploadpdf8(inputField.id, event)}
                                                                                             ></input>
                                                                                         </div>    </div>
                                                                                 </div>
@@ -1667,38 +1647,586 @@ onClick={handleAddquiz}
 
                                                         </div></div></div></div>
 
-
                                         </div>
+                                        {/* ----------------------------------------------------------------partie question----------------------------------------------------------*/}
+                                        <div className="accordion" id="accordionExample">
+
+                                            <div className="cardd">
+                                                <div className="cardd-header" id="heading9">
+
+                                                    <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+                                                        <h5>Quiz</h5>
+                                                    </button>
+
+                                                </div>
+                                                <div id="collapse9" className="collapse " aria-labelledby="heading9" data-parent="#accordionExample">
+                                                    <div className="card-body">
+                                                        <div className="row">
+                                                            <div className="card col-sm-12 col-md-12" style={{ backgroundColor: '#F9F7F7' }} >
+                                                                <h5 style={{ color: 'black' }}><b style={{ color: '#A3E4D7', fontSize: '18px' }}> Question 1  </b> </h5>
 
 
+                                                                <div >
+                                                                    {/* Tab 1 */}
 
-                                       { inputquiz.map(inputquizone => (
-    <div>
-         <div className="cardd card-body">
-                                                                                        <div className="form-group">
+                                                                    <div >
+
+                                                                        <>
+
+                                                                            <div className="cardd card-body">
+                                                                                <div className="form-group">
+                                                                                    <textarea
+                                                                                        placeholder=" Type your Question"
+                                                                                        label="queustion 1"
+                                                                                        onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                        name="q1"
+                                                                                        defaultValue=''
+                                                                                        margin="normal"
+                                                                                        fullWidth
+                                                                                    />
+                                                                                    <div className="row mt-1">
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> answer </label>
                                                                                             <textarea
-                                                                                                placeholder=" phase 7"
-                                                                                                label="phase7"
-                                                                                                onChange={event => handleChangein(inputquizone.idd, event)}
-                                                                                                name="text7"
+                                                                                                placeholder=" Type the correct answer"
+                                                                                                label="rv 1"
+                                                                                                onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                                name="rv1"
                                                                                                 defaultValue=''
                                                                                                 margin="normal"
                                                                                                 fullWidth
                                                                                             />
-                                                                                        </div>    </div>
-    </div>
-    ))};
+                                                                                        </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  Answer</label>
+                                                                                            <textarea
+                                                                                                placeholder=" Type other answer"
+                                                                                                label="rf 1"
+                                                                                                onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                                name="rf1"
+                                                                                                defaultValue=''
+                                                                                                margin="normal"
+                                                                                                fullWidth
+                                                                                            />
 
 
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  Answer</label>
+                                                                                            <textarea
+                                                                                                placeholder=" Type other answer"
+                                                                                                label="rf 2"
+                                                                                                onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                                name="rf2"
+                                                                                                defaultValue=''
+                                                                                                margin="normal"
+                                                                                                fullWidth
+                                                                                            />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </>
+
+
+                                                                    </div>
+
+                                                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                        Add question
+                                                                    </a>
+                                                                </div>
+
+                                                                <br />
+                                                                <br />
+
+
+
+                                                                {/* question 2  */}
+                                                                <div class="collapse" id="collapseExample">
+
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#A3E4D7', fontSize: '18px' }}> Question 2 </b> </h5>
+                                                                    <div >
+
+                                                                        <>
+
+                                                                            <div className="cardd card-body">
+                                                                                <div className="form-group">
+                                                                                    <textarea
+                                                                                        placeholder="  Type your Question"
+                                                                                        label="queustion 2"
+                                                                                        onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                        name="q2"
+                                                                                        defaultValue=''
+                                                                                        margin="normal"
+                                                                                        fullWidth
+                                                                                    />
+                                                                                    <div className="row mt-2">
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label><input type="text" className="form-control" name="rv2" id="rv2"
+                                                                                            placeholder="true" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf21" id="rf21"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf22" id="rf22"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </>
+
+
+                                                                    </div>
+
+
+                                                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                        Add question
+                                                                    </a>
+                                                                </div>
+
+                                                                <br />
+                                                                <br />
+
+
+                                                                {/* question 3  */}
+                                                                <div class="collapse" id="collapseExample3">
+
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#A3E4D7', fontSize: '18px' }}> Question 3 </b> </h5>
+                                                                    {/* Tab 1 */}
+
+                                                                    <div >
+
+                                                                        <>
+
+                                                                            <div className="cardd card-body">
+                                                                                <div className="form-group">
+                                                                                    <textarea
+                                                                                        placeholder=" Type your Question"
+                                                                                        label="queustion 3"
+                                                                                        onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                        name="q3"
+                                                                                        defaultValue=''
+                                                                                        margin="normal"
+                                                                                        fullWidth
+                                                                                    />
+
+                                                                                    <div className="row mt-3">
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label><input type="text" className="form-control" name="rv3" id="rv3"
+                                                                                            placeholder="true" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf31" id="rf31"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf32" id="rf32"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </>
+
+
+                                                                    </div>
+
+
+                                                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                        Add question
+                                                                    </a>
+                                                                </div>
+
+                                                                <br />
+                                                                <br />
+                                                                {/* question 4  */}
+
+                                                                <div class="collapse" id="collapseExample4">
+
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#A3E4D7', fontSize: '18px' }}> Question 4 </b> </h5>
+
+
+
+
+                                                                    <div >
+
+                                                                        <>
+
+                                                                            <div className="cardd card-body">
+                                                                                <div className="form-group">
+                                                                                    <textarea
+                                                                                        placeholder="  Type your Question"
+                                                                                        label="queustion 4"
+                                                                                        onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                        name="q4"
+                                                                                        defaultValue=''
+                                                                                        margin="normal"
+                                                                                        fullWidth
+                                                                                    />
+                                                                                    <div className="row mt-4">
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label><input type="text" className="form-control" name="rv4" id="rv4"
+                                                                                            placeholder="true" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf41" id="rf41"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf42" id="rf42"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </>
+
+
+                                                                    </div>
+
+
+                                                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                        Add question
+                                                                    </a>
+                                                                </div>
+
+                                                                <br />
+                                                                <br />
+                                                                {/* question 5  */}
+
+                                                                <div class="collapse" id="collapseExample5">
+
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#A3E4D7', fontSize: '18px' }}> Question 5 </b> </h5>
+
+                                                                    <div >
+
+
+
+
+                                                                        <>
+
+                                                                            <div className="cardd card-body">
+                                                                                <div className="form-group">
+                                                                                    <textarea
+                                                                                        placeholder="  Type your Question"
+                                                                                        label="queustion 5"
+                                                                                        onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                        name="q5"
+                                                                                        defaultValue=''
+                                                                                        margin="normal"
+                                                                                        fullWidth
+                                                                                    />
+                                                                                    <div className="row mt-5">
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label><input type="text" className="form-control" name="rv5" id="rv5"
+                                                                                            placeholder="true" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf51" id="rf51"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf52" id="rf52"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </>
+
+                                                                    </div>
+                                                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                        Add question
+                                                                    </a>
+                                                                </div>
+
+                                                                <br />
+                                                                <br />
+
+                                                                {/* question 6  */}
+
+                                                                <div class="collapse" id="collapseExample6">
+
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#A3E4D7', fontSize: '18px' }}> Question 6 </b> </h5>
+
+
+                                                                    <div >
+
+                                                                        <>
+
+                                                                            <div className="cardd card-body">
+                                                                                <div className="form-group">
+                                                                                    <textarea
+                                                                                        placeholder="  Type your Question"
+                                                                                        label="queustion 6"
+                                                                                        onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                        name="q6"
+                                                                                        defaultValue=''
+                                                                                        margin="normal"
+                                                                                        fullWidth
+                                                                                    />
+
+                                                                                    <div className="row mt-3">
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label><input type="text" className="form-control" name="rv6" id="rv6"
+                                                                                            placeholder="true" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf61" id="rf61"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf62" id="rf62"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </>
+
+
+                                                                    </div>
+
+                                                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample7" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                        Add question
+                                                                    </a>
+                                                                </div>
+
+                                                                <br />
+                                                                <br />
+                                                                {/* question 7  */}
+                                                                <div class="collapse" id="collapseExample7">
+
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#A3E4D7', fontSize: '18px' }}> Question 7</b> </h5>
+
+
+                                                                    <div >
+
+                                                                        <>
+
+                                                                            <div className="cardd card-body">
+                                                                                <div className="form-group">
+                                                                                    <textarea
+                                                                                        placeholder="  Type your Question"
+                                                                                        label="queustion 7"
+                                                                                        onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                        name="q7"
+                                                                                        defaultValue=''
+                                                                                        margin="normal"
+                                                                                        fullWidth
+                                                                                    />
+
+                                                                                    <div className="row mt-3">
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label><input type="text" className="form-control" name="rv7" id="rv7"
+                                                                                            placeholder="true" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf71" id="rf71"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf72" id="rf72"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </>
+
+
+                                                                    </div>
+
+
+                                                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample8" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                        Add question
+                                                                    </a>
+                                                                </div>
+
+                                                                <br />
+                                                                <br />
+                                                                {/* question 8  */}
+                                                                <div class="collapse" id="collapseExample8">
+
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#A3E4D7', fontSize: '18px' }}> Question 8 </b> </h5>
+
+                                                                    <div >
+
+                                                                        <>
+
+                                                                            <div className="cardd card-body">
+                                                                                <div className="form-group">
+                                                                                    <textarea
+                                                                                        placeholder="  Type your Question"
+                                                                                        label="queustion 8"
+                                                                                        onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                        name="q8"
+                                                                                        defaultValue=''
+                                                                                        margin="normal"
+                                                                                        fullWidth
+                                                                                    />
+
+                                                                                    <div className="row mt-3">
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label><input type="text" className="form-control" name="rv8" id="rv8"
+                                                                                            placeholder="true" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf81" id="rf81"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf82" id="rf82"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </>
+
+
+                                                                    </div>
+
+
+                                                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample9" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                        Add question
+                                                                    </a>
+                                                                </div>
+
+                                                                <br />
+                                                                <br />
+                                                                {/* question 9  */}
+                                                                <div class="collapse" id="collapseExample9">
+
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#A3E4D7', fontSize: '18px' }}> Question 9 </b> </h5>
+
+                                                                    <div >
+
+                                                                        <>
+
+                                                                            <div className="cardd card-body">
+                                                                                <div className="form-group">
+                                                                                    <textarea
+                                                                                        placeholder="  Type your Question"
+                                                                                        label="queustion 9"
+                                                                                        onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                        name="q9"
+                                                                                        defaultValue=''
+                                                                                        margin="normal"
+                                                                                        fullWidth
+                                                                                    />
+
+                                                                                    <div className="row mt-3">
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label><input type="text" className="form-control" name="rv9" id="rv9"
+                                                                                            placeholder="true" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf91" id="rf91"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf92" id="rf92"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </>
+
+
+                                                                    </div>
+
+
+                                                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample10" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                        Add question
+                                                                    </a>
+                                                                </div>
+
+                                                                <br />
+                                                                <br />
+                                                                {/* question 10  */}
+                                                                <div class="collapse" id="collapseExample10">
+
+                                                                    <h5 style={{ color: 'black' }}><b style={{ color: '#A3E4D7', fontSize: '18px' }}> Question 10 </b> </h5>
+
+                                                                    <div >
+
+                                                                        <>
+
+                                                                            <div className="cardd card-body">
+                                                                                <div className="form-group">
+                                                                                    <textarea
+                                                                                        placeholder="  Type your Question"
+                                                                                        label="queustion 3"
+                                                                                        onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                        name="q10"
+                                                                                        defaultValue=''
+                                                                                        margin="normal"
+                                                                                        fullWidth
+                                                                                    />
+
+                                                                                    <div className="row mt-3">
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label><input type="text" className="form-control" name="rv10" id="rv10"
+                                                                                            placeholder="true" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf101" id="rf101"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf102" id="rf102"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </>
+
+
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
 
-
-
                                 ))};
-                          <br />
-
-
-
+                                <br />
 
 
                                 <Button
@@ -1709,18 +2237,18 @@ onClick={handleAddquiz}
                                 >Back</Button>
 
                                 <Button
-                                   
+
                                     variant="contained"
                                     onClick={Continue}
-                                    style={{backgroundColor:'#1EA69A',color:'#FFFFFF'}}
+                                    style={{ backgroundColor: '#1EA69A', color: '#FFFFFF' }}
                                 >Continue</Button>
 
-<Button
-            color="warning"
-            variant="contained"
-           onClick={alert}
-            style={{ marginLeft: '20px'}}
-          >cancel</Button>
+                                <Button
+                                    color="warning"
+                                    variant="contained"
+                                    onClick={alert}
+                                    style={{ marginLeft: '20px' }}
+                                >cancel</Button>
 
                                 <br />
 
@@ -1728,8 +2256,6 @@ onClick={handleAddquiz}
                         </MuiThemeProvider>
                     </div>
                 </div>
-
-
 
             </form>
         </div>

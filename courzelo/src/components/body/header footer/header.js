@@ -198,7 +198,7 @@ function Header() {
 
                     </ul>
                   </li>
-                  <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{ marginRight: '30px' }}><Link to="/" className="header-btn btn-hover" >Certifications</Link></li>
+                  <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{ marginRight: '30px' }}><Link to="/Certification" className="header-btn btn-hover" >Certifications</Link></li>
 
                   <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{ marginRight: '30px' }}><Link to="/blog" className="header-btn btn-hover" >Blog</Link></li>
 

@@ -49,6 +49,7 @@ import Header from './header footer/header'
 import Blog from './blog/home'
 import FreeCourses from './courses/GererCours/FreeCourses'
 import PayedCourses from './courses/GererCours/PayedCourses'
+import Certification from './Certification/Certification'
 
 function Body() {
     const auth = useSelector(state => state.auth)
@@ -120,7 +121,7 @@ function Body() {
                 <Route path="/index" component={isAdmin? Index: NotFound} exact/>
 
                 <Route path="/admin" component={Admin} exact />
-
+                <Route path="/certification" component={Certification} exact />
             </Switch>
         </section>
         </>
