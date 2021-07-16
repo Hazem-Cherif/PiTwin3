@@ -7,9 +7,9 @@ const courseCtrl = {
           const idUser=req.user.id;
           
          
-        const {title, author, description, prerequisite, comprendre,subscribe,price, time, validation,introduction,chapitres,conclusion,CourseImg,categorie,pourcentage} = req.body;
+        const {title, author, description, prerequisite, comprendre,subscribe,price, time, validation,introduction,chapitres,conclusion,quiz,CourseImg,categorie,pourcentage} = req.body;
        
-        const courseModel = new CourseModel({ idUser,title, author, description, prerequisite, comprendre,subscribe,price, time, validation,introduction,chapitres,conclusion,CourseImg,categorie,pourcentage })
+        const courseModel = new CourseModel({ idUser,title, author, description, prerequisite, comprendre,subscribe,price, time, validation,introduction,chapitres,conclusion,quiz,CourseImg,categorie,pourcentage })
     
         try {
            
@@ -63,10 +63,10 @@ const courseCtrl = {
     
     updateCourse: async (req, res) => {
         try {
-         const {idUser,title, subscribe,description,introduction,chapitres,conclusion,CourseImg,categorie,pourcentage} = req.body
+         const {idUser,title, subscribe,description,introduction,chapitres,conclusion,quiz,CourseImg,categorie,pourcentage} = req.body
        
          await CourseModel.findOneAndReplace({_id: req.body._id}, {
-             idUser,title, subscribe, description,introduction,chapitres,conclusion,CourseImg,categorie,pourcentage
+             idUser,title, subscribe, description,introduction,chapitres,conclusion,CourseImg,quiz,categorie,pourcentage
          })
          
          res.json({msg: "update Su!"})

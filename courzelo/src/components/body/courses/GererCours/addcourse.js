@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import FormCourseDetails from './FormCourseDetails';
 import Introduction from './introduction';
 import Conclusion from './conclusion';
-import Chapitre from './Chapitre';
 import ChapitresCourzelo from './chapitreCourzelo';
+import Quiz from './Quiz'
 
 import axios from 'axios'
 export class AddCourse extends Component {
@@ -67,6 +67,7 @@ export class AddCourse extends Component {
       filePath4:''
 
     },
+    quiz: [],
     CourseImg: '',
     categorie:'',
     pourcentage: 25
@@ -692,6 +693,15 @@ export class AddCourse extends Component {
     this.setState({...stater,chapitres:this.state.chapitres});
     /*console.log('tttttttt',this.state);*/
    };
+   handleSubmitQuiz =  quiz => {
+    
+    let stater=this.state;
+    
+   this.state.quizs.push(quiz);
+   /*console.log('testetstet',this.state.chapitres);*/
+    this.setState({...stater,quizs:this.state.quizs});
+    /*console.log('tttttttt',this.state);*/
+   };
    uploadHandlerPdf1 = async e => {
     const token = this.props.token;
     const file = e.target.files[0]
@@ -907,15 +917,17 @@ export class AddCourse extends Component {
         );
       case 3:
         return (
-          <ChapitresCourzelo
+          <ChapitresCourzelo // hedha ytbadel
           nextStep={this.nextStep}
           nextPourcentage={this.nextPourcentage}
           prevStep={this.prevStep}
-          handleSubmit={this.handleSubmit}
+          handleSubmit={this.handleSubmit} //hedha ytbadel
           course={course}
           ttoken={this.props.match.params.token}
         />
         );
+
+      
       case 4:
         return (
           <Conclusion
@@ -942,6 +954,17 @@ export class AddCourse extends Component {
           token={this.props.match.params.token}
           />
         );
+        case 5:
+          return (
+            <Quiz // hedha ytbadel
+            nextStep={this.nextStep}
+            nextPourcentage={this.nextPourcentage}
+            prevStep={this.prevStep}
+            handleSubmitQuiz={this.handleSubmitQuiz} //hedha ytbadel
+            course={course}
+            ttoken={this.props.match.params.token}
+          />
+          );
       default:
         (console.log('This is a multi-step form built with React.'))
     }

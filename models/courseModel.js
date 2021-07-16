@@ -71,6 +71,7 @@ const courseSchema = mongoose.Schema({
             img4:String,
             filePath4:String
         },
+        quiz: [],
         categorie:String,
         pourcentage:{
             type: Number,

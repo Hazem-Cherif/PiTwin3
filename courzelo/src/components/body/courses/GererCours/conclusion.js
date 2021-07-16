@@ -55,13 +55,14 @@ export class Conclusion extends Component {
     //e.preventDefault();
     this.props.dispatch(addCourse(this.props.token, this.props.course));
     // dispatch(addCourse(this.props.token,this.props.course));
+    console.log(this.props.course)
 
   };
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
     this.props.nextPourcentage();
-    console.log('hazem bhim',this.props.course.pourcentage)
+    console.log('hazem dhki',this.props.course.pourcentage)
   };
 
   back = e => {
@@ -606,6 +607,12 @@ way to train all learners to think and learn well.<br />
                 onClick={this.back}
                 style={{ marginLeft: '600px' }}
               >Back</Button>
+                 <Button
+                                   
+                                   variant="contained"
+                                   onClick={this.continue}
+                                   style={{backgroundColor:'#1EA69A',color:'#FFFFFF'}}
+                               >Continue</Button>
 
               <Button
              
