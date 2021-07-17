@@ -20,7 +20,7 @@ import './StepForm.css';
 
 
 
-function Quiz({ nextStep, handleSubmit,prevStep,nextPourcentage,course,ttoken}) {
+function Quiz({ nextStep, handleSubmitQuiz,prevStep,nextPourcentage,course,ttoken}) {
    
     const [count, setCount] = useState(1);
   
@@ -55,7 +55,8 @@ function Quiz({ nextStep, handleSubmit,prevStep,nextPourcentage,course,ttoken}) 
        
     }
   
-   
+   console.log('inputFields',inputFields);
+   console.log('course',course)
     const handleRemoveFields = id => {
         const values = [...inputFields];
         values.splice(values.findIndex(value => value.id === id), 1);
@@ -69,7 +70,7 @@ function Quiz({ nextStep, handleSubmit,prevStep,nextPourcentage,course,ttoken}) 
     };
    const handleSubmits = async (dispatch) => {
        alert('hello')
-
+       
    
         const res = await axios.post('/course',course,{headers: {Authorization:ttoken}}).then(res => {
       
@@ -80,7 +81,7 @@ function Quiz({ nextStep, handleSubmit,prevStep,nextPourcentage,course,ttoken}) 
      
     const Continue = e => {
         // e.preventDefault();
-        handleSubmit(inputFields);
+        handleSubmitQuiz(inputFields);
         nextStep();
         nextPourcentage();
        
@@ -134,6 +135,7 @@ alert = e => {
      
         case "catch":
           swal("your", "course have been sauvgarded", "success");
+          handleSubmitQuiz(inputFields);
           handleSubmits();
           window.location = "/Gerercoursemodifsupp";
           

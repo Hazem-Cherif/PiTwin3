@@ -1,4 +1,4 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
+import React, {Fragment,useState,useCallback,useEffect, useRef} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
 import { getCourses } from '../../../../redux/actions/courseAction';
 import {useParams, useHistory} from 'react-router-dom'
@@ -8,6 +8,7 @@ import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import ReactPlayer from 'react-player'
 import { Markup } from 'interweave';
+import './quiz.css';
 
 function Chapitre0Detail() {
   
@@ -55,12 +56,12 @@ function Chapitre0Detail() {
                           </span>
                         </h4>
                         <ul className="section-content">
-                          <li className="course-item course-item-lp_lesson course-item-487 current item-preview has-status" data-type="lp_lesson">
+                          <li className="course-item course-item-lp_lesson course-item-487  item-preview has-status" data-type="lp_lesson">
                             <span className="course-format-icon"><i className="fa fa-file-o" /></span>
                             <div className="meta-rank">
                               <div className="rank"><span className="label">Lecture</span>1.1</div>
                             </div>
-                            <a className="section-item-link" href="index.html">
+                            <a className="section-item-link" href={`/PhaseADetail/${id}`}>
                               <span className="item-name">Phase 1</span>
                               <span className="course-item-meta">
                                 <span className="item-meta duration">30 min</span>
@@ -250,7 +251,97 @@ function Chapitre0Detail() {
                               4. <a href="https://thewpcourse.com/how-coupon-works-in-learnpress-and-eduma/"><em>How Coupon works in LearnPress and Eduma</em></a><br />
                               5. <a href="https://thewpcourse.com/how-to-create-certificate-in-learnpress-and-get-more-students-to-your-course/"><em>How to create Certificate in LearnPress and get more students to your course</em></a></p>
                           </div>
+                          <h3>QUIZ:</h3>
+                        <div className="info_box">
+    <div className="info-title">
+      <span>Some Rules of this Quiz</span>
+    </div>
+    <div className="info-list">
+      <div className="info">
+        1. You will have only <span>15 seconds</span> per each question.
+      </div>
+      <div className="info">
+        2. Once you select your answer, it can't be undone.
+      </div>
+      <div className="info">
+        3. You can't select any option once time goes off.
+      </div>
+      <div className="info">
+        4. You can't exit from the Quiz while you're playing.
+      </div>
+      <div className="info">
+        5. You'll get points on the basis of your correct answers.
+      </div>
+    </div>
+   
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                        Add question
+                                                                    </a>  
+     </div>
+ 
+
+
+  <div className="info_box" class="collapse" id="collapseExample">
+    <div className="info-title">
+      <span>Some Rules of this Quiz</span>
+    </div>
+    <div className="info-list">
+      <div className="info">
+        1. You will have only <span>15 seconds</span> per each question.
+      </div>
+      <div className="info">
+        2. Once you select your answer, it can't be undone.
+      </div>
+      <div className="info">
+        3. You can't select any option once time goes off.
+      </div>
+      <div className="info">
+        4. You can't exit from the Quiz while you're playing.
+      </div>
+      <div className="info">
+        5. You'll get points on the basis of your correct answers.
+      </div>
+    </div>
+    <div className="buttons">
+      <button className="restart">Continue</button>
+    </div>
+  </div>
                         </div>
+                        
+                       
+                        <>
+                        <div className="quiz_box">
+    <header className="ho">
+      <div className="title">Awesome Quiz Application</div>
+      <div className="timer">
+        <div className="time_left_txt">Time Left</div>
+        <div className="timer_sec">15</div>
+      </div>
+      <div className="time_line" />
+    </header>
+    <section className="so">
+      <div className="que_text"></div>
+      <div className="option_list"></div>
+    </section>
+    <footer className="foo">
+      <div className="total_que"></div>
+      <button className="next_btn">Next Que</button>
+    </footer>
+  </div>
+  
+  <div className="result_box">
+    <div className="icon">
+      <i className="fas fa-crown" />
+    </div>
+    <div className="complete_text">You've completed the Quiz!</div>
+    <div className="score_text"></div>
+    <div className="buttons">
+      <button className="restart">Replay Quiz</button>
+      <button className="quit">Quit Quiz</button>
+    </div>
+  </div>
+</>
+
                         <div className="course-item-nav">
                           <div className="next">
                             <span>Next</span>

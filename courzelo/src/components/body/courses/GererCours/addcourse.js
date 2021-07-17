@@ -693,13 +693,13 @@ export class AddCourse extends Component {
     this.setState({...stater,chapitres:this.state.chapitres});
     /*console.log('tttttttt',this.state);*/
    };
-   handleSubmitQuiz =  quiz => {
+   handleSubmitQuiz =  question => {
     
     let stater=this.state;
     
-   this.state.quizs.push(quiz);
+   this.state.quiz.push(question);
    /*console.log('testetstet',this.state.chapitres);*/
-    this.setState({...stater,quizs:this.state.quizs});
+    this.setState({...stater,quizs:this.state.quiz});
     /*console.log('tttttttt',this.state);*/
    };
    uploadHandlerPdf1 = async e => {
@@ -873,8 +873,8 @@ export class AddCourse extends Component {
 
   render() {
     const { step } = this.state;
-    const { title, author, description, prerequisite, comprendre,subscribe,price, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage } = this.state;
-    const course = { title, author, description, prerequisite, comprendre,subscribe,price, introduction,chapitres, conclusion, CourseImg,categorie,pourcentage };
+    const { title, author, description, prerequisite, comprendre,subscribe,price, introduction,chapitres, conclusion,quiz, CourseImg,categorie,pourcentage } = this.state;
+    const course = { title, author, description, prerequisite, comprendre,subscribe,price, introduction,chapitres, conclusion,quiz, CourseImg,categorie,pourcentage };
     switch (step) {
       case 1:
         return (
