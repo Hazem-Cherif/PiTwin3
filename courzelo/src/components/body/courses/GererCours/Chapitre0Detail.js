@@ -23,6 +23,182 @@ function Chapitre0Detail() {
     dispatch(getCourses()); 
   }, [ dispatch]);
  
+  const AfficheSection = async () => {
+   
+    document.getElementById("sec1").style.display = 'none';
+  
+ 
+if (document.getElementById('sec2').style.display == 'none')
+document.getElementById('sec2').style.display = 'block';
+else
+document.getElementById('sec2').style.display = 'none';
+   
+   
+    
+   
+
+ }
+
+const AfficheSection2 = async () => {
+   
+  document.getElementById("sec2").style.display = 'none';
+
+
+if (document.getElementById('sec3').style.display == 'none')
+document.getElementById('sec3').style.display = 'block';
+else
+document.getElementById('sec3').style.display = 'none';
+ 
+ 
+  
+ 
+
+}
+const AfficheSection3 = async () => {
+   
+  document.getElementById("sec3").style.display = 'none';
+
+
+if (document.getElementById('sec4').style.display == 'none')
+document.getElementById('sec4').style.display = 'block';
+else
+document.getElementById('sec4').style.display = 'none';
+ 
+ 
+  
+ 
+
+}
+const AfficheSection4 = async () => {
+   
+  document.getElementById("sec4").style.display = 'none';
+
+
+if (document.getElementById('sec5').style.display == 'none')
+document.getElementById('sec5').style.display = 'block';
+else
+document.getElementById('sec5').style.display = 'none';
+ 
+ 
+  
+ 
+
+}
+const AfficheSection5 = async () => {
+   
+  document.getElementById("sec5").style.display = 'none';
+
+
+if (document.getElementById('sec6').style.display == 'none')
+document.getElementById('sec6').style.display = 'block';
+else
+document.getElementById('sec6').style.display = 'none';
+ 
+ 
+  
+ 
+
+}
+const AfficheSection6 = async () => {
+   
+  document.getElementById("sec6").style.display = 'none';
+
+
+if (document.getElementById('sec7').style.display == 'none')
+document.getElementById('sec7').style.display = 'block';
+else
+document.getElementById('sec7').style.display = 'none';
+ 
+ 
+  
+ 
+
+}
+const AfficheSection7 = async () => {
+   
+  document.getElementById("sec7").style.display = 'none';
+
+
+if (document.getElementById('sec8').style.display == 'none')
+document.getElementById('sec8').style.display = 'block';
+else
+document.getElementById('sec8').style.display = 'none';
+ 
+ 
+  
+ 
+
+}
+const AfficheSection8 = async () => {
+   
+  document.getElementById("sec8").style.display = 'none';
+
+
+if (document.getElementById('sec9').style.display == 'none')
+document.getElementById('sec9').style.display = 'block';
+else
+document.getElementById('sec9').style.display = 'none';
+ 
+ 
+  
+ 
+
+}
+const AfficheSection9 = async () => {
+   
+  document.getElementById("sec9").style.display = 'none';
+
+
+if (document.getElementById('sec10').style.display == 'none')
+document.getElementById('sec10').style.display = 'block';
+else
+document.getElementById('sec10').style.display = 'none';
+ 
+ 
+  
+ 
+
+}
+const AfficheSection10 = async () => {
+   
+  document.getElementById("sec10").style.display = 'none';
+
+
+if (document.getElementById('sec11').style.display == 'none')
+document.getElementById('sec11').style.display = 'block';
+else
+document.getElementById('sec11').style.display = 'none';
+ 
+}
+const AfficheSection11 = async () => {
+   
+  document.getElementById("sec11").style.display = 'none';
+
+
+if (document.getElementById('sec12').style.display == 'none')
+document.getElementById('sec12').style.display = 'block';
+else
+document.getElementById('sec12').style.display = 'none';
+ 
+}
+const Afficheoptioncorrect = async () => {
+   
+  document.getElementById("correct").style.backgroundColor = '#9cd377';
+  document.getElementById("bt").style.display = 'block';
+ 
+}
+const Afficheoptionincorrect1 = async () => {
+  document.getElementById("correct").style.backgroundColor = '#9cd377';
+  document.getElementById("incorrect1").style.backgroundColor = '#f0baba';
+  document.getElementById("bt").style.display = 'block';
+ 
+}
+const Afficheoptionincorrect2 = async () => {
+  document.getElementById("correct").style.backgroundColor = '#9cd377';
+  document.getElementById("incorrect2").style.backgroundColor = '#f0baba';
+  document.getElementById("bt").style.display = 'block';
+ 
+}
     return (
      
         <div >
@@ -213,7 +389,7 @@ function Chapitre0Detail() {
         detailChapitres.map((coursee) => (
           <Fragment>
                   {coursee.n == 0 ?
-                  <div className="course-curriculum" id="learn-press-course-curriculum"   style={{marginTop:'28px',marginLeft:'400px',width:'1420px'}}>
+                  <div className="course-curriculum" id="learn-press-course-curriculum"   style={{marginTop:'28px',marginLeft:'400px',width:'1520px'}}>
                   <div className="content-item-wrap">
                         <div className="learn-press-video-intro thim-lesson-media" style={{height:'550px'}}>
                           <div className="wrapper" >
@@ -235,6 +411,7 @@ function Chapitre0Detail() {
                               <li>Practical assignments at the end of every session.</li>
                               <li>Practical learning experience with live project work and examples.</li>
                             </ul>
+                            
                             <p>Learn how to use <a href="https://wordpress.org/plugins/learnpress/"><strong>LearnPress</strong> </a>WordPress Learning Management System to Create an online course for your own website. Creating courses with LearnPress is easy, fast and convenience. There are many options, features that can fit any of your purpose.</p>
                             <p>LearnPress LMS is the best WordPress LMS Plugin that is being used by more than 20,000 websites, schools, universities and educational institutions around the world.</p>
                             <p>Using LearnPress with a nice theme, you can create online course websites like Udemy, Coursera and other popular onlince course websites. Please read this tutorial: How to create a Udemy or Coursera clone easily with LearnPress: How to create a Udemy or Coursera clone easily with LearnPress</p>
@@ -252,36 +429,7 @@ function Chapitre0Detail() {
                               5. <a href="https://thewpcourse.com/how-to-create-certificate-in-learnpress-and-get-more-students-to-your-course/"><em>How to create Certificate in LearnPress and get more students to your course</em></a></p>
                           </div>
                           <h3>QUIZ:</h3>
-                        <div className="info_box">
-    <div className="info-title">
-      <span>Some Rules of this Quiz</span>
-    </div>
-    <div className="info-list">
-      <div className="info">
-        1. You will have only <span>15 seconds</span> per each question.
-      </div>
-      <div className="info">
-        2. Once you select your answer, it can't be undone.
-      </div>
-      <div className="info">
-        3. You can't select any option once time goes off.
-      </div>
-      <div className="info">
-        4. You can't exit from the Quiz while you're playing.
-      </div>
-      <div className="info">
-        5. You'll get points on the basis of your correct answers.
-      </div>
-    </div>
-   
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                                        Add question
-                                                                    </a>  
-     </div>
- 
-
-
-  <div className="info_box" class="collapse" id="collapseExample">
+                        <div className="info_box" id="sec1">
     <div className="info-title">
       <span>Some Rules of this Quiz</span>
     </div>
@@ -303,54 +451,424 @@ function Chapitre0Detail() {
       </div>
     </div>
     <div className="buttons">
-      <button className="restart">Continue</button>
+      <button className="restart"  onClick = {AfficheSection} >Continue</button>
     </div>
   </div>
+  <div className="info_box" id="sec2" style={{display:'none'}}>
+  <header className="ho">
+    <div className="title">Awesome Quiz Application</div>
+    <div className="timer">
+      <div className="time_left_txt">Time Left</div>
+      <div className="timer_sec">15</div>
+    </div>
+    <div className="time_line" />
+  </header>
+  <section className="so">
+    <div className="que_text">
+    1. {coursee.q1}
+    </div>
+    <div className="option_list"  onClick = {Afficheoptioncorrect}>
+      <div className="option" id="correct">
+        <b>{coursee.rv1}</b>
+      
+    </div>
+    </div>
+    <div className="option_list"  onClick = {Afficheoptionincorrect1}>
+    <div className="option" id="incorrect1">
+    <b>{coursee.rf1}</b>
+    </div>
+    </div>
+    <div className="option_list"  onClick = {Afficheoptionincorrect2}>
+    <div className="option" id="incorrect2">
+    <b>{coursee.rf2}</b>
+    </div>
+    </div>
+    <div className="buttons" style={{marginTop:'40px'}}>
+      <button style={{marginTop:'80px',display:'none'}} className="restart" id="bt" onClick = {AfficheSection2}  >Next Que</button>
+    </div>
+    <div class="total_que">
+                1 of 10 Question
+            </div>
+  </section>
+    
+    </div>
+    <div className="info_box" id="sec3" style={{display:'none'}}>
+  <header className="ho">
+    <div className="title">Awesome Quiz Application</div>
+    <div className="timer">
+      <div className="time_left_txt">Time Left</div>
+      <div className="timer_sec">15</div>
+    </div>
+    <div className="time_line" />
+  </header>
+  <section className="so">
+    <div className="que_text">
+    2. {coursee.q2}
+    </div>
+    <div className="option_list">
+      <div className="option">
+        <b>{coursee.rv2}</b>
+      
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf21}</b>
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf22}</b>
+    </div>
+    </div>
+    <div className="buttons" style={{marginTop:'40px'}}>
+      <button style={{marginTop:'80px'}} className="restart"  onClick = {AfficheSection3} >Next Que</button>
+    </div>
+    <div class="total_que">
+                2 of 10 Question
+            </div>
+  </section>
+    
+    </div>
+    <div className="info_box" id="sec4" style={{display:'none'}}>
+  <header className="ho">
+    <div className="title">Awesome Quiz Application</div>
+    <div className="timer">
+      <div className="time_left_txt">Time Left</div>
+      <div className="timer_sec">15</div>
+    </div>
+    <div className="time_line" />
+  </header>
+  <section className="so">
+    <div className="que_text">
+    3. {coursee.q3}
+    </div>
+    <div className="option_list">
+      <div className="option">
+        <b>{coursee.rf31}</b>
+      
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf32}</b>
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rv3}</b>
+    </div>
+    </div>
+    <div className="buttons" style={{marginTop:'40px'}}>
+      <button style={{marginTop:'80px'}} className="restart"  onClick = {AfficheSection4} >Next Que</button>
+    </div>
+    <div class="total_que">
+                3 of 10 Question
+            </div>
+  </section>
+    
+    </div>
+    <div className="info_box" id="sec5" style={{display:'none'}}>
+  <header className="ho">
+    <div className="title">Awesome Quiz Application</div>
+    <div className="timer">
+      <div className="time_left_txt">Time Left</div>
+      <div className="timer_sec">15</div>
+    </div>
+    <div className="time_line" />
+  </header>
+  <section className="so">
+    <div className="que_text">
+    4. {coursee.q4}
+    </div>
+    <div className="option_list">
+      <div className="option">
+        <b>{coursee.rf41}</b>
+      
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rv4}</b>
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf42}</b>
+    </div>
+    </div>
+    <div className="buttons" style={{marginTop:'40px'}}>
+      <button style={{marginTop:'80px'}} className="restart"  onClick = {AfficheSection5} >Next Que</button>
+    </div>
+    <div class="total_que">
+                4 of 10 Question
+            </div>
+  </section>
+    
+    </div>
+    <div className="info_box" id="sec6" style={{display:'none'}}>
+  <header className="ho">
+    <div className="title">Awesome Quiz Application</div>
+    <div className="timer">
+      <div className="time_left_txt">Time Left</div>
+      <div className="timer_sec">15</div>
+    </div>
+    <div className="time_line" />
+  </header>
+  <section className="so">
+    <div className="que_text">
+    5. {coursee.q5}
+    </div>
+    <div className="option_list">
+      <div className="option">
+        <b>{coursee.rv5}</b>
+      
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf51}</b>
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf52}</b>
+    </div>
+    </div>
+    <div className="buttons" style={{marginTop:'40px'}}>
+      <button style={{marginTop:'80px'}} className="restart"  onClick = {AfficheSection6} >Next Que</button>
+    </div>
+    <div class="total_que">
+                5 of 10 Question
+            </div>
+  </section>
+    
+    </div>
+    <div className="info_box" id="sec7" style={{display:'none'}}>
+  <header className="ho">
+    <div className="title">Awesome Quiz Application</div>
+    <div className="timer">
+      <div className="time_left_txt">Time Left</div>
+      <div className="timer_sec">15</div>
+    </div>
+    <div className="time_line" />
+  </header>
+  <section className="so">
+    <div className="que_text">
+    6. {coursee.q1}
+    </div>
+    <div className="option_list">
+      <div className="option">
+        <b>{coursee.rv1}</b>
+      
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf1}</b>
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf1}</b>
+    </div>
+    </div>
+    <div className="buttons" style={{marginTop:'40px'}}>
+      <button style={{marginTop:'80px'}} className="restart"  onClick = {AfficheSection7} >Next Que</button>
+    </div>
+    <div class="total_que">
+                6 of 10 Question
+            </div>
+  </section>
+    
+    </div>
+    <div className="info_box" id="sec8" style={{display:'none'}}>
+  <header className="ho">
+    <div className="title">Awesome Quiz Application</div>
+    <div className="timer">
+      <div className="time_left_txt">Time Left</div>
+      <div className="timer_sec">15</div>
+    </div>
+    <div className="time_line" />
+  </header>
+  <section className="so">
+    <div className="que_text">
+    7. {coursee.q1}
+    </div>
+    <div className="option_list">
+      <div className="option">
+        <b>{coursee.rv1}</b>
+      
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf1}</b>
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf1}</b>
+    </div>
+    </div>
+    <div className="buttons" style={{marginTop:'40px'}}>
+      <button style={{marginTop:'80px'}} className="restart"  onClick = {AfficheSection8} >Next Que</button>
+    </div>
+    <div class="total_que">
+                7 of 10 Question
+            </div>
+  </section>
+    
+    </div>
+    <div className="info_box" id="sec9" style={{display:'none'}}>
+  <header className="ho">
+    <div className="title">Awesome Quiz Application</div>
+    <div className="timer">
+      <div className="time_left_txt">Time Left</div>
+      <div className="timer_sec">15</div>
+    </div>
+    <div className="time_line" />
+  </header>
+  <section className="so">
+    <div className="que_text">
+    8. {coursee.q1}
+    </div>
+    <div className="option_list">
+      <div className="option">
+        <b>{coursee.rv1}</b>
+      
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf1}</b>
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf1}</b>
+    </div>
+    </div>
+    <div className="buttons" style={{marginTop:'40px'}}>
+      <button style={{marginTop:'80px'}} className="restart"  onClick = {AfficheSection9} >Next Que</button>
+    </div>
+    <div class="total_que">
+                8 of 10 Question
+            </div>
+  </section>
+    
+    </div>
+    <div className="info_box" id="sec10" style={{display:'none'}}>
+  <header className="ho">
+    <div className="title">Awesome Quiz Application</div>
+    <div className="timer">
+      <div className="time_left_txt">Time Left</div>
+      <div className="timer_sec">15</div>
+    </div>
+    <div className="time_line" />
+  </header>
+  <section className="so">
+    <div className="que_text">
+    9. {coursee.q1}
+    </div>
+    <div className="option_list">
+      <div className="option">
+        <b>{coursee.rv1}</b>
+      
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf1}</b>
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf1}</b>
+    </div>
+    </div>
+    <div className="buttons" style={{marginTop:'40px'}}>
+      <button style={{marginTop:'80px'}} className="restart"  onClick = {AfficheSection10} >Next Que</button>
+    </div>
+    <div class="total_que">
+                9 of 10 Question
+            </div>
+  </section>
+    
+    </div>
+
+    <div className="info_box" id="sec11" style={{display:'none'}}>
+  <header className="ho">
+    <div className="title">Awesome Quiz Application</div>
+    <div className="timer">
+      <div className="time_left_txt">Time Left</div>
+      <div className="timer_sec">15</div>
+    </div>
+    <div className="time_line" />
+  </header>
+  <section className="so">
+    <div className="que_text">
+    10. {coursee.q1}
+    </div>
+    <div className="option_list">
+      <div className="option">
+        <b>{coursee.rv1}</b>
+      
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf1}</b>
+    </div>
+    </div>
+    <div className="option_list">
+    <div className="option">
+    <b>{coursee.rf12}</b>
+    </div>
+    </div>
+    <div className="buttons" style={{marginTop:'40px'}}>
+      <button style={{marginTop:'80px'}} className="restart"  onClick = {AfficheSection11} >Next Que</button>
+    </div>
+    <div class="total_que">
+                10 of 10 Question
+            </div>
+  </section>
+    
+    </div>
+
+  
+    <div class="info_box" id="sec12" style={{display:'none'}}>
+        <div class="icon" style={{marginTop:'50px',marginLeft:'300px'}}>
+            <i class="fas fa-crown"></i>
+        </div>
+        <div className="info-title" style={{marginLeft:'170px'}}>
+      <span>You've completed the Quiz!</span>
+     
+    </div>
+    <div className="info-title" style={{marginLeft:'170px'}}>
+     
+      <span>You got 3 out of 5</span>
+    </div>
+        
+        
+       
+    </div>
+
                         </div>
                         
                        
-                        <>
-                        <div className="quiz_box">
-    <header className="ho">
-      <div className="title">Awesome Quiz Application</div>
-      <div className="timer">
-        <div className="time_left_txt">Time Left</div>
-        <div className="timer_sec">15</div>
-      </div>
-      <div className="time_line" />
-    </header>
-    <section className="so">
-      <div className="que_text"></div>
-      <div className="option_list"></div>
-    </section>
-    <footer className="foo">
-      <div className="total_que"></div>
-      <button className="next_btn">Next Que</button>
-    </footer>
-  </div>
-  
-  <div className="result_box">
-    <div className="icon">
-      <i className="fas fa-crown" />
-    </div>
-    <div className="complete_text">You've completed the Quiz!</div>
-    <div className="score_text"></div>
-    <div className="buttons">
-      <button className="restart">Replay Quiz</button>
-      <button className="quit">Quit Quiz</button>
-    </div>
-  </div>
-</>
+            
 
-                        <div className="course-item-nav">
+                       
+                      </div>
+                      <br/><br/><br/><br/>
+                      <div className="course-item-nav">
                           <div className="next">
                             <span>Next</span>
                             <a href={`/PhaseGDetail/${id}`}>
                               Phase 2</a>
                           </div>
                         </div>
-                      </div>
-                   
                   </div>
                   :<div></div>}
                   </Fragment>

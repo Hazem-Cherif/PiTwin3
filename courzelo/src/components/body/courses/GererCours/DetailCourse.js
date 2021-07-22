@@ -367,7 +367,33 @@ document.getElementById("myButton1").value="already subscribed";
             
             
            </ul>
-         </li> </ul>
+         </li> 
+         <li className="section" id="section-231" data-id={231}>
+           <h4 className="section-header">
+             <span className="collapse" />
+             Step 4&nbsp;
+             <span className="section-description">quiz</span>
+             <span className="meta">
+               <span className="step">
+                 0/3</span>
+             </span>
+           </h4>
+           <ul className="section-content">
+            
+             <li className="course-item course-item-lp_lesson course-item-464 item-locked" data-type="lp_lesson">
+               <span className="course-format-icon"><i className="fa fa-file-o" /></span>
+              
+               <div className="section-item-link">
+                { <span className="item-name">quiz</span>}
+                 <span className="course-item-meta">
+                 <button className="lp-label lp-label-preview" style={{backgroundColor:'#1EA69A',marginLeft:'-170px'}} type="button" >
+                 <Link to={`/QuizDetail/${id}`} >Preview</Link> 
+                                                             </button>
+                 </span>
+               </div>
+             </li>
+           </ul>
+         </li></ul>
      </div>
      
                    

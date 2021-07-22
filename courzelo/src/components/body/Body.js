@@ -36,6 +36,8 @@ import PhaseEDetail from './courses/GererCours/PhaseEDetail';
 import PhaseFDetail from './courses/GererCours/PhaseFDetail';
 import PhaseGDetail from './courses/GererCours/PhaseGDetail';
 import PhaseHDetail from './courses/GererCours/PhaseHDetail';
+import QuizDetail from './courses/GererCours/QuizDetail';
+
 import Chapitre0Detail from './courses/GererCours/Chapitre0Detail';
 import Chapitre1Detail from './courses/GererCours/Chapitre1Detail';
 import Chapitre2Detail from './courses/GererCours/Chapitre2Detail';
@@ -98,6 +100,7 @@ function Body() {
                 <Route path="/PhaseGDetail/:id" component={isLogged ? PhaseGDetail : NotFound} exact />
                 <Route path="/PhaseHDetail/:id" component={isLogged ? PhaseHDetail : NotFound} exact />
 
+                <Route path="/QuizDetail/:id" component={isLogged ? QuizDetail : NotFound} exact />
                 <Route path="/Chapitre0Detail/:id" component={isLogged ? Chapitre0Detail : NotFound} exact />
                 <Route path="/Chapitre1Detail/:id" component={isLogged ? Chapitre1Detail : NotFound} exact />
                 <Route path="/Chapitre2Detail/:id" component={isLogged ? Chapitre2Detail : NotFound} exact />
