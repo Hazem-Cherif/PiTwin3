@@ -24,9 +24,16 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
         { id: uuidv4(), n: 0, text1: '', img1: '', vid1: '', pdf1: '', text2: '', img2: '',
          vid2: '', pdf2: '', text3: '', img3: '', vid3: '', pdf3: '', text4: '', img4: '', vid4: '',
           pdf4: '', text5: '', img5: '', vid5: '', pdf5: '', text6: '', img6: '', vid6: '', pdf6: '', text7: '',
-           img7: '', vid7: '', pdf7: '', text8: '', img8: '', vid8: '', pdf8: '', q1: '', rv1: '', rf11: '', rf12: '', 
-           q2: '', rv2: '', rf21: '', rf22: '', q3: '', rv3: '', rf31: '', rf32: '', q4: '', rv4: '', rf41: '',
-            rf42: '', q5: '', rv5: '', rf51: '', rf52: '' },
+           img7: '', vid7: '', pdf7: '', text8: '', img8: '', vid8: '', pdf8: '', q1: '', rv1: '', rf11: '', rf12: '',
+           q2: '', rv2: '', rf21: '', rf22: ''
+           , q3: '', rv3: '', rf31: '', rf32: ''
+           , q4: '', rv4: '', rf41: '', rf42: ''
+           , q5: '', rv5: '', rf51: '', rf52: ''
+           , q6: '', rv6: '', rf61: '', rf62: ''
+           , q7: '', rv7: '', rf71: '', rf72: ''
+           , q8: '', rv8: '', rf81: '', rf82: ''
+           , q9: '', rv9: '', rf91: '', rf92: ''
+           , q10: '', rv10: '', rf101: '', rf102: '' },
     ]);
 
 
