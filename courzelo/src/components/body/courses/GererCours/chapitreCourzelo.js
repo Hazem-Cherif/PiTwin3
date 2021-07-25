@@ -24,16 +24,17 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
         { id: uuidv4(), n: 0, text1: '', img1: '', vid1: '', pdf1: '', text2: '', img2: '',
          vid2: '', pdf2: '', text3: '', img3: '', vid3: '', pdf3: '', text4: '', img4: '', vid4: '',
           pdf4: '', text5: '', img5: '', vid5: '', pdf5: '', text6: '', img6: '', vid6: '', pdf6: '', text7: '',
-           img7: '', vid7: '', pdf7: '', text8: '', img8: '', vid8: '', pdf8: '', q1: '', rv1: '', rf11: '', rf12: '',
-           q2: '', rv2: '', rf21: '', rf22: ''
-           , q3: '', rv3: '', rf31: '', rf32: ''
-           , q4: '', rv4: '', rf41: '', rf42: ''
-           , q5: '', rv5: '', rf51: '', rf52: ''
-           , q6: '', rv6: '', rf61: '', rf62: ''
-           , q7: '', rv7: '', rf71: '', rf72: ''
-           , q8: '', rv8: '', rf81: '', rf82: ''
-           , q9: '', rv9: '', rf91: '', rf92: ''
-           , q10: '', rv10: '', rf101: '', rf102: '' },
+           img7: '', vid7: '', pdf7: '', text8: '', img8: '', vid8: '', pdf8: '',
+            q1: '', rv1: '', rf11: '', rf12: '', rf13: '',
+           q2: '', rv2: '', rf21: '', rf22: '', rf22: ''
+           , q3: '', rv3: '', rf31: '', rf32: '', rf33: ''
+           , q4: '', rv4: '', rf41: '', rf42: '', rf43: ''
+           , q5: '', rv5: '', rf51: '', rf52: '', rf53: ''
+           , q6: '', rv6: '', rf61: '', rf62: '', rf63: ''
+           , q7: '', rv7: '', rf71: '', rf72: '', rf73: ''
+           , q8: '', rv8: '', rf81: '', rf82: '', rf83: ''
+           , q9: '', rv9: '', rf91: '', rf92: '', rf93: ''
+           , q10: '', rv10: '', rf101: '', rf102: '' , rf103: ''},
     ]);
 
 
@@ -58,16 +59,17 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
             pdf4: '', text5: '', img5: '',
             vid5: '', pdf5: '', text6: '', img6: '', vid6: '', 
             pdf6: '', text7: '', img7: '', vid7: '', pdf7: '', text8: '',
-            img8: '', vid8: '', pdf8: '', q1: '', rv1: '', rf11: '', rf12: '',
-            q2: '', rv2: '', rf21: '', rf22: ''
-            , q3: '', rv3: '', rf31: '', rf32: ''
-            , q4: '', rv4: '', rf41: '', rf42: ''
-            , q5: '', rv5: '', rf51: '', rf52: ''
-            , q6: '', rv6: '', rf61: '', rf62: ''
-            , q7: '', rv7: '', rf71: '', rf72: ''
-            , q8: '', rv8: '', rf81: '', rf82: ''
-            , q9: '', rv9: '', rf91: '', rf92: ''
-            , q10: '', rv10: '', rf101: '', rf102: ''
+            img8: '', vid8: '', pdf8: '',
+            q1: '', rv1: '', rf11: '', rf12: '', rf13: '',
+            q2: '', rv2: '', rf21: '', rf22: '', rf22: ''
+            , q3: '', rv3: '', rf31: '', rf32: '', rf33: ''
+            , q4: '', rv4: '', rf41: '', rf42: '', rf43: ''
+            , q5: '', rv5: '', rf51: '', rf52: '', rf53: ''
+            , q6: '', rv6: '', rf61: '', rf62: '', rf63: ''
+            , q7: '', rv7: '', rf71: '', rf72: '', rf73: ''
+            , q8: '', rv8: '', rf81: '', rf82: '', rf83: ''
+            , q9: '', rv9: '', rf91: '', rf92: '', rf93: ''
+            , q10: '', rv10: '', rf101: '', rf102: '' , rf103: ''
         }])
     }
     const handleRemoveFields = id => {
@@ -805,7 +807,8 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
                                     <li class="active">Page de garde </li>
                                     <li class="active">Introduction</li>
                                     <li class="active">Chapitres</li>
-                                    <li>Conclusion</li>
+                                    <li >Conclusion</li>
+                                    <li>QUIZ</li>
                                 </ul>
                                 <h1>Chapitres</h1>
                                 <div className="row" style={{ marginBottom: '100px' }}>
@@ -1736,6 +1739,18 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
                                                                                                 fullWidth
                                                                                             />
                                                                                         </div>
+
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  Answer</label>
+                                                                                            <textarea
+                                                                                                placeholder=" Type other answer"
+                                                                                                label="rf 3"
+                                                                                                onChange={event => handleChangeInput(inputField.id, event)}
+                                                                                                name="rf3"
+                                                                                                defaultValue=''
+                                                                                                margin="normal"
+                                                                                                fullWidth
+                                                                                            />
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
 
@@ -1778,15 +1793,22 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
                                                                                     />
                                                                                     <div className="row mt-2">
 
-                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label><input type="text" className="form-control" name="rv2" id="rv2"
+                                                                                        <div className="col-md-4"><label className="font-weight-bold"> true </label>
+                                                                                        <input type="text" className="form-control" name="rv2" id="rv2"
                                                                                             placeholder="true" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
 
-                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf21" id="rf21"
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">false</label>
+                                                                                        <input type="text" className="form-control" name="rf21" id="rf21"
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
 
                                                                                         </div>
-                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf22" id="rf22"
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label>
+                                                                                        <input type="text" className="form-control" name="rf22" id="rf22"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label>
+                                                                                        <input type="text" className="form-control" name="rf23" id="rf23"
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
                                                                                     </div>
@@ -1844,6 +1866,9 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
                                                                                         <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf32" id="rf32"
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf33" id="rf33"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
 
@@ -1897,6 +1922,9 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
 
                                                                                         </div>
                                                                                         <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf42" id="rf42"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf43" id="rf43"
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
                                                                                     </div>
@@ -1954,6 +1982,9 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
                                                                                         <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf52" id="rf52"
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf53" id="rf53"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
 
@@ -2004,6 +2035,9 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
 
                                                                                         </div>
                                                                                         <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf62" id="rf62"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf63" id="rf63"
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
                                                                                     </div>
@@ -2058,6 +2092,9 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
                                                                                         <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf72" id="rf72"
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf73" id="rf73"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
 
@@ -2108,6 +2145,9 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
 
                                                                                         </div>
                                                                                         <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf82" id="rf82"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf83" id="rf83"
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
                                                                                     </div>
@@ -2162,6 +2202,9 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
                                                                                         <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf92" id="rf92"
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf93" id="rf93"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
 
@@ -2212,6 +2255,9 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
 
                                                                                         </div>
                                                                                         <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf102" id="rf102"
+                                                                                            placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
+                                                                                        <div className="col-md-4"><label className="font-weight-bold">  false</label><input type="text" className="form-control" name="rf103" id="rf103"
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
                                                                                     </div>

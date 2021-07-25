@@ -8,6 +8,7 @@ function Courses() {
   const categories = useSelector((state) => state.categories);
   console.log('categorie',categories);
   const courses = useSelector((state) => state.courses);
+
   console.log('courses',courses)
   const dispatch = useDispatch();
 
@@ -438,56 +439,39 @@ const cartCourseOther = (
 
                 
               </ul>
-              
-                           
-            </aside><aside id="thim-recent-courses-3" className="widget widget_thim-recent-courses"><h4 className="widget-title">Latest Courses</h4> <div className="thim-recent-courses-widget">
+             </aside>
+
+            <aside id="thim-recent-courses-3" className="widget widget_thim-recent-courses"><h4 className="widget-title">Latest Courses</h4> <div className="thim-recent-courses-widget">
                 <ul className="recent-courses-wrapper">
+                {courses.map((course, index) => (
+                    index > courses.length -4 ? 
+                    
+
                   <li className="course-item">
                     <div className="feature-img">
-                      <img width={109} height={109} src="../wp-content/uploads/sites/5/2017/06/Half-Marathon-2014-70-1-109x109.jpg" alt="The Ultimate Ethical Hacking Boot Camp" className />
+                      <img width={109} height={109} src={course.CourseImg}  className />
                       <a href="the-ultimate-ethical-hacking-boot-camp/index.html" className="img-link" /> </div>
                     <div className="content">
                       <h4 className="title">
-                        <a href="the-ultimate-ethical-hacking-boot-camp/index.html">The Ultimate Ethical Hacking Boot Camp</a>
+                        <a >{course.title}</a>
                       </h4>
                       <div className="price">
                         
                       </div>
                     </div>
                   </li>
-                  <li className="course-item">
-                    <div className="feature-img">
-                      <img width={109} height={109} src="../wp-content/uploads/sites/5/2017/08/layer-86-e1503482220669-109x109.jpg" alt="Affiliate Marketing – A Beginner’s Guide" className />
-                      <a href="affiliate-marketing-a-beginners-guide/index.html" className="img-link" /> </div>
-                    <div className="content">
-                      <h4 className="title">
-                        <a href="affiliate-marketing-a-beginners-guide/index.html">Affiliate Marketing – A Beginner’s Guide</a>
-                      </h4>
-                      <div className="price" />
-                    </div>
-                  </li>
-                  <li className="course-item">
-                    <div className="feature-img">
-                      <img width={109} height={109} src="../wp-content/uploads/sites/5/2017/06/shutterstock_184641842-5-e1503481994491-109x109.jpg" alt="AWS Certified Solutions  Architect" className />
-                      
-                      <a href="aws-certified-solutions-architect/index.html" className="img-link" /> </div>
-                    <div className="content">
-                      <h4 className="title">
-                        <a href="aws-certified-solutions-architect/index.html">AWS Certified Solutions Architect</a>
-                      </h4>
-                      <div className="price">
-                      
-                      </div>
-                    </div>
-                  </li>
+                  :<div></div>
+                   ))}
+                
                 </ul>
               </div>
             </aside>
-            <aside id="media_image-3" className="widget widget_media_image"></aside> <aside id="recent-posts-3" className="widget widget_recent_entries">
-               
-            </aside>
+            <aside id="media_image-3" className="widget widget_media_image"></aside>
+             <aside id="recent-posts-3" className="widget widget_recent_entries"></aside>
           </aside>
-        </div></div> </section>
+         </div>
+        </div> 
+        </section>
   </div>
  
 

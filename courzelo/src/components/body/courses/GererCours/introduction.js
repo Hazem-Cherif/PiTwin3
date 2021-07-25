@@ -117,6 +117,7 @@ export class Introduction extends Component {
           <li class="active">Introduction</li>
           <li>Chapitres</li>
           <li>Conclusion</li>
+          <li>Quiz</li>
   </ul>
               <h1 style={{ marginBottom: '50px' }}>Introduction</h1>
               <div className="row" style={{ marginBottom: '150px' }}>

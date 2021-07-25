@@ -16,7 +16,7 @@ import swal from 'sweetalert';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import axios from 'axios'
 import './StepForm.css';
-
+import './bareeProgression.css'
 
 
 
@@ -25,7 +25,7 @@ function Quiz({ nextStep, handleSubmitQuiz,prevStep,nextPourcentage,course,ttoke
     const [count, setCount] = useState(1);
   
     const [inputFields, setInputFields] = useState([
-        { id: uuidv4(),n:0, question: '' , correctanwser:'', wrong1:'', wrong2:''  },
+        { id: uuidv4(),n:0, question: '' , correctanwser:'', wrong1:'', wrong2:'' , wrong3:''  },
     ]);
     
 
@@ -51,7 +51,7 @@ function Quiz({ nextStep, handleSubmitQuiz,prevStep,nextPourcentage,course,ttoke
        setCount(count + 1);
       console.log(count);
      
-        setInputFields([...inputFields, { id: uuidv4(),n:0, question: '' , correctanwser:'', wrong1:'', wrong2:''  }])
+        setInputFields([...inputFields, { id: uuidv4(),n:0, question: '' , correctanwser:'', wrong1:'', wrong2:'', wrong3:''   }])
        
     }
   
@@ -164,7 +164,8 @@ alert = e => {
           <li class="active">Page de garde </li>
           <li class="active">Introduction</li>
           <li class="active">Chapitres</li>
-          <li>Conclusion</li>
+          <li class="active">Conclusion</li>
+          <li>quiz</li>
   </ul>
                                 <h1>QUIZ</h1>
                                                         {inputFields.map(inputField => (
@@ -260,6 +261,18 @@ alert = e => {
                                                     onChange={event => handleChangeInput(inputField.id, event)}
 
                                                     name="wrong2"
+                                                    defaultValue=''
+                                                    margin="normal"
+                                                    fullWidth
+                                                />
+                                            </div>
+                                            <div className="col-md-4"><label className="font-weight-bold">  Answer</label>
+                                                <textarea
+                                                    placeholder=" Type other answer"
+                                                    label="wrong3"
+                                                    onChange={event => handleChangeInput(inputField.id, event)}
+
+                                                    name="wrong3"
                                                     defaultValue=''
                                                     margin="normal"
                                                     fullWidth

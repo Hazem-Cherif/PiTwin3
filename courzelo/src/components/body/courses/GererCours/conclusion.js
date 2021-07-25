@@ -125,6 +125,7 @@ export class Conclusion extends Component {
           <li class="active">Introduction</li>
           <li class="active">Chapitres</li>
           <li class="active">Conclusion</li>
+          <li class="active">Quiz</li>
   </ul>
               <h1 style={{ marginBottom: '50px' }}>Conclusion</h1>
               <div className="row" style={{ marginBottom: '150px' }}>

@@ -205,6 +205,7 @@ export class FormCourseDetails extends Component {
           <li>Introduction</li>
           <li>Chapitres</li>
           <li>Conclusion</li>
+          <li>Quiz</li>
   </ul>
        
           <div className="row">
