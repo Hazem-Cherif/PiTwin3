@@ -1,44 +1,93 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
-import { getAllCoursesById,getCourses, deleteCourse,updateCourse,updateCoursesubscribe } from '../../../../redux/actions/courseAction';
+import {getCourses  } from '../../../../redux/actions/courseAction';
 import {useParams, useHistory, Link} from 'react-router-dom'
-import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
-import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
-import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
-import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import ReactPlayer from 'react-player'
-import { Markup } from 'interweave';
 import axios from 'axios'
+import swal from 'sweetalert';
+import { getAllCoursesByUser } from '../../../../redux/actions/panierAction';
 
 
 
 function DetailCourse() {
-  
-  const {id} = useParams();
-  
- 
-  const courses = useSelector((state) => state.courses);
+  const auth = useSelector(state => state.auth)
 
-  console.log('courses')
+  const {id} = useParams();
+  const { user } = auth;
+  const token = useSelector(state => state.token)
+  const courses = useSelector((state) => state.courses);
+  const paniers = useSelector((state) => state.paniers);
+console.log("sdgqdfsqdfsdfqsf",paniers)
   const dispatch = useDispatch();
   
-
   useEffect(() => {
-    dispatch(getCourses()); 
+    dispatch(getCourses(), getAllCoursesByUser(token) ); 
   }, [ dispatch]);
  
-  
-    const subscribe = async () => {
-    const res = await axios.patch(`/course/updateCoursesubscribe/${id}`, {
+  const subscribe = async () => {
+  const res = await axios.patch(`/course/updateCoursesubscribe/${id}`, {
       subscribe:1
   })
-      console.log('text5');
     
 document.getElementById("myButton1").value="already subscribed";
  }
 
-  
+ const submitHandler = async (e) => {
+  if(courses.length !== 0){
+    courses.forEach(course => {
+          if(course._id === id){
+            const newCourse = {
+              idUser: user._id,
+              idCourse: id,
+              title:course.title ,
+              time: course.time,
+              CourseImg: course.CourseImg,
+              price :course.price,   
+              
+          }
+          try {
+             axios.post("/panier", newCourse ,{
+              headers: {Authorization: token}
+          });
+            window.location.reload();
+          } catch (err) {}
+        }
+      }
+  )
  
+ }
+}
+ 
+const alert = async (e) => {
+   
+  swal({
+    title: "Are you sure?",
+    text: "Are you sure you want to add this course",
+    icon: "warning",
+    buttons: {
+      cancel: "cancel",
+      catch: {
+        text: "yes",
+        value: "catch",
+      },
+      defeat: "no",
+    },
+  })
+  .then((value) => {
+    switch (value) {
+
+      case "defeat":
+        swal("this course was droped !");
+        break;   
+      case "catch":
+        swal("your", "course have been added to Cart", "success");
+        submitHandler()        
+        break;
+      default:
+        swal("Got away safely!");
+    }
+  });
+ 
+}
     return (
         <div>
          
@@ -83,8 +132,15 @@ document.getElementById("myButton1").value="already subscribed";
                     }
                     </Fragment>
                      :
-                     <button className="lp-button button button-purchase-course">
-                     Buy this course </button>
+                     <Fragment>
+
+                       
+                      
+                       
+                     <button className="lp-button button button-purchase-course" onClick={alert}>
+                     Add To Cart </button>
+                      
+                    </Fragment>
                      }
                    <input type="hidden" name="redirect_to"  />
                

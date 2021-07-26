@@ -152,20 +152,16 @@ function Header() {
                   </div>
                 </div>
               </div>
+              <Link to="/panier">
               <div id="woocommerce_widget_cart-3" className="widget woocommerce widget_shopping_cart">
                 <div className="minicart_hover" id="header-mini-cart">
                   <span className="cart-items-number">
                     <span className="text">My Cart</span>
                     <i className="ion ion-android-cart" />
-                    <span className="wrapper-items-number ">
-                      <span className="items-number">0</span>
-                    </span>
                   </span>
                   <div className="clear" /></div>
-                <div className="widget_shopping_cart_content" style={{ display: 'none', height: 67, paddingTop: 10, marginTop: 0, paddingBottom: 0, marginBottom: 0 }}>
-                  <p className="woocommerce-mini-cart__empty-message">No products in the cart.</p>
-                </div>
               </div>
+              </Link>
               <div className="posi">
                 <li className="list-inline-item"> <a>Courzelo For Business</a></li>
               </div>
