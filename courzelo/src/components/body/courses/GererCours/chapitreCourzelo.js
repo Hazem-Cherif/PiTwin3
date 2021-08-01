@@ -21,7 +21,7 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
 
     const [count, setCount] = useState(1);
     const [inputFields, setInputFields] = useState([
-        { id: uuidv4(), n: 0, text1: '', img1: '', vid1: '', pdf1: '', text2: '', img2: '',
+        { id: uuidv4(),scoreq:0,time:'', n: 0, text1: '', img1: '', vid1: '', pdf1: '', text2: '', img2: '',
          vid2: '', pdf2: '', text3: '', img3: '', vid3: '', pdf3: '', text4: '', img4: '', vid4: '',
           pdf4: '', text5: '', img5: '', vid5: '', pdf5: '', text6: '', img6: '', vid6: '', pdf6: '', text7: '',
            img7: '', vid7: '', pdf7: '', text8: '', img8: '', vid8: '', pdf8: '',
@@ -54,7 +54,7 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
         setCount(count + 1);
         console.log(count);
         setInputFields([...inputFields, {
-            id: uuidv4(), n: count, text1: '', img1: '', vid1: '', pdf1: '', text2: '', img2: '', vid2: '',
+            id: uuidv4(),scoreq:0,time:'', n: count, text1: '', img1: '', vid1: '', pdf1: '', text2: '', img2: '', vid2: '',
             pdf2: '', text3: '', img3: '', vid3: '', pdf3: '', text4: '', img4: '', vid4: '', 
             pdf4: '', text5: '', img5: '',
             vid5: '', pdf5: '', text6: '', img6: '', vid6: '', 
@@ -2261,6 +2261,9 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
                                                                                             placeholder="false" onChange={event => handleChangeInput(inputField.id, event)} />
                                                                                         </div>
                                                                                     </div>
+                                                                                    <div className="col-md-4"><label className="font-weight-bold">  Time</label><input type="text" className="form-control" name="time" id="time"
+                                                                                            placeholder="temps de chaque question (seconde)" onChange={event => handleChangeInput(inputField.id, event)} />
+                                                                                        </div>
                                                                                 </div>
 
                                                                             </div>

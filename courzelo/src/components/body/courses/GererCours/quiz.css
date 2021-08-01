@@ -145,7 +145,7 @@
   bottom: 0px;
   left: 0px;
   height: 3px;
-  background: #007bff;
+  background: #1EA69A;
 }
 
 .so{
@@ -323,7 +323,7 @@
   font-size: 20px;
 font-weight: 600;
 }
-#quiz-button {
+.quiz-button {
   text-align: left;
   font-size: 16px;
   color: #000000;
@@ -332,6 +332,7 @@ font-weight: 600;
   padding: 5px 15px;
   border: 5px solid #e4e9ec;
   cursor: pointer;
+  width: 700px;
   transition: background-color 0.3s ease;
   -webkit-transition: background-color 0.3s ease;
   -moz-transition: background-color 0.3s ease;
@@ -339,29 +340,29 @@ font-weight: 600;
   -o-transition: background-color 0.3s ease;
 }
 
-#quiz-button + #quiz-button {
+.quiz-button + .quiz-button {
   margin-top: 15px;
 }
 
-#quiz-button:hover:not(:disabled) {
+.quiz-button:hover:not(:disabled) {
   background-color: #95979e;
 }
 
-#quiz-button.correct,
-#quiz-button.correct:hover {
+.quiz-button.correct,
+.quiz-button.correct:hover {
   background-color: #2f922f;
 }
 
-#quiz-button.incorrect,
-#quiz-button.incorrect:hover {
+.quiz-button.incorrect,
+.quiz-button.incorrect:hover {
   background-color: #ff3333;
 }
 
-#quiz-button:focus {
+.quiz-button:focus {
   outline: none;
 }
 
-#quiz-button:disabled {
+.quiz-button:disabled {
   opacity: 0.7;
 }
 
@@ -401,3 +402,52 @@ font-weight: 600;
   left: -19px;
   transform: rotate(90deg);
 }
+
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: oval;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  margin-bottom: 20px;
+  position: absolute;
+  width: 600px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+

@@ -25,7 +25,7 @@ function Quiz({ nextStep, handleSubmitQuiz,prevStep,nextPourcentage,course,ttoke
     const [count, setCount] = useState(1);
   
     const [inputFields, setInputFields] = useState([
-        { id: uuidv4(),n:0, question: '' , correctanwser:'', wrong1:'', wrong2:'' , wrong3:''  },
+        { id: uuidv4(),scoreQ:0,n:0, question: '' , correctanwser:'', wrong1:'', wrong2:'' , wrong3:'' ,time:'' },
     ]);
     
 
@@ -51,7 +51,7 @@ function Quiz({ nextStep, handleSubmitQuiz,prevStep,nextPourcentage,course,ttoke
        setCount(count + 1);
       console.log(count);
      
-        setInputFields([...inputFields, { id: uuidv4(),n:0, question: '' , correctanwser:'', wrong1:'', wrong2:'', wrong3:''   }])
+        setInputFields([...inputFields, { id: uuidv4(),scoreQ:0,n:0, question: '' , correctanwser:'', wrong1:'', wrong2:'', wrong3:'',time:''   }])
        
     }
   

@@ -19,6 +19,8 @@ import MyCourses from './courses/GererCours/MyCourses'
 
 
 import GererCourses from './courses/GererCourses'
+import GraduationEtudiant from './courses/GraduationEtudiant'
+import QuizResults from './courses/QuizResults'
 import AddCourse from './courses/GererCours/addcourse'
 import Modifiersupcourse from './courses/GererCours/modifier_sup_course'
 import Modifiersupcoursform from './courses/GererCours/modifierFormCoursDetails'
@@ -79,7 +81,9 @@ function Body() {
                 
                 <Route path="/MyCourses" component={isLogged ? MyCourses : NotFound} exact />
                 <Route path="/DetailAddCourse" component={isLogged ? DetailAddCourse : NotFound} exact />
-               
+                
+                <Route path="/QuizResults" component={isLogged ? QuizResults : NotFound} exact />
+                <Route path="/GraduationEtudiant" component={isLogged ? GraduationEtudiant : NotFound} exact />
                 <Route path="/GererCourses" component={isLogged ? GererCourses : NotFound} exact />
                 <Route path="/Gerercoursemodifsupp" component={isLogged ? Gerercoursemodifsupp : NotFound} exact />
                 <Route path="/addcourse/:token" component={isLogged ? AddCourse : NotFound} exact />
