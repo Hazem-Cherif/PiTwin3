@@ -85,9 +85,10 @@ const courseCtrl = {
         }   catch (err) {
         return res.status(500).json({msg: err.message})
       }
-       },
+    },
        updateCoursesubscribe: async (req, res) => {
         try {
+          
          const {subscribe} = req.body
        
          await CourseModel.findOneAndUpdate({_id: req.params.id}, {

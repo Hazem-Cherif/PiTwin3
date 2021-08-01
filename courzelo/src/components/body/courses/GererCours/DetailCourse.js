@@ -15,6 +15,11 @@ function DetailCourse() {
   const { user } = auth;
   const token = useSelector(state => state.token)
   const courses = useSelector((state) => state.courses);
+  const subscribes = useSelector((state) => state.subscribes);
+  console.log("hello subscribe",subscribes)
+
+  
+
   const paniers = useSelector((state) => state.paniers);
 console.log("sdgqdfsqdfsdfqsf",paniers)
   const dispatch = useDispatch();
@@ -28,7 +33,7 @@ console.log("sdgqdfsqdfsdfqsf",paniers)
       subscribe:1
   })
     
-document.getElementById("myButton1").value="already subscribed";
+
  }
 
  const submitHandler = async (e) => {
@@ -48,7 +53,31 @@ document.getElementById("myButton1").value="already subscribed";
              axios.post("/panier", newCourse ,{
               headers: {Authorization: token}
           });
+          
             window.location.reload();
+          } catch (err) {}
+        }
+      }
+  )
+ 
+ }
+}
+const submitttHandler = async (e) => {
+ 
+  if(courses.length !== 0){
+    courses.forEach(course => {
+          if(course._id === id){
+            const Subscribed = {
+              idUser: token,
+              idCourse: id,
+              
+          }
+          try {
+             axios.post("/SubscribedCoursebyuser", Subscribed ,{
+              headers: {Authorization: token}
+          });
+          document.getElementById("myButton1").value="already subscribed";
+     
           } catch (err) {}
         }
       }
@@ -123,7 +152,7 @@ const alert = async (e) => {
                    <Fragment
                    >
                     { course.subscribe == 0 ?
-                   <input  className="lp-button button button-purchase-course" type="button" value="subscribe now" id="myButton1" onClick = {subscribe}  style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
+                   <input  className="lp-button button button-purchase-course" type="button" value="subscribe now" id="myButton1" onClick = {submitttHandler}  style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
                      </input>
                      :
                      <input  className="lp-button button button-purchase-course" type="button" value="already subscribed" id="myButton1"   style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
