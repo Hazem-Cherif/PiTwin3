@@ -4,8 +4,8 @@ const subcribeCtrl = require('../controllers/subscribeCtrl');
 const auth = require('../middleware/auth')
 
 
-router.get('/SubscribedCoursebyuser', auth, subcribeCtrl.addSubscribe);
-router.get('/Subscribed', auth, subcribeCtrl.getAllSubscribe);
+router.post('/', auth, subcribeCtrl.addSubscribe);
+router.get('/', subcribeCtrl.getAllSubscribe);
 router.delete('/delete/:id', subcribeCtrl.deleteSubscribe);
 
 module.exports = router

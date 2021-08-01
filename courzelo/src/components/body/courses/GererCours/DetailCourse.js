@@ -1,6 +1,7 @@
 import React, {Fragment,useState,useCallback,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
 import {getCourses  } from '../../../../redux/actions/courseAction';
+import {getAllSubscribe  } from '../../../../redux/actions/subscribeAction';
 import {useParams, useHistory, Link} from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert';
@@ -21,20 +22,18 @@ function DetailCourse() {
   
 
   const paniers = useSelector((state) => state.paniers);
-console.log("sdgqdfsqdfsdfqsf",paniers)
+
   const dispatch = useDispatch();
   
   useEffect(() => {
     dispatch(getCourses(), getAllCoursesByUser(token) ); 
+    dispatch(getAllSubscribe());
+    
   }, [ dispatch]);
- 
-  const subscribe = async () => {
-  const res = await axios.patch(`/course/updateCoursesubscribe/${id}`, {
-      subscribe:1
-  })
+
     
 
- }
+ 
 
  const submitHandler = async (e) => {
   if(courses.length !== 0){
@@ -68,16 +67,16 @@ const submitttHandler = async (e) => {
     courses.forEach(course => {
           if(course._id === id){
             const Subscribed = {
-              idUser: token,
+              idUser: user._id,
               idCourse: id,
               
           }
           try {
-             axios.post("/SubscribedCoursebyuser", Subscribed ,{
+             axios.post("/Subscribe", Subscribed ,{
               headers: {Authorization: token}
           });
           document.getElementById("myButton1").value="already subscribed";
-     
+          document.getElementById("myButton1").style.pointerEvents ='none';
           } catch (err) {}
         }
       }
@@ -149,23 +148,43 @@ const alert = async (e) => {
                  
               
                    { course.price == null? 
-                   <Fragment
-                   >
-                    { course.subscribe == 0 ?
-                   <input  className="lp-button button button-purchase-course" type="button" value="subscribe now" id="myButton1" onClick = {submitttHandler}  style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
-                     </input>
-                     :
-                     <input  className="lp-button button button-purchase-course" type="button" value="already subscribed" id="myButton1"   style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
-                     </input>
-
-                    }
-                    </Fragment>
+                        <Fragment
+                        > 
+                        {subscribes.length == 0 ?
+                        <input  className="lp-button button button-purchase-course" type="button" value="subscribe now" id="myButton1" onClick = {submitttHandler}  style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
+                        </input>
+                        :
+                        <Fragment
+                        > 
+                         {subscribes.map((subscribe) => (
+                           <Fragment>
+                             {user._id == subscribe.idUser ?
+                             <Fragment>
+                         { id == subscribe.idCourse  ?
+                         
+                         <input  className="lp-button button button-purchase-course" type="button" value="already subscribed" id="myButton1"  disabled style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
+                          </input>
+                        
+                          :
+                          <input  className="lp-button button button-purchase-course" type="button" value="subscribe now" id="myButton1" onClick = {submitttHandler}  style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
+                          </input>
+     
+                         }
+                          </Fragment>
+                         :
+                         <input  className="lp-button button button-purchase-course" type="button" value="subscribe now" id="myButton1" onClick = {submitttHandler}  style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
+                          </input>
+                          
+                         }
+                         </Fragment>
+                         ))} 
+                           </Fragment>
+                           
+     }
+                          </Fragment>
                      :
                      <Fragment>
 
-                       
-                      
-                       
                      <button className="lp-button button button-purchase-course" onClick={alert}>
                      Add To Cart </button>
                       

@@ -4,7 +4,7 @@ import ACTIONS from '../actions'
 const subscribes =[];
 const subscribeReducer = (state = subscribes , action) => {
     switch(action.type){
-        case ACTIONS.FETCH_ALL:
+        case ACTIONS.FETCH_ALLSUBSCRIBES:
             return action.payload;
         case ACTIONS.CREATE_SUBSCRIBE:
                 return [...subscribes, action.payload];

@@ -10,4 +10,4 @@ const SubscribeSchema = mongoose.Schema({
 
 )
 
-module.exports = mongoose.model('Subscribe', SubscribeSchema);
+module.exports = mongoose.model('Subscribes', SubscribeSchema);
