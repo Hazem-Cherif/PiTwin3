@@ -20,6 +20,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req,res) => res.json({msg: 'Welcome to the Courzelo API'}));
 app.use('/user', require('./routes/userRouter'))
 app.use('/course', require('./routes/courseRouter'))
+app.use('/quiz', require('./routes/quizRouter'))
 app.use('/categorie', require('./routes/categoriesRouter'))
 app.use('/api', require('./routes/upload'))
 app.use('/CourseImg', require('./routes/courseImg'))

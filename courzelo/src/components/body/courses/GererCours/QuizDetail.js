@@ -9,13 +9,15 @@ import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import ReactPlayer from 'react-player'
 import { Markup } from 'interweave';
 import './quiz.css';
+import axios from 'axios'
 
 function QuizDetail() {
   
   const {id} = useParams();
 
-  const [nn, setnn] = useState(40);
+  const [score, setScore] = useState(0);
   const courses = useSelector((state) => state.courses);
+  const token = useSelector(state => state.token)
   let i=1;
   const dispatch = useDispatch();
 
@@ -61,6 +63,30 @@ let k,j,m,mm,mmm;
           
     }
 }
+const submitHandler = async (scoree) => {
+  if(courses.length !== 0){
+    courses.forEach(course => {
+          if(course._id === id){
+            const newQuiz = {
+              idUser: course.idUser,
+              idCourse: id,
+              titre: course.title ,
+              scoreQ: scoree
+              
+          }
+          try {
+             axios.post("/quiz", newQuiz ,{
+              headers: {Authorization: token}
+          });
+          
+            
+          } catch (err) {}
+        }
+      }
+  )
+ 
+ }
+}
   const AfficheQuiz =  () => {
     if(courses.length !== 0){
       courses.forEach(course => {
@@ -75,28 +101,32 @@ let k,j,m,mm,mmm;
     document.getElementById('quiz').style.display = 'block';
     document.getElementById('timee').style.display = 'block';
   }
-  console.log('waket',nn);
+
   const Afficheoptioncorrect =  (e,j) => {
- 
+    let c="correct"+e.target.id.substr(7);
     let a="inc1"+e.target.id.substr(7);
     let b="inc2"+e.target.id.substr(7);
     let v="Falseinc1"+e.target.id.substr(7);
     let vv="Falseinc2"+e.target.id.substr(7);
+    let vvv="Truecorrect"+e.target.id.substr(7);
     document.getElementById(e.target.id).style.backgroundColor ='#1DA1F6' 
     document.getElementById(a).style.backgroundColor ='#E4E9EC'
     document.getElementById(b).style.backgroundColor ='#E4E9EC'
     document.getElementById(a).value =v
     document.getElementById(b).value =vv
-   
+    document.getElementById(c).value =vvv
   }
   const Afficheoptionincorrect1 =  (e,j) => {
+
     let c="correct"+e.target.id.substr(4);
     let b="inc2"+e.target.id.substr(4);
     let v="Trueinc1"+e.target.id.substr(4);
     let vv="Falseinc2"+e.target.id.substr(4);
+    let vvv="Falsecorrect"+e.target.id.substr(4);
     document.getElementById(e.target.id).style.backgroundColor ='#1DA1F6'
     document.getElementById(e.target.id).value =v
     document.getElementById(b).value =vv
+    document.getElementById(c).value =vvv
     document.getElementById(c).style.backgroundColor ='#E4E9EC'
     document.getElementById(b).style.backgroundColor ='#E4E9EC'
   }
@@ -105,11 +135,13 @@ let k,j,m,mm,mmm;
     let c="correct"+e.target.id.substr(4);
     let v="Trueinc2"+e.target.id.substr(4);
     let vv="Falseinc1"+e.target.id.substr(4);
+    let vvv="Falsecorrect"+e.target.id.substr(4);
     document.getElementById(e.target.id).style.backgroundColor ='#1DA1F6'
     document.getElementById(c).style.backgroundColor ='#E4E9EC'
     document.getElementById(b).style.backgroundColor ='#E4E9EC'
     document.getElementById(e.target.id).value =v
     document.getElementById(b).value =vv
+    document.getElementById(c).value =vvv
   }
 
 const AfficheScore = () => {
@@ -126,7 +158,8 @@ let v;
 let mm;
 let mmm;
 let jjj;
-let v1,v2;
+let v1,v2,vT,s=0;
+
 document.getElementById('timee').style.display = 'none';
 document.getElementById('AfficheScore').style.display = 'block';
 document.getElementById('continue').style.display = 'none';
@@ -134,11 +167,19 @@ for (let j = 1; j < 6; j++){
        k="correct"+j;
      
       m="inc1"+j;
+      vT="Truecorrect"+j;
       document.getElementById(k).style.pointerEvents ='none'
       if( document.getElementById(k))
       {
+
         document.getElementById(k).style.backgroundColor ='#9cd377'
-       
+        if(document.getElementById(k).value==vT){
+           s=s+1
+          setScore(s)
+          console.log("k",k,"vT",vT,"s",s)
+          
+         
+        }
         
       }
       
@@ -164,9 +205,9 @@ for (let j = 1; j < 6; j++){
        
       }
     } 
-   
+    submitHandler(s);
   }
-  
+  console.log('score',score)
     return (
      
         <div >
@@ -497,7 +538,7 @@ for (let j = 1; j < 6; j++){
                   <img class="retina-logo" src="../wp-content/uploads/sites/5/2017/09/logo-2-1.png" alt="Demo eLearning II" width="131" height="45" style={{marginLeft:'1000px'}}/>
                   </a> </div>
                 
-                  <div id="app" id="timee" style={{marginLeft:'180px',fontSize:'30px',display:'none'}}>
+                  <div  id="timee" style={{marginLeft:'180px',fontSize:'30px',display:'none'}}>
                   <div className="timer">
       
       <div className="timer_sec" > Time : <b id="timerr"  style={{fontSize:'40px'}}> {course.pourcentage}</b></div>

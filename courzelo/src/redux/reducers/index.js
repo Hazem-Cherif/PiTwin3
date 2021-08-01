@@ -6,6 +6,7 @@ import courses from './courseReducer'
 import categories from './categorieReducer'
 import paniers from './panierReducer'
 import subscribes from './subscribeReducer'
+import quizs from './quizReducer'
 export default combineReducers({
     auth,
     token,
@@ -13,5 +14,6 @@ export default combineReducers({
     courses,
     categories,
     paniers,
-    subscribes
+    subscribes,
+    quizs
 })
