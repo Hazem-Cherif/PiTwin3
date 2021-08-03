@@ -70,7 +70,7 @@ export class AddCourse extends Component {
     quiz: [],
     CourseImg: '',
     categorie:'',
-    pourcentage: 25
+    pourcentage: 20
 
   };
 
@@ -84,7 +84,7 @@ export class AddCourse extends Component {
   nextPourcentage = () => {
     const { pourcentage } = this.state;
     this.setState({
-      pourcentage: pourcentage + 25
+      pourcentage: pourcentage + 20
     });
   };
 
