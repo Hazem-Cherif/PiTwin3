@@ -55,6 +55,7 @@ import FreeCourses from './courses/GererCours/FreeCourses'
 import PayedCourses from './courses/GererCours/PayedCourses'
 import Certification from './Certification/Certification'
 import Panier from './panier/panier'
+import Categorie from './categorie/categorie'
 function Body() {
     const auth = useSelector(state => state.auth)
     const {isLogged,isAdmin} = auth
@@ -131,6 +132,8 @@ function Body() {
                 <Route path="/certification" component={Certification} exact />
 
                 <Route path="/panier" component={isLogged ? Panier : NotFound} exact />
+                <Route path="/categorie" component={isLogged ? Categorie : NotFound} exact />
+
 
             </Switch>
         </section>

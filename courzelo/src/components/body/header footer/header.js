@@ -190,7 +190,7 @@ function Header() {
                       <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-6818 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/GererCourses" className="header-btn btn-hover" >Teacher</Link></li>
 
                       <li id="menu-item-60" className=" menu-item-type-custom menu-item-object-custom menu-item-3992 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/" className="header-btn btn-hover" >Become an instructor</Link></li>
-                      <li id="menu-item-60" className=" menu-item-type-custom menu-item-object-custom menu-item-3992 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/" className="header-btn btn-hover" >Categories</Link></li>
+                      <li id="menu-item-60" className=" menu-item-type-custom menu-item-object-custom menu-item-3992 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/categorie" className="header-btn btn-hover" >Categories</Link></li>
 
                     </ul>
                   </li>
