@@ -24,7 +24,7 @@ const subcribeCtrl = {
 
      getAllSubscribe : async (req, res) => { 
         try {
-            const subscribeModel = await SubscribeModel.find();
+            const subscribeModel = await SubscribeModel.find({idCourse: req.params.idCourse,idUser: req.params.idUser});
              
             res.status(200).json(subscribeModel);
         } catch (error) {

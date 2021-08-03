@@ -82,6 +82,7 @@ function Chapitre0Detail() {
     startTimer(15,temp1);
     startTimerLine(widthValue,15,temp1);
   } 
+  
     if(courses.length !== 0){
       courses.forEach(course => {
             if(course._id === id){

@@ -43,6 +43,7 @@
     "redux-thunk": "^2.3.0",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^10.16.7",
+    "swiper": "^6.8.1",
     "timeago-react": "^3.0.2",
     "web-vitals": "^1.1.0"
   },

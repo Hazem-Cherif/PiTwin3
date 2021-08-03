@@ -13,9 +13,9 @@ console.log('lalalal');
     console.log('error');
   }
 };
-export const getAllSubscribe = () => async (dispatch) => {
+export const getAllSubscribe = (idCourse,idUser) => async (dispatch) => {
   try {
-    const { data } = await axios.get('/subscribe');
+    const { data } = await axios.get(`/subscribe/${idCourse}/${idUser}`);
     
     return dispatch({ type: ACTIONS.FETCH_ALLSUBSCRIBES, payload: data });
   } catch (error) {

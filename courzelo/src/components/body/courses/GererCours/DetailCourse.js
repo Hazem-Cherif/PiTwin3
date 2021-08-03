@@ -17,7 +17,7 @@ function DetailCourse() {
   const token = useSelector(state => state.token)
   const courses = useSelector((state) => state.courses);
   const subscribes = useSelector((state) => state.subscribes);
-  console.log("hello subscribe",subscribes)
+  
 
   
 
@@ -27,12 +27,12 @@ function DetailCourse() {
   
   useEffect(() => {
     dispatch(getCourses(), getAllCoursesByUser(token) ); 
-    dispatch(getAllSubscribe());
+    dispatch(getAllSubscribe(id,user._id));
     
   }, [ dispatch]);
 
     
-
+  console.log("hello subscribe",subscribes)
  
 
  const submitHandler = async (e) => {
@@ -158,9 +158,9 @@ const alert = async (e) => {
                         > 
                          {subscribes.map((subscribe) => (
                            <Fragment>
-                             {user._id == subscribe.idUser ?
+                             {course._id == subscribe.idCourse  ?
                              <Fragment>
-                         { id == subscribe.idCourse  ?
+                         { user._id == subscribe.idUser ?
                          
                          <input  className="lp-button button button-purchase-course" type="button" value="already subscribed" id="myButton1"  disabled style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
                           </input>
@@ -172,7 +172,7 @@ const alert = async (e) => {
                          }
                           </Fragment>
                          :
-                         <input  className="lp-button button button-purchase-course" type="button" value="subscribe now" id="myButton1" onClick = {submitttHandler}  style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
+                         <input  className="lp-button button button-purchase-course" type="button" value="subscribe noww" id="myButton1" onClick = {submitttHandler}  style={{backgroundColor:'#0E504A',borderRadius:'20px',fontSize:'20px',width:'250px',height:'50px', color:'white'}}>
                           </input>
                           
                          }

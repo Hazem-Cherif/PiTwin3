@@ -1,7 +1,18 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
+import React, {Fragment,useState,useCallback,useEffect,useRef} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
 import { getCategories } from '../../../redux/actions/categorieAction';
 import { Link } from 'react-router-dom'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css"
+import "swiper/components/navigation/navigation.min.css"
+// import Swiper core and required modules
+import SwiperCore, {
+  Pagination,Navigation
+} from 'swiper/core';
+
+// install Swiper modules
+SwiperCore.use([Pagination,Navigation]);  
 
 const Home = () => {
   const categories = useSelector((state) => state.categories);
@@ -126,10 +137,17 @@ const Home = () => {
             <div className="description">Our 2,000 online course collection includes the most engaging courses for your employees' professional development.</div>
           </div>
           <div className="thim-courses-collection squared-courses-collection" >
+        
             <div className="collection-frame items-10">
               <ul className="slidee">
+              <Swiper slidesPerView={3} spaceBetween={30} slidesPerGroup={3} loop={true} loopFillGroupWithBlank={true} pagination={{
+                  "clickable": true
+                }} navigation={true} className="mySwiper">
               {categories.map((categorie) => (
+                
           <Fragment>
+            
+            <SwiperSlide>
                 <li className="collection-item" style={{marginLeft:'70px'}}>
                   <div className="thumbnail">
                     <a  className="collection-link" />
@@ -144,9 +162,11 @@ const Home = () => {
                     </h4>
                      </div>
                 </li>
+                </SwiperSlide>
                
                 </Fragment>
-                            ))}
+                 
+                            ))} </Swiper>
              
            
               </ul>

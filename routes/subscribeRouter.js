@@ -5,7 +5,7 @@ const auth = require('../middleware/auth')
 
 
 router.post('/', auth, subcribeCtrl.addSubscribe);
-router.get('/', subcribeCtrl.getAllSubscribe);
+router.get('/:idCourse/:idUser', subcribeCtrl.getAllSubscribe);
 router.delete('/delete/:id', subcribeCtrl.deleteSubscribe);
 
 module.exports = router
