@@ -30,6 +30,7 @@ app.use('/CoursePdf', require('./routes/coursePdf'))
 app.use('/panier', require('./routes/panierRouter'))
 app.use('/subscribe', require('./routes/subscribeRouter'))
 app.use('/scorequizchapitre', require('./routes/scorequizchapitreRouter'))
+app.use('/certification', require('./routes/certificationRouter'))
 
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {

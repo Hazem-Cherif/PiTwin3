@@ -7,6 +7,8 @@ import categories from './categorieReducer'
 import paniers from './panierReducer'
 import subscribes from './subscribeReducer'
 import quizs from './quizReducer'
+import certifications from './certificationReducer'
+
 export default combineReducers({
     auth,
     token,
@@ -15,5 +17,6 @@ export default combineReducers({
     categories,
     paniers,
     subscribes,
-    quizs
+    quizs,
+    certifications
 })
