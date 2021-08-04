@@ -601,12 +601,11 @@ way to train all learners to think and learn well.<br />
 
 
 
-
+              <div className="buttonintro">
               <Button
                 color="secondary"
                 variant="contained"
                 onClick={this.back}
-                style={{ marginLeft: '600px' }}
               >Back</Button>
                  <Button
                                    
@@ -615,13 +614,8 @@ way to train all learners to think and learn well.<br />
                                    style={{backgroundColor:'#1EA69A',color:'#FFFFFF'}}
                                >Continue</Button>
 
-              <Button
              
-                variant="contained"
-                onClick={this.alert}
-                style={{backgroundColor:'#1EA69A',color:'#FFFFFF'}}
-              >ADD</Button>
-              
+              </div>
 
 
             </>

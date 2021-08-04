@@ -2291,11 +2291,10 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
                                 ))};
                                 <br />
 
-
+                                <div className="buttonintro">
                                 <Button
                                     color="secondary"
                                     variant="contained"
-                                    style={{ marginLeft: '600px' }}
                                     onClick={back}
                                 >Back</Button>
 
@@ -2310,9 +2309,9 @@ function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, 
                                     color="warning"
                                     variant="contained"
                                     onClick={alert}
-                                    style={{ marginLeft: '20px' }}
+                                    style={{ marginLeft: '10px' }}
                                 >cancel</Button>
-
+</div>
                                 <br />
 
                             </>

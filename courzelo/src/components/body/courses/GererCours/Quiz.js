@@ -79,13 +79,7 @@ function Quiz({ nextStep, handleSubmitQuiz,prevStep,nextPourcentage,course,ttoke
     };
    
      
-    const Continue = e => {
-        // e.preventDefault();
-        handleSubmitQuiz(inputFields);
-        nextStep();
-        nextPourcentage();
-       
-    };
+ 
     const back = e => {
         e.preventDefault();
         prevStep();
@@ -327,37 +321,30 @@ alert = e => {
 
 
 
-
+                          <div className="buttonintro">
                                 <Button
                                     color="secondary"
                                     variant="contained"
-                                    style={{ marginLeft: '600px' }}
                                     onClick={back}
                                 >Back</Button>
 
-                                <Button
-                                   
-                                    variant="contained"
-                                    onClick={Continue}
-                                    style={{backgroundColor:'#1EA69A',color:'#FFFFFF'}}
-                                >Continue</Button>
 
 <Button
             color="warning"
             variant="contained"
            onClick={alert}
-            style={{ marginLeft: '20px'}}
+            style={{ marginLeft: '10px'}}
           >cancel</Button>
 
-                                <br />
+                
                                  
               <Button
              
              variant="contained"
              onClick={alert}
-             style={{backgroundColor:'#1EA69A',color:'#FFFFFF'}}
+             style={{backgroundColor:'#1EA69A',color:'#FFFFFF',marginLeft: '10px'}}
            >ADD</Button>
-
+</div>
                             </>
                         </MuiThemeProvider>
                     </div>

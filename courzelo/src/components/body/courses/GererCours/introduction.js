@@ -594,12 +594,12 @@ way to train all learners to think and learn well.<br />
 
 
 
-
+<div className="buttonintro">
               <Button
                 color="secondary"
                 variant="contained"
                 onClick={this.back}
-                style={{ marginLeft: '600px' }}
+                
               >Back</Button>
 
               <Button
@@ -613,8 +613,9 @@ way to train all learners to think and learn well.<br />
             variant="contained"
             onClick={this.alert}
           
-            style={{ marginLeft: '20px'}}
+            style={{ marginLeft: '10px'}}
           >cancel</Button>
+          </div>
 
             </>
           </MuiThemeProvider>

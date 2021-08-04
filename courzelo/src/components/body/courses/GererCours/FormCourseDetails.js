@@ -331,7 +331,7 @@ export class FormCourseDetails extends Component {
             
             variant="contained"
             onClick={this.continue}
-            style={{ marginLeft: '400px',marginTop:'100px',backgroundColor:'#1EA69A',color:'#FFFFFF' }}
+            style={{ marginLeft: '400px',marginTop:'50px',backgroundColor:'#1EA69A',color:'#FFFFFF' }}
             
           >Continue</Button>
         
@@ -339,7 +339,7 @@ export class FormCourseDetails extends Component {
              color="warning"
             variant="contained"
            onClick={this.alert}
-            style={{ marginLeft: '20px',marginTop:'100px' }}
+            style={{ marginLeft: '20px',marginTop:'50px' }}
           >cancel</Button>
 
         </>
