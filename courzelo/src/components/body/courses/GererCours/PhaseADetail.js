@@ -250,7 +250,7 @@ function PhaseADetail() {
                         <div className="course-item-nav">
                           <div className="next">
                             <span>Next</span>
-                            <a href={`/PhaseGDetail/${id}`}>
+                            <a href={`/PhaseBDetail/${id}`}>
                               Phase 2</a>
                           </div>
                         </div>
