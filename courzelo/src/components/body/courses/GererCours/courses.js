@@ -419,22 +419,23 @@ function Courses() {
                 </div> </div>
             </article>
 
-            <aside style={{ marginTop: '100px' }} className="sidebar-courses widget-area col-md-3 ">
+            <aside style={{ marginTop: '120px' , padding:'0 0 0 100px'}} className="sidebar-courses widget-area col-md-3 ">
               <aside ><h4 className="widget-title">Categories</h4>
+              <hr/>
 
                 <ul className="courses-categories">
 
                   <li className="cat-item ">
-                    <a onClick={handleShowComputerSc}>computer science</a>
+                    <a style={{ cursor: 'pointer' }} onClick={handleShowComputerSc}>computer science</a>
                   </li><br></br>
                   <li className="cat-item ">
-                    <a onClick={handleShowSciences}>Sciences</a>
+                    <a style={{ cursor: 'pointer' }} onClick={handleShowSciences}>Sciences</a>
                   </li><br></br>
                   <li className="cat-item ">
-                    <a onClick={handleShowBusiness}>business</a>
+                    <a style={{ cursor: 'pointer' }}  onClick={handleShowBusiness}>business</a>
                   </li><br></br>
                   <li className="cat-item ">
-                    <a onClick={handleShowOther}>other</a>
+                    <a style={{ cursor: 'pointer' }} onClick={handleShowOther}>other</a>
                   </li><br></br>
 
 

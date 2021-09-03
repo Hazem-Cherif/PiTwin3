@@ -12,7 +12,7 @@ import Profile from './profile/Profile'
 import Courses from './courses/GererCours/courses';
 import Admin from '../dashboard/index'
 import DetailAddCourse from './courses/GererCours/DetailAddCourse'
-import Questionnaire from './courses/Questionnaire'
+
 
 import Gerercoursemodifsupp from './courses/GererCours/gerecoursemodifsupp'
 import MyCourses from './courses/GererCours/MyCourses'
@@ -56,6 +56,11 @@ import PayedCourses from './courses/GererCours/PayedCourses'
 import Certification from './Certification/Certification'
 import Panier from './panier/panier'
 import Categorie from './categorie/categorie'
+import Progress from './Progress/Progress';
+
+
+
+
 function Body() {
     const auth = useSelector(state => state.auth)
     const {isLogged,isAdmin} = auth
@@ -133,6 +138,11 @@ function Body() {
 
                 <Route path="/panier" component={isLogged ? Panier : NotFound} exact />
                 <Route path="/categorie" component={isLogged ? Categorie : NotFound} exact />
+
+
+                <Route path="/progress" component={isLogged ? Progress : NotFound} exact />
+                
+
 
 
             </Switch>

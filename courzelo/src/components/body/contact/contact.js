@@ -9,7 +9,7 @@ function Contact() {
         <div style={{marginBottom:'-200px'}}>
           <div id="main-content"> <section className="content-area">
     <div className="page-title layout-1">
-      <div className="main-top parallax" style={{backgroundImage: 'url(wp-content/uploads/sites/5/2018/10/page_title_7.jpg)'}}>
+      <div className="main-top parallax" style={{backgroundImage: 'url(../wp-content/uploads/sites/5/Contact.PNG)'}}>
         <span className="overlay-top-header" style={{backgroundColor: 'rgba(0,0,0,0.6)'}} />
         <div className="content container">
           <div className="row">

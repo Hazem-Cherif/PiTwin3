@@ -153,7 +153,7 @@ function Header() {
                 </div>
               </div>
               <Link to="/panier">
-              <div id="woocommerce_widget_cart-3" className="widget woocommerce widget_shopping_cart">
+              <div id="woocommerce_widget_cart-3" className="widget woocommerce widget_shopping_cart" style={{height:'56px ' }}>
                 <div className="minicart_hover" id="header-mini-cart">
                   <span className="cart-items-number">
                     <span className="text">My Cart</span>
@@ -182,7 +182,7 @@ function Header() {
               <div className="width-navigation">
                 <ul id="primary-menu" className="main-menu" style={{ marginTop: '10px' }}>
                   <li className=" menu-item-type-custom menu-item-object-custom menu-item-has-children navBarRec " >
-                    <a >Courses</a>
+                    <a style={{ cursor: 'pointer' }} >Courses</a>
                     <ul className="sub-menu ">
                       <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-23 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/courses" className="header-btn btn-hover" >All Courses</Link></li>
                       <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-6818 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/FreeCourses" className="header-btn btn-hover" >Free access courses</Link></li>
@@ -201,7 +201,7 @@ function Header() {
                   <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-60 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default" style={{ marginRight: '30px' }}><Link to="/blog" className="header-btn btn-hover" >Blog</Link></li>
 
                   <li className=" menu-item-type-custom menu-item-object-custom menu-item-has-children navBarRec " >
-                    <a >Pages</a>
+                    <a style={{ cursor: 'pointer' }} >Pages</a>
                     <ul className="sub-menu ">
                       <li id="menu-item-60" className=" menu-item-type-post_type menu-item-object-page menu-item-23 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/" className="header-btn btn-hover" >MembreShip</Link></li>
                       <li id="menu-item-60" className=" menu-item-type-custom menu-item-object-custom menu-item-3992 tc-menu-item tc-menu-depth-1 tc-menu-align-left"><Link to="/aboutUs" className="header-btn btn-hover" >AboutUS</Link></li>
@@ -225,7 +225,8 @@ function Header() {
             <div className="action">
              
 
-          <Avatar ref={anchorRef}
+          <Avatar style={{ cursor: 'pointer' }}
+          ref={anchorRef}
                 aria-controls={open ? 'menu-list-grow' : undefined}
                 aria-haspopup="false"
                 onClick={handleToggle} alt="Remy Sharp" src={user.avatar} className={classes.large} />
@@ -243,7 +244,7 @@ function Header() {
                           <MenuItem ><PersonOutlineIcon/><a style={{ color: 'black' }} href="/profile">&nbsp;  Profile </a></MenuItem>
                           <MenuItem ><TuneIcon/><a  style={{ color: 'black' }} href="/">&nbsp;  Settings</a></MenuItem>
                           <MenuItem ><BookmarkBorderIcon/><a  style={{ color: 'black' }} href="/MyCourses">&nbsp; My Courses</a></MenuItem>
-                          <MenuItem ><CheckIcon/><a  style={{ color: 'black' }} href="/">&nbsp;  My Progress</a></MenuItem>
+                          <MenuItem ><CheckIcon/><a  style={{ color: 'black' }} href="/Progress">&nbsp;  My Progress</a></MenuItem>
                           <MenuItem onClick={handleLogout}><ExitToAppIcon/> <a  style={{ color: 'black' }} href="/">&nbsp;  Logout </a></MenuItem>
                         </MenuList>
                       </ClickAwayListener>
@@ -405,7 +406,7 @@ function Header() {
                   <div id="woocommerce_widget_cart-3" className="widget woocommerce widget_shopping_cart">
                     <div className="minicart_hover" id="header-mini-cart"><span className="cart-items-number"><span className="text">My Cart</span> <i className="ion ion-android-cart" /><span className="wrapper-items-number "><span className="items-number">0</span></span></span>
                       <div className="clear" /></div>
-                    <div className="widget_shopping_cart_content" style={{ display: 'none', height: 67, paddingTop: 10, marginTop: 0, paddingBottom: 0, marginBottom: 0 }}>
+                    <div className="widget_shopping_cart_content" style={{ display: 'none', paddingTop: 10, marginTop: 0, paddingBottom: 0, marginBottom: 0 }}>
                       <p className="woocommerce-mini-cart__empty-message">No products in the cart.</p>
                     </div>
                   </div>

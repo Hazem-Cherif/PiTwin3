@@ -9,7 +9,7 @@ function AboutUS() {
         <div>
              <div style={{marginLeft:'-100px'}}> <section className="content-area">
     <div className="page-title layout-1">
-      <div className="main-top parallax" style={{backgroundImage: 'url(../wp-content/uploads/sites/5/2018/10/page_title_7.jpg)'}}>
+      <div className="main-top parallax" style={{backgroundImage: 'url(../wp-content/uploads/sites/5/aboutUs.PNG)'}}>
         <span className="overlay-top-header" style={{backgroundColor: 'rgba(0,0,0,0.6)'}} />
         <div className="content container">
           <div className="row">
@@ -196,7 +196,11 @@ function AboutUS() {
                     </div></div></div></div>
             </div>
           </article>
-        </main></div></div> </section>
+        </main></div></div> </section> 
+        <br/>
+        <br/>
+
+
 </div>
 
         </div>
