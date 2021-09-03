@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 
 function AboutUS() {
  
@@ -46,11 +46,11 @@ function AboutUS() {
                         <section id="title1">
                           <div className="row no-gutters">
                             <div className="col-sm-12 col-lg-6 image-box">
-                              <img src="../wp-content/uploads/sites/5/2017/08/pexels-photo-e1500018346477-1.jpg" alt="Our Story" />
+                              <img  alt='' src="../wp-content/uploads/sites/5/2017/08/pexels-photo-e1500018346477-1.jpg" alt="Our Story" />
                               <span className="number" style={{color: 'rgba(255,255,255,0.6)'}}>01</span>
                             </div>
                             <div className="col-sm-12 col-lg-6 text-content">
-                              <img src="../wp-content/uploads/sites/5/2017/07/Layer-472-e1503482002519.png" className="bg-content" />
+                              <img alt='' src="../wp-content/uploads/sites/5/2017/07/Layer-472-e1503482002519.png" className="bg-content" />
                               <div className="text-content-inner">
                                 <h3 className="title-box">Our Story</h3>
                                 <p className="sub-title">It is a long established fact that a reade.</p>

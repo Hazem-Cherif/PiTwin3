@@ -16,12 +16,12 @@
 
 */
 import React from "react";
-import { useLocation, NavLink } from "react-router-dom";
-
 import { Nav } from "react-bootstrap";
+import { NavLink, useLocation } from "react-router-dom";
+import puma from "../../assets/puma.png";
+import "./sidebar.css";
 
-import "./sidebar.css"
-import puma from "../../assets/puma.png"
+
 
 function Sidebar({ color, image, routes }) {
   const location = useLocation();

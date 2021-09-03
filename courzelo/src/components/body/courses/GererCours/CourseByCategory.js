@@ -1,6 +1,6 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
-import { useDispatch ,useSelector} from 'react-redux';
-import {useParams, useHistory} from 'react-router-dom'
+import React, { Fragment, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { getCourses } from '../../../../redux/actions/courseAction';
 
 function CourseByCategory() {

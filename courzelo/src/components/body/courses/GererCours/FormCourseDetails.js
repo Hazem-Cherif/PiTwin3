@@ -1,15 +1,15 @@
-import React, { Component,Fragment } from 'react';
+import { TextareaAutosize } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { TextareaAutosize } from '@material-ui/core';
-import './StepForm.css';
-import '../MainCoursForm.css'
-import './bareeProgression.css'
-import axios from 'axios'
+import axios from 'axios';
+import React, { Component, Fragment } from 'react';
 import swal from 'sweetalert';
-import Swall from 'sweetalert2'
+import Swall from 'sweetalert2';
+import '../MainCoursForm.css';
+import './bareeProgression.css';
+import './StepForm.css';
 
 
 

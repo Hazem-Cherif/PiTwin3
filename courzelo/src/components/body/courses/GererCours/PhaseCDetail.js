@@ -1,13 +1,8 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
+import React, {Fragment,useEffect} from 'react'
 import { useDispatch ,useSelector} from 'react-redux';
 import { getCourses } from '../../../../redux/actions/courseAction';
-import {useParams, useHistory} from 'react-router-dom'
-import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
-import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
-import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
-import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import ReactPlayer from 'react-player'
-import { Markup } from 'interweave';
+import {useParams} from 'react-router-dom'
+
 
 function PhaseCDetail() {
   
@@ -15,7 +10,7 @@ function PhaseCDetail() {
   
     
   const courses = useSelector((state) => state.courses);
-  console.log('courses',courses)
+  
   const dispatch = useDispatch();
 
   useEffect(() => {

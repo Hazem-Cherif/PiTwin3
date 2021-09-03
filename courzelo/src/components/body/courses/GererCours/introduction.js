@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
-import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
-import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
-import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import ckeditor, { CKEditor } from '@ckeditor/ckeditor5-react';
-import TextField from '@material-ui/core/TextField';
-import ReactPlayer from 'react-player'
-import swal from 'sweetalert';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import Button from '@material-ui/core/Button';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
+import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
+import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import axios from 'axios'
-import './bareeProgression.css'
+import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from 'react';
+import ReactPlayer from 'react-player';
+import swal from 'sweetalert';
+import './bareeProgression.css';
 
 export class Introduction extends Component {
   constructor(props) {

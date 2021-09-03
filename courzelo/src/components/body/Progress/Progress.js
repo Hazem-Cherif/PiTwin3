@@ -1,25 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import './Progress.css'
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import { FaUserCog } from 'react-icons/fa';
-import { FaUserEdit } from 'react-icons/fa';
-import { FaUserPlus } from 'react-icons/fa';
-import { Radar } from 'react-chartjs-2';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import {useSelector, useDispatch} from 'react-redux'
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Radar } from 'react-chartjs-2';
+import { useSelector } from 'react-redux';
+import './Progress.css';
 
 
 function TabPanel(props) {
@@ -223,7 +213,7 @@ function Progress() {
                 <div className="CardPorgress">
                     <div className="row">
                        
-                            <h2>Hello, <a>{user.name} </a>  </h2> 
+                            <h2>Hello, <a>{user.First_name} {user.Last_name}  </a>  </h2> 
                     
                     </div>
 
@@ -297,59 +287,7 @@ function Progress() {
 
                 </div>
             </div>
-            {/* <div class="content-block">
-
-               
-
-                
-                <div class="container-fluid mt--7">
-                    <div class="row">
-                        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-                            
-                        </div>
-                        <div class="col-xl-8 order-xl-1">
-                            <div class="card bg-secondary shadow">
-                                <div class="card-header bg-white border-0">
-                                    <div class="row align-items-center">
-                                        <div class="col-8">
-                                            <h3 class="mb-0">My Hard skills Advancement</h3>
-                                        </div>
-                                        <form >
-                                            
-
-                                        </form>
-                                    </div>
-                                </div>
-
-                                <div class="card-body" style={{ backgroundColor: "white", borderStyle: "none" }}>
-                                    
-                                    
-                                    <div>
-                                        <Radar data={datachart}></Radar>
-                                    </div>
-                                    <hr></hr>
-                                    <h3 class="mb-0">My Soft skills Advancement</h3>
-
-                                    <div>
-                                        <Radar data={datachartHard}></Radar>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br> */}
+            
         </div>
     )
 }

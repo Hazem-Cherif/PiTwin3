@@ -1,13 +1,11 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
-import { useDispatch ,useSelector} from 'react-redux';
-import { getCourses } from '../../../../redux/actions/courseAction';
-import { Menu, Slider, Checkbox, Radio } from "antd";
-import { Link } from 'react-router-dom'
 import {
-  DollarOutlined,
-  DownSquareOutlined,
-  StarOutlined,
+  DownSquareOutlined
 } from "@ant-design/icons";
+import { Checkbox, Menu } from "antd";
+import React, { Fragment, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getCourses } from '../../../../redux/actions/courseAction';
 
 
 const { SubMenu, ItemGroup } = Menu;

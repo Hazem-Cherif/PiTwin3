@@ -1,13 +1,7 @@
-import React, {Fragment,useState,useCallback,useEffect, useRef} from 'react'
-import { useDispatch ,useSelector} from 'react-redux';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { getCourses } from '../../../../redux/actions/courseAction';
-import {useParams, useHistory} from 'react-router-dom'
-import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
-import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
-import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
-import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import ReactPlayer from 'react-player'
-import { Markup } from 'interweave';
 import './quiz.css';
 
 function Chapitre1Detail() {

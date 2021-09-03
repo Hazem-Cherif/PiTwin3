@@ -1,24 +1,19 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
-import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
-import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
-import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
-import TextField from '@material-ui/core/TextField';
-import {useParams, useHistory} from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import { updateCourse,deleteCourse } from '../../../../redux/actions/courseAction';
-import { addCourse } from '../../../../redux/actions/courseAction';
-import { connect } from 'react-redux'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ckeditor, { CKEditor } from '@ckeditor/ckeditor5-react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import Button from '@material-ui/core/Button';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
+import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
+import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import axios from 'axios'
-import ReactPlayer from 'react-player'
+import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { updateCourse } from '../../../../redux/actions/courseAction';
+
 
 
 function ModifierConclusion() {

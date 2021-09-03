@@ -1,25 +1,24 @@
+import Avatar from '@material-ui/core/Avatar'
+import ClickAwayListener from '@material-ui/core/ClickAwayListener'
+import Grow from '@material-ui/core/Grow'
+import MenuItem from '@material-ui/core/MenuItem'
+import MenuList from '@material-ui/core/MenuList'
+import Paper from '@material-ui/core/Paper'
+import Popper from '@material-ui/core/Popper'
+import { makeStyles } from '@material-ui/core/styles'
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder'
+import CheckIcon from '@material-ui/icons/Check'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline'
+import TuneIcon from '@material-ui/icons/Tune'
+import axios from 'axios'
 import React, { Fragment, useState } from 'react'
 import { useSelector } from 'react-redux'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
+import ForgotPassword from '../authentification/ForgetPassword'
 import Login from '../authentification/login'
 import Register from '../authentification/register'
-import ForgotPassword from '../authentification/ForgetPassword'
-import './DropDown.css';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import Avatar from '@material-ui/core/Avatar';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import { makeStyles } from '@material-ui/core/styles';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-import TuneIcon from '@material-ui/icons/Tune';
-import CheckIcon from '@material-ui/icons/Check';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import './DropDown.css' 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',

@@ -1,21 +1,15 @@
-import React, { Fragment, useState, useCallback, useEffect } from 'react'
-import './panier.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllCoursesByUserPanier, deleteCourse } from '../../../redux/actions/panierAction';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 import {
-  Alert,
-  Button,
-  Card,
-  Modal,
-  Container,
-  Row,
-  Col,
+
+  Button
 } from "react-bootstrap";
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCoursesByUserPanier } from '../../../redux/actions/panierAction';
+import './panier.css';
 
 function Panier() {
   const token = useSelector(state => state.token);
-  const courses = useSelector((state) => state.courses);
   const dispatch = useDispatch();
   const paniers = useSelector((state) => state.paniers);
   useEffect(() => {
@@ -37,7 +31,7 @@ function Panier() {
 
     <div>
       <div className="page-title layout-1">
-        <div className="main-top parallax" style={{ backgroundImage: 'url(../wp-content/uploads/sites/5/certification.jpg)' }}>
+        <div className="main-top parallax" style={{ backgroundImage: 'url(../wp-content/uploads/sites/5/Panier.jpg)' }}>
           <span className="overlay-top-header" style={{ backgroundColor: 'rgba(0,0,0,0.6)' }} />
           <div className="content container">
             <div className="row">

@@ -1,20 +1,18 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
-import {useParams, useHistory} from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import { updateCourse,deleteCourse } from '../../../../redux/actions/courseAction';
-import { getCategories } from '../../../../redux/actions/categorieAction';
-import useStyles from './styles';
+import { TextareaAutosize } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { TextareaAutosize } from '@material-ui/core';
-import  Modifiersupintro from './modifierIntro';
+import axios from 'axios';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { getCategories } from '../../../../redux/actions/categorieAction';
+import { updateCourse } from '../../../../redux/actions/courseAction';
+import '../MainCoursForm.css';
+import useStyles from './styles';
  
-import '../MainCoursForm.css'
-import axios from 'axios'
 
-import { Link } from 'react-router-dom'
 function ModifierFormCours() {
   const classes = useStyles();
     const {id} = useParams();

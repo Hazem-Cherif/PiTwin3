@@ -1,25 +1,22 @@
-import React, {useState} from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { addCertification } from '../../../redux/actions/certificationAction';
-import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Link } from 'react-router-dom'
+import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import 'date-fns';
-import AddBoxIcon from '@material-ui/icons/AddBox';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCertification } from '../../../redux/actions/certificationAction';
 
 
 
@@ -65,7 +62,6 @@ function Certification() {
   
 
     const handleClose = async(e) => {
-        e.privatedefault();
         dispatch(addCertification(token, postcertification));
         setOpen(false);
 

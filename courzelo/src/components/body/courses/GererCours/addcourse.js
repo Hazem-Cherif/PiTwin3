@@ -1,11 +1,11 @@
+import axios from 'axios';
 import React, { Component } from 'react';
+import ChapitresCourzelo from './chapitreCourzelo';
+import Conclusion from './conclusion';
 import FormCourseDetails from './FormCourseDetails';
 import Introduction from './introduction';
-import Conclusion from './conclusion';
-import ChapitresCourzelo from './chapitreCourzelo';
-import Quiz from './Quiz'
+import Quiz from './Quiz';
 
-import axios from 'axios'
 export class AddCourse extends Component {
 
   state = {

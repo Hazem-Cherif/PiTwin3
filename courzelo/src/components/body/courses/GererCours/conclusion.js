@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
-import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
-import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
-import { addCourse } from '../../../../redux/actions/courseAction';
-import { connect } from 'react-redux'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import ckeditor, { CKEditor } from '@ckeditor/ckeditor5-react';
-import ReactPlayer from 'react-player'
-import swal from 'sweetalert';
-import './bareeProgression.css'
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import Button from '@material-ui/core/Button';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
+import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
+import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from 'react';
+import ReactPlayer from 'react-player';
+import { connect } from 'react-redux';
+import swal from 'sweetalert';
+import { addCourse } from '../../../../redux/actions/courseAction';
+import './bareeProgression.css';
 
 export class Conclusion extends Component {
   constructor(props) {

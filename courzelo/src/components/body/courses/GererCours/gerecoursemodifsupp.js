@@ -1,17 +1,10 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
-import { useDispatch ,useSelector} from 'react-redux';
-import { getAllCoursesByUser, deleteCourse } from '../../../../redux/actions/courseAction';
-import Swal from 'sweetalert2'
+import React, { Fragment, useEffect } from 'react';
 import {
-  Alert,
-  Button,
-  Card,
-  Modal,
-  Container,
-  Row,
-  Col,
+  Button, Col, Modal, Row
 } from "react-bootstrap";
-import {Link} from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { deleteCourse, getAllCoursesByUser } from '../../../../redux/actions/courseAction';
 function Gerercoursemodifsupp() {
     const token = useSelector(state => state.token);
   const courses = useSelector((state) => state.courses);

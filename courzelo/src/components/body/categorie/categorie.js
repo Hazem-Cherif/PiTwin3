@@ -1,8 +1,6 @@
-import React, { Fragment, useState, useCallback, useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from '../../../redux/actions/categorieAction';
-import { Link } from 'react-router-dom'
-import { useParams, useHistory } from 'react-router-dom'
 function Categorie() {
     const categories = useSelector((state) => state.categories);
     const dispatch = useDispatch();

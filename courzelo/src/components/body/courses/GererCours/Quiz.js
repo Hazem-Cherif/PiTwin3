@@ -1,22 +1,14 @@
-import React, { Component, Form, Fragment, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import Button from '@material-ui/core/Button';
-import { addCourse } from '../../../../redux/actions/courseAction';
-import { connect } from 'react-redux'
-import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
-import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
-import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
-import { Link, useParams } from 'react-router-dom';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './bareeProgression.css'
-import {useSelector, useDispatch} from 'react-redux'
-import ReactPlayer from 'react-player'
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import swal from 'sweetalert';
-import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import axios from 'axios'
+import { v4 as uuidv4 } from 'uuid';
+import { addCourse } from '../../../../redux/actions/courseAction';
+import './bareeProgression.css';
 import './StepForm.css';
-import './bareeProgression.css'
 
 
 

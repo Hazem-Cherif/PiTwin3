@@ -1,8 +1,6 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
-import { useDispatch ,useSelector} from 'react-redux';
-import { getAllCoursesByUser, getCourses } from '../../../redux/actions/courseAction';
-import useStyles from './GererCours/styles';
-import {Link} from 'react-router-dom'
+import React, { Fragment, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCoursesByUser } from '../../../redux/actions/courseAction';
 
 function TakenCourses() {
   const token = useSelector(state => state.token);

@@ -1,9 +1,8 @@
-import React, {Fragment,useState,useCallback,useEffect} from 'react'
-import { useDispatch ,useSelector} from 'react-redux';
-import { getCourses } from '../../../../redux/actions/courseAction';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getCategories } from '../../../../redux/actions/categorieAction';
-import { Link } from 'react-router-dom'
-import {useParams, useHistory} from 'react-router-dom'
+import { getCourses } from '../../../../redux/actions/courseAction';
 function PayedCourses() {
   const categories = useSelector((state) => state.categories);
   console.log('categorie',categories);

@@ -1,20 +1,17 @@
-import React, { Component, Form, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import Button from '@material-ui/core/Button';
-import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
-import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
-import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
-import { Link, useParams } from 'react-router-dom';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './bareeProgression.css'
-import { useSelector, useDispatch } from 'react-redux'
-import ReactPlayer from 'react-player'
-import swal from 'sweetalert';
+import DescriptionTwoToneIcon from '@material-ui/icons/DescriptionTwoTone';
+import PermMediaTwoToneIcon from '@material-ui/icons/PermMediaTwoTone';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import axios from 'axios'
+import QueuePlayNextTwoToneIcon from '@material-ui/icons/QueuePlayNextTwoTone';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import swal from 'sweetalert';
+import { v4 as uuidv4 } from 'uuid';
+import './bareeProgression.css';
 import './StepForm.css';
-import TextField from '@material-ui/core/TextField';
 
 
 function ChapitresCourzelo({ nextStep, handleSubmit, prevStep, nextPourcentage, course, ttoken }) {

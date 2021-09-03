@@ -1,18 +1,10 @@
-import "./sidebar.css";
 import {
-  RssFeed,
-  Chat,
-  PlayCircleFilledOutlined,
-  Group,
-  Bookmark,
-  HelpOutline,
-  WorkOutline,
-  Event,
-  School,
+  Bookmark, Chat, Event, Group, HelpOutline, PlayCircleFilledOutlined, RssFeed, School, WorkOutline
 } from "@material-ui/icons";
-import { Users } from "../dummyData";
+import React from 'react';
 import CloseFriend from "../closeFriend/CloseFriend";
-import React from 'react'
+import { Users } from "../dummyData";
+import "./sidebar.css";
 export default function Sidebar() {
   return (
     <div className="sidebar1">

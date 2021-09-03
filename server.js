@@ -40,7 +40,7 @@ mongoose.connect(URI, {
     useUnifiedTopology: true
 }, err => {
     if(err) throw err;
-    console.log("Connected to mongodb")
+    
 })
 
 const PORT = process.env.PORT || 6000
