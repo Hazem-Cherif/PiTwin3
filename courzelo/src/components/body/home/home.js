@@ -36,7 +36,7 @@ const Home = () => {
           <div className="title-2"><p>We pride ourselves on providing the most<br />
               up-to-date content. Everything you need </p>
           </div>
-          <a href="index.html" className="btn btn-default"><span className="text">Read More</span></a></div>
+          </div>
       </div></div></div></div>
       <>
   <div  className="vc_row wpb_row vc_row-fluid thim-column-gap-70 vc_custom_1502087455074 vc_row-has-fill">
@@ -238,7 +238,7 @@ const Home = () => {
                 it’s due – the obvious ones, but these aren’t the only ways My Study Life helps increase<br />
                 attainment. The dashboard gives students an overview of their day,</p>
             </div>
-            <a href="#" className="btn btn-default"><span className="text">Learn more</span></a></div>
+            </div>
         </div></div></div></div>
   <div className="vc_row-full-width vc_clearfix">
   </div>
@@ -260,8 +260,7 @@ const Home = () => {
                 it’s due – the obvious ones, but these aren’t the only ways My Study Life helps increase<br />
                 attainment. The dashboard gives students an overview of their day,</p>
             </div>
-            <a href="#" className="btn btn-default">
-              <span className="text">Learn more</span></a></div>
+            </div>
         </div>
       </div></div>
     <div className="wpb_column vc_column_container vc_col-sm-6">

@@ -367,7 +367,7 @@ function Courses() {
           </div>
           <div className="breadcrumb-content breadcrumb-plus">
             <div className="breadcrumbs-wrapper container">
-              <ul itemProp="breadcrumb" itemScope itemType="http://schema.org/BreadcrumbList" id="breadcrumbs" className="breadcrumbs"><li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem"><a itemProp="item" href="/" title="Home"><span itemProp="name">Home</span></a><meta itemProp="position" content={1} /><span className="breadcrum-icon"><i className="fa fa-angle-right" aria-hidden="true" /></span></li><li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem"><span itemProp="name" title="All courses">All courses</span><meta itemProp="position" content={2} /></li></ul> </div>
+              <ul itemProp="breadcrumb" itemScope itemType="http://schema.org/BreadcrumbList" id="breadcrumbs" className="breadcrumbs"><li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem"><a itemProp="item" href="/" title="Home"><span itemProp="name">Home</span></a><meta itemProp="position" content={1} /></li><li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem"><span itemProp="name" title="All courses">All courses</span><meta itemProp="position" content={2} /></li></ul> </div>
           </div>
         </div>
         <div id="top-sidebar-courses">
@@ -392,21 +392,12 @@ function Courses() {
                   <div className="thim-course-top">
                     <div className="display grid-list-switch lpr_course-switch " data-cookie="lpr_course-switch" data-layout="grid">
                       <a href="javascript:;" className="grid switchToGrid switcher-active"><i className="fa fa-th" /></a>
-                      <a href="javascript:;" className="list switchToList"><i className="fa fa-th-list" /></a>
+                     
                     </div>
                     <div className="course-index">
 
                     </div>
-                    <div className="courses-searching">
-                      <form method="get" action="https://wordpresslms.thimpress.com/demo-elearning-2/courses/">
-                        <input type="text" defaultValue name="s" placeholder="Search our courses" className="form-control course-search-filter" autoComplete="off" />
-                        <input type="hidden" defaultValue="course" name="ref" />
-                        <input type="hidden" name="post_type" defaultValue="lp_course" />
-                        <button type="submit"><i className="ion-android-search" /></button>
-                        <span className="widget-search-close" />
-                      </form>
-                      <ul className="courses-list-search list-unstyled" />
-                    </div>
+                   
                   </div>
                   <div className="archive-courses course-grid archive_switch" itemScope itemType="http://schema.org/ItemList">
 
